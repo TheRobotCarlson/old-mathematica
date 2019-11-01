@@ -1,0 +1,845 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     32120,        836]
+NotebookOptionsPosition[     30854,        789]
+NotebookOutlinePosition[     31199,        804]
+CellTagsIndexPosition[     31156,        801]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Class Notes For 3-26-2014", "Title",
+ CellChangeTimes->{{3.6048488410902467`*^9, 3.6048488444045496`*^9}, {
+  3.6048488839088383`*^9, 3.6048488929224205`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Discussion of Final Project", "Section",
+ CellChangeTimes->{{3.6048490366722593`*^9, 3.604849042652248*^9}}],
+
+Cell["\<\
+1.) It would be wise to start on the most critical parts of your problem \
+first because problems can arise early.
+2.) Careful not to copy and paste code if you could write it in a more \
+compact way.\[LineSeparator]3.) Write code that is easy to modify. This makes \
+making changes and debugging easier.   \[LineSeparator]4.) Find ways to \
+divide up code with your final project partner.\
+\>", "Text",
+ CellChangeTimes->{{3.604849055739788*^9, 3.604849076210018*^9}, {
+  3.604849123410607*^9, 3.604849211182991*^9}, {3.604849305508853*^9, 
+  3.604849357352219*^9}, {3.6048494249107285`*^9, 3.6048494719471335`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Problem: Developing a Working Calculator\
+\>", "Section",
+ CellChangeTimes->{{3.604848908034973*^9, 3.604848923695799*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Discussion of Problem before writing code\
+\>", "Subsection",
+ CellChangeTimes->{{3.6048496795329895`*^9, 3.604849696651701*^9}}],
+
+Cell[TextData[{
+ "1.) Create a button for each number (operation)\[LineSeparator]\t-name: \
+\[OpenCurlyDoubleQuote]its\[CloseCurlyDoubleQuote] number (operation)\n\t\
+-action: add its value to expression\n\t\t-name: expression\n\t\t-type: list \
+(after much debate)\nFunction: createbuttons\n",
+ StyleBox["param",
+  FontVariations->{"Underline"->True}],
+ ": a list of labels\n\n2.) Display the expression in \
+\[OpenCurlyDoubleQuote]arithmetic form\[CloseCurlyDoubleQuote]\n3.) Display \
+the value of expression\n4.) Create a clear button\n\t-name: Clear\n\t\
+-action: reset expression\nFunction: clearbutton\n",
+ StyleBox["param",
+  FontVariations->{"Underline"->True}],
+ ": none\n5.) Create an Enter button\n\t-name: Enter\n\t-action: compute the \
+value of the expression\nFunction: enterbutton\n",
+ StyleBox["param",
+  FontVariations->{"Underline"->True}],
+ ": none\n\n6.) Suggestion: create a backspace button\n\t-name: Back\n\t\
+-action: delete the last element added to expression\nFunction: backbutton\n",
+ StyleBox["param",
+  FontVariations->{"Underline"->True}],
+ ": none"
+}], "Text",
+ CellChangeTimes->{{3.6048497021702533`*^9, 3.6048497123532715`*^9}, {
+  3.6048498949635305`*^9, 3.6048501950135326`*^9}, {3.6048502435623865`*^9, 
+  3.6048502933413644`*^9}, {3.604850323852415*^9, 3.604850361943224*^9}, {
+  3.6048508308310223`*^9, 3.604850845008604*^9}, {3.6048508851475897`*^9, 
+  3.604850930320072*^9}, {3.6048509641620684`*^9, 3.6048509982500687`*^9}, {
+  3.60487696181721*^9, 3.604876967453774*^9}, {3.604888770403384*^9, 
+  3.604888829100444*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code The Class Worked On", "Section",
+ CellChangeTimes->{3.6048768871347427`*^9}],
+
+Cell["\<\
+This is the code that was made by functions put together by the class.
+Communication is key.\
+\>", "Text",
+ CellChangeTimes->{{3.604876392485089*^9, 3.604876405720089*^9}, {
+  3.604876873914421*^9, 3.604876903826412*^9}, {3.604888867974636*^9, 
+  3.6048888735145116`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"inputlst", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "7", ",", "8", ",", "9", ",", "4", ",", "5", ",", "6", ",", "1", ",", "2",
+      ",", "3", ",", "0", ",", "10", ",", "\"\<.\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"operandlst", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<+\>\"", ",", "\"\<*\>\"", ",", "\"\<-\>\"", ",", "\"\</\>\"", ",", 
+     "\"\<^\>\"", ",", "\"\< \>\"", ",", "\"\<(\>\"", ",", "\"\<)\>\""}], 
+    "}"}]}], ";"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"createButtons", "[", "listOfLabels_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"returnlst", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"displaylst", "=", 
+       RowBox[{"{", "}"}]}], ",", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "\[LessEqual]", 
+        RowBox[{"Length", "[", "listOfLabels", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", "\[IndentingNewLine]", 
+        RowBox[{"returnlst", ",", 
+         RowBox[{"With", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"j", "=", "1"}], "}"}], ",", 
+           RowBox[{"Button", "[", 
+            RowBox[{
+             RowBox[{"listOfLabels", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], ",", 
+             RowBox[{"AppendTo", "[", "\[IndentingNewLine]", 
+              RowBox[{"displaylst", ",", 
+               RowBox[{"listOfLabels", "[", 
+                RowBox[{"[", "j", "]"}], "]"}]}], "\[IndentingNewLine]", 
+              "]"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+          "]"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{"returnlst", ",", "displaylst"}], "}"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6048511415927925`*^9, 3.604851275735928*^9}, {
+   3.6048513423879323`*^9, 3.6048515242055683`*^9}, {3.6048515575465727`*^9, 
+   3.604851574446588*^9}, {3.6048521079881315`*^9, 3.604852108734132*^9}, 
+   3.6048524043239813`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"createCalculator2", "[", 
+   RowBox[{"numsList_", ",", " ", "opersList_"}], "]"}], ":=", " ", 
+  RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "numsButtons", ",", " ", "opersButtons", ",", " ", "clear", ",", " ", 
+      "enter", ",", " ", "back", ",", " ", "expression"}], "}"}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"numsButtons", " ", "=", " ", 
+      RowBox[{"createButtons", "[", "numsList", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"opersButtons", " ", "=", " ", 
+      RowBox[{"createButton", "[", "opersList", "]"}]}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"clear", " ", "=", " ", 
+      RowBox[{"clearButton", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"enter", " ", "=", " ", 
+      RowBox[{"enterButton", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"back", " ", "=", " ", 
+      RowBox[{"backButton", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Column", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "numsButtons", ",", " ", "opersButtons", ",", " ", "clear", ",", " ", 
+        "enter", ",", " ", "back", ",", " ", 
+        RowBox[{"Dynamic", "[", "expression", "]"}], ",", " ", 
+        RowBox[{"Dynamic", "[", 
+         RowBox[{"ToExpression", "[", "enter", "]"}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.6048520213491316`*^9, {3.604852114480132*^9, 3.604852132765132*^9}, 
+   3.604852314468996*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"createCalculator", "[", 
+   RowBox[{"inputlist_", ",", "operandlist_"}], "]"}], ":=", 
+  RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"expression", "=", 
+       RowBox[{"{", "}"}]}], ",", "result"}], "\[IndentingNewLine]", "}"}], 
+    ",", "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"createbuttons", "[", 
+      RowBox[{"inputlist", ",", "operandlist"}], "]"}], "\[IndentingNewLine]", 
+     RowBox[{"clearbutton", "[", "]"}], "\[IndentingNewLine]", 
+     RowBox[{"enterbutton", "[", "]"}], "\[IndentingNewLine]", 
+     RowBox[{"backbutton", "[", "]"}], "\[IndentingNewLine]", "result"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6048520017501316`*^9, 3.6048520027311316`*^9}, {
+   3.6048520651131315`*^9, 3.6048521012361317`*^9}, 3.604852137784132*^9, 
+   3.6048522914346933`*^9, 3.604852337800329*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"enterbutton", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", " ", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Enter\>\"", ",", 
+      RowBox[{"result", "=", 
+       RowBox[{"(*", 
+        RowBox[{"Print", "["}], "*)"}], "expression"}]}], 
+     RowBox[{"(*", "]", "*)"}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BackButton", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Button", "[", 
+     RowBox[{"Back", ",", 
+      RowBox[{"expression", "=", 
+       RowBox[{"Delete", "[", 
+        RowBox[{"expression", ",", 
+         RowBox[{"-", "1"}]}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.604852083458132*^9, 3.604852086647132*^9}, 
+   3.6048524441929674`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"second", " ", "version", " ", "of", " ", "backbutton"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"backbutton", "[", "]"}], ":=", " ", 
+   RowBox[{"Return", "[", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Back\>\"", ",", 
+      RowBox[{"expression", " ", "=", 
+       RowBox[{"Drop", "[", 
+        RowBox[{"expression", ",", 
+         RowBox[{"-", "1"}]}], "]"}]}]}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.604852511247672*^9, 3.604852515683116*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"clearbutton", "[", "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Clear\>\"", ",", 
+      RowBox[{"expression", "=", 
+       RowBox[{"{", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{3.6048524706736155`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"second", " ", "version", " ", "of", " ", "clear", " ", "button"}],
+    " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"clearbutton", "[", "]"}], ":=", " ", 
+   RowBox[{"Button", "[", 
+    RowBox[{"\"\<Clear\>\"", ",", 
+     RowBox[{"expression", " ", "=", " ", 
+      RowBox[{"{", "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.604852534875035*^9, 3.604852541989746*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"createCalculator2", "[", 
+   RowBox[{"inputlst", ",", " ", "operandlst"}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6048520501131315`*^9, 3.604852051537132*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`numsButtons$$ = {{
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5795, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 
+       1]]]}, {}}, $CellContext`opersButtons$$ = {{
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5796, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 
+       1]]]}, {}}, $CellContext`clear$$ = Button[
+  "Clear", $CellContext`expression$$ = {}], $CellContext`enter$$ = Button[
+  "Enter", $CellContext`result = $CellContext`expression$$], \
+$CellContext`back$$ = Button[
+  Back, $CellContext`expression$$ = 
+   Delete[$CellContext`expression$$, -1]], $CellContext`expression$$}, 
+  TagBox[GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5795, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"]}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5796, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"]}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]},
+     {
+      ButtonBox["\<\"Clear\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`expression$$ = {}),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      ButtonBox["\<\"Enter\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`result = $CellContext`expression$$),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      ButtonBox["Back",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`expression$$ = 
+        Delete[$CellContext`expression$$, -1]),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      DynamicBox[ToBoxes[$CellContext`expression$$, StandardForm],
+       ImageSizeCache->{144., {2., 9.}}]},
+     {
+      DynamicBox[ToBoxes[
+        ToExpression[$CellContext`enter$$], StandardForm],
+       ImageSizeCache->{56., {1., 9.}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.6048520542501316`*^9, 3.6048521446911316`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"createCalculator", "[", 
+  RowBox[{"inputlst", ",", " ", "operandlst"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6048520339671316`*^9, 3.604852040935132*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`numsButtons$$ = {{
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]]], 
+    Button[7, 
+     AppendTo[$CellContext`displaylst$5993, 
+      Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 
+       1]]]}, {}}, $CellContext`opersButtons$$ = {{
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]]], 
+    Button["+", 
+     AppendTo[$CellContext`displaylst$5994, 
+      Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 
+       1]]]}, {}}, $CellContext`clear$$ = Button[
+  "Clear", $CellContext`expression$$ = {}], $CellContext`enter$$ = Button[
+  "Enter", $CellContext`result = $CellContext`expression$$], \
+$CellContext`back$$ = Button[
+  Back, $CellContext`expression$$ = 
+   Delete[$CellContext`expression$$, -1]], $CellContext`expression$$}, 
+  TagBox[GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["7",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5993, 
+             Part[{7, 8, 9, 4, 5, 6, 1, 2, 3, 0, 10, "."}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"]}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"], ",", 
+          ButtonBox["\<\"+\"\>",
+           Appearance->Automatic,
+           ButtonFunction:>AppendTo[$CellContext`displaylst$5994, 
+             Part[{"+", "*", "-", "/", "^", " ", "(", ")"}, 1]],
+           Evaluator->Automatic,
+           Method->"Preemptive"]}], "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]},
+     {
+      ButtonBox["\<\"Clear\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`expression$$ = {}),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      ButtonBox["\<\"Enter\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`result = $CellContext`expression$$),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      ButtonBox["Back",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`expression$$ = 
+        Delete[$CellContext`expression$$, -1]),
+       Evaluator->Automatic,
+       Method->"Preemptive"]},
+     {
+      DynamicBox[ToBoxes[$CellContext`expression$$, StandardForm],
+       ImageSizeCache->{144., {2., 9.}}]},
+     {
+      DynamicBox[ToBoxes[
+        ToExpression[$CellContext`enter$$], StandardForm],
+       ImageSizeCache->{56., {1., 9.}}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.6048520425661316`*^9, 3.6048521447941318`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 513},
+WindowMargins->{{Automatic, 291}, {Automatic, 26}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 165, 2, 101, "Title"],
+Cell[CellGroupData[{
+Cell[769, 28, 114, 1, 86, "Section"],
+Cell[886, 31, 627, 10, 106, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1550, 46, 133, 3, 56, "Section"],
+Cell[CellGroupData[{
+Cell[1708, 53, 139, 3, 49, "Subsection"],
+Cell[1850, 58, 1565, 29, 505, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3464, 93, 87, 1, 86, "Section"],
+Cell[3554, 96, 282, 6, 49, "Text"],
+Cell[3839, 104, 534, 14, 52, "Input"],
+Cell[4376, 120, 1804, 42, 292, "Input"],
+Cell[6183, 164, 1657, 37, 292, "Input"],
+Cell[7843, 203, 986, 20, 232, "Input"],
+Cell[8832, 225, 425, 12, 72, "Input"],
+Cell[9260, 239, 504, 14, 72, "Input"],
+Cell[9767, 255, 545, 14, 52, "Input"],
+Cell[10315, 271, 391, 11, 72, "Input"],
+Cell[10709, 284, 448, 11, 52, "Input"],
+Cell[CellGroupData[{
+Cell[11182, 299, 222, 5, 52, "Input"],
+Cell[11407, 306, 9593, 234, 194, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21037, 545, 181, 3, 31, "Input"],
+Cell[21221, 550, 9593, 234, 194, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

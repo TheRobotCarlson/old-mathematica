@@ -1,0 +1,1787 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     53395,       1778]
+NotebookOptionsPosition[     46533,       1522]
+NotebookOutlinePosition[     46899,       1538]
+CellTagsIndexPosition[     46856,       1535]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Cool Things in The Documentation Center\
+\>", "Title",
+ CellChangeTimes->{{3.6004501753026495`*^9, 3.60045019093157*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["All Functions", "Section",
+ CellChangeTimes->{{3.6004502313781357`*^9, 3.6004502397396035`*^9}, {
+  3.6004827335443497`*^9, 3.60048274120135*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<List of functions\>\"", ",", 
+   "\"\<paclet:guide/AlphabeticalListing\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.60048275659035*^9, 3.60048278295435*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"List of functions\"\>", True->
+    StyleBox["\<\"List of functions\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/AlphabeticalListing",
+   ButtonNote->"paclet:guide/AlphabeticalListing"],
+  Annotation[#, "paclet:guide/AlphabeticalListing", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048278389535*^9}]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["guide/ColorProcessing", "Section",
+ CellChangeTimes->{{3.6004502902820745`*^9, 3.6004502961447935`*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Hyperlink["ColorProcessing", "paclet:guide/ColorProcessing"], StandardForm],
+  ImageSizeCache->{121., {4., 12.}}]], "Input",
+ CellChangeTimes->{{3.600450988741357*^9, 3.600450988753357*^9}}],
+
+Cell["Self explanatory.", "Text",
+ CellChangeTimes->{{3.6004515367899475`*^9, 3.600451542132482*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Hyperlink", "[", 
+   RowBox[{"\"\<ImageData\>\"", ",", "\"\<paclet:ref/ImageData\>\""}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004513719584665`*^9, 3.600451454635733*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Hyperlink["ImageData", "paclet:ref/ImageData"], StandardForm],
+  ImageSizeCache->{72., {4., 12.}}]], "Output",
+ CellChangeTimes->{3.6004514559018598`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Hyperlink", "[", 
+   RowBox[{
+   "\"\<Morphological Graph\>\"", ",", 
+    "\"\<paclet:ref/MorphologicalGraph\>\""}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004516431695848`*^9, 3.600451677476015*^9}, {
+  3.6004517621274796`*^9, 3.6004517711203785`*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Hyperlink["Morphological Graph", "paclet:ref/MorphologicalGraph"], 
+   StandardForm],
+  ImageSizeCache->{152., {4., 12.}}]], "Output",
+ CellChangeTimes->{3.600451774084675*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Hyperlink", "[", 
+   RowBox[{"\"\<Thinning\>\"", ",", "\"\<paclet:ref/Thinning\>\""}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600451918871152*^9, 3.6004519277490396`*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Hyperlink["Thinning", "paclet:ref/Thinning"], StandardForm],
+  ImageSizeCache->{64., {4., 12.}}]], "Output",
+ CellChangeTimes->{3.600451929042169*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<SkeletonTransform\>\"", ",", "\"\<paclet:ref/SkeletonTransform\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004523019817467`*^9, 3.600452326328747*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"SkeletonTransform\"\>", True->
+    StyleBox["\<\"SkeletonTransform\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/SkeletonTransform",
+   ButtonNote->"paclet:ref/SkeletonTransform"],
+  Annotation[#, "paclet:ref/SkeletonTransform", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004525296437473`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ImageScan\>\"", ",", "\"\<paclet:ref/ImageScan\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004538281967487`*^9, 3.600453839122749*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ImageScan\"\>", True->
+    StyleBox["\<\"ImageScan\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ImageScan",
+   ButtonNote->"paclet:ref/ImageScan"],
+  Annotation[#, "paclet:ref/ImageScan", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004538405057487`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<ImageProcessing Guide\>\"", ",", 
+   "\"\<paclet:guide/ImageProcessing\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004538914557486`*^9, 3.6004539232267485`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ImageProcessing Guide\"\>", True->
+    StyleBox["\<\"ImageProcessing Guide\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/ImageProcessing",
+   ButtonNote->"paclet:guide/ImageProcessing"],
+  Annotation[#, "paclet:guide/ImageProcessing", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.600453910621749*^9, 3.6004539252697487`*^9}}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<CellularAutomaton\>\"", ",", "\"\<paclet:ref/CellularAutomaton\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004546772624197`*^9, 3.6004547066103544`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"CellularAutomaton\"\>", True->
+    StyleBox["\<\"CellularAutomaton\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/CellularAutomaton",
+   ButtonNote->"paclet:ref/CellularAutomaton"],
+  Annotation[#, "paclet:ref/CellularAutomaton", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600454708445538*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ColorCombine\>\"", ",", "\"\<paclet:ref/ColorCombine\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004684377306223`*^9, 3.600468451038953*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ColorCombine\"\>", True->
+    StyleBox["\<\"ColorCombine\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ColorCombine",
+   ButtonNote->"paclet:ref/ColorCombine"],
+  Annotation[#, "paclet:ref/ColorCombine", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004684518440332`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ColorSeparate\>\"", ",", "\"\<paclet:ref/ColorSeparate\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600468472020051*^9, 3.600468495197368*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  ButtonBox[
+   PaneSelectorBox[{False->
+    RowBox[{"Sequence", "[", 
+     RowBox[{
+      RowBox[{"Sequence", "[", 
+       RowBox[{"\<\"ColorSeparate\"\>", ",", "\<\"ColorSeparate\"\>"}], "]"}],
+       ",", 
+      RowBox[{"BaseStyle", "\[Rule]", 
+       RowBox[{"{", "\<\"Hyperlink\"\>", "}"}]}]}], "]"}], True->
+    RowBox[{"FrameMargins", "\[Rule]", "0"}]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->Automatic,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ColorSeparate",
+   ButtonNote->"paclet:ref/ColorSeparate",
+   Evaluator->Automatic,
+   Method->"Preemptive"], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.6004684960324516`*^9, {3.6004763298164062`*^9, 3.6004763450654063`*^9}}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ReliefImage \>\"", ",", "\"\<paclet:ref/ReliefImage\>\""}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ReliefImage \"\>", True->
+    StyleBox["\<\"ReliefImage \"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ReliefImage",
+   ButtonNote->"paclet:ref/ReliefImage"],
+  Annotation[#, "paclet:ref/ReliefImage", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600475667855132*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<SegmentAnAerialImage\>\"", ",", 
+   "\"\<paclet:example/SegmentAnAerialImage\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004763904684067`*^9, 3.600476418028406*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"SegmentAnAerialImage\"\>", True->
+    StyleBox["\<\"SegmentAnAerialImage\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:example/SegmentAnAerialImage",
+   ButtonNote->"paclet:example/SegmentAnAerialImage"],
+  Annotation[#, "paclet:example/SegmentAnAerialImage", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004764196194067`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Highlight Image\>\"", ",", "\"\<paclet:ref/HighlightImage\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004771115630007`*^9, 3.600477143712429*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Highlight Image\"\>", True->
+    StyleBox["\<\"Highlight Image\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/HighlightImage",
+   ButtonNote->"paclet:ref/HighlightImage"],
+  Annotation[#, "paclet:ref/HighlightImage", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004771447906446`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<SegmentationAnalysis\>\"", ",", 
+   "\"\<paclet:guide/SegmentationAnalysis\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004771800716996`*^9, 3.6004772007048254`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"SegmentationAnalysis\"\>", True->
+    StyleBox["\<\"SegmentationAnalysis\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/SegmentationAnalysis",
+   ButtonNote->"paclet:guide/SegmentationAnalysis"],
+  Annotation[#, "paclet:guide/SegmentationAnalysis", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600477201691023*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ImageApply\>\"", ",", "\"\<paclet:ref/ImageApply\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004800730075064`*^9, 3.600480086124818*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ImageApply\"\>", True->
+    StyleBox["\<\"ImageApply\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ImageApply",
+   ButtonNote->"paclet:ref/ImageApply"],
+  Annotation[#, "paclet:ref/ImageApply", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004800869639015`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ImageTake\>\"", ",", "\"\<paclet:ref/ImageTake\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004833992740784`*^9, 3.600483406210159*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ImageTake\"\>", True->
+    StyleBox["\<\"ImageTake\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ImageTake",
+   ButtonNote->"paclet:ref/ImageTake"],
+  Annotation[#, "paclet:ref/ImageTake", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048340731349*^9}]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Interactives", "Section",
+ CellChangeTimes->{{3.6004518353417997`*^9, 3.600451837754041*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Hyperlink", "[", 
+   RowBox[{
+   "\"\<Mouse Annotation\>\"", ",", "\"\<paclet:ref/MouseAnnotation\>\""}], 
+   "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004518523575015`*^9, 3.6004518799912643`*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Hyperlink["Mouse Annotation", "paclet:ref/MouseAnnotation"], StandardForm],
+  ImageSizeCache->{128., {4., 12.}}]], "Output",
+ CellChangeTimes->{3.6004518813343987`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<CurrentValue\>\"", ",", "\"\<paclet:ref/CurrentValue\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.60045206656492*^9, 3.6004521011743803`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"CurrentValue\"\>", True->
+    StyleBox["\<\"CurrentValue\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/CurrentValue",
+   ButtonNote->"paclet:ref/CurrentValue"],
+  Annotation[#, "paclet:ref/CurrentValue", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600452102493512*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ClickPane\>\"", ",", "\"\<paclet:ref/ClickPane\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004547282335167`*^9, 3.600454740178711*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ClickPane\"\>", True->
+    StyleBox["\<\"ClickPane\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ClickPane",
+   ButtonNote->"paclet:ref/ClickPane"],
+  Annotation[#, "paclet:ref/ClickPane", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600454741201813*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<InputField\>\"", ",", "\"\<paclet:ref/InputField\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004682885947104`*^9, 3.6004683218090315`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"InputField\"\>", True->
+    StyleBox["\<\"InputField\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/InputField",
+   ButtonNote->"paclet:ref/InputField"],
+  Annotation[#, "paclet:ref/InputField", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.6004683052323737`*^9, 3.6004683235922093`*^9}}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<System Dialog Input\>\"", ",", 
+   "\"\<paclet:ref/SystemDialogInput\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.60047561922427*^9, 3.6004756407354207`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"System Dialog Input\"\>", True->
+    StyleBox["\<\"System Dialog Input\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/SystemDialogInput",
+   ButtonNote->"paclet:ref/SystemDialogInput"],
+  Annotation[#, "paclet:ref/SystemDialogInput", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600475641670514*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<CustomInterfaceConstruction\>\"", ",", 
+   "\"\<paclet:guide/CustomInterfaceConstruction\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.600476631535406*^9, 3.600476663759406*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"CustomInterfaceConstruction\"\>", True->
+    StyleBox["\<\"CustomInterfaceConstruction\"\>", "HyperlinkActive"]}, 
+    Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/CustomInterfaceConstruction",
+   ButtonNote->"paclet:guide/CustomInterfaceConstruction"],
+  Annotation[#, "paclet:guide/CustomInterfaceConstruction", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600476665278406*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Creating Dialog Boxes\>\"", ",", 
+   "\"\<paclet:tutorial/CreatingDialogBoxes\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004767468694067`*^9, 3.6004767708624067`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Creating Dialog Boxes\"\>", True->
+    StyleBox["\<\"Creating Dialog Boxes\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:tutorial/CreatingDialogBoxes",
+   ButtonNote->"paclet:tutorial/CreatingDialogBoxes"],
+  Annotation[#, "paclet:tutorial/CreatingDialogBoxes", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004767718664064`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Dialog Input\>\"", ",", "\"\<paclet:ref/DialogInput\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004769023064065`*^9, 3.6004769782864065`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Dialog Input\"\>", True->
+    StyleBox["\<\"Dialog Input\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/DialogInput",
+   ButtonNote->"paclet:ref/DialogInput"],
+  Annotation[#, "paclet:ref/DialogInput", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004769789184065`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<FileNameSetter\>\"", ",", "\"\<paclet:ref/FileNameSetter\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600479919721179*^9, 3.6004799293721437`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"FileNameSetter\"\>", True->
+    StyleBox["\<\"FileNameSetter\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/FileNameSetter",
+   ButtonNote->"paclet:ref/FileNameSetter"],
+  Annotation[#, "paclet:ref/FileNameSetter", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004799304902563`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<ControlObjects\>\"", ",", "\"\<paclet:guide/ControlObjects\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600479972206427*^9, 3.600479986785885*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ControlObjects\"\>", True->
+    StyleBox["\<\"ControlObjects\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/ControlObjects",
+   ButtonNote->"paclet:guide/ControlObjects"],
+  Annotation[#, "paclet:guide/ControlObjects", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004799875799646`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Click interactive panels guide\>\"", ",", 
+   "\"\<paclet:guide/ClickInteractivePanels\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004834652298594`*^9, 3.600483491436719*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Click interactive panels guide\"\>", True->
+    StyleBox["\<\"Click interactive panels guide\"\>", "HyperlinkActive"]}, 
+    Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/ClickInteractivePanels",
+   ButtonNote->"paclet:guide/ClickInteractivePanels"],
+  Annotation[#, "paclet:guide/ClickInteractivePanels", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004834922789717`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<ControlsRendering\>\"", ",", "\"\<paclet:ref/ControlsRendering\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004835208070726`*^9, 3.600483533759368*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ControlsRendering\"\>", True->
+    StyleBox["\<\"ControlsRendering\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ControlsRendering",
+   ButtonNote->"paclet:ref/ControlsRendering"],
+  Annotation[#, "paclet:ref/ControlsRendering", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600483538555847*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Generalized Input\>\"", ",", 
+   "\"\<paclet:tutorial/GeneralizedInput\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.600483579223914*^9, 3.6004836060625973`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Generalized Input\"\>", True->
+    StyleBox["\<\"Generalized Input\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:tutorial/GeneralizedInput",
+   ButtonNote->"paclet:tutorial/GeneralizedInput"],
+  Annotation[#, "paclet:tutorial/GeneralizedInput", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004836067766685`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<EventHandler\>\"", ",", "\"\<paclet:ref/EventHandler\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004837200139914`*^9, 3.600483728175808*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"EventHandler\"\>", True->
+    StyleBox["\<\"EventHandler\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/EventHandler",
+   ButtonNote->"paclet:ref/EventHandler"],
+  Annotation[#, "paclet:ref/EventHandler", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004837288188715`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<LocatorAutoCreate\>\"", ",", "\"\<paclet:ref/LocatorAutoCreate\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600483746909681*^9, 3.600483756990689*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"LocatorAutoCreate\"\>", True->
+    StyleBox["\<\"LocatorAutoCreate\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/LocatorAutoCreate",
+   ButtonNote->"paclet:ref/LocatorAutoCreate"],
+  Annotation[#, "paclet:ref/LocatorAutoCreate", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600483757873777*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Setter\>\"", ",", "\"\<paclet:ref/Setter\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600483784097399*^9, 3.600483791900179*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Setter\"\>", True->
+    StyleBox["\<\"Setter\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Setter",
+   ButtonNote->"paclet:ref/Setter"],
+  Annotation[#, "paclet:ref/Setter", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600483792535243*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Trigger\>\"", ",", "\"\<paclet:ref/Trigger\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004842297567415`*^9, 3.600484235762741*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Trigger\"\>", True->
+    StyleBox["\<\"Trigger\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Trigger",
+   ButtonNote->"paclet:ref/Trigger"],
+  Annotation[#, "paclet:ref/Trigger", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004842362207413`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Checkbox\>\"", ",", "\"\<paclet:ref/Checkbox\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600486435691522*^9, 3.6004864669553957`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Checkbox\"\>", True->
+    StyleBox["\<\"Checkbox\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Checkbox",
+   ButtonNote->"paclet:ref/Checkbox"],
+  Annotation[#, "paclet:ref/Checkbox", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004864675793333`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Slider2D\>\"", ",", "\"\<paclet:ref/Slider2D\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600486809393535*^9, 3.600486834162535*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Slider2D\"\>", True->
+    StyleBox["\<\"Slider2D\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Slider2D",
+   ButtonNote->"paclet:ref/Slider2D"],
+  Annotation[#, "paclet:ref/Slider2D", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600486835130535*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<ColorSlider\>\"", ",", "\"\<paclet:ref/ColorSlider\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004868706385355`*^9, 3.6004868818845353`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"ColorSlider\"\>", True->
+    StyleBox["\<\"ColorSlider\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ColorSlider",
+   ButtonNote->"paclet:ref/ColorSlider"],
+  Annotation[#, "paclet:ref/ColorSlider", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600486882531535*^9}]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Text, Displays, and Equations", "Section",
+ CellChangeTimes->{{3.600460123868329*^9, 3.600460144024329*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PopupWindow", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"Disk", "[", "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "50"}]}], "]"}], ",", 
+   RowBox[{"StringForm", "[", 
+    RowBox[{"\"\<The minimum is ``.\>\"", ",", "4"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004601509643292`*^9, 3.600460160651329*^9}}],
+
+Cell[BoxData[
+ ButtonBox[
+  GraphicsBox[DiskBox[{0, 0}],
+   ImageSize->50],
+  Appearance->None,
+  BaseStyle->{},
+  ButtonFunction:>CreateDocument[
+    Internal`PopupWindowNotebook[
+     StringForm["The minimum is ``.", 4]]],
+  DefaultBaseStyle->{},
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.600460156096329*^9, 3.6004601757393293`*^9}}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<PopupWindow\>\"", ",", "\"\<paclet:ref/PopupWindow\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004601870133295`*^9, 3.600460226658329*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"PopupWindow\"\>", True->
+    StyleBox["\<\"PopupWindow\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/PopupWindow",
+   ButtonNote->"paclet:ref/PopupWindow"],
+  Annotation[#, "paclet:ref/PopupWindow", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600460227672329*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Buttons\>\"", ",", "\"\<paclet:ref/Button\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004602695483294`*^9, 3.6004603039403296`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Buttons\"\>", True->
+    StyleBox["\<\"Buttons\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Button",
+   ButtonNote->"paclet:ref/Button"],
+  Annotation[#, "paclet:ref/Button", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600460305005329*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Image3D\>\"", ",", "\"\<paclet:ref/Image3D\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004683391777678`*^9, 3.6004683556654167`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Image3D\"\>", True->
+    StyleBox["\<\"Image3D\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Image3D",
+   ButtonNote->"paclet:ref/Image3D"],
+  Annotation[#, "paclet:ref/Image3D", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600468356191469*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Image3DSlices\>\"", ",", "\"\<paclet:ref/Image3DSlices\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004683850893583`*^9, 3.600468402277077*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Image3DSlices\"\>", True->
+    StyleBox["\<\"Image3DSlices\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Image3DSlices",
+   ButtonNote->"paclet:ref/Image3DSlices"],
+  Annotation[#, "paclet:ref/Image3DSlices", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600468403024152*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Gauges\>\"", ",", "\"\<paclet:guide/Gauges\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.60048002564577*^9, 3.6004800369469004`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Gauges\"\>", True->
+    StyleBox["\<\"Gauges\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/Gauges",
+   ButtonNote->"paclet:guide/Gauges"],
+  Annotation[#, "paclet:guide/Gauges", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004800376219683`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Progress Indicator\>\"", ",", "\"\<paclet:ref/ProgressIndicator\>\""}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.600483637419733*^9, 3.600483654265417*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Progress Indicator\"\>", True->
+    StyleBox["\<\"Progress Indicator\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ProgressIndicator",
+   ButtonNote->"paclet:ref/ProgressIndicator"],
+  Annotation[#, "paclet:ref/ProgressIndicator", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004836551295033`*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<AutorunSequencing\>\"", ",", "\"\<paclet:ref/AutorunSequencing\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004836741304035`*^9, 3.600483688936884*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"AutorunSequencing\"\>", True->
+    StyleBox["\<\"AutorunSequencing\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/AutorunSequencing",
+   ButtonNote->"paclet:ref/AutorunSequencing"],
+  Annotation[#, "paclet:ref/AutorunSequencing", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600483689590949*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Animate\>\"", ",", "\"\<paclet:ref/Animate\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600484572676741*^9, 3.600484578083741*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Animate\"\>", True->
+    StyleBox["\<\"Animate\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Animate",
+   ButtonNote->"paclet:ref/Animate"],
+  Annotation[#, "paclet:ref/Animate", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600484578669741*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<How to work with Spline Functions\>\"", ",", 
+   "\"\<paclet:howto/WorkWithSplineFunctions\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.600484598959741*^9, 3.6004846308747416`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"How to work with Spline Functions\"\>", True->
+    StyleBox["\<\"How to work with Spline Functions\"\>", "HyperlinkActive"]},
+     Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:howto/WorkWithSplineFunctions",
+   ButtonNote->"paclet:howto/WorkWithSplineFunctions"],
+  Annotation[#, "paclet:howto/WorkWithSplineFunctions", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004846320067415`*^9}]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Logic, Math, and Language", "Section",
+ CellChangeTimes->{{3.60048185191735*^9, 3.60048185268635*^9}, {
+  3.60048234210435*^9, 3.60048234719235*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<BooleanFunction\>\"", ",", "\"\<paclet:ref/BooleanFunction\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004818563053503`*^9, 3.60048185833335*^9}, {
+  3.60048219244735*^9, 3.60048220780935*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"BooleanFunction\"\>", True->
+    StyleBox["\<\"BooleanFunction\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/BooleanFunction",
+   ButtonNote->"paclet:ref/BooleanFunction"],
+  Annotation[#, "paclet:ref/BooleanFunction", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048220939535*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<TuringMachine\>\"", ",", "\"\<paclet:ref/TuringMachine\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004822446613503`*^9, 3.60048225364835*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"TuringMachine\"\>", True->
+    StyleBox["\<\"TuringMachine\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/TuringMachine",
+   ButtonNote->"paclet:ref/TuringMachine"],
+  Annotation[#, "paclet:ref/TuringMachine", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048225444735*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<CollectingObjectsTogether\>\"", ",", 
+   "\"\<paclet:tutorial/CollectingObjectsTogether\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6004823097613497`*^9, 3.60048232969835*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"CollectingObjectsTogether\"\>", True->
+    StyleBox["\<\"CollectingObjectsTogether\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:tutorial/CollectingObjectsTogether",
+   ButtonNote->"paclet:tutorial/CollectingObjectsTogether"],
+  Annotation[#, "paclet:tutorial/CollectingObjectsTogether", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048233246235*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Take from lists\>\"", ",", "\"\<paclet:ref/Take\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.60048238524035*^9, 3.60048239691835*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Take from lists\"\>", True->
+    StyleBox["\<\"Take from lists\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Take",
+   ButtonNote->"paclet:ref/Take"],
+  Annotation[#, "paclet:ref/Take", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.60048239780335*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+  "\"\<Language Overview\>\"", ",", "\"\<paclet:guide/LanguageOverview\>\""}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.6004828210963497`*^9, 3.60048284483235*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Language Overview\"\>", True->
+    StyleBox["\<\"Language Overview\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:guide/LanguageOverview",
+   ButtonNote->"paclet:guide/LanguageOverview"],
+  Annotation[#, "paclet:guide/LanguageOverview", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6004828452353497`*^9}]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sounds and stuffs", "Section",
+ CellChangeTimes->{{3.6004838068766766`*^9, 3.60048381121111*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<EmitSound\>\"", ",", "\"\<paclet:ref/EmitSound\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.600483815658555*^9, 3.6004838242014093`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"EmitSound\"\>", True->
+    StyleBox["\<\"EmitSound\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/EmitSound",
+   ButtonNote->"paclet:ref/EmitSound"],
+  Annotation[#, "paclet:ref/EmitSound", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600483827520741*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<SoundNote\>\"", ",", "\"\<paclet:ref/SoundNote\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004843691907415`*^9, 3.6004843797447414`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"SoundNote\"\>", True->
+    StyleBox["\<\"SoundNote\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/SoundNote",
+   ButtonNote->"paclet:ref/SoundNote"],
+  Annotation[#, "paclet:ref/SoundNote", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600484380341741*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{"\"\<Speak\>\"", ",", " ", "\"\<paclet:ref/Speak\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6004852590718913`*^9, 3.600485310746058*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{False->"\<\"Speak\"\>", True->
+    StyleBox["\<\"Speak\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Speak",
+   ButtonNote->"paclet:ref/Speak"],
+  Annotation[#, "paclet:ref/Speak", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.600485311318115*^9}]
+}, {2}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BarChart", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Button", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"Speak", "[", "#", "]"}]}], "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], PointBox[{{0.44545454545454544`, 0.}}]}, {{}, 
+    {RGBColor[0.798413061722744, 0.824719615472648, 0.968322270542458], 
+     EdgeForm[{Opacity[0.7], Thickness[Small]}], 
+     {RGBColor[0.798413061722744, 0.824719615472648, 0.968322270542458], 
+      EdgeForm[{Opacity[0.7], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         TagBox[
+          DynamicBox[{
+            FEPrivate`If[
+             CurrentValue["MouseOver"], 
+             EdgeForm[{
+               GrayLevel[0.5], 
+               AbsoluteThickness[1.5], 
+               Opacity[0.66]}], {}, {}], 
+            
+            RectangleBox[{0.5454545454545454, 0.}, {1.4545454545454546`, 1.}, 
+             "RoundingRadius" -> 0]},
+           
+           ImageSizeCache->{{26.916163141993962`, 128.9267371601209}, {
+            31.189613479976472`, 100.90942021996469`}}],
+          
+          EventHandlerTag[{
+           "MouseClicked" :> Speak[1], PassEventsDown -> Automatic, 
+            PassEventsUp -> True}]],
+         StatusArea[#, 1]& ,
+         TagBoxNote->"1"],
+        StyleBox["1", {
+          GrayLevel[0]}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[1, {
+          GrayLevel[0]}], "Tooltip"]& ]}, 
+     {RGBColor[0.798413061722744, 0.824719615472648, 0.968322270542458], 
+      EdgeForm[{Opacity[0.7], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         TagBox[
+          DynamicBox[{
+            FEPrivate`If[
+             CurrentValue["MouseOver"], 
+             EdgeForm[{
+               GrayLevel[0.5], 
+               AbsoluteThickness[1.5], 
+               Opacity[0.66]}], {}, {}], 
+            
+            RectangleBox[{1.5454545454545454`, 0.}, {2.4545454545454546`, 2.},
+              "RoundingRadius" -> 0]},
+           
+           ImageSizeCache->{{138.57779456193356`, 
+            240.5883685800605}, {-38.03019326001174, 100.90942021996469`}}],
+          
+          EventHandlerTag[{
+           "MouseClicked" :> Speak[2], PassEventsDown -> Automatic, 
+            PassEventsUp -> True}]],
+         StatusArea[#, 2]& ,
+         TagBoxNote->"2"],
+        StyleBox["2", {
+          GrayLevel[0]}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[2, {
+          GrayLevel[0]}], "Tooltip"]& ]}, 
+     {RGBColor[0.798413061722744, 0.824719615472648, 0.968322270542458], 
+      EdgeForm[{Opacity[0.7], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         TagBox[
+          DynamicBox[{
+            FEPrivate`If[
+             CurrentValue["MouseOver"], 
+             EdgeForm[{
+               GrayLevel[0.5], 
+               AbsoluteThickness[1.5], 
+               Opacity[0.66]}], {}, {}], 
+            
+            RectangleBox[{2.5454545454545454`, 0.}, {3.4545454545454546`, 3.},
+              "RoundingRadius" -> 0]},
+           
+           ImageSizeCache->{{250.23942598187318`, 
+            352.25000000000006`}, {-107.24999999999997`, 
+            100.90942021996469`}}],
+          
+          EventHandlerTag[{
+           "MouseClicked" :> Speak[3], PassEventsDown -> Automatic, 
+            PassEventsUp -> True}]],
+         StatusArea[#, 3]& ,
+         TagBoxNote->"3"],
+        StyleBox["3", {
+          GrayLevel[0]}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[3, {
+          GrayLevel[0]}], "Tooltip"]& ]}}, {}, {}}, {}, {}, GraphicsGroupBox[
+    {GrayLevel[0], 
+     StyleBox[
+      StyleBox[{
+        {Thickness[Tiny], 
+         LineBox[{{0.44545454545454544`, 0.}, {3.4545454545454546`, 
+          0.}}], {}}, {
+         {Thickness[Tiny], 
+          LineBox[{{0.5454545454545454, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {0.5454545454545454, 
+             0.}]}], LineBox[{{3.4545454545454546`, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {3.4545454545454546`, 
+             0.}]}], {{}, {}, {}, {}, {}}}, {}}}, "GraphicsAxes",
+       StripOnInput->False,
+       Antialiasing->False],
+      Antialiasing->False]}]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.44545454545454544`, 0},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  PlotRangePadding->Scaled[0.02],
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{3.6004852449034743`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, 21}, {Automatic, -36}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 131, 3, 166, "Title"],
+Cell[CellGroupData[{
+Cell[735, 29, 152, 2, 86, "Section"],
+Cell[CellGroupData[{
+Cell[912, 35, 219, 5, 31, "Input"],
+Cell[1134, 42, 527, 13, 31, "Output"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1707, 61, 110, 1, 86, "Section"],
+Cell[1820, 64, 228, 4, 31, "Input"],
+Cell[2051, 70, 101, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[2177, 75, 234, 5, 31, "Input"],
+Cell[2414, 82, 192, 4, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[2640, 91, 312, 7, 52, "Input"],
+Cell[2955, 100, 214, 5, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[3203, 110, 232, 5, 31, "Input"],
+Cell[3438, 117, 188, 4, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[3660, 126, 218, 5, 31, "Input"],
+Cell[3881, 133, 518, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[4433, 151, 199, 4, 31, "Input"],
+Cell[4635, 157, 478, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[5147, 175, 225, 5, 31, "Input"],
+Cell[5375, 182, 550, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[5959, 200, 220, 5, 31, "Input"],
+Cell[6182, 207, 516, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[6732, 225, 205, 4, 31, "Input"],
+Cell[6940, 231, 493, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[7467, 249, 205, 4, 31, "Input"],
+Cell[7675, 255, 785, 22, 42, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[8494, 282, 136, 3, 31, "Input"],
+Cell[8633, 287, 488, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[9155, 305, 229, 5, 52, "Input"],
+Cell[9387, 312, 549, 14, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[9970, 331, 213, 5, 31, "Input"],
+Cell[10186, 338, 505, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[10725, 356, 229, 5, 52, "Input"],
+Cell[10957, 363, 541, 14, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[11532, 382, 201, 4, 31, "Input"],
+Cell[11736, 388, 483, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[12253, 406, 199, 4, 31, "Input"],
+Cell[12455, 412, 475, 13, 31, "Output"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12976, 431, 99, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[13100, 436, 254, 6, 31, "Input"],
+Cell[13357, 444, 206, 4, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[13597, 453, 204, 4, 31, "Input"],
+Cell[13804, 459, 491, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[14329, 477, 199, 4, 31, "Input"],
+Cell[14531, 483, 476, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[15041, 501, 203, 4, 31, "Input"],
+Cell[15247, 507, 509, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[15790, 525, 220, 5, 31, "Input"],
+Cell[16013, 532, 520, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[16567, 550, 239, 5, 52, "Input"],
+Cell[16809, 557, 581, 15, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[17424, 577, 232, 5, 52, "Input"],
+Cell[17659, 584, 551, 14, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[18244, 603, 206, 4, 31, "Input"],
+Cell[18453, 609, 490, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[18977, 627, 212, 5, 31, "Input"],
+Cell[19192, 634, 503, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[19729, 652, 212, 5, 31, "Input"],
+Cell[19944, 659, 509, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[20487, 677, 239, 5, 52, "Input"],
+Cell[20729, 684, 574, 15, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[21337, 704, 218, 5, 31, "Input"],
+Cell[21558, 711, 516, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[22108, 729, 223, 5, 31, "Input"],
+Cell[22334, 736, 530, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[22898, 754, 205, 4, 31, "Input"],
+Cell[23106, 760, 493, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[23633, 778, 216, 5, 31, "Input"],
+Cell[23852, 785, 516, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[24402, 803, 191, 4, 31, "Input"],
+Cell[24596, 809, 461, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[25091, 827, 195, 4, 31, "Input"],
+Cell[25289, 833, 468, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[25791, 851, 197, 4, 31, "Input"],
+Cell[25991, 857, 473, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[26498, 875, 195, 4, 31, "Input"],
+Cell[26696, 881, 471, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[27201, 899, 205, 4, 31, "Input"],
+Cell[27409, 905, 486, 13, 31, "Output"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27941, 924, 114, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[28080, 929, 374, 9, 52, "Input"],
+Cell[28457, 940, 376, 12, 65, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[28867, 957, 203, 4, 31, "Input"],
+Cell[29073, 963, 486, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[29593, 981, 196, 4, 31, "Input"],
+Cell[29792, 987, 463, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[30289, 1005, 197, 4, 31, "Input"],
+Cell[30489, 1011, 466, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[30989, 1029, 207, 4, 31, "Input"],
+Cell[31199, 1035, 496, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[31729, 1053, 194, 4, 31, "Input"],
+Cell[31926, 1059, 469, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[32429, 1077, 217, 5, 31, "Input"],
+Cell[32649, 1084, 520, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[33203, 1102, 218, 5, 31, "Input"],
+Cell[33424, 1109, 516, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[33974, 1127, 193, 4, 31, "Input"],
+Cell[34170, 1133, 466, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[34670, 1151, 243, 5, 52, "Input"],
+Cell[34916, 1158, 583, 15, 31, "Output"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35545, 1179, 155, 2, 86, "Section"],
+Cell[CellGroupData[{
+Cell[35725, 1185, 260, 6, 31, "Input"],
+Cell[35988, 1193, 505, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[36527, 1211, 206, 4, 31, "Input"],
+Cell[36736, 1217, 495, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[37265, 1235, 239, 5, 52, "Input"],
+Cell[37507, 1242, 574, 14, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[38115, 1261, 196, 4, 31, "Input"],
+Cell[38314, 1267, 472, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[38820, 1285, 218, 5, 31, "Input"],
+Cell[39041, 1292, 521, 13, 31, "Output"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39608, 1311, 103, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[39736, 1316, 199, 4, 31, "Input"],
+Cell[39938, 1322, 476, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[40448, 1340, 201, 4, 31, "Input"],
+Cell[40652, 1346, 476, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[41162, 1364, 196, 4, 31, "Input"],
+Cell[41361, 1370, 456, 13, 31, "Output"]
+}, {2}]],
+Cell[CellGroupData[{
+Cell[41851, 1388, 260, 8, 31, "Input"],
+Cell[42114, 1398, 4379, 119, 236, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

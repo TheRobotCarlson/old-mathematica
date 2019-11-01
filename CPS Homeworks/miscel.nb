@@ -1,0 +1,168 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5287,        158]
+NotebookOptionsPosition[      4966,        143]
+NotebookOutlinePosition[      5309,        158]
+CellTagsIndexPosition[      5266,        155]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"givePerpendicularEquation", "[", 
+   RowBox[{"police_", ",", "robber_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"equ", "=", 
+       RowBox[{"LinearModelFit", "[", 
+        RowBox[{"police", ",", "x", ",", "x"}], "]"}]}], ",", "x"}], "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"Return", " ", "[", 
+     RowBox[{"InverseFunction", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"equ", "[", "x", "]"}], "/.", 
+         RowBox[{"x", "\[Rule]", "#"}]}], ")"}], "&"}], "]"}], "]"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findTwoClosest", "[", 
+   RowBox[{"policeList_", ",", "robber_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"permutations", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"distances", "=", 
+       RowBox[{"{", "}"}]}], ",", "position"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"permutations", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{
+        RowBox[{"Permutations", "[", 
+         RowBox[{"policeList", ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"#1", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", 
+            RowBox[{"#1", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "\[Equal]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"#2", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"#2", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "&"}]}], "]"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"distances", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"EuclideanDistance", "[", 
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", "robber"}], "]"}], "+", 
+          RowBox[{"EuclideanDistance", "[", 
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "robber"}], "]"}]}], ")"}], 
+        "&"}], "/@", "permutations"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"position", "=", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Position", "[", 
+         RowBox[{"distances", ",", 
+          RowBox[{"Min", "[", "distances", "]"}]}], "]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"permutations", "[", 
+       RowBox[{"[", "position", "]"}], "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"easyRunaway", "[", 
+   RowBox[{
+   "police1_", ",", "police2_", ",", "police3_", ",", "robber_", ",", 
+    "length_", ",", "numberSteps_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"newPoliceList", "=", 
+       RowBox[{"{", 
+        RowBox[{"police1", ",", "police2", ",", "police3"}], "}"}]}], ",", 
+      RowBox[{"closePoliceList", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"nRobber", "=", "robber"}], ",", 
+      RowBox[{"listOfLines", "=", 
+       RowBox[{"{", "}"}]}], ",", "n"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"closePoliceList", "=", 
+       RowBox[{"findTwoClosest", "[", 
+        RowBox[{"newPoliceList", ",", "nRobber"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"nRobber", "=", 
+       RowBox[{"returnRobberCoord", "[", 
+        RowBox[{"nRobber", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"closePoliceList", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"closePoliceList", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", "length"}], "]"}]}],
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "numberSteps"}], "}"}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6031596860422935`*^9, 3.6031597437700663`*^9}, {
+  3.603159774206109*^9, 3.603159802628951*^9}, {3.603161165535234*^9, 
+  3.603161180246234*^9}}]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 658, 19, 72, "Input"],
+Cell[1218, 41, 2113, 59, 132, "Input"],
+Cell[3334, 102, 1628, 39, 212, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

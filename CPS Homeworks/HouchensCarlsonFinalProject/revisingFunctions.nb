@@ -1,0 +1,65 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1522,         55]
+NotebookOptionsPosition[      1280,         42]
+NotebookOutlinePosition[      1625,         57]
+CellTagsIndexPosition[      1582,         54]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sortForm", "[", "list_", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"list", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], ",", 
+    RowBox[{"list", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], ",", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"StringReplace", "[", 
+      RowBox[{
+       RowBox[{"ToLowerCase", "[", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<,\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+         RowBox[{"\"\<.\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], "]"}], 
+     "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.607565183660877*^9, 3.6075652149428773`*^9}}]
+},
+WindowSize->{707, 505},
+WindowMargins->{{167, Automatic}, {22, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 719, 20, 92, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

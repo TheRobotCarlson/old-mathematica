@@ -1,0 +1,479 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     16841,        469]
+NotebookOptionsPosition[     16594,        456]
+NotebookOutlinePosition[     16939,        471]
+CellTagsIndexPosition[     16896,        468]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Function", " ", "for", " ", "quickly", " ", "anonymizing", " ", 
+    "personal", " ", "data"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"deletePersonal", "[", "list_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"data", "=", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{
+          RowBox[{"DeleteCases", "[", 
+           RowBox[{"list", ",", 
+            RowBox[{"\"\<FirstName\>\"", "\[Rule]", " ", "_"}]}], "]"}], ",", 
+          RowBox[{"\"\<LastName\>\"", "\[Rule]", " ", "_"}]}], "]"}]}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"data", "=", 
+        RowBox[{"Delete", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{"Last", "[", 
+           RowBox[{"Position", "[", 
+            RowBox[{"data", ",", 
+             RowBox[{"\"\<Name\>\"", "\[Rule]", "_"}]}], "]"}], "]"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"Delete", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{"Position", "[", 
+           RowBox[{"data", ",", 
+            RowBox[{"\"\<UserName\>\"", "\[Rule]", "_"}]}], "]"}]}], "]"}], 
+        "]"}]}]}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Helper", " ", "functions", " ", "for", " ", "retrieving", " ", "pieces", 
+     " ", "of", " ", "data", " ", "from", " ", "the", " ", "mess", " ", "put",
+      " ", "into", " ", "them"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"select", "[", 
+     RowBox[{"list_", ",", "item_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"list", ",", 
+          RowBox[{
+           RowBox[{"MatchQ", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}], 
+        "\[Equal]", 
+        RowBox[{"{", "}"}]}], ")"}], ",", 
+      RowBox[{"item", "\[Rule]", " ", 
+       RowBox[{"{", "\"\<Not Listed\>\"", "}"}]}], ",", 
+      RowBox[{"Select", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{
+         RowBox[{"MatchQ", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getString", "[", "object_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ListQ", "[", "object", "]"}], ",", 
+      RowBox[{"object", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "object"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"existsQ", "[", 
+     RowBox[{"list_", ",", "term_"}], "]"}], ":=", 
+    RowBox[{"!", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Select", "[", 
+        RowBox[{"list", ",", 
+         RowBox[{
+          RowBox[{"MatchQ", "[", 
+           RowBox[{"#", ",", "term"}], "]"}], "&"}]}], "]"}], "\[Equal]", 
+       RowBox[{"{", "}"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Functions", " ", "for", " ", "extracting", " ", "information", " ", 
+     "from", " ", "user", " ", "profiles"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findName", "[", "list_", "]"}], ":=", 
+    RowBox[{"\"\<Name\>\"", "/.", 
+     RowBox[{"Extract", "[", 
+      RowBox[{"list", ",", 
+       RowBox[{"Last", "[", 
+        RowBox[{"Position", "[", 
+         RowBox[{"list", ",", 
+          RowBox[{"\"\<Name\>\"", "\[Rule]", "_"}], ",", "1"}], "]"}], 
+        "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findHometown", "[", "list_", "]"}], ":=", 
+    RowBox[{"getString", "[", 
+     RowBox[{"\"\<Name\>\"", "/.", 
+      RowBox[{"select", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\"\<Hometown\>\"", "/.", 
+          RowBox[{"select", "[", 
+           RowBox[{"list", ",", "\"\<Hometown\>\""}], "]"}]}], ")"}], ",", 
+        "\"\<Name\>\""}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findLocation", "[", "list_", "]"}], ":=", 
+    RowBox[{"getString", "[", 
+     RowBox[{"\"\<Name\>\"", "/.", 
+      RowBox[{"select", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\"\<Location\>\"", "/.", 
+          RowBox[{"select", "[", 
+           RowBox[{"list", ",", "\"\<Location\>\""}], "]"}]}], ")"}], ",", 
+        "\"\<Name\>\""}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findGender", "[", "list_", "]"}], ":=", 
+    RowBox[{"getString", "[", 
+     RowBox[{"\"\<Gender\>\"", "/.", 
+      RowBox[{"select", "[", 
+       RowBox[{"list", ",", "\"\<Gender\>\""}], "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataSort", "[", "id_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", " ", 
+       RowBox[{
+       "gender", ",", "location", ",", "hometown", ",", "birthday", ",", 
+        "name", ",", "relationship", ",", 
+        RowBox[{"data", "=", 
+         RowBox[{"SocialMediaData", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<Facebook\>\"", ",", "id"}], "}"}], ",", 
+           "\"\<UserData\>\""}], "]"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"name", "=", 
+        RowBox[{"findName", "[", "data", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"gender", "=", 
+        RowBox[{"findGender", "[", "data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"location", "=", 
+        RowBox[{"findLocation", "[", "data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"hometown", "=", 
+        RowBox[{"findHometown", "[", "data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"id", ",", 
+          RowBox[{"{", 
+           RowBox[{"name", ",", "gender", ",", "location", ",", "hometown"}], 
+           "}"}]}], "}"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Functions", " ", "for", " ", "extracting", " ", "information", " ", 
+     "from", " ", "user", " ", "posts"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findTimeCreated", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{"\"\<CreatedTime\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<CreatedTime\>\""}], "]"}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"statusQ", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"type", "[", "list", "]"}], "\[Equal]", "\"\<status\>\""}], 
+      ")"}], "&&", 
+     RowBox[{"existsQ", "[", 
+      RowBox[{"list", ",", 
+       RowBox[{"\"\<Actions\>\"", "\[Rule]", "_"}]}], "]"}], "&&", 
+     RowBox[{"!", 
+      RowBox[{"existsQ", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{"\"\<Story\>\"", "\[Rule]", "_"}]}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findMessage", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{"\"\<Message\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Message\>\""}], "]"}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"type", "[", "list_", "]"}], ":=", 
+    RowBox[{"\"\<Type\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Type\>\""}], "]"}]}]}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"socialMediaQ", "[", 
+     RowBox[{"data_", ",", "term_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{
+        RowBox[{"MatchQ", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"term", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}], 
+     "\[NotEqual]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Facebook\>\"", ",", "\"\<GooglePlus\>\"", ",", "\"\<Instagram\>\"",
+        ",", "\"\<LinkedIn\>\"", ",", "\"\<Twitter\>\""}], "}"}]}]}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"profileQ", "[", "data_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"socialMediaQ", "[", 
+      RowBox[{"data", ",", "\"\<Link\>\""}], "]"}], "||", 
+     RowBox[{"socialMediaQ", "[", 
+      RowBox[{"data", ",", "\"\<UserName\>\""}], "]"}], "||", 
+     RowBox[{"socialMediaQ", "[", 
+      RowBox[{"data", ",", "\"\<Gender\>\""}], "]"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentAuthors", "[", "post_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\"\<ID\>\"", "/.", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "&"}], ")"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<From\>\"", "/.", 
+         RowBox[{"(", 
+          RowBox[{"(", 
+           RowBox[{"\"\<Data\>\"", "/.", 
+            RowBox[{"getString", "[", 
+             RowBox[{"select", "[", 
+              RowBox[{
+               RowBox[{"\"\<Comments\>\"", "/.", 
+                RowBox[{"getString", "[", 
+                 RowBox[{"select", "[", 
+                  RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+               ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}], ")"}]}], ")"}]}],
+       ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentMessages", "[", "post_", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"findMessage", "[", "#", "]"}], "&"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<Data\>\"", "/.", 
+         RowBox[{"getString", "[", 
+          RowBox[{"select", "[", 
+           RowBox[{
+            RowBox[{"\"\<Comments\>\"", "/.", 
+             RowBox[{"getString", "[", 
+              RowBox[{"select", "[", 
+               RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+            ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}]}], ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"collectPosts", "[", "ID_", "]"}], ":=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"SocialMediaData", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<Facebook\>\"", ",", "ID"}], "}"}], ",", 
+        "\"\<Posts\>\""}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"statusQ", "[", "#", "]"}], "&&", 
+         RowBox[{"existsQ", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}]}], ")"}], 
+       "&"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"connect", "[", "lists_", "]"}], ":=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"lists", "[", 
+       RowBox[{"[", 
+        RowBox[{"j", ",", "i"}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"lists", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"Length", "[", "lists", "]"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createInfoGrid", "[", "list_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Flatten", "[", 
+             RowBox[{"dataSort", "[", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "&"}], "/@", "list"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<ID\>\"", ",", "\"\<Name\>\"", ",", "\"\<Gender\>\"", ",", 
+          "\"\<Location\>\"", ",", "\"\<Hometown\>\"", ",", 
+          "\"\<Comment\>\""}], "}"}]}], "]"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"returnID", "[", "name_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Cases", "[", 
+      RowBox[{
+       RowBox[{"SocialMediaData", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Facebook\>\"", ",", "name"}], "}"}], ",", 
+         "\"\<UserData\>\""}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\"\<ID\>\"", "\[Rule]", "b_"}], ")"}], "\[Rule]", " ", 
+        "b"}]}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"commentForm", "[", 
+     RowBox[{"ID_", ",", "gender_", ",", "post_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Prepend", "[", 
+       RowBox[{"#", ",", "ID"}], "]"}], "&"}], "/@", 
+     RowBox[{"connect", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"findCommentAuthors", "[", "post", "]"}], ",", 
+        RowBox[{"findCommentMessages", "[", "post", "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{"gender", ",", 
+          RowBox[{"{", 
+           RowBox[{"Length", "[", 
+            RowBox[{"findCommentAuthors", "[", "post", "]"}], "]"}], "}"}]}], 
+         "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"dataSort", "[", "#", "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "2"}], "]"}], "]"}], "&"}], "/@", 
+         RowBox[{"findCommentAuthors", "[", "post", "]"}]}]}], "}"}], 
+      "]"}]}]}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"statusForm", "[", "ID_", "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"findMessage", "[", "#", "]"}], ",", 
+        RowBox[{"commentForm", "[", 
+         RowBox[{"ID", ",", 
+          RowBox[{
+           RowBox[{"dataSort", "[", "ID", "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "2"}], "]"}], "]"}], ",", "#"}], "]"}]}], "}"}],
+       "&"}], "/@", 
+     RowBox[{"filteredPosts", "[", "ID", "]"}]}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createCommentGrid", "[", "list_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"Prepend", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<StatusID\>\"", ",", "\"\<CommentID\>\"", ",", "\"\<Comment\>\"",
+           ",", "\"\<StatusGender\>\"", ",", "\"\<CommentGender\>\""}], 
+         "}"}]}], "]"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createGrid", "[", "ID_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"findMessage", "[", "#", "]"}], ",", 
+          RowBox[{"createCommentGrid", "[", 
+           RowBox[{"commentForm", "[", 
+            RowBox[{"ID", ",", "\"\<male\>\"", ",", "#"}], "]"}], "]"}]}], 
+         "}"}], "&"}], "/@", 
+       RowBox[{"filteredPosts", "[", "ID", "]"}]}], ",", 
+      RowBox[{"Frame", "\[Rule]", " ", "All"}], ",", 
+      RowBox[{"Spacings", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "2"}], "}"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"filteredPosts", "[", "ID_", "]"}], ":=", " ", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"collectPosts", "[", "ID", "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"!", 
+         RowBox[{"existsQ", "[", 
+          RowBox[{
+           RowBox[{"findCommentAuthors", "[", "#", "]"}], ",", "ID"}], 
+          "]"}]}], ")"}], "&"}]}], "]"}]}]}]}]], "Input"]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, 289}, {Automatic, 58}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 16033, 434, 1932, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

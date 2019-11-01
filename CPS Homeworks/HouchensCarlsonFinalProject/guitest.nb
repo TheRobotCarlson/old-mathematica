@@ -1,0 +1,213 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      8542,        203]
+NotebookOptionsPosition[      8297,        190]
+NotebookOutlinePosition[      8641,        205]
+CellTagsIndexPosition[      8598,        202]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Widget", "[", 
+  RowBox[{"\"\<Panel\>\"", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"WidgetGroup", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"WidgetFill", "[", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Widget", "[", 
+            RowBox[{"\"\<Button\>\"", ",", "\[IndentingNewLine]", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"\"\<label\>\"", "\[Rule]", "\"\<Previous\>\""}], ",", 
+               RowBox[{"BindEvent", "[", 
+                RowBox[{"\"\<action\>\"", ",", 
+                 RowBox[{"Script", "[", 
+                  RowBox[{
+                   RowBox[{"findPrime", "[", 
+                    RowBox[{"-", "1"}], "]"}], ";"}], "]"}]}], "]"}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Name", "\[Rule]", "\"\<previousButton\>\""}]}], 
+            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"WidgetSpace", "[", "5", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Widget", "[", "\[IndentingNewLine]", 
+            RowBox[{"\"\<Button\>\"", ",", "\[IndentingNewLine]", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"\"\<label\>\"", "\[Rule]", "\"\<Next\>\""}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"BindEvent", "[", 
+                RowBox[{"\"\<action\>\"", ",", 
+                 RowBox[{"Script", "[", 
+                  RowBox[{"findPrime", "[", "1", "]"}], "]"}]}], "]"}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Name", "\[Rule]", "\"\<nextButton\>\""}]}], 
+            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"WidgetFill", "[", "]"}]}], "\[IndentingNewLine]", "}"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"Widget", "[", 
+          RowBox[{"\"\<TextField\>\"", ",", "\[IndentingNewLine]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"\"\<text\>\"", "\[Rule]", "\"\<1\>\""}], ",", 
+             RowBox[{"\"\<horizontalAlignment\>\"", "\[Rule]", 
+              RowBox[{"PropertyValue", "[", "\"\<RIGHT\>\"", "]"}]}], ",", 
+             RowBox[{"BindEvent", "[", 
+              RowBox[{"\"\<keyReleased\>\"", ",", 
+               RowBox[{"Script", "[", 
+                RowBox[{
+                 RowBox[{"testIfPrime", "[", "]"}], ";"}], "]"}]}], "]"}]}], 
+            "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", ",", 
+           RowBox[{"Name", "\[Rule]", "\"\<valueField\>\""}], ",", 
+           RowBox[{"WidgetLayout", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Stretching\>\"", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Maximize", ",", "Maximize"}], "}"}]}], "}"}]}]}], 
+          "]"}], ",", 
+         RowBox[{"Widget", "[", 
+          RowBox[{"\"\<Label\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<text\>\"", "\[Rule]", "\"\<Number is not prime.\>\""}], 
+            "}"}], ",", 
+           RowBox[{"Name", "\[Rule]", "\"\<primeIndicator\>\""}]}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"WidgetLayout", "\[Rule]", "Column"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"BindEvent", "[", 
+      RowBox[{"\"\<endModal\>\"", ",", "\[IndentingNewLine]", 
+       RowBox[{"Script", "[", 
+        RowBox[{"Union", "[", 
+         RowBox[{"ToExpression", "/@", "primesVisited"}], "]"}], "]"}]}], 
+      "]"}], ",", 
+     RowBox[{"Script", "[", 
+      RowBox[{
+       RowBox[{"primesVisited", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"findPrime", "[", "direction_", "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", "value", "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"value", "=", 
+            RowBox[{"PropertyValue", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<valueField\>\"", ",", "\"\<text\>\""}], "}"}], 
+             "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"SyntaxQ", "[", "value", "]"}]}], ",", 
+             RowBox[{"Return", "[", "]"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"value", "=", 
+            RowBox[{"Round", "[", 
+             RowBox[{"ToExpression", "[", "value", "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"NumericQ", "[", "value", "]"}]}], ",", 
+             RowBox[{"value", "=", "0"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"value", "+=", "direction"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"While", "[", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"PrimeQ", "[", "value", "]"}]}], ",", 
+             RowBox[{"value", "+=", "direction"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"SetPropertyValue", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<valueField\>\"", ",", "\"\<text\>\""}], "}"}], ",", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"value", ",", "InputForm"}], "]"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"testIfPrime", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"testIfPrime", "[", "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"value", ",", 
+            RowBox[{"isPrime", "=", "False"}]}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"value", "=", 
+            RowBox[{"PropertyValue", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<valueField\>\"", ",", "\"\<text\>\""}], "}"}], 
+             "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"SyntaxQ", "[", "value", "]"}], ",", 
+             RowBox[{"isPrime", "=", 
+              RowBox[{"PrimeQ", "[", 
+               RowBox[{"ToExpression", "[", "value", "]"}], "]"}]}]}], "]"}], 
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"TrueQ", "[", "isPrime", "]"}], ",", 
+             RowBox[{
+              RowBox[{"primesVisited", "=", 
+               RowBox[{"primesVisited", "\[Union]", 
+                RowBox[{"{", 
+                 RowBox[{"ToString", "[", "value", "]"}], "}"}]}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"SetWidgetReference", "[", 
+               RowBox[{"\"\<primesVisited\>\"", ",", "primesVisited"}], "]"}],
+               ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"SetPropertyValue", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<primeIndicator\>\"", ",", "\"\<text\>\""}], "}"}], 
+             ",", 
+             RowBox[{"\"\<Number is \>\"", "<>", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"TrueQ", "[", "isPrime", "]"}], ",", "\"\<\>\"", ",", 
+                "\"\<not \>\""}], "]"}], "<>", "\"\<prime.\>\""}]}], "]"}], 
+           ";"}]}], "]"}]}], ";"}], "]"}]}], "\[IndentingNewLine]", "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input"]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, -9}, {Automatic, 59}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 7736, 168, 1172, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

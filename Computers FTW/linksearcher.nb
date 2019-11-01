@@ -1,0 +1,189 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7859,        179]
+NotebookOptionsPosition[      7435,        159]
+NotebookOutlinePosition[      7777,        174]
+CellTagsIndexPosition[      7734,        171]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Complement", "[", 
+  RowBox[{
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://imgur.com/gallery/ZNgmNku\>\"", ",", "\"\<Hyperlinks\>\""}], 
+    "]"}], ",", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://imgur.com/gallery/YVCJJ\>\"", ",", "\"\<Hyperlinks\>\""}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6190623649626856`*^9, 3.6190623985166855`*^9}, {
+  3.6190624817436857`*^9, 3.6190625176726856`*^9}, {3.619062549939686*^9, 
+  3.619062555180686*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"http://2020ok.com/\"\>", 
+   ",", "\<\"http://afghanistandl.nyu.edu/\"\>", 
+   ",", "\<\"http://art.quickfound.net/\"\>", 
+   ",", "\<\"http://biblior.net/volume.html\"\>", 
+   ",", "\<\"http://books.google.com/books?q=Poetry\"\>", 
+   ",", "\<\"http://bv2.gva.es/\"\>", 
+   ",", "\<\"http://cervantes.tamu.edu/V2/index.html\"\>", 
+   ",", "\<\"http://cf.hum.uva.nl/dsp/ljc/\"\>", 
+   ",", "\<\"http://chestofbooks.com/\"\>", 
+   ",", "\<\"http://classicbook.info/\"\>", 
+   ",", "\<\"http://clothing.quickfound.net/\"\>", 
+   ",", "\<\"http://digital.library.upenn.edu/women/\"\>", 
+   ",", "\<\"http://e-library.net/Religion.htm\"\>", 
+   ",", "\<\"http://emedicine.medscape.com/\"\>", 
+   ",", "\<\"http://en.childrenslibrary.org/\"\>", 
+   ",", "\<\"http://en.wikibooks.org/wiki/Main_Page\"\>", 
+   ",", "\<\"http://gutenberg.spiegel.de/\"\>", 
+   ",", "\<\"http://homepages.nyu.edu/~jmg336/html/mathematics.html\"\>", 
+   ",", "\<\"http://i.imgur.com/ZNgmNku.jpg\"\>", 
+   ",", "\<\"http://imgur.com/gallery/ZNgmNku?no-script=true\"\>", 
+   ",", "\<\"http://imgur.com/user/IWorkWithBooks\"\>", 
+   ",", "\<\"http://librivox.org/newcatalog/\"\>", 
+   ",", "\<\"http://literotica.com\"\>", ",", "\<\"http://manybooks.net/\"\>",
+    ",", "\<\"http://meta.montclair.edu/library/\"\>", 
+   ",", "\<\"http://ocw.mit.edu/OcwWeb/web/resources/supplemental/index.htm\"\
+\>", ",", "\<\"http://onlinebooks.library.upenn.edu/banned-books.html\"\>", 
+   ",", "\<\"http://onlinebooks.library.upenn.edu/prize.html\"\>", 
+   ",", "\<\"http://onlinebooks.library.upenn.edu/search.html\"\>", 
+   ",", "\<\"http://proplay.ws/\"\>", ",", "\<\"http://runeberg.org/\"\>", 
+   ",", "\<\"http://shakespeare.mit.edu/\"\>", 
+   ",", "\<\"http://spot.colorado.edu/~dubin/bookmarks/b/1240.html\"\>", 
+   ",", "\<\"http://textbookrevolution.org/index.php/Main_Page\"\>", 
+   ",", "\<\"http://un2sg4.unige.ch/athena/html/francaut.html\"\>", 
+   ",", "\<\"http://vl-theatre.com/list4.shtml\"\>", 
+   ",", "\<\"http://worldebooklibrary.com/\"\>", 
+   ",", "\<\"http://www.accessgenealogy.com/library/\"\>", 
+   ",", "\<\"http://www.baen.com/library/\"\>", 
+   ",", "\<\"http://www.bartleby.com/fiction/\"\>", 
+   ",", "\<\"http://www.bibliomania.com/\"\>", 
+   ",", "\<\"http://www.books-on-line.com/bol/default.cfm\"\>", 
+   ",", "\<\"http://www.books-on-line.com/bol/TopTen.cfm?DCode=9\"\>", 
+   ",", "\<\"http://www.books-on-line.com/bol/TopTen.cfm?DCode=M\"\>", 
+   ",", "\<\"http://www.bored.com/ebooks/\"\>", 
+   ",", "\<\"http://www.businessbookmall.com/\"\>", 
+   ",", "\<\"http://www.bygosh.com/\"\>", 
+   ",", "\<\"http://www.cervantesvirtual.com/\"\>", 
+   ",", "\<\"http://www.classicbookshelf.com/\"\>", 
+   ",", "\<\"http://www.classic-literature.co.uk/\"\>", 
+   ",", "\<\"http://www.classicreader.com/\"\>", 
+   ",", "\<\"http://www.completeclassics.com/\"\>", 
+   ",", "\<\"http://www.dailylit.com/\"\>", 
+   ",", "\<\"http://www.dlshq.org/download/download.htm\"\>", 
+   ",", "\<\"http://www.famousliteraryworks.com/\"\>", 
+   ",", "\<\"http://www.fiction.us/\"\>", 
+   ",", "\<\"http://www.fiction.us/plays.htm\"\>", 
+   ",", "\<\"http://www.fiction.us/poems.htm\"\>", 
+   ",", "\<\"http://www.flatworldknowledge.com/\"\>", 
+   ",", "\<\"http://www.forumromanum.org/literature/index.html\"\>", 
+   ",", "\<\"http://www.foxglove.co.uk/free_online_novels.html\"\>", 
+   ",", "\<\"http://www.free-ebooks.net/\"\>", 
+   ",", "\<\"http://www.free-online-novels.com/\"\>", 
+   ",", "\<\"http://www.freescience.info/index.php\"\>", 
+   ",", "\<\"http://www.freetechbooks.com/\"\>", 
+   ",", "\<\"http://www.fullbooks.com/\"\>", 
+   ",", "\<\"http://www.getfreeebooks.com/\"\>", 
+   ",", "\<\"http://www.gutenberg.org\"\>", 
+   ",", "\<\"http://www.hourwolf.com/sfbooks/\"\>", 
+   ",", "\<\"http://www.ibdof.com/\"\>", 
+   ",", "\<\"http://www.ideology.us/\"\>", 
+   ",", "\<\"http://www.johntcullen.com/\"\>", 
+   ",", "\<\"http://www.ketabfarsi.org/\"\>", 
+   ",", "\<\"http://www.knowthis.com/topic-areas/media-and-publications/free-\
+online-textbooks.htm\"\>", 
+   ",", "\<\"http://www.liberliber.it/online/opere/libri/\"\>", 
+   ",", "\<\"http://www.lib.uchicago.edu/efts/IWW/\"\>", 
+   ",", "\<\"http://www.lightandmatter.com/\"\>", 
+   ",", "\<\"http://www.literature.org/\"\>", 
+   ",", "\<\"http://www.lookybook.com/\"\>", 
+   ",", "\<\"http://www.math.gatech.edu/~cain/textbooks/onlinebooks.html\"\>",
+    ",", "\<\"http://www.munseys.com/site/home\"\>", 
+   ",", "\<\"http://www.mysterynet.com/short-mystery-stories/\"\>", 
+   ",", "\<\"http://www.ne.jp/asahi/moriyuki/abukuma/weber/society/socio_\
+relig/socio_relig_frame.html\"\>", 
+   ",", "\<\"http://www.onlinebooks4free.com/menu/history_usgeneral.html\"\>",
+    ",", "\<\"http://www.onlinebooks4free.com/menu/music.html\"\>", 
+   ",", "\<\"http://www.online-literature.com/\"\>", 
+   ",", "\<\"http://www.onlineprogrammingbooks.com/\"\>", 
+   ",", "\<\"http://www.pagebypagebooks.com/\"\>", 
+   ",", "\<\"http://www.perseus.tufts.edu/hopper/\"\>", 
+   ",", "\<\"http://www.pinkpoem.com/\"\>", 
+   ",", "\<\"http://www.planetebook.com/\"\>", 
+   ",", "\<\"http://www.poemhunter.com/\"\>", 
+   ",", "\<\"http://www.publicbookshelf.com/\"\>", 
+   ",", "\<\"http://www.questia.com/library/free-books\"\>", 
+   ",", "\<\"http://www.quotesandpoem.com/poems/poets\"\>", 
+   ",", "\<\"http://www.readbookonline.net/\"\>", 
+   ",", "\<\"http://www.readprint.com/\"\>", 
+   ",", "\<\"http://www.roadtoromance.ca/freestories.htm\"\>", 
+   ",", "\<\"http://www.sarantakos.com/keimena.html\"\>", 
+   ",", "\<\"http://www.starry.com/novel/authors.htm\"\>", 
+   ",", "\<\"http://www.starry.com/novel/free-online-novels/\
+freenoveldirectory.htm\"\>", 
+   ",", "\<\"http://www.techbooksforfree.com/science.shtml\"\>", 
+   ",", "\<\"http://www.topmystery.com/online_books.htm\"\>", 
+   ",", "\<\"http://www.ucc.ie/celt/\"\>", 
+   ",", "\<\"http://www.welovelmc.com/books.htm\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6190623969556856`*^9, 3.619062404695686*^9}, {
+  3.619062505161686*^9, 3.619062520739686*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.619062558291686*^9, 3.619062561933686*^9}}],
+
+Cell[BoxData["105"], "Output",
+ CellChangeTimes->{3.619062562504686*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 506, 13, 52, "Input"],
+Cell[1088, 37, 6094, 109, 1444, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7219, 151, 125, 2, 31, "Input"],
+Cell[7347, 155, 72, 1, 63, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,787 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     33275,        778]
+NotebookOptionsPosition[     32374,        748]
+NotebookOutlinePosition[     32716,        763]
+CellTagsIndexPosition[     32673,        760]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"check", "[", "url_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", "=", 
+       RowBox[{"Import", "[", 
+        RowBox[{"url", ",", "\"\<Hyperlinks\>\""}], "]"}]}], "}"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ToString", "[", "a", "]"}], "\[NotEqual]", 
+        "\"\<$Failed\>\""}], ",", 
+       RowBox[{"Return", "[", "a", "]"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", "}"}], "]"}]}], "]"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"linkSearcher", "[", 
+    RowBox[{"seedUrl_", ",", "depth_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"DeleteDuplicates", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Rest", "[", 
+      RowBox[{"NestList", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Union", "[", "\[IndentingNewLine]", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Thread", "[", 
+              RowBox[{"#", "\[Rule]", " ", 
+               RowBox[{"Flatten", "[", 
+                RowBox[{"StringCases", "[", 
+                 RowBox[{
+                  RowBox[{"check", "[", "#", "]"}], ",", 
+                  RowBox[{
+                  "RegularExpression", "[", 
+                   "\"\<^(?=.*?\\\\b)((?!\\\\.(jpg|pdf|ps|gz|gif|txt|rss|csv|\
+php)).)*$\>\"", "]"}]}], "]"}], "]"}]}], "]"}], "&"}], "/@", 
+            RowBox[{"Last", "/@", "#"}]}], "]"}], "]"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<\>\"", "\[Rule]", "seedUrl"}], "}"}], ",", "depth"}], 
+       "]"}], "]"}], "]"}], "]"}]}], ";"}]}], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pageRelevance", "[", 
+   RowBox[{"url_", ",", "sList_"}], "]"}], ":=", 
+  RowBox[{"Import", "[", 
+   RowBox[{"url", ",", "\"\<Text\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6250505025041685`*^9, 3.625050616854709*^9}, {
+  3.62505069222002*^9, 3.6250506930010643`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"existsQ", "[", 
+   RowBox[{"list_", ",", "term_"}], "]"}], ":=", 
+  RowBox[{"!", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"list", ",", 
+       RowBox[{
+        RowBox[{"MatchQ", "[", 
+         RowBox[{"#", ",", "term"}], "]"}], "&"}]}], "]"}], "\[Equal]", 
+     RowBox[{"{", "}"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"exclude", "=", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{
+    "\"\<the,of,to,and,a,in,is,it,you,that,he,was,for,on,are,with,as,I,his,\
+they,be,at,one,have,this\>\"", ",", "\"\<,\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"symbolEx", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<.\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<,\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<)\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<(\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<\\\"\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<!\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+     RowBox[{"\"\<?\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"freq", "[", 
+   RowBox[{"data_", ",", "exclude_", ",", "symbolEx_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"q", "=", 
+       RowBox[{"Select", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringTrim", "[", "#", "]"}], "&"}], "/@", 
+          RowBox[{"StringSplit", "[", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{
+             RowBox[{"ToLowerCase", "[", "data", "]"}], ",", "symbolEx"}], 
+            "]"}], "]"}]}], ",", 
+         RowBox[{
+          RowBox[{"!", 
+           RowBox[{"existsQ", "[", 
+            RowBox[{"exclude", ",", "#"}], "]"}]}], "&"}]}], "]"}]}], ",", 
+      RowBox[{"p", "=", 
+       RowBox[{"{", "}"}]}]}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"p", "=", 
+      RowBox[{"Reverse", "[", 
+       RowBox[{"SortBy", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", 
+             FractionBox[
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], 
+              RowBox[{"Length", "[", "q", "]"}]]}], "}"}], "&"}], "/@", 
+          RowBox[{"Tally", "[", "q", "]"}]}], ",", "Last"}], "]"}], "]"}]}], 
+     ";", 
+     RowBox[{"Return", "[", "p", "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"q", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringTrim", "[", "#", "]"}], "&"}], "/@", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"StringReplace", "[", 
+        RowBox[{
+         RowBox[{"ToLowerCase", "[", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{
+            RowBox[{"ExampleData", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Text\>\"", ",", "\"\<AliceInWonderland\>\""}], 
+              "}"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<.\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<,\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<)\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<(\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<\\\"\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<!\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<?\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], "]"}], 
+       "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"existsQ", "[", 
+        RowBox[{"exclude", ",", "#"}], "]"}]}], "&"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p", "=", 
+   RowBox[{"Reverse", "[", 
+    RowBox[{"SortBy", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", 
+          FractionBox[
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], 
+           RowBox[{"Length", "[", "q", "]"}]]}], "}"}], "&"}], "/@", 
+       RowBox[{"Tally", "[", "q", "]"}]}], ",", "Last"}], "]"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.625050768398377*^9, 3.6250508630117884`*^9}, {
+  3.6250508970977383`*^9, 3.625050934941903*^9}, {3.625050993077228*^9, 
+  3.6250509980865145`*^9}, {3.6250510848244753`*^9, 3.625051160519805*^9}, {
+  3.6250511929646606`*^9, 3.6250512025482087`*^9}, {3.625517047669593*^9, 
+  3.6255170909136305`*^9}, {3.6255178157408667`*^9, 3.6255178168162966`*^9}, {
+  3.6255270662288327`*^9, 3.625527113608833*^9}, {3.625527307089833*^9, 
+  3.625527327674833*^9}, {3.6255274502578325`*^9, 3.625527468683833*^9}, {
+  3.625527566586833*^9, 3.625527605242833*^9}, {3.625527729013833*^9, 
+  3.6255278118568325`*^9}, {3.6255279039468327`*^9, 3.6255279366946993`*^9}, {
+  3.625528023131342*^9, 3.6255280242564545`*^9}, {3.625528072045233*^9, 
+  3.625528073043333*^9}, {3.6255284389919243`*^9, 3.6255285813011537`*^9}, {
+  3.6255286249145145`*^9, 3.6255286994529676`*^9}, {3.6255287682698483`*^9, 
+  3.625528788038825*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"freq", "[", 
+  RowBox[{
+   RowBox[{"StringTake", "[", 
+    RowBox[{
+     RowBox[{"ExampleData", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Text\>\"", ",", "\"\<AliceInWonderland\>\""}], "}"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], ",", "exclude", ",", 
+   "symbolEx"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6255287018452067`*^9, 3.625528737270749*^9}, {
+  3.625528773326354*^9, 3.6255287983388553`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringTake", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(1101\\)\[NoBreak] in \
+\\\"\[NoBreak]\\!\\(\\\"the\\\"\\)\[NoBreak]\\\". \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StringTake\\\", ButtonNote -> \\\"StringTake::take\
+\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255287997599974`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringTake", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(1101\\)\[NoBreak] in \
+\\\"\[NoBreak]\\!\\(\\\"of\\\"\\)\[NoBreak]\\\". \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StringTake\\\", ButtonNote -> \\\"StringTake::take\
+\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255287998320045`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringTake", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(1101\\)\[NoBreak] in \
+\\\"\[NoBreak]\\!\\(\\\"to\\\"\\)\[NoBreak]\\\". \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StringTake\\\", ButtonNote -> \\\"StringTake::take\
+\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255287999110126`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(StringTake :: take\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255287999410152`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringReplace", "::", "strse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String or list of strings expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \[NoBreak]\\!\\(StringReplace[\\(\\(\\(\\({\
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \\(\\({1, 1101}\\)\\)\\)\
+\\)]\\)\\)]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 19 \
+\[RightSkeleton]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"one\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \\(\\({\\(\[LeftSkeleton] 1 \
+\[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/strse\\\", ButtonNote -> \
+\\\"StringReplace::strse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.62552879999302*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringSplit", "::", "strse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String or list of strings expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \
+\[NoBreak]\\!\\(StringSplit[\\(\\(StringReplace[\\(\\(\\(\\({\\(\\(\
+ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \\(\\({1, 1101}\\)\\)\\)\
+\\)]\\)\\)]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 20 \
+\[RightSkeleton]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \\(\\({\\(\\(\\\".\\\" \[Rule] \\\" \
+\\\"\\)\\), \\(\\(\\\",\\\" \[Rule] \\\" \\\"\\)\\), \\(\\(\[LeftSkeleton] 4 \
+\[RightSkeleton]\\)\\), \\(\\(\\\"!\\\" \[Rule] \\\" \\\"\\)\\), \
+\\(\\(\\\"?\\\" \[Rule] \\\" \\\"\\)\\)}\\)\\)\\)\\)]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/strse\\\", \
+ButtonNote -> \\\"StringSplit::strse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.625528800045026*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringSplit", "::", "strse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String or list of strings expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \
+\[NoBreak]\\!\\(StringSplit[\\(\\(StringTrim[\\(\\(StringReplace[\\(\\(\\(\\({\
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \\(\\({1, 1101}\\)\\)\\)\
+\\)]\\)\\)]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 20 \
+\[RightSkeleton]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \\(\\({\\(\\(\\\".\\\" \[Rule] \\\" \
+\\\"\\)\\), \\(\\(\[LeftSkeleton] 6 \[RightSkeleton]\\)\\), \\(\\(\\\"?\\\" \
+\[Rule] \\\" \\\"\\)\\)}\\)\\)\\)\\)]\\)\\)]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/strse\\\", \
+ButtonNote -> \\\"StringSplit::strse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.625528800098031*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringSplit", "::", "strse"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String or list of strings expected at position \
+\[NoBreak]\\!\\(1\\)\[NoBreak] in \
+\[NoBreak]\\!\\(StringSplit[\\(\\(StringTrim[\\(\\(StringReplace[\\(\\(\\(\\({\
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \\(\\({1, 1101}\\)\\)\\)\
+\\)]\\)\\)]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 20 \
+\[RightSkeleton]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \\(\\({\\(\\(\\\".\\\" \[Rule] \\\" \
+\\\"\\)\\), \\(\\(\[LeftSkeleton] 6 \[RightSkeleton]\\)\\), \\(\\(\\\"?\\\" \
+\[Rule] \\\" \\\"\\)\\)}\\)\\)\\)\\)]\\)\\)]\\)\\)]\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/strse\\\", \
+ButtonNote -> \\\"StringSplit::strse\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255288001510363`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(StringSplit :: strse\\), \
+\\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255288001820393`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Tally", "::", "list"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"List expected at position \[NoBreak]\\!\\(1\\)\[NoBreak] \
+in \[NoBreak]\\!\\(Tally[\\(\\(StringSplit[\\(\\(StringTrim[\\(\\(\
+StringReplace[\\(\\(\\(\\({\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\
+\", \\(\\({\\(\[LeftSkeleton] 2 \
+\[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \
+\\(\\({\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({\\(\[LeftSkeleton] 2 \[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(\[LeftSkeleton] 20 \[RightSkeleton]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({\\(\
+\[LeftSkeleton] 2 \[RightSkeleton]\\)}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \
+\\(\\({\\(\\(\\\".\\\" \[Rule] \\\" \\\"\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\(\\\"?\\\" \[Rule] \\\" \\\"\\)\\)}\\)\\)\\)\\)]\
+\\)\\)]\\)\\)]\\)\\)]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\
+\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/list\\\", ButtonNote -> \
+\\\"Tally::list\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.625528800232044*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \
+\[NoBreak]\\!\\(StringSplit[\\(\\(StringTrim[\\(\\(StringReplace[\\(\\(\\(\\({\
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"the\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"of\\\", \\(\\({1, 1101}\\)\\)\\)\
+\\)]\\)\\)]\\)\\), \\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"to\\\", \
+\\(\\({1, 1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \\(\\(\[LeftSkeleton] 20 \
+\[RightSkeleton]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"have\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\), \
+\\(\\(ToLowerCase[\\(\\(StringTake[\\(\\(\\\"this\\\", \\(\\({1, \
+1101}\\)\\)\\)\\)]\\)\\)]\\)\\)}\\)\\), \\(\\({\\(\\(\\\".\\\" \[Rule] \\\" \
+\\\"\\)\\), \\(\\(\[LeftSkeleton] 6 \[RightSkeleton]\\)\\), \\(\\(\\\"?\\\" \
+\[Rule] \\\" \\\"\\)\\)}\\)\\)\\)\\)]\\)\\)]\\)\\)]\\)\[NoBreak] does not \
+exist. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6255287382258444`*^9, 3.6255288002870502`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"StringTrim", "[", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"the\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"of\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"to\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"and\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"a\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"in\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"is\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"it\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"you\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"that\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"he\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"was\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"for\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"on\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"are\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"with\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"as\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"I\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"his\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"they\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"be\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"at\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"one\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"have\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"StringTake", "[", 
+            RowBox[{"\<\"this\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\<\".\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\",\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\"-\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\")\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\"(\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\"\\\"\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\"!\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+          RowBox[{"\<\"?\"\>", "\[Rule]", "\<\" \"\>"}]}], "}"}]}], "]"}], 
+      "]"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"StringTrim", "[", 
+        RowBox[{"StringReplace", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"the\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"of\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"to\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"and\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"a\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"in\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"is\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"it\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"you\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"that\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"he\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"was\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"for\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"on\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"are\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"with\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"as\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"I\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"his\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"they\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"be\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"at\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"one\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"have\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}], ",", 
+            RowBox[{"ToLowerCase", "[", 
+             RowBox[{"StringTake", "[", 
+              RowBox[{"\<\"this\"\>", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "1101"}], "}"}]}], "]"}], "]"}]}], "}"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\<\".\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\",\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\"-\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\")\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\"(\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\"\\\"\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\"!\"\>", "\[Rule]", "\<\" \"\>"}], ",", 
+            RowBox[{"\<\"?\"\>", "\[Rule]", "\<\" \"\>"}]}], "}"}]}], "]"}], 
+        "]"}], "]"}], "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+     ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6255287388179035`*^9, 3.6255288002900505`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1717, 46, 212, "Input"],
+Cell[2277, 68, 310, 7, 31, "Input"],
+Cell[2590, 77, 5501, 139, 515, "Input"],
+Cell[CellGroupData[{
+Cell[8116, 220, 483, 13, 52, "Input"],
+Cell[8602, 235, 553, 11, 21, "Message"],
+Cell[9158, 248, 552, 11, 21, "Message"],
+Cell[9713, 261, 552, 11, 21, "Message"],
+Cell[10268, 274, 559, 11, 21, "Message"],
+Cell[10830, 287, 1281, 22, 90, "Message"],
+Cell[12114, 311, 1380, 24, 73, "Message"],
+Cell[13497, 337, 1320, 23, 73, "Message"],
+Cell[14820, 362, 1322, 23, 73, "Message"],
+Cell[16145, 387, 561, 11, 21, "Message"],
+Cell[16709, 400, 1472, 25, 73, "Message"],
+Cell[18184, 427, 1281, 23, 90, "Message"],
+Cell[19468, 452, 12890, 293, 888, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

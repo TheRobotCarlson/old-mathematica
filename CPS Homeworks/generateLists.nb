@@ -1,0 +1,278 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9446,        269]
+NotebookOptionsPosition[      8325,        226]
+NotebookOutlinePosition[      8992,        252]
+CellTagsIndexPosition[      8868,        246]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"check", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"Return", "[", 
+     RowBox[{
+      RowBox[{"x", "+", "y"}], " ", "\[Equal]", " ", 
+      RowBox[{"FromDigits", "[", 
+       RowBox[{"Reverse", "[", 
+        RowBox[{"IntegerDigits", "[", 
+         RowBox[{"x", "*", "y"}], "]"}], "]"}], "]"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.600794542046747*^9, 3.600794599799356*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"generateLists", "[", 
+   RowBox[{"begin_", ",", "end_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"lst", "=", 
+      RowBox[{"{", "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", " ", "=", " ", "begin"}], ",", " ", 
+       RowBox[{"i", " ", "\[LessEqual]", " ", "end"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"j", " ", "=", " ", "begin"}], ",", " ", 
+         RowBox[{"j", "\[LessEqual]", " ", "end"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"check", "[", 
+            RowBox[{"i", ",", "j"}], "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"lst", ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "j"}], "}"}]}], "]"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"j", "++"}]}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"i", "++"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sort", "[", "#", "]"}], "&"}], "/@", "lst"}], "]"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"DeleteDuplicates", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Sort", "[", "#", "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2"}], "}"}]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6007946270590816`*^9, 3.600794656591035*^9}, {
+  3.60079471104548*^9, 3.6007948841457877`*^9}, {3.6007949230396767`*^9, 
+  3.6007950194263144`*^9}, {3.6007953107554445`*^9, 3.600795318678237*^9}, {
+  3.6008020810058537`*^9, 3.600802099391015*^9}, {3.6008023713582773`*^9, 
+  3.6008024603352776`*^9}, {3.600802514034277*^9, 3.600802558689277*^9}, {
+  3.600802863919277*^9, 3.600802956180277*^9}, {3.600803007146912*^9, 
+  3.600803032952492*^9}, {3.600803158604056*^9, 3.6008031649566913`*^9}, {
+  3.600844615516032*^9, 3.6008447186680326`*^9}, {3.6008448544151735`*^9, 
+  3.6008448773518796`*^9}, {3.6008449108645277`*^9, 3.6008449275598583`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6008447110980325`*^9, 3.6008447228490324`*^9}, 
+   3.6008448798646283`*^9, 3.600844928634751*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DeleteDuplicates"}]], "Input",
+ CellChangeTimes->{{3.6008447446370325`*^9, 3.6008447476640325`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"DeleteDuplicates\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) deletes all duplicates \
+from \\!\\(\\*StyleBox[\\\"list\\\", \
+\\\"TI\\\"]\\).\\n\\!\\(\\*RowBox[{\\\"DeleteDuplicates\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"list\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"test\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) applies \\!\\(\\*StyleBox[\\\"test\\\", \
+\\\"TI\\\"]\\) to pairs of elements to determine whether they should be \
+considered duplicates. \"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/DeleteDuplicates"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6008447483410325`*^9},
+ CellTags->"Info3600823148-7803110"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"generateLists", "[", 
+  RowBox[{"0", ",", "1500"}], "]"}]], "Input",
+ CellChangeTimes->{{3.600795000210393*^9, 3.600795008191191*^9}, {
+  3.600803042993496*^9, 3.600803070302227*^9}, {3.6008031757437696`*^9, 
+  3.6008031784640417`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "47"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "497"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "24"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "26"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "386"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "455"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "9"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"11", ",", "110"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"15", ",", "228"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"15", ",", "624"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"21", ",", "600"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23", ",", "170"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"35", ",", "212"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"51", ",", "300"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"86", ",", "800"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"99", ",", "990"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.600795010419414*^9, 3.6007950256279345`*^9}, 
+   3.6008020712828264`*^9, 3.6008021088650675`*^9, 3.6008022866392775`*^9, 
+   3.600802351447277*^9, 3.600802391111277*^9, 3.6008024729932775`*^9, {
+   3.6008025412342772`*^9, 3.600802563459277*^9}, 3.600802899663277*^9, 
+   3.600802939166277*^9, 3.6008029759512773`*^9, {3.6008030370289*^9, 
+   3.6008030511333103`*^9}, {3.600803172612457*^9, 3.60080319594779*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FindInstance"}]], "Input",
+ CellChangeTimes->{{3.6008784621596937`*^9, 3.600878465406667*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"FindInstance\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"vars\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) finds an instance of \\!\\(\\*StyleBox[\\\"vars\
+\\\", \\\"TI\\\"]\\) that makes the statement \\!\\(\\*StyleBox[\\\"expr\\\", \
+\\\"TI\\\"]\\) be True. \\n\\!\\(\\*RowBox[{\\\"FindInstance\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"vars\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"dom\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) \
+finds an instance over the domain \\!\\(\\*StyleBox[\\\"dom\\\", \
+\\\"TI\\\"]\\). Common choices of \\!\\(\\*StyleBox[\\\"dom\\\", \
+\\\"TI\\\"]\\) are Complexes, Reals, Integers, and Booleans. \
+\\n\\!\\(\\*RowBox[{\\\"FindInstance\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"vars\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"dom\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"n\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) finds \
+\\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\) instances. \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/FindInstance"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6008784663659554`*^9},
+ CellTags->"Info3600856866-6539493"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6008033021614103`*^9, 3.6008033086070547`*^9}}]
+},
+WindowSize->{707, 505},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3600823148-7803110"->{
+  Cell[4036, 117, 817, 16, 81, "Print",
+   CellTags->"Info3600823148-7803110"]},
+ "Info3600856866-6539493"->{
+  Cell[6843, 196, 1367, 24, 100, "Print",
+   CellTags->"Info3600856866-6539493"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3600823148-7803110", 8652, 237},
+ {"Info3600856866-6539493", 8762, 240}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 516, 15, 52, "Input"],
+Cell[CellGroupData[{
+Cell[1098, 39, 2475, 59, 212, "Input"],
+Cell[3576, 100, 291, 8, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3904, 113, 129, 2, 31, "Input"],
+Cell[4036, 117, 817, 16, 81, "Print",
+ CellTags->"Info3600823148-7803110"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4890, 138, 260, 5, 31, "Input"],
+Cell[5153, 145, 1527, 42, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6717, 192, 123, 2, 31, "Input"],
+Cell[6843, 196, 1367, 24, 100, "Print",
+ CellTags->"Info3600856866-6539493"]
+}, Open  ]],
+Cell[8225, 223, 96, 1, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

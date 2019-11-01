@@ -1,0 +1,255 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9059,        245]
+NotebookOptionsPosition[      8631,        225]
+NotebookOutlinePosition[      8974,        240]
+CellTagsIndexPosition[      8931,        237]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"openBook", "=", 
+   RowBox[{"CreateDocument", "[", 
+    InterpretationBox[Cell[BoxData[
+      RowBox[{
+       RowBox[{"openBook", "=", 
+        RowBox[{"CreateDocument", "[", 
+         InterpretationBox[Cell[BoxData[
+           RowBox[{
+            RowBox[{"nb", "=", 
+             RowBox[{
+             "NotebookOpen", "[", 
+              "\"\<C:\\\\Users\\\\WKUUSER\\\\Desktop\\\\Evolve \
+Algorithm\\\\savetest.nb\>\"", "]"}]}], ";"}]], "Input"],
+          ExpressionCell[
+           
+           Defer[$CellContext`nb = 
+             NotebookOpen[
+              "C:\\Users\\WKUUSER\\Desktop\\Evolve Algorithm\\savetest.nb"]; 
+            Null], "Input"]], "]"}]}], ";", 
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{"openBook", ",", "Next", ",", "Cell", ",", "1"}], "]"}], ";", 
+       RowBox[{"SelectionEvaluate", "[", "openBook", "]"}], ";"}]], "Input"],
+     ExpressionCell[
+      Defer[$CellContext`openBook = CreateDocument[
+          ExpressionCell[
+           
+           Defer[$CellContext`nb = 
+             NotebookOpen[
+              "C:\\Users\\WKUUSER\\Desktop\\Evolve Algorithm\\savetest.nb"]; 
+            Null], "Input"]]; 
+       SelectionMove[$CellContext`openBook, Next, Cell, 1]; 
+       SelectionEvaluate[$CellContext`openBook]; Null], "Input"]], "]"}]}], 
+  ";", 
+  RowBox[{
+   RowBox[{"SelectionMove", "[", 
+    RowBox[{"openBook", ",", "Next", ",", "Cell", ",", "1"}], "]"}], " ", 
+   RowBox[{"SelectionEvaluate", "[", "openBook", "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ SuperscriptBox["Null", "2"]], "Output",
+ CellChangeTimes->{3.604058095491764*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"cobweb", "[", 
+    RowBox[{"f_", ",", "x0_", ",", "range_", ",", "nmax_", ",", 
+     RowBox[{"ndrop_:", " ", "0"}], ",", "opts___Rule"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2", ",", "p1ot3"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"f", "[", "x", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"range", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"range", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", "opts", ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<\\!\\(\\*SubscriptBox[\\(x\\), \\(i\\)]\\)\>\"", ",", 
+            "\"\<\\!\\(\\*SubscriptBox[\\(x\\), \\(i + 1\\)]\\)\>\""}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<Cobweb Plot for: \>\"", ",", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"f", "[", "x", "]"}], ",", "TraditionalForm"}], "]"}]}],
+            "]"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Line", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"#", ",", "#"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"#", ",", 
+                RowBox[{"f", "[", "#", "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"f", "[", "#", "]"}], ",", 
+                RowBox[{"f", "[", "#", "]"}]}], "}"}]}], "}"}], "]"}], "&"}], 
+          ",", 
+          RowBox[{"Drop", "[", 
+           RowBox[{
+            RowBox[{"NestList", "[", 
+             RowBox[{"f", ",", "x0", ",", "nmax"}], "]"}], ",", "ndrop"}], 
+           "]"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"p1ot3", "=", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"x0", ",", "x0"}], "}"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"PointSize", "[", "0.03", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"ndrop", "\[Equal]", "0"}], ",", 
+        RowBox[{"Return", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"{", 
+           RowBox[{"plot1", ",", "plot2", ",", "p1ot3"}], "}"}], "]"}], "]"}],
+         ",", 
+        RowBox[{"Return", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"{", 
+           RowBox[{"plot1", ",", "plot2"}], "}"}], "]"}], "]"}]}], "]"}]}]}], 
+    "]"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mapCobweb", "[", 
+    RowBox[{"f", ",", "\[Mu]_", ",", "x0_", ",", "range_", ",", "nmax_", ",", 
+     RowBox[{"ndrop_:", " ", "0"}], ",", "opts___Rule"}], "]"}], ":=", 
+   RowBox[{"cobweb", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "^", "3"}], "-", 
+       RowBox[{"3", " ", "\[Mu]"}]}], "&"}], ",", "x0", ",", "range", ",", 
+     "nmax", ",", "ndrop", ",", "opts"}], "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"mapCobweb", "[", 
+    RowBox[{"0.5", ",", 
+     RowBox[{"-", "0.6"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", "\[Beta]", ",", "0", ",", 
+     RowBox[{"ImageSize", "\[Rule]", "800"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Beta]", ",", "1", ",", "400", ",", "1"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6040583294331727`*^9, 3.604058329464176*^9}, {
+   3.6040583901452436`*^9, 3.604058443366565*^9}, {3.6040584755447826`*^9, 
+   3.6040584921144395`*^9}, {3.604065995026412*^9, 3.604066049210573*^9}, {
+   3.6040660863691397`*^9, 3.604066123192774*^9}, {3.604066448735586*^9, 
+   3.604066455284586*^9}, {3.6040665086185865`*^9, 3.604066595096586*^9}, {
+   3.6040666262105865`*^9, 3.6040666280695863`*^9}, 3.6040666636135864`*^9, {
+   3.604354437311905*^9, 3.6043544376913595`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Beta]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Beta]$$], 1, 400, 1}}, Typeset`size$$ = {
+    800., {261., 265.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Beta]$507385$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Beta]$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$507385$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`mapCobweb[
+       0.5, -0.6, {-2, 2}, $CellContext`\[Beta]$$, 0, ImageSize -> 800], 
+      "Specifications" :> {{$CellContext`\[Beta]$$, 1, 400, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{851., {307., 312.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.6040583376539946`*^9, 3.6040583921994486`*^9, {3.6040584447046986`*^9, 
+   3.604058492647493*^9}, {3.604065996480121*^9, 3.6040660496704807`*^9}, {
+   3.604066087681877*^9, 3.604066123547703*^9}, {3.604066512131586*^9, 
+   3.604066595808586*^9}, 3.604066628800586*^9, 3.604066664192586*^9, {
+   3.6043544104487076`*^9, 3.604354466913384*^9}}]
+}, Open  ]]
+},
+WindowSize->{1358, 641},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 1521, 38, 132, "Input"],
+Cell[2103, 62, 96, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2236, 69, 4436, 113, 252, "Input"],
+Cell[6675, 184, 1940, 38, 668, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

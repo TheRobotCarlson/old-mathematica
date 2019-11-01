@@ -1,0 +1,1943 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     83913,       1934]
+NotebookOptionsPosition[     83551,       1917]
+NotebookOutlinePosition[     83894,       1932]
+CellTagsIndexPosition[     83851,       1929]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Helper", " ", "functions", " ", "for", " ", "retrieving", " ", "pieces", 
+    " ", "of", " ", "data", " ", "from", " ", "the", " ", "mess", " ", "put", 
+    " ", "into", " ", "them"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"notebookLocation", "=", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"select", "[", 
+     RowBox[{"list_", ",", "item_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"list", ",", 
+          RowBox[{
+           RowBox[{"MatchQ", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}], 
+        "\[Equal]", 
+        RowBox[{"{", "}"}]}], ")"}], ",", 
+      RowBox[{"item", "\[Rule]", " ", 
+       RowBox[{"{", "\"\<Not Listed\>\"", "}"}]}], ",", 
+      RowBox[{"Select", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{
+         RowBox[{"MatchQ", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"stringForm", "[", "object_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ListQ", "[", "object", "]"}], ",", 
+      RowBox[{"object", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "object"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"existsQ", "[", 
+     RowBox[{"list_", ",", "term_"}], "]"}], ":=", 
+    RowBox[{"!", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Select", "[", 
+        RowBox[{"list", ",", 
+         RowBox[{
+          RowBox[{"MatchQ", "[", 
+           RowBox[{"#", ",", "term"}], "]"}], "&"}]}], "]"}], "\[Equal]", 
+       RowBox[{"{", "}"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"connect", "[", "lists_", "]"}], ":=", " ", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"lists", "[", 
+       RowBox[{"[", 
+        RowBox[{"j", ",", "i"}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"lists", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"Length", "[", "lists", "]"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"type", "[", "list_", "]"}], ":=", 
+    RowBox[{"\"\<Type\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Type\>\""}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"statusQ", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"type", "[", "list", "]"}], "\[Equal]", "\"\<status\>\""}], 
+      ")"}], "&&", 
+     RowBox[{"existsQ", "[", 
+      RowBox[{"list", ",", 
+       RowBox[{"\"\<Actions\>\"", "\[Rule]", "_"}]}], "]"}], "&&", 
+     RowBox[{"!", 
+      RowBox[{"existsQ", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{"\"\<Story\>\"", "\[Rule]", "_"}]}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"socialMediaQ", "[", 
+     RowBox[{"data_", ",", "term_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"data", ",", 
+       RowBox[{
+        RowBox[{"MatchQ", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"term", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}], 
+     "\[NotEqual]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Facebook\>\"", ",", "\"\<GooglePlus\>\"", ",", "\"\<Instagram\>\"",
+        ",", "\"\<LinkedIn\>\"", ",", "\"\<Twitter\>\""}], "}"}]}]}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"profileQ", "[", "id_", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{"SocialMediaData", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<Facebook\>\"", ",", "id"}], "}"}], ",", 
+           "\"\<UserData\>\""}], "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "]"}], "\[NotEqual]", "  ", 
+       "\"\<UserData\>\""}], ",", 
+      RowBox[{
+       RowBox[{"getPosts", "[", "id", "]"}], "\[NotEqual]", " ", 
+       RowBox[{"{", "}"}]}], ",", "False"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"returnID", "[", "name_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Cases", "[", 
+      RowBox[{
+       RowBox[{"SocialMediaData", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Facebook\>\"", ",", "name"}], "}"}], ",", 
+         "\"\<UserData\>\""}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\"\<ID\>\"", "\[Rule]", "b_"}], ")"}], "\[Rule]", " ", 
+        "b"}]}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getGender", "[", "id_", "]"}], ":=", 
+    RowBox[{"stringForm", "[", 
+     RowBox[{"\"\<Gender\>\"", "/.", 
+      RowBox[{"select", "[", 
+       RowBox[{
+        RowBox[{"SocialMediaData", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<Facebook\>\"", ",", "id"}], "}"}], ",", 
+          "\"\<UserData\>\""}], "]"}], ",", "\"\<Gender\>\""}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findMessage", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{"\"\<Message\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Message\>\""}], "]"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentAuthors", "[", "post_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\"\<ID\>\"", "/.", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "&"}], ")"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<From\>\"", "/.", 
+         RowBox[{"(", 
+          RowBox[{"(", 
+           RowBox[{"\"\<Data\>\"", "/.", 
+            RowBox[{"stringForm", "[", 
+             RowBox[{"select", "[", 
+              RowBox[{
+               RowBox[{"\"\<Comments\>\"", "/.", 
+                RowBox[{"stringForm", "[", 
+                 RowBox[{"select", "[", 
+                  RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+               ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}], ")"}]}], ")"}]}],
+       ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentMessages", "[", "post_", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"findMessage", "[", "#", "]"}], "&"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<Data\>\"", "/.", 
+         RowBox[{"stringForm", "[", 
+          RowBox[{"select", "[", 
+           RowBox[{
+            RowBox[{"\"\<Comments\>\"", "/.", 
+             RowBox[{"stringForm", "[", 
+              RowBox[{"select", "[", 
+               RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+            ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}]}], ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"uniqueWords", "[", "list_", "]"}], ":=", 
+    RowBox[{"Union", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "&"}], "/@", "list"}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"getPosts", "[", "ID_", "]"}], ":=", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"SocialMediaData", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Facebook\>\"", ",", "ID"}], "}"}], ",", 
+         "\"\<Posts\>\""}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"statusQ", "[", "#", "]"}], "&&", 
+          RowBox[{"existsQ", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}]}], ")"}], 
+        "&"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sortForm", "[", "list_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"list", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "#"}], "}"}], "&"}], "/@", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"ToLowerCase", "[", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<,\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+          RowBox[{"\"\<.\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+          RowBox[{"\"\<\\\"\>\"", "\[Rule]", " ", "\"\< \>\""}]}], "}"}]}], 
+       "]"}], "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"commentForm", "[", 
+     RowBox[{"gender_", ",", "post_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"sortForm", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"getGender", "[", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "3", "]"}], "]"}]}], "}"}], "]"}], "&"}], "/@", 
+     RowBox[{"connect", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"findCommentAuthors", "[", "post", "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{"gender", ",", 
+          RowBox[{"{", 
+           RowBox[{"Length", "[", 
+            RowBox[{"findCommentAuthors", "[", "post", "]"}], "]"}], "}"}]}], 
+         "]"}], ",", 
+        RowBox[{"findCommentMessages", "[", "post", "]"}]}], "}"}], "]"}]}]}],
+    " ", 
+   RowBox[{"(*", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"countForm", "[", "list_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "->", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", 
+        RowBox[{"Count", "[", 
+         RowBox[{"list", ",", "#"}], "]"}]}], "}"}], "&"}], "/@", 
+     RowBox[{"Union", "[", "list", "]"}]}]}], 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"word", ",", 
+         RowBox[{"commentGender", " ", "\[Rule]", " ", "statusGender"}], ",", 
+         "countForm"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"...", ".."}], "}"}]}], "}"}], " ", "for", " ", "each", " ", 
+     "unique", " ", 
+     RowBox[{"{", 
+      RowBox[{"commentGender", ",", " ", "statusGender", ",", " ", "word"}], 
+      "}"}], " ", "list"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"displayForm", "[", 
+     RowBox[{"list_", ",", "total_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"unique", "=", 
+         RowBox[{"uniqueWords", "[", "list", "]"}]}], ",", 
+        RowBox[{"newTotal", "=", 
+         RowBox[{"total", "+", 
+          RowBox[{"Length", "[", "list", "]"}]}]}], ",", 
+        RowBox[{"temp", "=", 
+         RowBox[{"{", "}"}]}], ",", "i", ",", 
+        RowBox[{"return", "=", 
+         RowBox[{"{", "}"}]}], ",", "ff", ",", "fm", ",", "mf", ",", "mm"}], 
+       "}"}], " ", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "unique", "]"}]}], ",", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"temp", "=", 
+           RowBox[{"Select", "[", 
+            RowBox[{"list", ",", 
+             RowBox[{
+              RowBox[{"MatchQ", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"{", 
+                 RowBox[{"_", ",", "_", ",", 
+                  RowBox[{"unique", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "]"}], "&"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ff", "=", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{"temp", ",", 
+              RowBox[{
+               RowBox[{"MatchQ", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<female\>\"", ",", "\"\<female\>\"", ",", "_"}],
+                   "}"}]}], "]"}], "&"}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"fm", "=", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{"temp", ",", 
+              RowBox[{
+               RowBox[{"MatchQ", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<female\>\"", ",", "\"\<male\>\"", ",", "_"}], 
+                  "}"}]}], "]"}], "&"}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"mf", "=", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{"temp", ",", 
+              RowBox[{
+               RowBox[{"MatchQ", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<male\>\"", ",", "\"\<female\>\"", ",", "_"}], 
+                  "}"}]}], "]"}], "&"}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"mm", "=", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Select", "[", 
+             RowBox[{"temp", ",", 
+              RowBox[{
+               RowBox[{"MatchQ", "[", 
+                RowBox[{"#", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<male\>\"", ",", "\"\<male\>\"", ",", "_"}], 
+                  "}"}]}], "]"}], "&"}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"ff", "\[Equal]", "0"}], "&&", 
+             RowBox[{"fm", "\[Equal]", "0"}], "&&", 
+             RowBox[{"mf", "\[Equal]", "0"}], "&&", 
+             RowBox[{"mm", "\[Equal]", "0"}]}], ",", "Continue", ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"return", ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"unique", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], ",", "ff", ",", "fm", ",", 
+                 "mf", ",", "mm"}], "}"}]}], "]"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"newTotal", ",", "return"}], "}"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"{", 
+     RowBox[{"commentGender", ",", "statusgender", ",", "word"}], "}"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"displayForm", "[", 
+      RowBox[{"list_", ",", "total_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"unique", "=", 
+          RowBox[{"uniqueWords", "[", "list", "]"}]}], ",", 
+         RowBox[{"newTotal", "=", 
+          RowBox[{"total", "+", 
+           RowBox[{"Length", "[", "list", "]"}]}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"newTotal", ",", "\[IndentingNewLine]", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"unique", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], ",", 
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", "3", "]"}], "]"}]}], "}"}], "&"}], "/@", 
+              RowBox[{"Select", "[", 
+               RowBox[{
+                RowBox[{"countForm", "[", "list", "]"}], ",", 
+                RowBox[{
+                 RowBox[{"MatchQ", "[", 
+                  RowBox[{"#", ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"unique", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", "_", ",", "_"}], 
+                    "}"}]}], "]"}], "&"}]}], "]"}]}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", 
+             RowBox[{"Length", "[", "unique", "]"}]}], "}"}]}], "]"}]}], 
+        "}"}]}], "]"}]}], " ", 
+    RowBox[{"(*", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"uniqueWord", ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"commentGender", " ", "\[Rule]", " ", "statusGender"}], 
+           ",", "countForm"}], "}"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"...", "..."}], "}"}]}], "}"}], "*)"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"countGrid", "[", 
+     RowBox[{"list_", ",", "total_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"newList", "=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<female\>\"", "\[Rule]", " ", "\"\<female\>\""}], ",", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<female\>\"", "\[Rule]", " ", "\"\<male\>\""}], ",", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<male\>\"", "\[Rule]", " ", "\"\<female\>\""}], ",", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "4", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<male\>\"", "\[Rule]", "\"\<male\>\""}], ",", 
+            RowBox[{"list", "[", 
+             RowBox[{"[", "5", "]"}], "]"}]}], "}"}]}], "}"}]}], "}"}], ",", 
+      RowBox[{"Grid", "[", 
+       RowBox[{
+        RowBox[{"weight", "[", 
+         RowBox[{
+          RowBox[{"percent", "[", "newList", "]"}], ",", "total"}], "]"}], 
+        ",", 
+        RowBox[{"Frame", "\[Rule]", " ", "All"}]}], "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"percent", "[", "list_", "]"}], ":=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Append", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"Round", "[", 
+             RowBox[{"100", "*", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "/", 
+                RowBox[{"(", 
+                 RowBox[{"Total", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", "list"}], 
+                  "]"}], ")"}]}], ")"}]}], "]"}], "]"}], "<>", "\"\<%\>\""}], 
+          ")"}]}], "]"}], "&"}], ",", "list"}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"weight", "[", 
+     RowBox[{"list_", ",", "total_"}], "]"}], ":=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Append", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"N", "[", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "/", 
+            RowBox[{"(", "total", ")"}]}], ")"}], "]"}]}], "]"}], "&"}], ",", 
+      "list"}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"wordGrid", "[", "list_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"countGrid", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"list", "[", 
+              RowBox[{"[", 
+               RowBox[{"1", ",", "1"}], "]"}], "]"}]}], "]"}]}], "}"}], "&"}],
+         ",", 
+        RowBox[{"Take", "[", 
+         RowBox[{"list", ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "]"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getList", "[", "id_", "]"}], ":=", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Pause", "[", "10", "]"}], ";", 
+          RowBox[{"commentForm", "[", 
+           RowBox[{
+            RowBox[{"getGender", "[", "id", "]"}], ",", "#"}], "]"}]}], ")"}],
+         "&"}], "/@", 
+       RowBox[{"getPosts", "[", "id", "]"}]}], ",", "2"}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"wordCount", "[", "message_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"#", ",", " ", 
+        RowBox[{"Count", "[", 
+         RowBox[{
+          RowBox[{"StringSplit", "[", 
+           RowBox[{"StringReplace", "[", 
+            RowBox[{
+             RowBox[{"ToLowerCase", "[", "message", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<,\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+               RowBox[{"\"\<.\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], 
+            "]"}], "]"}], ",", "#"}], "]"}]}], "}"}], "&"}], "/@", 
+     RowBox[{"Union", "[", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"StringReplace", "[", 
+        RowBox[{
+         RowBox[{"ToLowerCase", "[", "message", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\"\<,\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+           RowBox[{"\"\<.\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], "]"}], 
+       "]"}], "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"generateIDs", "[", 
+     RowBox[{"currentID_", ",", "count_", ",", "media_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"list", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"i", "=", "0"}], ",", 
+        RowBox[{"newID", "=", "currentID"}], ",", 
+        RowBox[{"temp", "=", "\"\<3\>\""}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"i", "<", "count"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{"!", 
+             RowBox[{"profileQ", "[", 
+              RowBox[{"ToString", "[", "temp", "]"}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"newID", "++"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"temp", " ", "=", " ", "newID"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Pause", "[", "1", "]"}], ";"}]}], "\[IndentingNewLine]",
+            "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"list", ",", 
+            RowBox[{"ToString", "[", "newID", "]"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"temp", "=", "\"\<3\>\""}], ";", "\[IndentingNewLine]", 
+          RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", " ", "]"}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "list", "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "Incomplete", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addToDatabase", "[", 
+     RowBox[{"media_", ",", "count_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"currentDatabase", "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{
+          "notebookLocation", "<>", "media", "<>", "\"\<Database.csv\>\""}], 
+          "]"}]}], ",", "total", ",", "currentID", ",", "IDs", ",", "newData",
+         ",", "newDatabase", ",", "list"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"total", "=", 
+        RowBox[{"currentDatabase", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"currentID", "=", 
+        RowBox[{"currentDatabase", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"IDs", "=", 
+        RowBox[{"generateIDs", "[", 
+         RowBox[{"currentID", ",", "count", ",", "media"}], "]"}]}], ";", 
+       RowBox[{"(*", 
+        RowBox[{"{", 
+         RowBox[{"lastID", ",", 
+          RowBox[{"{", "IDs", "}"}]}], "}"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"list", "=", 
+        RowBox[{"displayForm", "[", 
+         RowBox[{
+          RowBox[{"Join", "[", 
+           RowBox[{"Delete", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"getList", "[", "#", "]"}], "&"}], "/@", "IDs"}], ",", 
+             "0"}], "]"}], "]"}], ",", "total"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"total", "=", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"newData", "=", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"newDatabase", "=", 
+        RowBox[{"mergeDatabases", "[", 
+         RowBox[{
+          RowBox[{"Take", "[", 
+           RowBox[{"currentDatabase", ",", 
+            RowBox[{"{", 
+             RowBox[{"2", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", "newData"}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{
+         RowBox[{
+         "notebookLocation", "<>", "media", "<>", "\"\<Database.csv\>\""}], 
+         ",", 
+         RowBox[{"Prepend", "[", 
+          RowBox[{"newDatabase", ",", 
+           RowBox[{"{", 
+            RowBox[{"total", ",", 
+             RowBox[{"IDs", "[", 
+              RowBox[{"[", 
+               RowBox[{"-", "1"}], "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], 
+       ";"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"readDatabase", "[", "media_", "]"}], ":=", 
+    RowBox[{"wordGrid", "[", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+      "notebookLocation", "<>", "media", "<>", "\"\<Database.csv\>\""}], 
+      "]"}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"combineLists", "[", 
+     RowBox[{"data_", ",", "weightList_", ",", "word_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"pos", ",", 
+        RowBox[{"join", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"union", "=", 
+         RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"pos", "=", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Position", "[", 
+           RowBox[{"data", ",", 
+            RowBox[{"word", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"join", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "3", "]"}], "]"}]}], "}"}], "&"}], "/@", 
+            RowBox[{"Extract", "[", 
+             RowBox[{"data", ",", 
+              RowBox[{"{", 
+               RowBox[{"pos", ",", "2"}], "}"}]}], "]"}]}], ")"}], ",", 
+          "weightList"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"union", "=", 
+        RowBox[{"Union", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "&"}], "/@", "join"}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"pos", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"union", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"word", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "*", 
+               RowBox[{"Total", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", 
+                 RowBox[{"Select", "[", 
+                  RowBox[{"join", ",", 
+                   RowBox[{
+                    RowBox[{"MatchQ", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"union", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", "_"}], "}"}]}], 
+                    "]"}], "&"}]}], "]"}]}], "]"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", 
+              RowBox[{"Length", "[", "union", "]"}]}], "}"}]}], "]"}]}], 
+         "}"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "Incomplete", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"predict", "[", 
+     RowBox[{"media_", ",", "string_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"data", "=", 
+         RowBox[{"Take", "[", 
+          RowBox[{
+           RowBox[{"Import", "[", 
+            RowBox[{
+            "notebookLocation", "<>", "media", "<>", "\"\<Database.csv\>\""}],
+             "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"2", ",", 
+             RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], ",", 
+        RowBox[{"wordList", "=", 
+         RowBox[{"wordCount", "[", "string", "]"}]}], ",", 
+        RowBox[{"weightList", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], ",", "i", ",", 
+        RowBox[{"temp", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"maxPos", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"return", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"commentCount", "=", 
+         RowBox[{"{", "}"}]}], ",", 
+        RowBox[{"statusCount", "=", 
+         RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "wordList", "]"}]}], ",", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"temp", "=", 
+           RowBox[{"Select", "[", 
+            RowBox[{"data", ",", 
+             RowBox[{
+              RowBox[{"MatchQ", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"wordList", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "_", ",", "_",
+                   ",", "_", ",", "_"}], "}"}]}], "]"}], "&"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"temp", "\[NotEqual]", 
+             RowBox[{"{", "}"}]}], ",", 
+            RowBox[{
+             RowBox[{"weightList", "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "+", 
+                  RowBox[{
+                   RowBox[{"wordList", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2"}], "]"}], "]"}], 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], ")"}], "&"}], "/@", 
+               RowBox[{"Transpose", "[", 
+                RowBox[{"{", 
+                 RowBox[{"weightList", ",", 
+                  RowBox[{"Take", "[", 
+                   RowBox[{
+                    RowBox[{"temp", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", 
+                    RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}]}], 
+             ";"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"maxPos", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Position", "[", 
+          RowBox[{"weightList", ",", 
+           RowBox[{"Max", "[", "weightList", "]"}]}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"commentCount", "=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "+", 
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], "+", 
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "4", "]"}], "]"}]}]}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"statusCount", "=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "+", 
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "3", "]"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "+", 
+           RowBox[{"weightList", "[", 
+            RowBox[{"[", "4", "]"}], "]"}]}]}], "}"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"returnResult", "[", 
+         RowBox[{"maxPos", ",", "commentCount", ",", "statusCount"}], "]"}], 
+        "]"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"returnResult", "[", 
+     RowBox[{"maxPos_", ",", "commentCount_", ",", "statusCount_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", "maxPos", "]"}], "\[NotEqual]", " ", "1"}], ",", 
+      RowBox[{"genderWeight", "[", 
+       RowBox[{"commentCount", ",", "statusCount"}], "]"}], ",", 
+      RowBox[{"Switch", "[", 
+       RowBox[{
+        RowBox[{"maxPos", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", "1", ",", 
+        RowBox[{"\"\<female\>\"", "\[Rule]", " ", "\"\<female\>\""}], ",", 
+        "2", ",", 
+        RowBox[{"\"\<female\>\"", "\[Rule]", " ", "\"\<male\>\""}], ",", "3", 
+        ",", 
+        RowBox[{"\"\<male\>\"", "\[Rule]", " ", "\"\<female\>\""}], ",", "4", 
+        ",", 
+        RowBox[{"\"\<male\>\"", "\[Rule]", " ", "\"\<male\>\""}]}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"genderWeight", "[", 
+     RowBox[{"commentCount_", ",", "statusCount_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"commentPos", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Position", "[", 
+           RowBox[{"commentCount", ",", 
+            RowBox[{"Max", "[", "commentCount", "]"}]}], "]"}], "]"}]}], ",", 
+        RowBox[{"statusPos", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Position", "[", 
+           RowBox[{"statusCount", ",", 
+            RowBox[{"Max", "[", "statusCount", "]"}]}], "]"}], "]"}]}], ",", 
+        "commentGender", ",", "statusGender"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "commentPos", "]"}], "\[NotEqual]", " ", 
+          "1"}], ",", 
+         RowBox[{"commentGender", "=", "\"\<Cannot be determined\>\""}], ",", 
+         RowBox[{"commentGender", "=", 
+          RowBox[{"Switch", "[", 
+           RowBox[{
+            RowBox[{"commentPos", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", "1", ",", "\"\<female\>\"", 
+            ",", "2", ",", "\"\<male\>\""}], "]"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "statusPos", "]"}], "\[NotEqual]", " ", 
+          "1"}], ",", 
+         RowBox[{"statusGender", "=", "\"\<Cannot be determined\>\""}], ",", 
+         RowBox[{"statusGender", "=", 
+          RowBox[{"Switch", "[", 
+           RowBox[{
+            RowBox[{"statusPos", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", "1", ",", "\"\<female\>\"", 
+            ",", "2", ",", "\"\<male\>\""}], "]"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"commentGender", "\[Rule]", " ", "statusGender"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mergeDatabases", "[", 
+     RowBox[{"currentDatabase_", ",", "newData_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"newDatabase", "=", "currentDatabase"}], ",", "i", ",", 
+        RowBox[{"temp", "=", 
+         RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "\[LessEqual]", 
+          RowBox[{"Length", "[", "newData", "]"}]}], ",", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"temp", "=", 
+           RowBox[{"Select", "[", 
+            RowBox[{"newDatabase", ",", 
+             RowBox[{
+              RowBox[{"MatchQ", "[", 
+               RowBox[{"#", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"newData", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "_", ",", "_",
+                   ",", "_", ",", "_"}], "}"}]}], "]"}], "&"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"temp", "\[NotEqual]", " ", 
+             RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"newDatabase", "=", 
+              RowBox[{"Delete", "[", 
+               RowBox[{"newDatabase", ",", 
+                RowBox[{"Position", "[", 
+                 RowBox[{"newDatabase", ",", 
+                  RowBox[{"temp", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"newDatabase", ",", 
+               RowBox[{"mergeWordData", "[", 
+                RowBox[{
+                 RowBox[{"temp", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], ",", 
+                 RowBox[{"newData", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"newDatabase", ",", 
+              RowBox[{"newData", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], 
+           "\[IndentingNewLine]", "]"}]}]}], " ", "\[IndentingNewLine]", 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "newDatabase", "]"}]}]}], "\[IndentingNewLine]",
+      "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mergeWordData", "[", 
+     RowBox[{"oldList_", ",", "newList_"}], "]"}], ":=", " ", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Total", "[", "#", "]"}], "&"}], "/@", 
+        RowBox[{"Transpose", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Take", "[", 
+            RowBox[{"oldList", ",", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", 
+               RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Take", "[", 
+            RowBox[{"newList", ",", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", 
+               RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], ")"}], 
+      ",", 
+      RowBox[{"oldList", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SocialMediaData", "[", 
+     RowBox[{"\"\<Facebook\>\"", ",", "\"\<FriendIDs\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "FinalProject", " ", "is", " ", "the", " ", "\"\<Main Method\>\"", " ", 
+     "of", " ", "the", " ", 
+     RowBox[{"program", ".", " ", "It"}], " ", "leads", " ", "on", " ", "to", 
+     " ", "the", " ", "tool", " ", 
+     RowBox[{"menu", "/", "compare"}], " ", 
+     RowBox[{"screen", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FinalProject", "[", "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "}"}], "\[IndentingNewLine]", ",", " ", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"SetOptions", "[", 
+           RowBox[{"$FrontEndSession", ",", " ", 
+            RowBox[{"Background", " ", "\[Rule]", " ", 
+             RowBox[{"Lighter", "[", 
+              RowBox[{"Lighter", "[", "Gray", "]"}], "]"}]}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "Add", " ", "a", " ", "title", " ", "to", " ", "the", " ", "Title",
+             " ", "Screen"}], " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<Verbum Usus\>\"", ",", "\"\<Title\>\"", ",", 
+            RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "Make", " ", "the", " ", "subtitle", " ", "text", " ", "cell", " ",
+             "that", " ", "is", " ", "a", " ", "summary", " ", "of", " ", 
+            "the", " ", 
+            RowBox[{"program", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{
+           "\"\<Detecting linguistic patterns in social media data\>\"", ",", 
+            "\"\<Subtitle\>\"", ",", " ", 
+            RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", "  ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{"Begin", ",", 
+              RowBox[{
+               RowBox[{"NotebookClose", "[", "]"}], ";", 
+               RowBox[{"ToolMenu", "[", "]"}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"250", ",", "45"}], "}"}]}]}], "]"}], ",", 
+            RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{
+           "\"\<                                                              \
+   \>\"", ",", " ", 
+            RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{
+           "\"\<By: Brian Carlson and Logan Houchens\>\"", ",", 
+            "\"\<Subtitle\>\"", ",", " ", 
+            RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], "]"}], 
+       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ToolMenu", "[", "]"}], ":=", 
+    RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"compare", " ", "=", " ", "\"\<\>\""}], ",", 
+        RowBox[{"predict", " ", "=", " ", "\"\<\>\""}]}], "}"}], 
+      "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"DocumentNotebook", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"TextCell", "[", 
+            RowBox[{"\"\<Tool Menu\>\"", ",", "\"\<Title\>\"", ",", " ", 
+             RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "  ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"TextCell", "[", 
+                RowBox[{"Button", "[", 
+                 RowBox[{"\"\<Compare\>\"", ",", 
+                  RowBox[{
+                   RowBox[{"NotebookClose", "[", "]"}], ";", " ", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "compare", "\[Equal]", "\"\<Word Usage - Gender\>\""}], 
+                    ",", 
+                    RowBox[{"CompareScreenWordUsageToGender", "[", "]"}]}], 
+                    "]"}], ";", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "compare", "\[Equal]", 
+                    "\"\<Periodicity - Word Usage\>\""}], ",", 
+                    RowBox[{
+                    "CompareScreenPeriodicityToWordUsage", "[", "]"}]}], 
+                    "]"}]}], ",", 
+                  RowBox[{"ImageMargins", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"50", ",", "50"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+                  RowBox[{"ImageSize", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"250", ",", "45"}], "}"}]}]}], "]"}], "]"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TextCell", "[", "\"\<           \>\"", "]"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"PopupMenu", "[", 
+                RowBox[{
+                 RowBox[{"Dynamic", "[", "compare", "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                  "\"\<Word Usage - Gender\>\"", ",", 
+                   "\"\<Periodicity - Word Usage\>\""}], "}"}]}], "]"}]}], 
+              "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{
+            "\"\<                                                             \
+    \>\"", ",", " ", 
+             RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Explanations and Methods\>\"", ",", " ", 
+              RowBox[{
+               RowBox[{"NotebookClose", "[", "]"}], ";", 
+               RowBox[{"ExplanationsAndMethods", "[", "]"}]}], ",", 
+              RowBox[{"ImageMargins", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"50", ",", "50"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"250", ",", "45"}], "}"}]}]}], "]"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{
+            "\"\<                                                             \
+    \>\"", ",", " ", 
+             RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+                 RowBox[{"TextCell", "[", 
+                  RowBox[{
+                  "\"\<                                                       \
+                                                                              \
+                                                                              \
+                                                                              \
+             Graph will be placed here shortly                                \
+                                                                              \
+                                                                              \
+                                                                              \
+                                                                              \
+                             \>\"", ",", " ", 
+                   RowBox[{"TextAlignment", "\[Rule]", "Left"}]}], "]"}], 
+                 "]"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{
+                   "TextCell", "[", 
+                    "\"\<                                                  \>\
+\"", "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Predict\>\"", ",", 
+                    RowBox[{
+                    RowBox[{"NotebookClose", "[", "]"}], ";", 
+                    RowBox[{"PredictScreen", "[", "predict", "]"}]}], ",", 
+                    RowBox[{"ImageMargins", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"50", ",", "50"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"150", ",", "35"}], "}"}]}]}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                   "TextCell", "[", "\"\<                         \>\"", 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Row", "[", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    "TextCell", "[", "\"\<                          \>\"", 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"TextCell", "[", 
+                    RowBox[{
+                    RowBox[{"PopupMenu", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "predict", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<Gender\>\"", ",", "\"\<Periodicity\>\"", ",", 
+                    "\"\<Location\>\""}], "}"}]}], "]"}], ",", 
+                    RowBox[{"ImageMargins", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"50", ",", "50"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", " ", 
+                    RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"150", ",", "35"}], "}"}]}]}]}], "]"}]}], 
+                    "\[IndentingNewLine]", "}"}], "]"}]}], 
+                  "\[IndentingNewLine]", "}"}], "]"}]}], 
+               "\[IndentingNewLine]", "}"}], "]"}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}]}], 
+            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{
+            "\"\<                                                             \
+    \>\"", ",", " ", 
+             RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Back\>\"", ",", " ", 
+              RowBox[{
+               RowBox[{"NotebookClose", "[", "]"}], ";", 
+               RowBox[{"FinalProject", "[", "]"}]}], ",", 
+              RowBox[{"ImageMargins", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"50", ",", "50"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"150", ",", "35"}], "}"}]}]}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"WindowSize", "\[Rule]", " ", "Large"}]}], 
+       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExplanationsAndMethods", "[", "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "}"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<Explanations and Methods\>\"", ",", "\"\<Title\>\""}],
+            "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"ToolMenu", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PeriodicityToWordUsage", "[", "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "}"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"TextCell", "[", "\"\<\>\"", "]"}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CompareScreenWordUsageToGender", "[", "]"}], " ", ":=", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"numAccountsWUToG", " ", "=", " ", "0"}], "}"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<Word Usage - Gender\>\"", ",", "\"\<Title\>\""}], 
+           "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{
+            "option", " ", "for", " ", "add", " ", "to", " ", "database"}], 
+            " ", "-", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"on", " ", "side"}], ")"}], " ", "slider", " ", "for", 
+             " ", "how", " ", "many", " ", "users", " ", "to", " ", "add"}]}],
+            " ", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Button", "[", 
+               RowBox[{"\"\<Add to Database\>\"", ",", 
+                RowBox[{
+                 RowBox[{"NotebookClose", "[", "]"}], ";", 
+                 RowBox[{"AddToDatabaseScreen", "[", 
+                  RowBox[{"\"\<Facebook\>\"", ",", "numAccountsWUToG"}], 
+                  "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Slider", "[", 
+               RowBox[{
+                RowBox[{"Dynamic", "[", "numAccountsWUToG", "]"}], ",", " ", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "20", ",", "1"}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Dynamic", "[", "numAccountsWUToG", "]"}]}], 
+             "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+           "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "button", " ", "to", " ", "go", " ", "to", " ", "current", " ", 
+            "database"}], " ", "*)"}], "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Current Database\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", " ", 
+              RowBox[{"DatabaseScreen", "[", "]"}]}]}], "]"}], 
+           "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "top", " ", "ten", " ", "\"\<strongest\>\"", "correlations", " ", 
+            "in", " ", "panel", " ", "with", " ", "the", " ", "grid"}], " ", 
+           "*)"}], " ", "\[IndentingNewLine]", 
+          RowBox[{"(*", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+             RowBox[{"Button", "[", 
+              RowBox[{"\"\<\>\"", ",", "\"\<\>\""}], "]"}], 
+             "\[IndentingNewLine]", "]"}], ","}], "\[IndentingNewLine]", 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"ToolMenu", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}], ","}], 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         "}"}], "]"}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DatabaseScreen", "[", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<View Database\>\"", ",", "\"\<Title\>\""}], "]"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"CompareScreenWordUsageToGender", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"readDatabase", "[", "\"\<Facebook\>\"", "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"CompareScreenWordUsageToGender", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AddToDatabaseScreen", "[", 
+     RowBox[{"type_", ",", "numAccounts_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<Add to Database\>\"", ",", " ", "\"\<Title\>\""}], 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Run\>\"", ",", " ", 
+             RowBox[{"addToDatabase", "[", " ", 
+              RowBox[{"\"\<Facebook\>\"", ",", "numAccounts"}], "]"}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"250", ",", "45"}], "}"}]}]}], "]"}], 
+           "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"CompareScreenWordUsageToGender", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CompareScreenPeriodicityToWordUsage", "[", "]"}], " ", ":=", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", "numAccountsPToWU", "}"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+       RowBox[{"DocumentNotebook", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"TextCell", "[", 
+           RowBox[{"\"\<Periodicity - Word Usage\>\"", ",", "\"\<Title\>\""}],
+            "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", "\[IndentingNewLine]", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Button", "[", 
+               RowBox[{"\"\<Add to Database\>\"", ",", 
+                RowBox[{
+                 RowBox[{"NotebookClose", "[", "]"}], ";", 
+                 RowBox[{"AddToDatabaseScreen", "[", 
+                  RowBox[{
+                  "numAccountsPToWU", ",", 
+                   "\"\<Periodicity - Word Usage\>\""}], "]"}]}]}], "]"}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"Slider", "[", 
+               RowBox[{
+                RowBox[{"Dynamic", "[", "numAccountsPToWU", "]"}], ",", " ", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "100", ",", "1"}], "}"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Dynamic", "[", "numAccountsPToWU", "]"}]}], 
+             "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"TextCell", "[", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Back\>\"", ",", " ", 
+             RowBox[{
+              RowBox[{"NotebookClose", "[", "]"}], ";", 
+              RowBox[{"ToolMenu", "[", "]"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"50", ",", "50"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PredictScreen", "[", "predictType_", "]"}], ":=", 
+    RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"word", "=", "\"\<\>\""}], ",", 
+        RowBox[{"display", "=", "\"\<\>\""}]}], "}"}], "\[IndentingNewLine]", 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Dynamic", "[", 
+        RowBox[{"display", "=", "\"\<\>\""}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"CreateWindow", "[", "\[IndentingNewLine]", 
+        RowBox[{"DocumentNotebook", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"TextCell", "[", 
+            RowBox[{"\"\<Predict Screen\>\"", ",", "\"\<Title\>\""}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{
+            "\"\<Please enter in a word or emoticon you would like to predict \
+a value of.\>\"", ",", " ", "\"\<Text\>\""}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{"InputField", "[", 
+             RowBox[{
+              RowBox[{"Dynamic", "[", "word", "]"}], ",", "String", ",", 
+              RowBox[{
+              "FieldHint", "\[Rule]", " ", 
+               "\"\<Enter a phrase to be predicted\>\""}]}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Button", "[", 
+            RowBox[{"\"\<Run\>\"", ",", " ", 
+             RowBox[{"display", "=", 
+              RowBox[{"predict", "[", 
+               RowBox[{"\"\<Facebook\>\"", ",", "word"}], "]"}]}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"250", ",", "45"}], "}"}]}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Panel", "[", 
+            RowBox[{"Dynamic", "[", "display", "]"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"TextCell", "[", 
+            RowBox[{"Button", "[", 
+             RowBox[{"\"\<Back\>\"", ",", " ", 
+              RowBox[{
+               RowBox[{"NotebookClose", "[", "]"}], ";", 
+               RowBox[{"ToolMenu", "[", "]"}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"150", ",", "25"}], "}"}]}]}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+        "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6069570610007963`*^9, 3.6069570885363708`*^9}, {
+   3.6069571336699524`*^9, 3.6069572440462656`*^9}, {3.6069572817284207`*^9, 
+   3.606957309699021*^9}, {3.606957436194256*^9, 3.606957512724633*^9}, {
+   3.606957543534395*^9, 3.6069575646376023`*^9}, {3.606957668716555*^9, 
+   3.6069576951730685`*^9}, {3.6069577341872997`*^9, 
+   3.6069577695903254`*^9}, {3.6069579159326954`*^9, 3.606957917170766*^9}, {
+   3.6069579932011147`*^9, 3.606958027841096*^9}, {3.606958121518454*^9, 
+   3.606958137937393*^9}, {3.606958205641266*^9, 3.6069582567291875`*^9}, {
+   3.606958298134556*^9, 3.6069583156525583`*^9}, {3.606958382419377*^9, 
+   3.606958400534413*^9}, {3.606958843548752*^9, 3.6069588463519125`*^9}, 
+   3.6069597100823145`*^9, {3.606960112244317*^9, 3.6069601219088697`*^9}, 
+   3.606962203982958*^9, {3.606962246752404*^9, 3.6069622711337986`*^9}, {
+   3.606962328717092*^9, 3.606962358293784*^9}, {3.6069625366459846`*^9, 
+   3.6069625502967653`*^9}, 3.6069626109892373`*^9, {3.6069627343362923`*^9, 
+   3.6069627369154396`*^9}, {3.6069629022868986`*^9, 
+   3.6069629577920732`*^9}, {3.6069630574867754`*^9, 
+   3.6069630851623583`*^9}, {3.6069631171361876`*^9, 3.606963158116531*^9}, {
+   3.6069634462220097`*^9, 3.6069635195552044`*^9}, {3.606963738653736*^9, 
+   3.6069637825332456`*^9}, {3.6069640569429407`*^9, 
+   3.6069640591070647`*^9}, {3.6069642685040417`*^9, 
+   3.6069643046191072`*^9}, {3.6069648329703274`*^9, 
+   3.6069648333083467`*^9}, {3.6069648803800387`*^9, 
+   3.6069648814901023`*^9}, {3.6069651662583904`*^9, 
+   3.6069651668694253`*^9}, {3.6070058190810943`*^9, 
+   3.6070058233463383`*^9}, {3.6070880756202574`*^9, 3.607088110042581*^9}, {
+   3.6070881684170885`*^9, 3.607088169642456*^9}, {3.6070882244648976`*^9, 
+   3.607088264834005*^9}, {3.6070883325638013`*^9, 3.6070883991944637`*^9}, {
+   3.6070889317127104`*^9, 3.607088955754114*^9}, {3.6070890737979174`*^9, 
+   3.607089074299968*^9}, {3.6072713595761375`*^9, 3.607271383077491*^9}, {
+   3.6072714557848034`*^9, 3.6072714681917686`*^9}, {3.6072735639611907`*^9, 
+   3.6072735776276665`*^9}, {3.6072736144150457`*^9, 3.607273651623669*^9}, {
+   3.60727379417092*^9, 3.6072738034691753`*^9}, {3.60727443812477*^9, 
+   3.6072744475316906`*^9}, 3.6072744874526024`*^9, {3.607274647681696*^9, 
+   3.6072746493820953`*^9}, {3.607274696353696*^9, 3.6072747096448956`*^9}, {
+   3.6072747482080956`*^9, 3.607274833212496*^9}, {3.607275083654896*^9, 
+   3.6072750894892955`*^9}, {3.607275287188629*^9, 3.6072752910730543`*^9}, {
+   3.607554917729*^9, 3.607554923043532*^9}, {3.6075551133965654`*^9, 
+   3.6075551419574213`*^9}, {3.6075595462202864`*^9, 
+   3.6075595660512867`*^9}, {3.607563670022304*^9, 3.6075636935206537`*^9}, {
+   3.607564220688365*^9, 3.6075642207233686`*^9}, {3.6075680224507256`*^9, 
+   3.607568022609741*^9}, {3.6075680720306826`*^9, 3.607568072420722*^9}, {
+   3.6075701830096674`*^9, 3.6075702124786673`*^9}, {3.607570243989667*^9, 
+   3.607570247598667*^9}, {3.6075704259176674`*^9, 3.6075704829056673`*^9}, {
+   3.607570555308667*^9, 3.6075705571816673`*^9}, {3.607570692505667*^9, 
+   3.6075707087806673`*^9}, {3.607570770669813*^9, 3.6075708148296432`*^9}, {
+   3.6075709899376583`*^9, 3.607571012238117*^9}, {3.607571057046077*^9, 
+   3.607571102999965*^9}, {3.6075712394846125`*^9, 3.607571247221386*^9}, {
+   3.60757164919658*^9, 3.60757165230189*^9}, {3.607571893818039*^9, 
+   3.607571893987056*^9}, {3.607572045455201*^9, 3.607572051931849*^9}, {
+   3.607572122607916*^9, 3.6075721995316076`*^9}, {3.607578826500249*^9, 
+   3.607578831094249*^9}, {3.607578892002249*^9, 3.607578927804249*^9}, {
+   3.6075801459110355`*^9, 3.607580151726617*^9}, {3.6075802015195956`*^9, 
+   3.607580219826426*^9}, {3.6075802524436874`*^9, 3.6075802799284353`*^9}, {
+   3.6075807325026884`*^9, 3.6075807576642046`*^9}, 3.607582715928011*^9, 
+   3.607582761732591*^9, {3.6075830227886944`*^9, 3.607583023979813*^9}, {
+   3.6075831927251015`*^9, 3.607583201871357*^9}, {3.607583250623727*^9, 
+   3.6075832654342823`*^9}, {3.6075833523342047`*^9, 
+   3.6075833563040133`*^9}, {3.6075834074744196`*^9, 3.607583411158051*^9}, {
+   3.607584075557801*^9, 3.607584115686801*^9}, {3.6075841516598005`*^9, 
+   3.6075841550328007`*^9}, {3.6075841869758005`*^9, 3.607584200971801*^9}, {
+   3.6076139006842446`*^9, 3.6076139294232445`*^9}, {3.6076141796892443`*^9, 
+   3.6076141810802445`*^9}, 3.6076146764082446`*^9, 3.607614762478245*^9, {
+   3.6076148460932446`*^9, 3.6076148695192447`*^9}, {3.6076149554652443`*^9, 
+   3.6076150110732446`*^9}, {3.6076150936502447`*^9, 
+   3.6076151170332446`*^9}, {3.607615697412245*^9, 3.6076157070382442`*^9}, {
+   3.6076581394361553`*^9, 3.607658148263156*^9}, {3.6076591586398673`*^9, 
+   3.607659190879091*^9}, 3.6076604379395456`*^9, {3.607660566235545*^9, 
+   3.6076605719645452`*^9}, {3.6076620565381875`*^9, 
+   3.6076620581831875`*^9}, {3.6076621661501875`*^9, 
+   3.6076621680821877`*^9}, {3.6076624558281875`*^9, 
+   3.6076624920021877`*^9}, {3.6076626792996197`*^9, 
+   3.6076627062933187`*^9}, {3.6076627840420933`*^9, 3.607662814196108*^9}, {
+   3.6076628764343314`*^9, 3.607662897582446*^9}, {3.60766298973166*^9, 
+   3.607662991167804*^9}, {3.607663021547841*^9, 3.6076630518638725`*^9}, {
+   3.6077080017053113`*^9, 3.607708002719279*^9}, {3.607825248026092*^9, 
+   3.6078252494982395`*^9}, {3.6078253084871373`*^9, 
+   3.6078253112764163`*^9}, {3.607825374190707*^9, 3.607825375900878*^9}, {
+   3.6078257755288367`*^9, 3.607825886837967*^9}, {3.607825945196802*^9, 
+   3.607825976661948*^9}, {3.607826040250306*^9, 3.6078260693612175`*^9}, {
+   3.6078306105602784`*^9, 3.6078306594632783`*^9}, {3.608230376149199*^9, 
+   3.608230385631302*^9}, {3.6082307655979447`*^9, 3.608230863726945*^9}, {
+   3.608230959205945*^9, 3.608231097852945*^9}, {3.6082321647535477`*^9, 
+   3.6082321826609654`*^9}, {3.6082322167811403`*^9, 
+   3.6082322365792894`*^9}, {3.6082322892542896`*^9, 
+   3.6082322896142893`*^9}, {3.608232319979289*^9, 3.6082324885742893`*^9}, {
+   3.6082325219172897`*^9, 3.6082326343822894`*^9}, {3.608232678156289*^9, 
+   3.6082327269282894`*^9}, {3.6082327856442895`*^9, 3.608232829729289*^9}, {
+   3.6082328979342895`*^9, 3.6082329362822895`*^9}, {3.6082329773712893`*^9, 
+   3.6082329814802895`*^9}, {3.6082333092792892`*^9, 
+   3.6082333804128304`*^9}, {3.6082339582426076`*^9, 
+   3.6082339660023837`*^9}, {3.608234489155286*^9, 3.6082345054252863`*^9}, {
+   3.608234887732286*^9, 3.6082349401022863`*^9}, {3.6082349974262857`*^9, 
+   3.608235001962286*^9}, {3.608235215356286*^9, 3.6082352243082857`*^9}, {
+   3.608235391309286*^9, 3.608235406464286*^9}, {3.6082356154996743`*^9, 
+   3.60823569969551*^9}, {3.6082360802534485`*^9, 3.6082360857980027`*^9}, {
+   3.6082362319086123`*^9, 3.608236235019923*^9}, {3.6082363874591656`*^9, 
+   3.608236418435263*^9}, {3.6082365448471193`*^9, 3.6082365639181194`*^9}, {
+   3.6082368284601192`*^9, 3.6082368563381195`*^9}, {3.6082369614501195`*^9, 
+   3.6082370252921195`*^9}, {3.608241880128687*^9, 3.6082418820658803`*^9}, {
+   3.6082429908999414`*^9, 3.608242991530941*^9}, {3.608244248583726*^9, 
+   3.608244251521019*^9}, {3.6082458569885902`*^9, 3.608245860299252*^9}, {
+   3.608247083448928*^9, 3.6082471048179274`*^9}, {3.608247311217928*^9, 
+   3.6082473179289274`*^9}, {3.6082474755529275`*^9, 
+   3.6082474907589273`*^9}, {3.6082476743859277`*^9, 
+   3.6082476826819277`*^9}, {3.608247732505507*^9, 3.608247779297186*^9}, {
+   3.608247875025758*^9, 3.6082478911153665`*^9}, 3.6082481727469263`*^9, {
+   3.608248221292926*^9, 3.6082482695299263`*^9}, {3.608248587178926*^9, 
+   3.608248779962926*^9}, 3.608248855282926*^9, {3.608248969038926*^9, 
+   3.6082489710709257`*^9}, {3.6082490101479263`*^9, 3.608249011608926*^9}, {
+   3.6082500139727674`*^9, 3.6082500608985367`*^9}, {3.608250133175764*^9, 
+   3.608250196562102*^9}, {3.6082502575071955`*^9, 3.608250283513796*^9}, {
+   3.608250476324075*^9, 3.6082505584162836`*^9}, {3.608250669312372*^9, 
+   3.608250703720813*^9}, {3.608251037768214*^9, 3.608251039097347*^9}, {
+   3.608251104996936*^9, 3.60825110653509*^9}, {3.6082511709965353`*^9, 
+   3.608251197283164*^9}, {3.6082604372519283`*^9, 3.608260439057109*^9}, {
+   3.608260809878187*^9, 3.6082608178049793`*^9}, {3.6082612551067057`*^9, 
+   3.608261263092504*^9}, {3.6082614453977327`*^9, 3.608261471831376*^9}, {
+   3.6082617338315735`*^9, 3.608261763984588*^9}, {3.608261796283818*^9, 
+   3.6082619879419813`*^9}, {3.6082621347661867`*^9, 3.608262141115281*^9}, {
+   3.6082621979112372`*^9, 3.6082623162437267`*^9}, {3.6082623709138083`*^9, 
+   3.608262379453954*^9}, {3.608262666221053*^9, 3.6082626676800528`*^9}, {
+   3.608262958275053*^9, 3.6082629592380533`*^9}, {3.608263528591053*^9, 
+   3.6082635693190527`*^9}, {3.6082639420140533`*^9, 
+   3.6082640094880533`*^9}, {3.608264075144053*^9, 3.608264079433053*^9}, {
+   3.608264130777053*^9, 3.6082642263560534`*^9}, {3.608264259023053*^9, 
+   3.608264397235053*^9}, {3.608264474886053*^9, 3.608265126706053*^9}, {
+   3.608265158261053*^9, 3.608265223518053*^9}, {3.6082652551420527`*^9, 
+   3.608265456398053*^9}, {3.608265549224053*^9, 3.6082655714290533`*^9}, {
+   3.6082656103260527`*^9, 3.608265719559053*^9}, 3.608265774782053*^9, {
+   3.608265825406053*^9, 3.6082660347850533`*^9}, {3.6082662795751753`*^9, 
+   3.608266340391492*^9}, {3.608266397897485*^9, 3.608266439819147*^9}, {
+   3.608266512119604*^9, 3.6082665137569313`*^9}, {3.608266579707119*^9, 
+   3.608266579857149*^9}, {3.6082666162924347`*^9, 3.6082666182888336`*^9}, {
+   3.6082667101652055`*^9, 3.6082667262594233`*^9}, {3.6082667662217293`*^9, 
+   3.6082667670288095`*^9}, {3.608266823785485*^9, 3.6082668288299894`*^9}, {
+   3.608266890375143*^9, 3.6082669042005253`*^9}, {3.608266935099615*^9, 
+   3.6082669560647116`*^9}, {3.6082671231534185`*^9, 
+   3.6082671242935324`*^9}, {3.60826729288339*^9, 3.6082672958656883`*^9}, {
+   3.6082673268757887`*^9, 3.608267385511652*^9}, {3.6082677332724247`*^9, 
+   3.608267773523449*^9}, {3.6082682032514176`*^9, 3.608268208786971*^9}, 
+   3.608318414308545*^9, {3.608325488584423*^9, 3.608325508605425*^9}, 
+   3.6083353488766546`*^9, {3.608344588827735*^9, 3.6083445902797346`*^9}, {
+   3.6083456697917347`*^9, 3.608345673452735*^9}, {3.6083518687072725`*^9, 
+   3.6083518694400525`*^9}, {3.6083534820757494`*^9, 
+   3.6083534851017494`*^9}, {3.6084172622476053`*^9, 
+   3.6084172646665726`*^9}, {3.608417304305422*^9, 3.6084173056699677`*^9}, {
+   3.6084174297962494`*^9, 3.6084174675317945`*^9}, {3.6084176318126445`*^9, 
+   3.608417641726627*^9}, {3.6084176762175236`*^9, 3.6084176937660327`*^9}, {
+   3.6084178679838834`*^9, 3.6084179415592403`*^9}, {3.6084181184529276`*^9, 
+   3.60841812627571*^9}, {3.608418279411022*^9, 3.608418283276408*^9}, {
+   3.6084184556436434`*^9, 3.6084184579818773`*^9}, {3.608419007369585*^9, 
+   3.608419007886585*^9}, {3.608419069015232*^9, 3.608419094342699*^9}, {
+   3.6084191751946125`*^9, 3.6084191776053715`*^9}, {3.6084192527928524`*^9, 
+   3.608419291425988*^9}, {3.6084193520315866`*^9, 3.608419379867587*^9}, 
+   3.608419493485587*^9, {3.608419550312587*^9, 3.608419600824587*^9}, {
+   3.608419634935587*^9, 3.608419665292587*^9}, {3.608419810785587*^9, 
+   3.6084199126965866`*^9}, {3.6084199577175865`*^9, 
+   3.6084200350705867`*^9}, {3.608420068292587*^9, 3.6084201345595865`*^9}, {
+   3.608420178952587*^9, 3.608420324178587*^9}, {3.608420356363587*^9, 
+   3.608420435621587*^9}, {3.608420476447587*^9, 3.608420504897587*^9}, {
+   3.608420543371587*^9, 3.608420625926587*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FinalProject", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6084174765826044`*^9, 3.608417479421172*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["ncq_shm", 3, 1]],188,
+   "FrontEndObject[LinkObject[\"ncq_shm\", 3, 1]]","188","\"Untitled-157\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{
+  3.6084175321567173`*^9, 3.608417777820868*^9, 3.6084179568707714`*^9, 
+   3.6084181435804405`*^9, 3.608418292022283*^9, 3.6084183244785285`*^9, 
+   3.6084184698130603`*^9, {3.608418887155147*^9, 3.608418905929024*^9}, {
+   3.6084189886065855`*^9, 3.6084190119185853`*^9}, {3.608419073850748*^9, 
+   3.608419097602373*^9}, 3.6084191806870637`*^9, {3.6084192346796637`*^9, 
+   3.608419256926439*^9}, 3.608419299079223*^9, {3.608419359020587*^9, 
+   3.608419385549587*^9}, 3.6084194449065866`*^9, 3.608419500160587*^9, 
+   3.608419605718587*^9, {3.6084196725045867`*^9, 3.608419697733587*^9}, 
+   3.608420039256587*^9, {3.6084201101325865`*^9, 3.6084201371655865`*^9}, {
+   3.608420189225587*^9, 3.608420295204587*^9}, {3.608420338518587*^9, 
+   3.6084204389055867`*^9}, {3.608420484013587*^9, 3.6084205824415865`*^9}, {
+   3.608420628620587*^9, 3.6084206517765865`*^9}, 3.608420791384587*^9, 
+   3.608420828897587*^9}]
+}, Open  ]]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 81685, 1868, 6552, "Input"],
+Cell[CellGroupData[{
+Cell[82267, 1892, 128, 2, 31, "Input"],
+Cell[82398, 1896, 1137, 18, 48, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

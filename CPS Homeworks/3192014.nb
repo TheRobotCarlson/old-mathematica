@@ -1,0 +1,1415 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     56641,       1405]
+NotebookOptionsPosition[     56290,       1388]
+NotebookOutlinePosition[     56656,       1404]
+CellTagsIndexPosition[     56613,       1401]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Labeled", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Tooltip", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"CountryData", "[", 
+            RowBox[{"#", ",", "\"\<Area\>\""}], "]"}], ",", 
+           RowBox[{"CountryData", "[", 
+            RowBox[{"#", ",", "\"\<Population\>\""}], "]"}]}], "}"}], ",", 
+         RowBox[{"CountryData", "[", 
+          RowBox[{"#", ",", "\"\<Name\>\""}], "]"}]}], "]"}], "&"}], "/@", 
+      RowBox[{"CountryData", "[", "\"\<Countries\>\"", "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Area\>\"", ",", "\"\<Population\>\""}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Bottom", ",", "Left"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6042465943809834`*^9, 3.6042466740869536`*^9}, {
+  3.604246870140557*^9, 3.604246874778021*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{GraphicsBox[{{}, {{{}, {
+        RGBColor[0.24720000000000014`, 0.24, 0.6], 
+        PointBox[CompressedData["
+1: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
+         "]]}, {}}, {
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{652230., 3.4499915*^7}}]}, "\"Afghanistan\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Afghanistan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{28748., 3.238316*^6}}]}, "\"Albania\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Albania", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2.381741*^6, 3.6983924*^7}}]}, "\"Algeria\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Algeria", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{199., 54719.}}]}, "\"American Samoa\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "American Samoa", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{468., 85293.}}]}, "\"Andorra\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Andorra", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.2467*^6, 2.0714494*^7}}]}, "\"Angola\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Angola", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{102., 15754.}}]}, "\"Anguilla\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Anguilla", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{442.6, 90156.}}]}, "\"Antigua and Barbuda\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Antigua and Barbuda", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2.76689*^6, 4.1473982*^7}}]}, "\"Argentina\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Argentina", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{29743., 3.117722*^6}}]}, "\"Armenia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Armenia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{180., 108883.}}]}, "\"Aruba\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Aruba", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{7.68685*^6, 2.3213944*^7}}]}, "\"Australia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Australia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{83871., 8.441263*^6}}]}, "\"Austria\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Austria", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{86600., 9.533445*^6}}]}, "\"Azerbaijan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Azerbaijan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{13880., 355233.}}]}, "\"Bahamas\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Bahamas", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{741., 1.377273*^6}}]}, "\"Bahrain\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Bahrain", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{143998., 1.54393847*^8}}]}, "\"Bangladesh\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Bangladesh", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{430., 275141.}}]}, "\"Barbados\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Barbados", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{207600., 9.49829*^6}}]}, "\"Belarus\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Belarus", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{30528., 1.0815599*^7}}]}, "\"Belgium\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Belgium", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{22966., 330721.}}]}, "\"Belize\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Belize", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{112622., 9.606534*^6}}]}, "\"Benin\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Benin", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{54., 69467.}}]}, "\"Bermuda\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Bermuda", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{38394., 762313.}}]}, "\"Bhutan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Bhutan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.098581*^6, 1.0409761*^7}}]}, "\"Bolivia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Bolivia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{51197., 3.73588*^6}}]}, "\"Bosnia and Herzegovina\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Bosnia and Herzegovina", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{581730., 2.074616*^6}}]}, "\"Botswana\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Botswana", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{8.514877*^6, 2.00050487*^8}}]}, "\"Brazil\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Brazil", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{151., 23000.}}]}, "\"British Virgin Islands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "British Virgin Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{5765., 419772.}}]}, "\"Brunei\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Brunei", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{110879., 7.349462*^6}}]}, "\"Bulgaria\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Bulgaria", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{274200., 1.8011507*^7}}]}, "\"Burkina Faso\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Burkina Faso", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{27830., 8.911183*^6}}]}, "\"Burundi\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Burundi", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{181035., 1.4656016*^7}}]}, "\"Cambodia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cambodia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{475440., 2.0913595*^7}}]}, "\"Cameroon\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cameroon", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{9.98467*^6, 3.4993747*^7}}]}, "\"Canada\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Canada", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{4033., 510213.}}]}, "\"Cape Verde\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cape Verde", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{264., 53737.}}]}, "\"Cayman Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cayman Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{622984., 4.666833*^6}}]}, "\"Central African Republic\"",
+          TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Central African Republic", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.284*^6, 1.2141876*^7}}]}, "\"Chad\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Chad", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{756102., 1.7574464*^7}}]}, "\"Chile\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Chile", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{9.59696*^6, 1.35936847*^9}}]}, "\"China\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "China", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{135., 1462.}}]}, "\"Christmas Island\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Christmas Island", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{14., 605.}}]}, "\"Cocos Keeling Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cocos Keeling Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.138914*^6, 4.8165221*^7}}]}, "\"Colombia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Colombia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2235., 792913.}}]}, "\"Comoros\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Comoros", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{236., 10447.}}]}, "\"Cook Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cook Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{51100., 4.859957*^6}}]}, "\"Costa Rica\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Costa Rica", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{56594., 4.378806*^6}}]}, "\"Croatia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Croatia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{110860., 1.1244424*^7}}]}, "\"Cuba\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cuba", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{444., 146836.}}]}, "\"Curacao\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Curacao", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{9251., 1.141453*^6}}]}, "\"Cyprus\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Cyprus", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{78867., 1.0589806*^7}}]}, "\"Czech Republic\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Czech Republic", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2.344858*^6, 7.1419669*^7}}]}, 
+         "\"Democratic Republic of the Congo\"", TooltipStyle -> 
+         "TextStyling"], 
+        Annotation[#, "Democratic Republic of the Congo", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{43094., 5.611187*^6}}]}, "\"Denmark\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Denmark", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{23200., 940090.}}]}, "\"Djibouti\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Djibouti", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{751., 73286.}}]}, "\"Dominica\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Dominica", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{48670., 1.0308609*^7}}]}, "\"Dominican Republic\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Dominican Republic", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{14874., 1.223665*^6}}]}, "\"East Timor\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "East Timor", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{283561., 1.5061398*^7}}]}, "\"Ecuador\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Ecuador", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.00145*^6, 8.537844*^7}}]}, "\"Egypt\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Egypt", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{21041., 6.302723*^6}}]}, "\"El Salvador\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "El Salvador", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{28051., 761050.}}]}, "\"Equatorial Guinea\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Equatorial Guinea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{121320., 5.748304*^6}}]}, "\"Eritrea\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Eritrea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{45228., 1.338832*^6}}]}, "\"Estonia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Estonia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.127127*^6, 8.8356373*^7}}]}, "\"Ethiopia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Ethiopia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{12173., 3140.}}]}, "\"Falkland Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Falkland Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1393., 49709.}}]}, "\"Faroe Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Faroe Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{18274., 882863.}}]}, "\"Fiji\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Fiji", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{338145., 5.418763*^6}}]}, "\"Finland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Finland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{547030., 6.3782963*^7}}]}, "\"France\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "France", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{91000., 249408.}}]}, "\"French Guiana\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "French Guiana", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{4167., 279632.}}]}, "\"French Polynesia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "French Polynesia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{267667., 1.594205*^6}}]}, "\"Gabon\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Gabon", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{11295., 1.87436*^6}}]}, "\"Gambia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Gambia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{360., 1.763387*^6}}]}, "\"Gaza Strip\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Gaza Strip", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{69700., 4.27841*^6}}]}, "\"Georgia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Georgia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{357022., 8.1804228*^7}}]}, "\"Germany\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Germany", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{238533., 2.6131336*^7}}]}, "\"Ghana\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Ghana", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{6.5, 29111.}}]}, "\"Gibraltar\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Gibraltar", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{131940., 1.1445691*^7}}]}, "\"Greece\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Greece", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2.166086*^6, 57714.}}]}, "\"Greenland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Greenland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{344., 105719.}}]}, "\"Grenada\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Grenada", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1780., 467335.}}]}, "\"Guadeloupe\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guadeloupe", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{544., 186562.}}]}, "\"Guam\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guam", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{108889., 1.5527502*^7}}]}, "\"Guatemala\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guatemala", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{78., 65605.}}]}, "\"Guernsey\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guernsey", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{245857., 1.075368*^7}}]}, "\"Guinea\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guinea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{36125., 1.612913*^6}}]}, "\"Guinea-Bissau\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Guinea-Bissau", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{214969., 759262.}}]}, "\"Guyana\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Guyana", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{27750., 1.0388424*^7}}]}, "\"Haiti\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Haiti", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{112090., 8.071522*^6}}]}, "\"Honduras\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Honduras", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1104., 7.274125*^6}}]}, "\"Hong Kong\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Hong Kong", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{93028., 9.933795*^6}}]}, "\"Hungary\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Hungary", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{103000., 331996.}}]}, "\"Iceland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Iceland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{3.287263*^6, 1.275137828*^9}}]}, "\"India\"", 
+         TooltipStyle -> "TextStyling"], Annotation[#, "India", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.904569*^6, 2.47188189*^8}}]}, "\"Indonesia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Indonesia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.648*^6, 7.6407013*^7}}]}, "\"Iran\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Iran", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{437072., 3.4776205*^7}}]}, "\"Iraq\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Iraq", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{70273., 4.631391*^6}}]}, "\"Ireland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Ireland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{572., 86159.}}]}, "\"Isle of Man\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Isle of Man", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{20770., 7.81886*^6}}]}, "\"Israel\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Israel", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{301340., 6.1087395*^7}}]}, "\"Italy\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Italy", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{322463., 2.1057316*^7}}]}, "\"Ivory Coast\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Ivory Coast", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{10991., 2.771179*^6}}]}, "\"Jamaica\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Jamaica", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{377835., 1.26345235*^8}}]}, "\"Japan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Japan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{116., 95732.}}]}, "\"Jersey\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Jersey", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{89342., 6.572903*^6}}]}, "\"Jordan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Jordan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2.7249*^6, 1.6550975*^7}}]}, "\"Kazakhstan\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Kazakhstan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{582650., 4.3923719*^7}}]}, "\"Kenya\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Kenya", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{811., 103248.}}]}, "\"Kiribati\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Kiribati", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{10887., 1.847708*^6}}]}, "\"Kosovo\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Kosovo", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{17818., 2.959015*^6}}]}, "\"Kuwait\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Kuwait", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{199951., 5.503253*^6}}]}, "\"Kyrgyzstan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Kyrgyzstan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{236800., 6.458911*^6}}]}, "\"Laos\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Laos", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{64589., 2.22626*^6}}]}, "\"Latvia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Latvia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{10452., 4.32406*^6}}]}, "\"Lebanon\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Lebanon", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{30355., 2.240126*^6}}]}, "\"Lesotho\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Lesotho", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{111369., 4.34874*^6}}]}, "\"Liberia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Liberia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.75954*^6, 6.506095*^6}}]}, "\"Libya\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Libya", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{160., 37009.}}]}, "\"Liechtenstein\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Liechtenstein", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{65300., 3.278337*^6}}]}, "\"Lithuania\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Lithuania", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2586., 530018.}}]}, "\"Luxembourg\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Luxembourg", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{28.2, 578844.}}]}, "\"Macau\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Macau", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{25713., 2.069219*^6}}]}, "\"Macedonia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Macedonia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{587041., 2.2555046*^7}}]}, "\"Madagascar\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Madagascar", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{118484., 1.6406945*^7}}]}, "\"Malawi\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Malawi", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{329847., 2.9787203*^7}}]}, "\"Malaysia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Malaysia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{298., 328551.}}]}, "\"Maldives\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Maldives", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.240192*^6, 1.6808242*^7}}]}, "\"Mali\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Mali", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{316., 420557.}}]}, "\"Malta\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Malta", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{181., 69747.}}]}, "\"Marshall Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Marshall Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1100., 409366.}}]}, "\"Martinique\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Martinique", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.0307*^6, 3.704414*^6}}]}, "\"Mauritania\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Mauritania", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2040., 1.320785*^6}}]}, "\"Mauritius\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Mauritius", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{374., 223907.}}]}, "\"Mayotte\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Mayotte", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.964375*^6, 1.17478371*^8}}]}, "\"Mexico\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Mexico", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{702., 112726.}}]}, "\"Micronesia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Micronesia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{33851., 3.495657*^6}}]}, "\"Moldova\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Moldova", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.95, 30500.}}]}, "\"Monaco\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Monaco", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.564116*^6, 2.887863*^6}}]}, "\"Mongolia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Mongolia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{13812., 633167.}}]}, "\"Montenegro\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Montenegro", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{102., 5189.}}]}, "\"Montserrat\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Montserrat", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{446550., 3.2925553*^7}}]}, "\"Morocco\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Morocco", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{799380., 2.5028313*^7}}]}, "\"Mozambique\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Mozambique", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{676578., 4.9119646*^7}}]}, "\"Myanmar\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Myanmar", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{824292., 2.404477*^6}}]}, "\"Namibia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Namibia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{21., 10000.}}]}, "\"Nauru\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Nauru", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{147181., 3.1535507*^7}}]}, "\"Nepal\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Nepal", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{41543., 1.6761552*^7}}]}, "\"Netherlands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Netherlands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{18575., 262605.}}]}, "\"New Caledonia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "New Caledonia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{268680., 4.508166*^6}}]}, "\"New Zealand\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "New Zealand", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{130370., 6.041763*^6}}]}, "\"Nicaragua\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Nicaragua", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.267*^6, 1.7239826*^7}}]}, "\"Niger\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Niger", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{923768., 1.70901148*^8}}]}, "\"Nigeria\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Nigeria", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{260., 1000.}}]}, "\"Niue\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Niue", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{36., 2141.}}]}, "\"Norfolk Island\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Norfolk Island", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{464., 88000.}}]}, "\"Northern Mariana Islands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Northern Mariana Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{120538., 2.4654358*^7}}]}, "\"North Korea\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "North Korea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{323802., 4.991997*^6}}]}, "\"Norway\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Norway", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{309500., 2.957333*^6}}]}, "\"Oman\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Oman", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{796095., 1.83188847*^8}}]}, "\"Pakistan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Pakistan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{459., 21108.}}]}, "\"Palau\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Palau", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{75420., 3.678264*^6}}]}, "\"Panama\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Panama", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{462840., 7.327281*^6}}]}, "\"Papua New Guinea\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Papua New Guinea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{406752., 6.798236*^6}}]}, "\"Paraguay\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Paraguay", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.285216*^6, 3.0075185*^7}}]}, "\"Peru\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Peru", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{300000., 9.811278*^7}}]}, "\"Philippines\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Philippines", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{47., 48.}}]}, "\"Pitcairn Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Pitcairn Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{312685., 3.8331803*^7}}]}, "\"Poland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Poland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{92090., 1.0704534*^7}}]}, "\"Portugal\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Portugal", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{9045., 3.742334*^6}}]}, "\"Puerto Rico\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Puerto Rico", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{11586., 1.97684*^6}}]}, "\"Qatar\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Qatar", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{342000., 4.324199*^6}}]}, "\"Republic of the Congo\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Republic of the Congo", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2517., 874944.}}]}, "\"R\[EAcute]union\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "R\[EAcute]union", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{238391., 2.1338815*^7}}]}, "\"Romania\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Romania", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.70752*^7, 1.42557892*^8}}]}, "\"Russia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Russia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{26338., 1.1608439*^7}}]}, "\"Rwanda\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Rwanda", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{413., 7670.}}]}, 
+         "\"Saint Helena, Ascension and Tristan da Cunha\"", TooltipStyle -> 
+         "TextStyling"], 
+        Annotation[#, "Saint Helena, Ascension and Tristan da Cunha", 
+         "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{261., 51134.}}]}, "\"Saint Kitts and Nevis\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Saint Kitts and Nevis", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{616., 179515.}}]}, "\"Saint Lucia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Saint Lucia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{242., 5774.}}]}, "\"Saint Pierre and Miquelon\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Saint Pierre and Miquelon", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{389., 109354.}}]}, 
+         "\"Saint Vincent and the Grenadines\"", TooltipStyle -> 
+         "TextStyling"], 
+        Annotation[#, "Saint Vincent and the Grenadines", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{2831., 185727.}}]}, "\"Samoa\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Samoa", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{61., 32448.}}]}, "\"San Marino\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "San Marino", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{964., 175383.}}]}, 
+         "\"S\[ATilde]o Tom\[EAcute] and Pr\[IAcute]ncipe\"", TooltipStyle -> 
+         "TextStyling"], 
+        Annotation[#, "S\[ATilde]o Tom\[EAcute] and Pr\[IAcute]ncipe", 
+         "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.960582*^6, 2.9319402*^7}}]}, "\"Saudi Arabia\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Saudi Arabia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{196722., 1.3454191*^7}}]}, "\"Senegal\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Senegal", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{77474., 9.83501*^6}}]}, "\"Serbia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Serbia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{455., 90846.}}]}, "\"Seychelles\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Seychelles", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{71740., 6.255163*^6}}]}, "\"Sierra Leone\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Sierra Leone", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{697., 5.300914*^6}}]}, "\"Singapore\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Singapore", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{34., 39689.}}]}, "\"Sint Maarten\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Sint Maarten", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{49035., 5.488775*^6}}]}, "\"Slovakia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Slovakia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{20273., 2.044766*^6}}]}, "\"Slovenia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Slovenia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{28896., 580791.}}]}, "\"Solomon Islands\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Solomon Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{637657., 1.0052842*^7}}]}, "\"Somalia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Somalia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.21909*^6, 5.0981076*^7}}]}, "\"South Africa\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "South Africa", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{98480., 4.8774767*^7}}]}, "\"South Korea\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "South Korea", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{644329., 1.1090104*^7}}]}, "\"South Sudan\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "South Sudan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{504782., 4.7042602*^7}}]}, "\"Spain\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Spain", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{65610., 2.1393876*^7}}]}, "\"Sri Lanka\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Sri Lanka", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{1.886068*^6, 4.6822884*^7}}]}, "\"Sudan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Sudan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{163820., 538882.}}]}, "\"Suriname\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Suriname", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{62045., 2495.}}]}, "\"Svalbard\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Svalbard", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{17364., 1.237166*^6}}]}, "\"Swaziland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Swaziland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{450295., 9.545823*^6}}]}, "\"Sweden\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Sweden", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{41277., 7.76182*^6}}]}, "\"Switzerland\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Switzerland", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{185180., 2.1468962*^7}}]}, "\"Syria\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Syria", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{35980., 2.3299716*^7}}]}, "\"Taiwan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Taiwan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{143100., 7.183529*^6}}]}, "\"Tajikistan\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tajikistan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{945087., 4.9153002*^7}}]}, "\"Tanzania\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tanzania", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{513120., 7.0243267*^7}}]}, "\"Thailand\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Thailand", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{56785., 6.41256*^6}}]}, "\"Togo\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Togo", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{12., 1416.}}]}, "\"Tokelau\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tokelau", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{747., 105265.}}]}, "\"Tonga\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tonga", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{5128., 1.355342*^6}}]}, "\"Trinidad and Tobago\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Trinidad and Tobago", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{163610., 1.081368*^7}}]}, "\"Tunisia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tunisia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{780580., 7.5359032*^7}}]}, "\"Turkey\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Turkey", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{488100., 5.23464*^6}}]}, "\"Turkmenistan\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Turkmenistan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{948., 47754.}}]}, "\"Turks and Caicos Islands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Turks and Caicos Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{26., 10698.}}]}, "\"Tuvalu\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Tuvalu", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{236040., 3.6759274*^7}}]}, "\"Uganda\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Uganda", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{603550., 4.4696741*^7}}]}, "\"Ukraine\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Ukraine", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{83600., 8.20794*^6}}]}, "\"United Arab Emirates\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "United Arab Emirates", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{243610., 6.3177406*^7}}]}, "\"United Kingdom\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "United Kingdom", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{9.63142*^6, 3.19330342*^8}}]}, "\"United States\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "United States", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{349., 108300.}}]}, "\"United States Virgin Islands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "United States Virgin Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{176215., 3.403117*^6}}]}, "\"Uruguay\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Uruguay", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{447400., 2.8398155*^7}}]}, "\"Uzbekistan\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Uzbekistan", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{12189., 257812.}}]}, "\"Vanuatu\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Vanuatu", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{0.44, 826.}}]}, "\"Vatican City\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Vatican City", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{912050., 3.0340637*^7}}]}, "\"Venezuela\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Venezuela", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{329560., 9.065655*^7}}]}, "\"Vietnam\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Vietnam", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{142., 15343.}}]}, "\"Wallis and Futuna Islands\"", 
+         TooltipStyle -> "TextStyling"], 
+        Annotation[#, "Wallis and Futuna Islands", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{5860., 2.67674*^6}}]}, "\"West Bank\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "West Bank", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{266000., 585270.}}]}, "\"Western Sahara\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Western Sahara", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{527968., 2.635802*^7}}]}, "\"Yemen\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Yemen", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{752618., 1.4314515*^7}}]}, "\"Zambia\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Zambia", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[{
+          Opacity[0.], 
+          PointBox[{{390757., 1.3327925*^7}}]}, "\"Zimbabwe\"", TooltipStyle -> 
+         "TextStyling"], Annotation[#, "Zimbabwe", "Tooltip"]& ]}}, {}}, 
+    AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> True,
+     AxesLabel -> {None, None}, AxesOrigin -> {0.44, 48.}, Method -> {}, 
+    PlotRange -> {All, All}, PlotRangeClipping -> True, 
+    PlotRangePadding -> {Automatic, Automatic}],"\"Area\"","\"Population\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#3, DefaultBaseStyle -> "LabeledLabel"], 
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}, {"", 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {1, 2}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"{", 
+         RowBox[{#2, ",", #3}], "}"}], ",", 
+       RowBox[{"{", 
+         RowBox[{"Bottom", ",", "Left"}], "}"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.604246620970642*^9, 3.6042466751470594`*^9, 
+  3.604246875630106*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{145, Automatic}, {Automatic, 30}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 960, 24, 112, InheritFromParent],
+Cell[1542, 48, 54732, 1337, 250, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

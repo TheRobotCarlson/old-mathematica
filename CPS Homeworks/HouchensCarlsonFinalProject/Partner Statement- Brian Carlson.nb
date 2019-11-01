@@ -1,0 +1,119 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3331,        109]
+NotebookOptionsPosition[      2714,         82]
+NotebookOutlinePosition[      3058,         97]
+CellTagsIndexPosition[      3015,         94]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Partner Statment -  Brian Carlson\
+\>", "Title",
+ CellChangeTimes->{{3.605889490780913*^9, 3.6058895097938137`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["My Contribution", "Subsubsection",
+ CellChangeTimes->{{3.6058903468355093`*^9, 3.6058903535441804`*^9}}],
+
+Cell["\<\
+Over the course of the project so far, I have done the following things:
+
+1.) Written functions that extract important information from the code, such \
+as gender, hometown, location, name, and distinguishing between the various \
+types of interactions that can take place on Facebook, accounting for messy \
+and imperfect data. 
+2.) Completed my IRB research training course (ethics training took a big \
+chunk of time).
+3.) Discussed with Logan ways we could anonymize the incoming data. 
+4.) Wrote a function to quickly cleanse the data of names.
+\
+\>", "Text",
+ CellChangeTimes->{{3.6058895329351277`*^9, 3.6058897052883615`*^9}, {
+  3.605889752099042*^9, 3.605889986012431*^9}, {3.605890032335063*^9, 
+  3.605890078993728*^9}, {3.6058901582456527`*^9, 3.6058901626960974`*^9}, {
+  3.605890279384765*^9, 3.6058902857293997`*^9}, {3.605890334450271*^9, 
+  3.6058903582966557`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["His Contribution", "Subsubsection",
+ CellChangeTimes->{{3.6058903630781336`*^9, 3.6058903668675127`*^9}}],
+
+Cell["\<\
+Over the course of the project so far, Logan has done the follwing things:
+
+1.) Written a function that anonymizes user IDs, mixing up the list of data \
+to prevent us from being able to find the person from the data.
+2.) Completed his IRB research training course.
+3.) Commented much of the code.
+4.) Wrote much of the progress report.\
+\>", "Text",
+ CellChangeTimes->{{3.6058903707058964`*^9, 3.6058905245902834`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Our Work Together", "Subsubsection",
+ CellChangeTimes->{{3.6058905288827124`*^9, 3.6058905341732416`*^9}, {
+  3.6058906665644794`*^9, 3.605890672730096*^9}}],
+
+Cell["\<\
+1.) Logan and I have both had regular meetings with Dr. Hahn on Wednesdays.\
+\>", "Text",
+ CellChangeTimes->{{3.605890538783703*^9, 3.605890662435066*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{24, Automatic}, {Automatic, 30}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 126, 3, 101, "Title"],
+Cell[CellGroupData[{
+Cell[730, 29, 110, 1, 39, "Subsubsection"],
+Cell[843, 32, 894, 17, 182, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1774, 54, 111, 1, 39, "Subsubsection"],
+Cell[1888, 57, 430, 9, 144, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2355, 71, 163, 2, 39, "Subsubsection"],
+Cell[2521, 75, 165, 3, 30, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

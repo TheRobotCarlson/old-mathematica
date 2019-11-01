@@ -1,0 +1,499 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     17880,        490]
+NotebookOptionsPosition[     17557,        475]
+NotebookOutlinePosition[     17900,        490]
+CellTagsIndexPosition[     17857,        487]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Helper", " ", "functions", " ", "for", " ", "retrieving", " ", "pieces", 
+    " ", "of", " ", "data", " ", "from", " ", "the", " ", "mess", " ", "put", 
+    " ", "into", " ", "them"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"select", "[", 
+     RowBox[{"list_", ",", "item_"}], "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{"list", ",", 
+          RowBox[{
+           RowBox[{"MatchQ", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}], 
+        "\[Equal]", 
+        RowBox[{"{", "}"}]}], ")"}], ",", 
+      RowBox[{"item", "\[Rule]", " ", 
+       RowBox[{"{", "\"\<Not Listed\>\"", "}"}]}], ",", 
+      RowBox[{"Select", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{
+         RowBox[{"MatchQ", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"item", "\[Rule]", "_"}]}], "]"}], "&"}]}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getString", "[", "object_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ListQ", "[", "object", "]"}], ",", 
+      RowBox[{"object", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "object"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"existsQ", "[", 
+     RowBox[{"list_", ",", "term_"}], "]"}], ":=", 
+    RowBox[{"!", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Select", "[", 
+        RowBox[{"list", ",", 
+         RowBox[{
+          RowBox[{"MatchQ", "[", 
+           RowBox[{"#", ",", "term"}], "]"}], "&"}]}], "]"}], "\[Equal]", 
+       RowBox[{"{", "}"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"connect", "[", "lists_", "]"}], ":=", " ", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"lists", "[", 
+       RowBox[{"[", 
+        RowBox[{"j", ",", "i"}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"lists", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"Length", "[", "lists", "]"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"type", "[", "list_", "]"}], ":=", 
+    RowBox[{"\"\<Type\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Type\>\""}], "]"}]}]}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"statusQ", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"type", "[", "list", "]"}], "\[Equal]", "\"\<status\>\""}], 
+      ")"}], "&&", 
+     RowBox[{"existsQ", "[", 
+      RowBox[{"list", ",", 
+       RowBox[{"\"\<Actions\>\"", "\[Rule]", "_"}]}], "]"}], "&&", 
+     RowBox[{"!", 
+      RowBox[{"existsQ", "[", 
+       RowBox[{"list", ",", 
+        RowBox[{"\"\<Story\>\"", "\[Rule]", "_"}]}], "]"}]}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"returnID", "[", "name_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Cases", "[", 
+      RowBox[{
+       RowBox[{"SocialMediaData", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Facebook\>\"", ",", "name"}], "}"}], ",", 
+         "\"\<UserData\>\""}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"\"\<ID\>\"", "\[Rule]", "b_"}], ")"}], "\[Rule]", " ", 
+        "b"}]}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getGender", "[", "id_", "]"}], ":=", 
+    RowBox[{"getString", "[", 
+     RowBox[{"\"\<Gender\>\"", "/.", 
+      RowBox[{"select", "[", 
+       RowBox[{
+        RowBox[{"SocialMediaData", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<Facebook\>\"", ",", "id"}], "}"}], ",", 
+          "\"\<UserData\>\""}], "]"}], ",", "\"\<Gender\>\""}], "]"}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findMessage", "[", "list_", "]"}], ":=", " ", 
+    RowBox[{"\"\<Message\>\"", "/.", 
+     RowBox[{"select", "[", 
+      RowBox[{"list", ",", "\"\<Message\>\""}], "]"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentAuthors", "[", "post_", "]"}], ":=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\"\<ID\>\"", "/.", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], "&"}], ")"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<From\>\"", "/.", 
+         RowBox[{"(", 
+          RowBox[{"(", 
+           RowBox[{"\"\<Data\>\"", "/.", 
+            RowBox[{"getString", "[", 
+             RowBox[{"select", "[", 
+              RowBox[{
+               RowBox[{"\"\<Comments\>\"", "/.", 
+                RowBox[{"getString", "[", 
+                 RowBox[{"select", "[", 
+                  RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+               ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}], ")"}]}], ")"}]}],
+       ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"findCommentMessages", "[", "post_", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"existsQ", "[", 
+       RowBox[{"post", ",", 
+        RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"findMessage", "[", "#", "]"}], "&"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"\"\<Data\>\"", "/.", 
+         RowBox[{"getString", "[", 
+          RowBox[{"select", "[", 
+           RowBox[{
+            RowBox[{"\"\<Comments\>\"", "/.", 
+             RowBox[{"getString", "[", 
+              RowBox[{"select", "[", 
+               RowBox[{"post", ",", "\"\<Comments\>\""}], "]"}], "]"}]}], 
+            ",", "\"\<Data\>\""}], "]"}], "]"}]}], ")"}]}], ",", 
+      RowBox[{"{", "\"\<No Comments\>\"", "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"uniqueWords", "[", "list_", "]"}], ":=", 
+    RowBox[{"Union", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "&"}], "/@", "list"}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"collectPosts", "[", "ID_", "]"}], ":=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"SocialMediaData", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<Facebook\>\"", ",", "ID"}], "}"}], ",", 
+        "\"\<Posts\>\""}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"statusQ", "[", "#", "]"}], "&&", 
+         RowBox[{"existsQ", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"\"\<Comments\>\"", "\[Rule]", "_"}]}], "]"}]}], ")"}], 
+       "&"}]}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sortform", "[", "list_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"list", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", 
+        RowBox[{"list", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "#"}], "}"}], "&"}], "/@", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"ToLowerCase", "[", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<,\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+          RowBox[{"\"\<.\>\"", "\[Rule]", "\"\< \>\""}]}], "}"}]}], "]"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"commentForm", "[", 
+     RowBox[{"gender_", ",", "post_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"sortform", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"getGender", "[", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "3", "]"}], "]"}]}], "}"}], "]"}], "&"}], "/@", 
+     RowBox[{"connect", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"findCommentAuthors", "[", "post", "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{"gender", ",", 
+          RowBox[{"{", 
+           RowBox[{"Length", "[", 
+            RowBox[{"findCommentAuthors", "[", "post", "]"}], "]"}], "}"}]}], 
+         "]"}], ",", 
+        RowBox[{"findCommentMessages", "[", "post", "]"}]}], "}"}], "]"}]}]}],
+    " ", 
+   RowBox[{"(*", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"count", "[", "list_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "->", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", 
+        RowBox[{"Count", "[", 
+         RowBox[{"list", ",", "#"}], "]"}]}], "}"}], "&"}], "/@", 
+     RowBox[{"Union", "[", "list", "]"}]}]}], 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"word", ",", 
+         RowBox[{"commentGender", " ", "\[Rule]", " ", "statusGender"}], ",", 
+         "count"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"...", ".."}], "}"}]}], "}"}], " ", "for", " ", "each", " ", 
+     "unique", " ", 
+     RowBox[{"{", 
+      RowBox[{"commentGender", ",", " ", "statusGender", ",", " ", "word"}], 
+      "}"}], " ", "list"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"displayForm", "[", "list_", "]"}], ":=", 
+    RowBox[{"ParallelTable", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"uniqueWords", "[", "list", "]"}], "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}], "}"}], "&"}], "/@", 
+         RowBox[{"Select", "[", 
+          RowBox[{
+           RowBox[{"count", "[", "list", "]"}], ",", 
+           RowBox[{
+            RowBox[{"MatchQ", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"uniqueWords", "[", "list", "]"}], "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", "_", ",", "_"}], 
+               "}"}]}], "]"}], "&"}]}], "]"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"uniqueWords", "[", "list", "]"}], "]"}]}], "}"}]}], "]"}]}],
+    " ", 
+   RowBox[{"(*", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"uniqueWord", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"commentGender", " ", "\[Rule]", " ", "statusGender"}], ",",
+           "count"}], "}"}]}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"...", "..."}], "}"}]}], "}"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"countGrid", "[", "list_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"ParallelMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"ToString", "[", 
+             RowBox[{"Round", "[", 
+              RowBox[{"100", 
+               RowBox[{"(", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}], ")"}]}], "]"}], "]"}], "<>", 
+            "\"\<%\>\""}]}], "}"}], "&"}], ",", "list"}], "]"}], ",", 
+      RowBox[{"Frame", "\[Rule]", " ", "All"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"percent", "[", "list_", "]"}], ":=", 
+    RowBox[{"ParallelMap", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Append", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"Total", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", "list"}], "]"}], 
+            ")"}]}], ")"}]}], "]"}], "&"}], ",", "list"}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"wordGrid", "[", "list_", "]"}], ":=", 
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"countGrid", "[", 
+            RowBox[{"percent", "[", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "]"}], "]"}]}], "}"}], "&"}], 
+        ",", 
+        RowBox[{"displayForm", "[", "list", "]"}]}], "]"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"prepareList", "[", "id_", "]"}], ":=", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"commentForm", "[", 
+         RowBox[{
+          RowBox[{"getGender", "[", "id", "]"}], ",", "#"}], "]"}], "&"}], "/@", 
+       RowBox[{"collectPosts", "[", "id", "]"}]}], ",", "2"}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6069570610007963`*^9, 3.6069570885363708`*^9}, {
+   3.6069571336699524`*^9, 3.6069572440462656`*^9}, {3.6069572817284207`*^9, 
+   3.606957309699021*^9}, {3.606957436194256*^9, 3.606957512724633*^9}, {
+   3.606957543534395*^9, 3.6069575646376023`*^9}, {3.606957668716555*^9, 
+   3.6069576951730685`*^9}, {3.6069577341872997`*^9, 
+   3.6069577695903254`*^9}, {3.6069579159326954`*^9, 3.606957917170766*^9}, {
+   3.6069579932011147`*^9, 3.606958027841096*^9}, {3.606958121518454*^9, 
+   3.606958137937393*^9}, {3.606958205641266*^9, 3.6069582567291875`*^9}, {
+   3.606958298134556*^9, 3.6069583156525583`*^9}, {3.606958382419377*^9, 
+   3.606958400534413*^9}, {3.606958843548752*^9, 3.6069588463519125`*^9}, 
+   3.6069597100823145`*^9, {3.606960112244317*^9, 3.6069601219088697`*^9}, 
+   3.606962203982958*^9, {3.606962246752404*^9, 3.6069622711337986`*^9}, {
+   3.606962328717092*^9, 3.606962358293784*^9}, {3.6069625366459846`*^9, 
+   3.6069625502967653`*^9}, 3.6069626109892373`*^9, {3.6069627343362923`*^9, 
+   3.6069627369154396`*^9}, {3.6069629022868986`*^9, 
+   3.6069629577920732`*^9}, {3.6069630574867754`*^9, 
+   3.6069630851623583`*^9}, {3.6069631171361876`*^9, 3.606963158116531*^9}, {
+   3.6069634462220097`*^9, 3.6069635195552044`*^9}, {3.606963738653736*^9, 
+   3.6069637825332456`*^9}, {3.6069640569429407`*^9, 
+   3.6069640591070647`*^9}, {3.6069642685040417`*^9, 
+   3.6069643046191072`*^9}, {3.6069648329703274`*^9, 
+   3.6069648333083467`*^9}, {3.6069648803800387`*^9, 
+   3.6069648814901023`*^9}, {3.6069651662583904`*^9, 
+   3.6069651668694253`*^9}, {3.6070058190810943`*^9, 
+   3.6070058233463383`*^9}, {3.6070880756202574`*^9, 3.607088110042581*^9}, {
+   3.6070881684170885`*^9, 3.607088169642456*^9}, {3.6070882244648976`*^9, 
+   3.607088264834005*^9}, {3.6070883325638013`*^9, 3.6070883991944637`*^9}, {
+   3.6070889317127104`*^9, 3.607088955754114*^9}, {3.6070890737979174`*^9, 
+   3.607089074299968*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ids", "=", 
+   RowBox[{"SocialMediaData", "[", 
+    RowBox[{"\"\<Facebook\>\"", ",", "\"\<FriendIDs\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.607035145923586*^9, 3.6070351878955855`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"beforeGrid2", "=", 
+  RowBox[{
+   RowBox[{"displayForm", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{"Delete", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"prepareList", "[", "#", "]"}], "&"}], "/@", 
+        RowBox[{"Take", "[", 
+         RowBox[{"ids", ",", 
+          RowBox[{"{", 
+           RowBox[{"101", ",", "200"}], "}"}]}], "]"}]}], ",", "0"}], "]"}], 
+     "]"}], "]"}], "//", "AbsoluteTiming"}]}]], "Input",
+ CellChangeTimes->{{3.607086866430874*^9, 3.60708687796364*^9}, {
+   3.6070870159431677`*^9, 3.607087056381791*^9}, 3.6070998419185853`*^9, {
+   3.607100128216179*^9, 3.6071001644410577`*^9}, 3.6071028988742867`*^9}]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 16063, 426, 972, "Input"],
+Cell[16623, 448, 239, 6, 31, "Input"],
+Cell[16865, 456, 688, 17, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

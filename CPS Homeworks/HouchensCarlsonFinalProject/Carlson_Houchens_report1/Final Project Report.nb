@@ -1,0 +1,195 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4017,        185]
+NotebookOptionsPosition[      2630,        129]
+NotebookOutlinePosition[      2972,        144]
+CellTagsIndexPosition[      2929,        141]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Verbum Usus", "Title",
+ CellChangeTimes->{{3.6089861892734566`*^9, 3.608986191987728*^9}, {
+  3.6089862618287344`*^9, 3.6089862630467343`*^9}}],
+
+Cell["\<\
+Detecting Linguistic Patterns in Social Media Data\
+\>", "Subsection",
+ CellChangeTimes->{{3.6089862911807346`*^9, 3.608986294995734*^9}, {
+  3.6089863846377344`*^9, 3.6089863966967344`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["1) A detailed description", "Section",
+ CellChangeTimes->{3.6089873159561276`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+2) An explanation of  algorithms/formulas\
+\>", "Section",
+ CellChangeTimes->{3.6089873438179135`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+3) A description of any files and/or file structure\
+\>", "Section",
+ CellChangeTimes->{3.608987448783409*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+4) A description of any major data structures\
+\>", "Section",
+ CellChangeTimes->{3.6089874749570265`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+5) An overview of how your code approaches the problem\
+\>", "Section",
+ CellChangeTimes->{3.6089874979403243`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+6) An explanation of  externally used code\
+\>", "Section",
+ CellChangeTimes->{3.6089876196044893`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+7) A description of the limitations\
+\>", "Section",
+ CellChangeTimes->{{3.608987642980827*^9, 3.6089876472352524`*^9}}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+8) An explanation of how to get your code to run\
+\>", "Section",
+ CellChangeTimes->{3.6089877442099485`*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9) A list of references", "Section",
+ CellChangeTimes->{3.608987789092437*^9}],
+
+Cell["", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+10) A signed statement from each group member \
+\>", "Section",
+ CellChangeTimes->{3.608987811559683*^9}],
+
+Cell["", "Text"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 149, 2, 101, "Title"],
+Cell[731, 26, 201, 4, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[957, 34, 88, 1, 56, "Section"],
+Cell[1048, 37, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1101, 42, 112, 3, 86, "Section"],
+Cell[1216, 47, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1269, 52, 120, 3, 86, "Section"],
+Cell[1392, 57, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1445, 62, 116, 3, 86, "Section"],
+Cell[1564, 67, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1617, 72, 125, 3, 127, "Section"],
+Cell[1745, 77, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1798, 82, 113, 3, 86, "Section"],
+Cell[1914, 87, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1967, 92, 130, 3, 86, "Section"],
+Cell[2100, 97, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2153, 102, 119, 3, 86, "Section"],
+Cell[2275, 107, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2328, 112, 84, 1, 86, "Section"],
+Cell[2415, 115, 16, 0, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2468, 120, 115, 3, 86, "Section"],
+Cell[2586, 125, 16, 0, 30, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

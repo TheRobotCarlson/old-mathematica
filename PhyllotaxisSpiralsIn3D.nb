@@ -1,0 +1,202 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7414,        192]
+NotebookOptionsPosition[      7095,        176]
+NotebookOutlinePosition[      7440,        191]
+CellTagsIndexPosition[      7397,        188]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Pink", ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Sphere", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Sqrt", "[", "i", "]"}], 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Sin", "[", 
+               RowBox[{"i", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", " ", "Degree"}], ")"}]}], "]"}], ",", 
+              RowBox[{"Cos", "[", 
+               RowBox[{"i", " ", 
+                RowBox[{"(", 
+                 RowBox[{"a", " ", "Degree"}], ")"}]}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"-", "p"}], 
+               RowBox[{
+                RowBox[{"N", "[", 
+                 RowBox[{"i", "+", 
+                  RowBox[{"1", "^", 
+                   RowBox[{"-", "10"}]}]}], "]"}], "^", "e"}]}]}], "}"}]}], 
+           ",", "size"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "0", ",", "n"}], "}"}]}], "]"}]}], "}"}], ",", 
+     " ", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"450", ",", " ", "300"}], "}"}]}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Sqrt", "[", "n", "]"}]}], "-", "size"}], ",", 
+          RowBox[{
+           RowBox[{"Sqrt", "[", "n", "]"}], "+", "size"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Sqrt", "[", "n", "]"}]}], "-", "size"}], ",", 
+          RowBox[{
+           RowBox[{"Sqrt", "[", "n", "]"}], "+", "size"}]}], "}"}], ",", 
+        "All"}], "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "100", ",", "\"\<number of elements\>\""}], "}"}], 
+     ",", "1", ",", "250", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"size", ",", "1.5", ",", "\"\<radius of each element\>\""}], 
+      "}"}], ",", "0.1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "137.5", ",", "\"\<angle\>\""}], "}"}], ",", "0", ",",
+      "180", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "0.3", ",", "\"\<pointiness\>\""}], "}"}], ",", "0", 
+     ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"e", ",", "0", ",", "\"\<pointiness exponent\>\""}], "}"}], ",",
+      "0", ",", "0.65", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 137.5, $CellContext`e$$ = 
+    0, $CellContext`n$$ = 100, $CellContext`p$$ = 0.3, $CellContext`size$$ = 
+    1.5, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 100, "number of elements"}, 1, 250}, {{
+       Hold[$CellContext`size$$], 1.5, "radius of each element"}, 0.1, 3}, {{
+       Hold[$CellContext`a$$], 137.5, "angle"}, 0, 180}, {{
+       Hold[$CellContext`p$$], 0.3, "pointiness"}, 0, 2}, {{
+       Hold[$CellContext`e$$], 0, "pointiness exponent"}, 0, 0.65}}, 
+    Typeset`size$$ = {450., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`n$100567$$ = 0, $CellContext`size$100568$$ = 
+    0, $CellContext`a$100569$$ = 0, $CellContext`p$100570$$ = 
+    0, $CellContext`e$100571$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 137.5, $CellContext`e$$ = 
+        0, $CellContext`n$$ = 100, $CellContext`p$$ = 
+        0.3, $CellContext`size$$ = 1.5}, "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$100567$$, 0], 
+        Hold[$CellContext`size$$, $CellContext`size$100568$$, 0], 
+        Hold[$CellContext`a$$, $CellContext`a$100569$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$100570$$, 0], 
+        Hold[$CellContext`e$$, $CellContext`e$100571$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics3D[{Pink, 
+         Table[
+          Sphere[Sqrt[$CellContext`i] {
+             Sin[$CellContext`i ($CellContext`a$$ Degree)], 
+             Cos[$CellContext`i ($CellContext`a$$ 
+               Degree)], (-$CellContext`p$$) 
+             N[$CellContext`i + 
+                1^(-10)]^$CellContext`e$$}, $CellContext`size$$], \
+{$CellContext`i, 0, $CellContext`n$$}]}, ImageSize -> {450, 300}, Boxed -> 
+        False, PlotRange -> {{-Sqrt[$CellContext`n$$] - $CellContext`size$$, 
+           Sqrt[$CellContext`n$$] + $CellContext`size$$}, {-
+            Sqrt[$CellContext`n$$] - $CellContext`size$$, 
+           Sqrt[$CellContext`n$$] + $CellContext`size$$}, All}], 
+      "Specifications" :> {{{$CellContext`n$$, 100, "number of elements"}, 1, 
+         250, Appearance -> 
+         "Labeled"}, {{$CellContext`size$$, 1.5, "radius of each element"}, 
+         0.1, 3}, {{$CellContext`a$$, 137.5, "angle"}, 0, 180, Appearance -> 
+         "Labeled"}, {{$CellContext`p$$, 0.3, "pointiness"}, 0, 2, Appearance -> 
+         "Labeled"}, {{$CellContext`e$$, 0, "pointiness exponent"}, 0, 0.65, 
+         Appearance -> "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{501., {248., 253.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6023648328038697`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{168, Automatic}, {Automatic, 60}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 3054, 87, 272, "Input"],
+Cell[3636, 111, 3443, 62, 518, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

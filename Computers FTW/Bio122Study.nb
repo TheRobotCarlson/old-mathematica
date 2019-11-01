@@ -1,0 +1,1358 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     49578,       1349]
+NotebookOptionsPosition[     41437,       1080]
+NotebookOutlinePosition[     42608,       1121]
+CellTagsIndexPosition[     42339,       1111]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Agents of Evolutionary Change", "Section",
+ CellChangeTimes->{{3.633641771062792*^9, 3.6336417779767923`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["When constant: Hardy-Weinberg principle", "Subsection",
+ CellChangeTimes->{{3.633641642813792*^9, 3.633641648199792*^9}, {
+  3.633641713750792*^9, 3.633641715350792*^9}, {3.6336417597347918`*^9, 
+  3.633641790250792*^9}}],
+
+Cell["\<\
+The Hardy-Weinberg principle allows prediction of genotype frequencies\
+\>", "Text",
+ CellChangeTimes->{
+  3.6336411295948067`*^9, {3.633641651546792*^9, 3.633641664367792*^9}}],
+
+Cell[TextData[{
+ "Hardy-Weinberg equilibrium exists when observed genotype frequencies match \
+the prediction from calculated frequencies. It occurs only when evolutionary \
+processes are ",
+ StyleBox["not acting to shift the distribution of alleles or genotypes in \
+the population",
+  FontWeight->"Bold"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.633641672720792*^9, 3.6336416781967916`*^9}}],
+
+Cell["\<\
+Hardy-Weinberg predictions can be applied to data to find evidence of \
+evolutionary processes.\
+\>", "Text",
+ CellChangeTimes->{{3.633641681084792*^9, 3.633641688298792*^9}}],
+
+Cell["\<\
+If genotype frequencies are not in Hardy-Weinberg equilibrium, then \
+evolutionary processes must be at work.\
+\>", "Text",
+ CellChangeTimes->{3.6336416917267923`*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["1.) Mutations", "Subsection",
+ CellChangeTimes->{{3.633641722362792*^9, 3.633641755826792*^9}, {
+  3.633641798000792*^9, 3.633641831903792*^9}, {3.6336521171661825`*^9, 
+  3.6336521184031825`*^9}}],
+
+Cell["\<\
+While it\[CloseCurlyQuote]s the ultimate source of genetic variation, \
+mutation rates are low, making it generally not responsible for deviations \
+from Hardy-Weinburg equilibrium. \
+\>", "Text",
+ CellChangeTimes->{{3.633641823091792*^9, 3.633641863669792*^9}, {
+  3.633645141508707*^9, 3.633645155505107*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["2.) Gene Flow", "Subsection",
+ CellChangeTimes->{{3.6336465977093124`*^9, 3.6336465995304947`*^9}, {
+  3.633652120618182*^9, 3.6336521216861825`*^9}}],
+
+Cell["Occurs when alleles move between populations", "Text",
+ CellChangeTimes->{{3.633646609002442*^9, 3.633646624397981*^9}}],
+
+Cell["\<\
+Migration of new alleles into a population. It can introduce genetic \
+variation and homogenize allele frquencies between populations.  \
+\>", "Text",
+ CellChangeTimes->{{3.633646859156309*^9, 3.6336469014750767`*^9}, {
+  3.633646956124386*^9, 3.6336469940343857`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["3.) Nonrandom mating ", "Subsection",
+ CellChangeTimes->{{3.6336471645363855`*^9, 3.633647172089386*^9}, 
+   3.633647282677386*^9, {3.6336474551683855`*^9, 3.633647461419386*^9}, {
+   3.6336521237811823`*^9, 3.6336521263171825`*^9}, 3.6336521760051823`*^9}],
+
+Cell["Shifts genotype frequencies.", "Text",
+ CellChangeTimes->{{3.633652186382182*^9, 3.6336521921681824`*^9}}],
+
+Cell[TextData[{
+ ButtonBox["Assortative mating",
+  BaseStyle->"Hyperlink",
+  ButtonData->"Assortivative mating"],
+ " increases homozygosity (same allele pairs i.e. BB); ",
+ ButtonBox["disassortative mating",
+  BaseStyle->"Hyperlink",
+  ButtonData->"Disassortative mating"],
+ " increases the frequency of heterozygotes (different allele pairs i.e. Bb). "
+}], "Text",
+ CellChangeTimes->{{3.633647472546386*^9, 3.6336474731733856`*^9}, {
+  3.633647581726386*^9, 3.633647596736386*^9}, {3.6336477153573856`*^9, 
+  3.633647718990386*^9}, {3.633647905821386*^9, 3.6336479102723856`*^9}, {
+  3.6336480037603855`*^9, 3.633648016156386*^9}, {3.633648064946386*^9, 
+  3.633648070084386*^9}, {3.6336509129943404`*^9, 3.633650944618178*^9}, {
+  3.63365099779186*^9, 3.63365102688795*^9}, {3.6336563288301706`*^9, 
+  3.6336563288301706`*^9}, {3.633656368458171*^9, 3.6336563684591703`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["4.) Genetic drift ", "Subsection",
+ CellChangeTimes->{{3.6336521331901827`*^9, 3.633652159960182*^9}}],
+
+Cell["Random shifts in allele frequency. (Like bottleneck events)", "Text",
+ CellChangeTimes->{{3.633655638585517*^9, 3.6336556866163197`*^9}, {
+  3.6336563851741705`*^9, 3.6336563924561706`*^9}}],
+
+Cell["May alter allele frequencies in small populations severely", "Text",
+ CellChangeTimes->{{3.6336521647301826`*^9, 3.633652172521182*^9}, {
+  3.6336522043401823`*^9, 3.6336522169591827`*^9}, {3.6336554194996104`*^9, 
+  3.6336554218158417`*^9}}],
+
+Cell["May elimate a certain genotype due to the randomness", "Text",
+ CellChangeTimes->{{3.6336524052791824`*^9, 3.6336524357861824`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["5.) Natural Selection", "Subsection",
+ CellChangeTimes->{{3.6336525323141823`*^9, 3.633652539401182*^9}}],
+
+Cell["\<\
+Favors some genotypes over others. (\[OpenCurlyDoubleQuote]Survival of the \
+fittest\[CloseCurlyDoubleQuote])\
+\>", "Text",
+ CellChangeTimes->{{3.6336525450311823`*^9, 3.6336525986741824`*^9}}],
+
+Cell[TextData[StyleBox["Pre-conditions:", "Subsubsection"]], "Text",
+ CellChangeTimes->{{3.6336526086751823`*^9, 3.6336526185581827`*^9}}],
+
+Cell["1.) Genetic variation must exist.", "Text",
+ CellChangeTimes->{{3.6336526365101824`*^9, 3.6336526432981825`*^9}}],
+
+Cell["\<\
+2.) That genetic variation must result in differing degrees of \
+\[OpenCurlyDoubleQuote]reproductive success.\[CloseCurlyDoubleQuote] As in, \
+the likelihood that a certain gene will get passed to the next generation. \
+Whether it\[CloseCurlyQuote]s something that keeps the organism alive or lets \
+them make more babies, etc.\
+\>", "Text",
+ CellChangeTimes->{{3.6336526458531823`*^9, 3.6336527511081824`*^9}}],
+
+Cell["\<\
+3.) The genetic variation must be inheritable, otherwise it can\
+\[CloseCurlyQuote]t be passed to future generations\
+\>", "Text",
+ CellChangeTimes->{{3.6336527543731823`*^9, 3.6336528078121824`*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Natural Selection", "Section",
+ CellChangeTimes->{{3.6336528393591824`*^9, 3.6336528483761826`*^9}, 
+   3.6336531489181824`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Greater fitness == increase in frequency", "Subsection",
+ CellChangeTimes->{{3.6336528577111826`*^9, 3.6336528592291822`*^9}, {
+  3.6336529953461823`*^9, 3.6336530355531826`*^9}}],
+
+Cell["\<\
+Genotype with the highest relative fitness increases in frequency in the next \
+generation.\
+\>", "Text",
+ CellChangeTimes->{{3.6336530821161823`*^9, 3.6336531043191824`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Components of evolutionary fitness", "Subsection",
+ CellChangeTimes->{{3.6336531609061823`*^9, 3.6336531646621823`*^9}, {
+  3.6336532321171827`*^9, 3.6336532344451823`*^9}}],
+
+Cell["1.) Likelihood of an individual\[CloseCurlyQuote]s survival.", "Text",
+ CellChangeTimes->{{3.6336531719541826`*^9, 3.6336532681443825`*^9}}],
+
+Cell["2.) Mating frequency.", "Text",
+ CellChangeTimes->{{3.6336531841801825`*^9, 3.6336531989041824`*^9}, {
+  3.6336532714130363`*^9, 3.633653275368827*^9}}],
+
+Cell["3.) Offspring per reproductive event.", "Text",
+ CellChangeTimes->{{3.6336532006231823`*^9, 3.6336532173641825`*^9}, {
+  3.6336532801557846`*^9, 3.633653286070967*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Subtypes of Selection", "Subsection",
+ CellChangeTimes->{{3.6336537685683155`*^9, 3.633653772204679*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Frequency-dependent selection", "Subsubsection"]], \
+"Subsubsection",
+ CellChangeTimes->{3.633653824083866*^9}],
+
+Cell["\<\
+Negative frequency-dependent selection favors rare phenotypes and maintains \
+variation within a population.\
+\>", "Text",
+ CellChangeTimes->{{3.633653341186988*^9, 3.633653373182386*^9}}],
+
+Cell["\<\
+Positive frequency-dependent selection favors the common phenotype and leads \
+to decreased variation.\
+\>", "Text",
+ CellChangeTimes->{3.6336533816280746`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Oscillating selection", "Subsubsection",
+ CellChangeTimes->{3.6336538515566134`*^9}],
+
+Cell["\<\
+If environmental change is cyclical, selection would favor one phenotype, \
+then another, maintaining variation.\
+\>", "Text",
+ CellChangeTimes->{{3.6336535259699373`*^9, 3.633653557034164*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Heterozygote advantages (sometimes)", "Subsubsection",
+ CellChangeTimes->{3.633653866852143*^9}],
+
+Cell["Sometimes they can exhibit greater fitness than homozygotes.", "Text",
+ CellChangeTimes->{{3.633653594210881*^9, 3.6336536116106215`*^9}, 
+   3.6336536739368534`*^9}],
+
+Cell["Kind of rare.", "Text",
+ CellChangeTimes->{{3.6336536759820576`*^9, 3.6336536810255623`*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Selection acting on traits affected by multiple genes", "Subsection",
+ CellChangeTimes->{{3.6336543370401754`*^9, 3.6336543501531754`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Disruptive Selection", "Subsubsection"]], \
+"Subsubsection",
+ CellChangeTimes->{{3.633653885204978*^9, 3.6336539176092176`*^9}}],
+
+Cell["\<\
+When intermediate phenotypes are at a disadvantage, a population may exhibit \
+a bimodal trait distribution (two distinct traits showing up in a population).\
+\>", "Text",
+ CellChangeTimes->{{3.6336539317626333`*^9, 3.633653959042361*^9}, {
+  3.6336540215036063`*^9, 3.633654042933749*^9}, {3.633654074352891*^9, 
+  3.633654102867742*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1:eJztnV3Os7oVRunPRafRMTCCdgjtfaVTqdxWaitVZyieSQfhOVGDiV/ivb39
+A9gYniU+PiDJSwJ45bFx4I9//+dfpt8Ow/DvP5jRX37575/+9a9ffv3r783M
+n3/9zz/+/jsz8T/z72+/GYZlegYAAAAAAAAAAAAAAIAqaK3HFaUUfVSt1H9X
+AIC2TNNk5GAm6DkLKw2YAYAXYsq+m7CKsDgtwAwAvJCQGexys8SECu8l+oOR
+BsYYY/yAcaIZ9KfxQWiC0CuHzQQAuCPUDPq7TkEzg3uowtsDADTB5IHpg511
+rpjX4s8GhhmZAYCnIxT/6AtPfzMAgK5BZgAAUKAFAAAFmQEAQIEWAAAUZAYA
+AAvMAADwQGYAALDADAAAD2QGAAAFWgAAUJAZAAAUaAEAQEFmAACwwAwAAA9k
+BgAABVoAAFBgBgAABWYAAFDQzgAAoEALAAAKzAAAoKA2AQCgQAsAAArMAACg
+oDYBAKBACwAACswAAKDADAAACtoZAAAUaAGAZ6M/sMuFV138vgAAzZg+jOPo
+LVdK2YfYF8IMADwYJwQzwRb2YRjYF6KdAYAHI5jBZgYzpq+CFgB4NoIZzKyV
+g/cSDQB4Fllm8J5A/ZBrIQBAL5hIYMu4bU9w1Qcz1mtmgBkAeCfjii3pVgjz
+qgiz0HmDAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMA
+ACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMA
+ACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMAACgwAwCAAjMA
+ACgwAwCAAjMAACgwAwAPRik1rnglfZoms9CMQwaAGQB4MKb4z2sxtxMOW/CN
+N4wc2BfCDAA8lX3BH4ZBfoIHzADAUzGl25R9O82agdYy7KvewGpFNQxmmOh4
+HJdHDa3f5htRK2YXhPaOGZu90/pt9gQt40JmEALD/OjMoJe61Vb8x0lPaqaD
+WW6sOWwHpz0OW7/vp/OzX8wGH83RaRxhDlNm0Eqb55gnG3O3ftdd4sygP+0M
+TiDTivza58nBfCCbE0JC4AdjiUkPOBQv4+OEzQZ6K/7OA7wfzJONHwa7U7Bb
+Mpk+2GrFuB7cBhMhxg/sC5+nhfVTL6U7wwkkSNi/8LyN0xDqhEBOCPthTRrI
+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
+RSk=
+    "], {{0, 184}, {350, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSizeRaw->{350, 184},
+  PlotRange->{{0, 350}, {0, 184}}]], "Input"],
+
+Cell["Cutting out the ones in the in-between stages of a trait.", "Text",
+ CellChangeTimes->{{3.6336542001751757`*^9, 3.633654234928176*^9}, 
+   3.6336544029661756`*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Directional Selection", "Subsubsection"]], \
+"Subsubsection",
+ CellChangeTimes->{{3.6336540504455004`*^9, 3.6336540540318584`*^9}, {
+  3.6336544084031754`*^9, 3.6336544086681757`*^9}}],
+
+Cell["Shifts the population towards one end of the distribution.", "Text",
+ CellChangeTimes->{{3.6336540565801134`*^9, 3.6336540673001857`*^9}, {
+   3.6336542561981754`*^9, 3.6336542720711756`*^9}, 3.6336544299521756`*^9, {
+   3.6336550480121756`*^9, 3.633655054746176*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+AACW8B+7Kl+e
+    "], {{0, 153}, {287, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSizeRaw->{287, 153},
+  PlotRange->{{0, 287}, {0, 153}}]], "Input"],
+
+Cell["Makes one side bigger.", "Text",
+ CellChangeTimes->{{3.6336544337681756`*^9, 3.633654437204176*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Stabilizing Selection", "Subsubsection",
+ CellChangeTimes->{{3.6336544530261755`*^9, 3.633654462923176*^9}}],
+
+Cell["\<\
+Eliminates both extremes and increases the frequency of an intermediate type.\
+\>", "Text",
+ CellChangeTimes->{{3.6336544687051754`*^9, 3.6336544894271755`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+AAAAAAAAAAAAAAAARPMPU61Klw==
+    "], {{0, 300}, {520, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  BaseStyle->"ImageGraphics",
+  ImageSizeRaw->{520, 300},
+  PlotRange->{{0, 520}, {0, 300}}]], "Input"],
+
+Cell["Raises the middle", "Text",
+ CellChangeTimes->{{3.6336544942501755`*^9, 3.6336544971571755`*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Mutation and genetic drift may counter selection", "Subsection",
+ CellChangeTimes->{{3.6336552493511753`*^9, 3.6336552597691755`*^9}}],
+
+Cell["\<\
+Although a high rate of mutation could oppose natural selection, it rarely \
+happens\
+\>", "Text",
+ CellChangeTimes->{{3.6336552795661755`*^9, 3.633655297459408*^9}, {
+  3.633655339225584*^9, 3.6336553498756485`*^9}}],
+
+Cell["Genetic drift can also work to counter natural selection.", "Text",
+ CellChangeTimes->{{3.6336553545261135`*^9, 3.6336553702066813`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Gene flow may promote or constrain evolutionary change", "Subsection",
+ CellChangeTimes->{{3.633655747695427*^9, 3.633655762809938*^9}}],
+
+Cell["\<\
+Can spread a beneficial mutation to other populations or impede adaptation \
+due to influx of alleles with low fitness in a population\[CloseCurlyQuote]s \
+environment.\
+\>", "Text",
+ CellChangeTimes->{{3.6336558380664625`*^9, 3.6336559047861342`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Genes can have multiple effects", "Subsection",
+ CellChangeTimes->{{3.633656083691023*^9, 3.6336561069333467`*^9}}],
+
+Cell[TextData[{
+ ButtonBox["Pleiotropic genes",
+  BaseStyle->"Hyperlink",
+  ButtonData->"Pleiotropic genes"],
+ " set limits on how much a phenotype can be altered."
+}], "Text",
+ CellChangeTimes->{{3.633656111471801*^9, 3.6336561279104443`*^9}, {
+  3.6336564530541706`*^9, 3.6336564530551705`*^9}}],
+
+Cell["\<\
+Even if one affected trait is favored, other affected traits may not be.\
+\>", "Text",
+ CellChangeTimes->{{3.633656129576611*^9, 3.6336561501846714`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Evolution requires genetic variation", "Subsection",
+ CellChangeTimes->{{3.633656161137767*^9, 3.633656168191472*^9}}],
+
+Cell["\<\
+Intense selection pressure may remove genetic variation (Like an event where \
+only a certain genotype survives)\
+\>", "Text",
+ CellChangeTimes->{{3.6336561708147345`*^9, 3.633656179823635*^9}, {
+  3.6336564742981706`*^9, 3.6336564942381706`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Gene interactions affect fitness of alleles", "Subsection",
+ CellChangeTimes->{{3.6336565080841703`*^9, 3.6336565258391705`*^9}}],
+
+Cell[TextData[{
+ "In ",
+ ButtonBox["epistasis",
+  BaseStyle->"Hyperlink",
+  ButtonData->"Epistasis"],
+ ", fitness of one allele may vary depending on the genotype of a second gene."
+}], "Text",
+ CellChangeTimes->{{3.6336565286511707`*^9, 3.6336565504351707`*^9}, {
+  3.6336566678041706`*^9, 3.6336566678041706`*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Evidence for Evolution (Abbreviated)", "Section",
+ CellChangeTimes->{{3.6336568050041704`*^9, 3.6336568329291706`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Anatomical Evidence for Evolution", "Subsection",
+ CellChangeTimes->{{3.6336569069041705`*^9, 3.6336569152321706`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Homologous structures", "Subsubsection"]], \
+"Subsubsection",
+ CellChangeTimes->{3.6336592671849995`*^9}],
+
+Cell["May have different appearances and functions", "Text",
+ CellChangeTimes->{{3.6336592769889994`*^9, 3.6336592878779993`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Early embryonic development", "Subsubsection",
+ CellChangeTimes->{{3.6336592918589993`*^9, 3.6336592990859995`*^9}}],
+
+Cell["\<\
+Shows similarities developmental patterns among species whose adult \
+phenotypes are very different.\
+\>", "Text",
+ CellChangeTimes->{{3.633659301464999*^9, 3.6336593439139996`*^9}}],
+
+Cell["\<\
+Species that have lost a feature that was present in an ancestral form often \
+develop and then lose that feature during embryonic development\
+\>", "Text",
+ CellChangeTimes->{{3.6336593454569993`*^9, 3.633659384005999*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Imperfectly suited structures", "Subsubsection",
+ CellChangeTimes->{{3.6336593966245475`*^9, 3.6336594455214367`*^9}}],
+
+Cell["\<\
+Natural selection can influence only the variation present in a population; \
+because of this, evolution often results in workable, but imperfect \
+structures, such as the vertebrate eye. \
+\>", "Text",
+ CellChangeTimes->{{3.6336594136592507`*^9, 3.633659414207306*^9}, {
+  3.6336594513090153`*^9, 3.6336594674826326`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Vestigal Structures", "Subsubsection",
+ CellChangeTimes->{{3.6336594767515593`*^9, 3.6336594812550097`*^9}}],
+
+Cell["\[OpenCurlyDoubleQuote]Holdovers\[CloseCurlyDoubleQuote] from the \
+past.", "Text",
+ CellChangeTimes->{{3.633659492069091*^9, 3.6336595136172457`*^9}}],
+
+Cell["Structures that are no longer needed that ancestors needed.", "Text",
+ CellChangeTimes->{{3.6336595168265667`*^9, 3.633659530382922*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell["Convergent Evolution", "Subsection",
+ CellChangeTimes->{{3.633659811148996*^9, 3.6336598142203026`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Origin of Species ", "Section",
+ CellChangeTimes->{{3.6336604249938364`*^9, 3.633660429400837*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Sympatric Species", "Subsection",
+ CellChangeTimes->{{3.6336604939118366`*^9, 3.6336605012108364`*^9}}],
+
+Cell["Inhabit the same area, but remain distinct.", "Text",
+ CellChangeTimes->{{3.6336605029458365`*^9, 3.6336605187998366`*^9}, {
+  3.6336611260378366`*^9, 3.6336611264768367`*^9}}],
+
+Cell["Usually distinguishable phenotypically and ecologically.", "Text",
+ CellChangeTimes->{{3.6336611341028366`*^9, 3.6336611774228363`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Geographic Variation", "Subsection",
+ CellChangeTimes->{{3.6336616118341074`*^9, 3.6336616159115148`*^9}}],
+
+Cell["\<\
+Phenotypically and ecologically differing populations are usally connected by \
+geographically intermediate populations.\
+\>", "Text",
+ CellChangeTimes->{{3.6336616193008537`*^9, 3.6336616958695097`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["What makes a species?", "Subsection",
+ CellChangeTimes->{{3.633661709559879*^9, 3.633661710795002*^9}, {
+  3.63366201900782*^9, 3.633662032458165*^9}}],
+
+Cell["\<\
+Species are defined as those populations that interbreed, or have the \
+potential to do so, and produce fertile offspring.\
+\>", "Text",
+ CellChangeTimes->{{3.633661714134336*^9, 3.6336617609080133`*^9}, {
+  3.63366183168709*^9, 3.633661832943216*^9}}],
+
+Cell["\<\
+Reproductive isolating mechanisms prevent genetic exchange between species.\
+\>", "Text",
+ CellChangeTimes->{{3.6336618349284143`*^9, 3.633661843226244*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Reproductive barriers", "Subsection",
+ CellChangeTimes->{{3.633662049879907*^9, 3.6336620548444033`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Prezygotic isolating mechanisms", "Subsubsection",
+ CellChangeTimes->{{3.6336620681857376`*^9, 3.633662074965416*^9}, {
+  3.633662276578575*^9, 3.633662276638581*^9}}],
+
+Cell["Prevent a viable zygote from being created.", "Text",
+ CellChangeTimes->{{3.6336620795118704`*^9, 3.633662090440963*^9}}],
+
+Cell["\<\
+Can be ecological, behavioral, temporal, and mechanical isolation, as well as \
+failure of gametes to unite to form a zygote.\
+\>", "Text",
+ CellChangeTimes->{{3.633662209854903*^9, 3.6336622496618834`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Postzygotic isolating mechanisms", "Subsubsection",
+ CellChangeTimes->{{3.633662265539471*^9, 3.6336622806169786`*^9}}],
+
+Cell["\<\
+Postzygotic isolating mechanisms prevent a zygote from developing into a \
+viable and fertile individual.\
+\>", "Text",
+ CellChangeTimes->{{3.633662283977315*^9, 3.6336622952474413`*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Geographical barriers", "Subsection",
+ CellChangeTimes->{{3.633662514945679*^9, 3.633662518407679*^9}}],
+
+Cell["\<\
+Populations may evolve complete reproductive isolation in allopatry.\
+\>", "Text",
+ CellChangeTimes->{{3.6336628979476795`*^9, 3.633662915787679*^9}}],
+
+Cell["\<\
+If populations that have evolved only partial reproductive isolation come \
+into contact, natural selection can lead to increased reproductive isolation, \
+a process termed \[OpenCurlyDoubleQuote]reinforcement.\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.633662917912679*^9, 3.633662925495679*^9}}],
+
+Cell["\<\
+ Alternatively, genetic exchange between the populations can lead to \
+homogenization and thus prevent speciation from occurring.\
+\>", "Text",
+ CellChangeTimes->{3.633662927660679*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Pace of Evolution", "Subsection",
+ CellChangeTimes->{{3.6336635753434525`*^9, 3.6336635821641345`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Gradualism", "Subsubsection",
+ CellChangeTimes->{{3.633663597532671*^9, 3.633663600145932*^9}}],
+
+Cell["Accumulation of small changes", "Text",
+ CellChangeTimes->{{3.633663555337452*^9, 3.6336635616310816`*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Puntuated equilibrium", "Subsubsection",
+ CellChangeTimes->{{3.633663613072225*^9, 3.6336636276836863`*^9}}],
+
+Cell["Long periods of stasis followed by relatively rapid change.", "Text",
+ CellChangeTimes->{{3.6336636460195193`*^9, 3.6336636508269997`*^9}, {
+   3.6336636947323904`*^9, 3.633663703081225*^9}, 3.633663769975914*^9}],
+
+Cell["Rapid and episodic change leading to speciation.", "Text",
+ CellChangeTimes->{{3.633663734552372*^9, 3.63366376794071*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Miscel", "Subsection",
+ CellChangeTimes->{{3.633662946288679*^9, 3.6336629504776793`*^9}}],
+
+Cell["\<\
+Genetic drift may cause populations to diverge; the differences that evolve \
+may cause the populations to become reproductively isolated.\
+\>", "Text",
+ CellChangeTimes->{{3.633662962360679*^9, 3.6336629649646792`*^9}}],
+
+Cell["\<\
+Adaptation to different situations or environments may incidentally lead to \
+reproductive isolation.\
+\>", "Text",
+ CellChangeTimes->{3.633662985321679*^9}],
+
+Cell["\<\
+Adaptive radiation occurs when a species finds itself in a new or suddenly \
+changed environment with many resources and few competing species.\
+\>", "Text",
+ CellChangeTimes->{{3.6336634844843674`*^9, 3.63366349361028*^9}}],
+
+Cell["\<\
+The evolution of a new trait that allows individuals to use previously \
+inaccessible parts of the environment, termed a \[OpenCurlyDoubleQuote]key \
+innovation,\[CloseCurlyDoubleQuote] may also trigger an adaptive radiation.\
+\>", "Text",
+ CellChangeTimes->{3.6336634959645157`*^9}]
+}, Closed]]
+}, Closed]],
+
+Cell["Systematics", "Section",
+ CellChangeTimes->{{3.6336638394888644`*^9, 3.633663854910406*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Prokaryotes", "Section",
+ CellChangeTimes->{{3.634475333576606*^9, 3.634475335908072*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Origins of organelles", "Subsection",
+ CellChangeTimes->{{3.6344753414491796`*^9, 3.634475350670024*^9}, {
+  3.634475393731634*^9, 3.6344754008950667`*^9}}],
+
+Cell["The nucleus and ER arose from membrane infoldings.", "Text",
+ CellChangeTimes->{3.634475353656621*^9, 3.634475423641447*^9}],
+
+Cell["Mitochondria evolved from engulfed aerobic bacteria.", "Text",
+ CellChangeTimes->{{3.6344754038526583`*^9, 3.634475405817051*^9}}],
+
+Cell["Chloroplasts evolved from engulfed photosynthetic bacteria.", "Text",
+ CellChangeTimes->{{3.6344754201400967`*^9, 3.634475421250208*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Vocabulary", "Section",
+ CellChangeTimes->{{3.633647917380386*^9, 3.633647939781386*^9}}],
+
+Cell[TextData[{
+ StyleBox["Assortivative mating",
+  FontVariations->{"Underline"->True}],
+ " - similar individuals tend to mate"
+}], "Text",
+ CellChangeTimes->{{3.6336479467503858`*^9, 3.633647955582386*^9}},
+ CellTags->"Assortivative mating"],
+
+Cell[TextData[{
+ StyleBox["Disassortative mating",
+  FontVariations->{"Underline"->True}],
+ " - disimilar individuals tend to mate"
+}], "Text",
+ CellChangeTimes->{{3.633650957534886*^9, 3.6336509739472446`*^9}},
+ CellTags->"Disassortative mating"],
+
+Cell[TextData[{
+ StyleBox["Genetic drift",
+  FontVariations->{"Underline"->True}],
+ " - random shifts in allele frequency. Happen because of random events (i.e. \
+bottleneck)"
+}], "Text",
+ CellChangeTimes->{{3.6336522455221825`*^9, 3.633652268448182*^9}, {
+  3.6336523701801825`*^9, 3.6336523948991823`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Phenotype",
+  FontVariations->{"Underline"->True}],
+ " - the result of expressed genes. (i.e. red hair, long arms, fur)"
+}], "Text",
+ CellChangeTimes->{{3.6336528661691823`*^9, 3.6336529511471825`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Genotype",
+  FontVariations->{"Underline"->True}],
+ " - the set of genes that determine a trait. Can be heterozygous, homozygous."
+}], "Text",
+ CellChangeTimes->{{3.6336529323741827`*^9, 3.6336529892931824`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Fitness",
+  FontVariations->{"Underline"->True}],
+ " - the reproductive success of an individual."
+}], "Text",
+ CellChangeTimes->{{3.6336530467981825`*^9, 3.6336530628291826`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Relative fitness",
+  FontVariations->{"Underline"->True}],
+ " - success of one genotype relative to others in a population"
+}], "Text",
+ CellChangeTimes->{{3.6336531084941826`*^9, 3.6336531381201825`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Negative frequency-dependent selection",
+  FontVariations->{"Underline"->True}],
+ " - favors rare phenotypes and maintains variation within a population."
+}], "Text",
+ CellChangeTimes->{{3.633653400428834*^9, 3.6336534075332546`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Positive frequency-dependent selection",
+  FontVariations->{"Underline"->True}],
+ " - favors the common phenotype and leads to decreased variation."
+}], "Text",
+ CellChangeTimes->{{3.633653415526853*^9, 3.633653421452038*^9}}],
+
+Cell[TextData[{
+ StyleBox["Pleiotropic genes",
+  FontVariations->{"Underline"->True}],
+ " - genes that have multiple effects on phenotype"
+}], "Text",
+ CellChangeTimes->{{3.6336559212997856`*^9, 3.63365594284794*^9}, {
+  3.633656415569171*^9, 3.6336564235191708`*^9}},
+ CellTags->"Pleiotropic genes"],
+
+Cell[TextData[{
+ StyleBox["Epistasis",
+  FontVariations->{"Underline"->True}],
+ " - the effect of one gene being dependent on the presence of one or more \
+\[OpenCurlyDoubleQuote]modifier genes\[CloseCurlyDoubleQuote]"
+}], "Text",
+ CellChangeTimes->{{3.6336565600321703`*^9, 3.633656571064171*^9}, {
+  3.633656622689171*^9, 3.6336566486811705`*^9}},
+ CellTags->"Epistasis"],
+
+Cell[TextData[{
+ StyleBox["Homologous structures",
+  FontVariations->{"Underline"->True}],
+ " - different appearances and functions, though derived from the same common \
+ancestral body part"
+}], "Text",
+ CellChangeTimes->{{3.633656967998171*^9, 3.6336570009991703`*^9}},
+ CellTags->"Homologous structures"],
+
+Cell[TextData[{
+ StyleBox["Convergent Evolution",
+  FontVariations->{"Underline"->True}],
+ " - When two species evolve the same trait independently of each other. \
+Sometimes because of similar pressures"
+}], "Text",
+ CellChangeTimes->{{3.633659855182399*^9, 3.633659901790059*^9}, {
+  3.6336600643133097`*^9, 3.6336601085677347`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Sympatric Species",
+  FontVariations->{"Underline"->True}],
+ " - process through which new species ",
+ StyleBox["evolve from a single ancestral species",
+  FontWeight->"Bold"],
+ " while inhabiting the ",
+ StyleBox["same geographic region",
+  FontWeight->"Bold"],
+ " because of ",
+ StyleBox["reproductive isolation",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.633660550251837*^9, 3.6336605552988367`*^9}, 
+   3.6336609152368364`*^9, {3.6336624023841543`*^9, 3.6336624160265183`*^9}},
+ CellTags->"Sympatric Species"],
+
+Cell[TextData[{
+ StyleBox["Allopatric Speciation",
+  FontVariations->{"Underline"->True}],
+ " - speciation because of ",
+ StyleBox["geographical isolation",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.6336623782167377`*^9, 3.6336623850784235`*^9}, {
+  3.633662424833399*^9, 3.6336624413500504`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Parapatric",
+  FontVariations->{"Underline"->True}],
+ " - populations are separated by an extreme change in habitat"
+}], "Text",
+ CellChangeTimes->{{3.633662455991679*^9, 3.633662489321679*^9}}],
+
+Cell[TextData[{
+ StyleBox["Clade",
+  FontVariations->{"Underline"->True}],
+ " - ",
+ "A monophyletic taxon; a group of organisms which includes the most recent \
+common ancestor of all of its members and all of the descendants of that most \
+recent common ancestor."
+}], "Text",
+ CellChangeTimes->{{3.6336643813870487`*^9, 3.6336643857174816`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Character",
+  FontVariations->{"Underline"->True}],
+ " - ",
+ "Heritable trait possessed by an organism; characters are usually described \
+in terms of their states, for example: \[OpenCurlyDoubleQuote]hair present\
+\[CloseCurlyDoubleQuote] vs. \[OpenCurlyDoubleQuote]hair absent,\
+\[CloseCurlyDoubleQuote] where \[OpenCurlyDoubleQuote]hair\
+\[CloseCurlyDoubleQuote] is the character, and \[OpenCurlyDoubleQuote]present\
+\[CloseCurlyDoubleQuote] and \[OpenCurlyDoubleQuote]absent\
+\[CloseCurlyDoubleQuote] are its states."
+}], "Text",
+ CellChangeTimes->{{3.633664414485358*^9, 3.6336644217990894`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Derived",
+  FontVariations->{"Underline"->True}],
+ " - ",
+ "Refers to a character or feature found within a single lineage of a larger \
+group; it is not shared with all organisms in the larger group. Derived \
+characters are used to infer evolutionary relationships, as derived \
+characters evolved after primitive characters. In comparing humans and apes, \
+it can be said that an upright stance in humans is a derived character."
+}], "Text",
+ CellChangeTimes->{{3.633664774280471*^9, 3.633664780526471*^9}}],
+
+Cell[TextData[{
+ StyleBox["synapomorphy",
+  FontVariations->{"Underline"->True}],
+ " - A character which is derived, and because it is shared by the taxa under \
+consideration, is used to infer common ancestry."
+}], "Text",
+ CellChangeTimes->{{3.633664958886471*^9, 3.633664971768471*^9}}],
+
+Cell[TextData[{
+ StyleBox["plesiomorphy",
+  FontVariations->{"Underline"->True}],
+ " - ",
+ "A primitive character state for the taxa under consideration."
+}], "Text",
+ CellChangeTimes->{{3.633665009970471*^9, 3.633665020967471*^9}}],
+
+Cell[TextData[{
+ StyleBox["Cytoskeleton",
+  FontVariations->{"Underline"->True}],
+ " - a scaffolding-like network of protein fibers important for maintaining \
+the shape of the cell."
+}], "Text",
+ CellChangeTimes->{{3.634475574361518*^9, 3.6344756150925903`*^9}}]
+}, Open  ]]
+},
+WindowSize->{658, 670},
+WindowMargins->{{Automatic, 9}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Assortivative mating"->{
+  Cell[34442, 881, 243, 6, 30, "Text",
+   CellTags->"Assortivative mating"]},
+ "Disassortative mating"->{
+  Cell[34688, 889, 247, 6, 30, "Text",
+   CellTags->"Disassortative mating"]},
+ "Pleiotropic genes"->{
+  Cell[36688, 948, 300, 7, 30, "Text",
+   CellTags->"Pleiotropic genes"]},
+ "Epistasis"->{
+  Cell[36991, 957, 373, 8, 49, "Text",
+   CellTags->"Epistasis"]},
+ "Homologous structures"->{
+  Cell[37367, 967, 307, 7, 49, "Text",
+   CellTags->"Homologous structures"]},
+ "Sympatric Species"->{
+  Cell[38015, 985, 554, 15, 68, "Text",
+   CellTags->"Sympatric Species"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Assortivative mating", 41742, 1090},
+ {"Disassortative mating", 41848, 1093},
+ {"Pleiotropic genes", 41951, 1096},
+ {"Epistasis", 42042, 1099},
+ {"Homologous structures", 42137, 1102},
+ {"Sympatric Species", 42240, 1105}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 116, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[721, 27, 227, 3, 49, "Subsection"],
+Cell[951, 32, 187, 4, 30, "Text"],
+Cell[1141, 38, 392, 9, 68, "Text"],
+Cell[1536, 49, 185, 4, 49, "Text"],
+Cell[1724, 55, 177, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1938, 64, 203, 3, 41, "Subsection"],
+Cell[2144, 69, 321, 6, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2502, 80, 156, 2, 41, "Subsection"],
+Cell[2661, 84, 126, 1, 30, "Text"],
+Cell[2790, 87, 279, 5, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3106, 97, 263, 3, 41, "Subsection"],
+Cell[3372, 102, 112, 1, 30, "Text"],
+Cell[3487, 105, 877, 16, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4401, 126, 108, 1, 41, "Subsection"],
+Cell[4512, 129, 196, 2, 30, "Text"],
+Cell[4711, 133, 248, 3, 30, "Text"],
+Cell[4962, 138, 138, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5137, 144, 111, 1, 41, "Subsection"],
+Cell[5251, 147, 203, 4, 30, "Text"],
+Cell[5457, 153, 138, 1, 41, "Text"],
+Cell[5598, 156, 119, 1, 30, "Text"],
+Cell[5720, 159, 421, 7, 68, "Text"],
+Cell[6144, 168, 210, 4, 49, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6403, 178, 134, 2, 56, "Section"],
+Cell[CellGroupData[{
+Cell[6562, 184, 185, 2, 49, "Subsection"],
+Cell[6750, 188, 185, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6972, 197, 179, 2, 41, "Subsection"],
+Cell[7154, 201, 146, 1, 30, "Text"],
+Cell[7303, 204, 158, 2, 30, "Text"],
+Cell[7464, 208, 174, 2, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7675, 215, 111, 1, 41, "Subsection"],
+Cell[CellGroupData[{
+Cell[7811, 220, 135, 2, 39, "Subsubsection"],
+Cell[7949, 224, 198, 4, 49, "Text"],
+Cell[8150, 230, 170, 4, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8357, 239, 90, 1, 39, "Subsubsection"],
+Cell[8450, 242, 204, 4, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8691, 251, 102, 1, 39, "Subsubsection"],
+Cell[8796, 254, 172, 2, 30, "Text"],
+Cell[8971, 258, 99, 1, 30, "Text"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9119, 265, 145, 1, 41, "Subsection"],
+Cell[CellGroupData[{
+Cell[9289, 270, 152, 2, 39, "Subsubsection"],
+Cell[9444, 274, 349, 6, 49, "Text"],
+Cell[9796, 282, 6561, 112, 199, "Input"],
+Cell[16360, 396, 169, 2, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16566, 403, 208, 3, 33, "Subsubsection"],
+Cell[16777, 408, 274, 3, 30, "Text"],
+Cell[17054, 413, 2421, 44, 168, "Input"],
+Cell[19478, 459, 106, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19621, 465, 114, 1, 33, "Subsubsection"],
+Cell[19738, 468, 171, 3, 30, "Text"],
+Cell[19912, 473, 3108, 55, 294, "Input"],
+Cell[23023, 530, 103, 1, 30, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[23175, 537, 140, 1, 41, "Subsection"],
+Cell[23318, 540, 227, 5, 30, "Text"],
+Cell[23548, 547, 143, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[23728, 553, 142, 1, 41, "Subsection"],
+Cell[23873, 556, 262, 5, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[24172, 566, 121, 1, 41, "Subsection"],
+Cell[24296, 569, 297, 7, 30, "Text"],
+Cell[24596, 578, 164, 3, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[24797, 586, 124, 1, 41, "Subsection"],
+Cell[24924, 589, 257, 5, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25218, 599, 135, 1, 41, "Subsection"],
+Cell[25356, 602, 316, 8, 49, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25721, 616, 125, 1, 56, "Section"],
+Cell[CellGroupData[{
+Cell[25871, 621, 125, 1, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[26021, 626, 129, 2, 39, "Subsubsection"],
+Cell[26153, 630, 130, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[26320, 636, 122, 1, 33, "Subsubsection"],
+Cell[26445, 639, 192, 4, 49, "Text"],
+Cell[26640, 645, 234, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[26911, 654, 124, 1, 33, "Subsubsection"],
+Cell[27038, 657, 333, 6, 68, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[27408, 668, 114, 1, 33, "Subsubsection"],
+Cell[27525, 671, 157, 2, 30, "Text"],
+Cell[27685, 675, 143, 1, 30, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[27855, 680, 110, 1, 41, "Subsection"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28002, 686, 105, 1, 56, "Section"],
+Cell[CellGroupData[{
+Cell[28132, 691, 109, 1, 49, "Subsection"],
+Cell[28244, 694, 182, 2, 30, "Text"],
+Cell[28429, 698, 142, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28608, 704, 112, 1, 41, "Subsection"],
+Cell[28723, 707, 214, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28974, 716, 157, 2, 41, "Subsection"],
+Cell[29134, 720, 262, 5, 49, "Text"],
+Cell[29399, 727, 167, 3, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[29603, 735, 111, 1, 41, "Subsection"],
+Cell[CellGroupData[{
+Cell[29739, 740, 173, 2, 39, "Subsubsection"],
+Cell[29915, 744, 127, 1, 30, "Text"],
+Cell[30045, 747, 217, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[30299, 756, 125, 1, 33, "Subsubsection"],
+Cell[30427, 759, 197, 4, 49, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[30673, 769, 109, 1, 41, "Subsection"],
+Cell[30785, 772, 160, 3, 30, "Text"],
+Cell[30948, 777, 324, 5, 68, "Text"],
+Cell[31275, 784, 195, 4, 49, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31507, 793, 109, 1, 41, "Subsection"],
+Cell[CellGroupData[{
+Cell[31641, 798, 101, 1, 39, "Subsubsection"],
+Cell[31745, 801, 113, 1, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31895, 807, 114, 1, 33, "Subsubsection"],
+Cell[32012, 810, 219, 2, 30, "Text"],
+Cell[32234, 814, 129, 1, 30, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[32412, 821, 96, 1, 41, "Subsection"],
+Cell[32511, 824, 230, 4, 49, "Text"],
+Cell[32744, 830, 167, 4, 49, "Text"],
+Cell[32914, 836, 234, 4, 49, "Text"],
+Cell[33151, 842, 293, 5, 49, "Text"]
+}, Closed]]
+}, Closed]],
+Cell[33471, 851, 98, 1, 56, "Section"],
+Cell[CellGroupData[{
+Cell[33594, 856, 96, 1, 56, "Section"],
+Cell[CellGroupData[{
+Cell[33715, 861, 162, 2, 49, "Subsection"],
+Cell[33880, 865, 130, 1, 30, "Text"],
+Cell[34013, 868, 136, 1, 30, "Text"],
+Cell[34152, 871, 143, 1, 30, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34344, 878, 95, 1, 70, "Section"],
+Cell[34442, 881, 243, 6, 30, "Text",
+ CellTags->"Assortivative mating"],
+Cell[34688, 889, 247, 6, 30, "Text",
+ CellTags->"Disassortative mating"],
+Cell[34938, 897, 308, 7, 49, "Text"],
+Cell[35249, 906, 229, 5, 30, "Text"],
+Cell[35481, 913, 239, 5, 30, "Text"],
+Cell[35723, 920, 207, 5, 30, "Text"],
+Cell[35933, 927, 232, 5, 30, "Text"],
+Cell[36168, 934, 261, 5, 49, "Text"],
+Cell[36432, 941, 253, 5, 49, "Text"],
+Cell[36688, 948, 300, 7, 30, "Text",
+ CellTags->"Pleiotropic genes"],
+Cell[36991, 957, 373, 8, 49, "Text",
+ CellTags->"Epistasis"],
+Cell[37367, 967, 307, 7, 49, "Text",
+ CellTags->"Homologous structures"],
+Cell[37677, 976, 335, 7, 49, "Text"],
+Cell[38015, 985, 554, 15, 68, "Text",
+ CellTags->"Sympatric Species"],
+Cell[38572, 1002, 311, 8, 30, "Text"],
+Cell[38886, 1012, 221, 5, 30, "Text"],
+Cell[39110, 1019, 347, 8, 68, "Text"],
+Cell[39460, 1029, 628, 12, 68, "Text"],
+Cell[40091, 1043, 537, 10, 106, "Text"],
+Cell[40631, 1055, 289, 6, 49, "Text"],
+Cell[40923, 1063, 232, 6, 30, "Text"],
+Cell[41158, 1071, 263, 6, 49, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

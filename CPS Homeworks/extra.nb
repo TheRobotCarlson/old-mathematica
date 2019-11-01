@@ -1,0 +1,761 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     31418,        751]
+NotebookOptionsPosition[     31131,        737]
+NotebookOutlinePosition[     31475,        752]
+CellTagsIndexPosition[     31432,        749]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"returnPerpPoliceCoord", "[", 
+   RowBox[{"policeCo_", ",", "robberCo_", ",", "length_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"distance", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"policeCo", ",", "robberCo"}], "]"}]}], ",", 
+      RowBox[{"deltaX", "=", 
+       RowBox[{
+        RowBox[{"policeCo", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "-", 
+        RowBox[{"robberCo", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+      RowBox[{"deltaY", "=", 
+       RowBox[{
+        RowBox[{"policeCo", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "-", 
+        RowBox[{"robberCo", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}]}], ",", "angle", ",", "magnitude", 
+      ",", "ratio"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"angle", "=", " ", 
+      RowBox[{
+       RowBox[{"VectorAngle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"deltaX", ",", "deltaY"}], "}"}]}], "]"}], "-", 
+       FractionBox["\[Pi]", "2"]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ratio", "=", 
+      FractionBox["deltaY", "deltaX"]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"magnitude", "=", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"distance", "-", "length"}], ">", "0"}], ",", 
+        RowBox[{"distance", "-", "length"}], ",", "0"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"N", "[", 
+          RowBox[{"magnitude", " ", "*", 
+           RowBox[{"Cos", "[", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sign", "[", "deltaX", "]"}], "\[Equal]", 
+                RowBox[{"-", "1"}]}], ",", "\[Pi]", ",", "0"}], "]"}], "+", 
+             RowBox[{
+              RowBox[{"Sign", "[", "ratio", "]"}], "*", "angle"}]}], "]"}]}], 
+          "]"}], "+", 
+         RowBox[{"robberCo", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{"N", "[", 
+          RowBox[{"magnitude", "*", 
+           RowBox[{"Sin", "[", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sign", "[", "deltaX", "]"}], "\[Equal]", 
+                RowBox[{"-", "1"}]}], ",", "\[Pi]", ",", "0"}], "]"}], "+", 
+             RowBox[{
+              RowBox[{"Sign", "[", "ratio", "]"}], "*", "angle"}]}], "]"}]}], 
+          "]"}], "+", 
+         RowBox[{"robberCo", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.603201175983271*^9, {3.6032012343491073`*^9, 3.6032012633579445`*^9}, {
+   3.6032013282849445`*^9, 3.603201377210944*^9}, {3.603201410587944*^9, 
+   3.6032014359399443`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Simulates", " ", "a", " ", "robber", " ", "running", " ", "away", " ", 
+     "from", " ", "police"}], ",", " ", 
+    RowBox[{
+    "starting", " ", "inside", " ", "the", " ", "triangle", " ", "that", " ", 
+     "they", " ", 
+     RowBox[{"determine", ".", " ", "Once"}], " ", "the", " ", "robber", " ", 
+     "reaches", " ", "the", " ", "nearest", " ", "midpoint"}], ",", " ", 
+    RowBox[{
+    "he", " ", "runs", " ", "perpendicular", " ", "to", " ", "that", " ", 
+     RowBox[{"side", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"smartPolice", "[", 
+    RowBox[{
+    "police1_", ",", "police2_", ",", "police3_", ",", "robber_", ",", 
+     "length_", ",", "numberSteps_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"police1Pt", " ", "=", " ", 
+        RowBox[{"{", "police1", "}"}]}], ",", 
+       RowBox[{"police2Pt", " ", "=", " ", 
+        RowBox[{"{", "police2", "}"}]}], ",", 
+       RowBox[{"police3Pt", " ", "=", " ", 
+        RowBox[{"{", "police3", "}"}]}], ",", 
+       RowBox[{"pol1x", " ", "=", " ", 
+        RowBox[{"police1", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+       RowBox[{"pol1y", " ", "=", " ", 
+        RowBox[{"police1", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+       RowBox[{"pol2x", " ", "=", " ", 
+        RowBox[{"police2", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+       RowBox[{"pol2y", " ", "=", " ", 
+        RowBox[{"police2", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+       RowBox[{"pol3x", " ", "=", " ", 
+        RowBox[{"police3", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+       RowBox[{"pol3y", " ", "=", " ", 
+        RowBox[{"police3", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+       RowBox[{"robberPt", " ", "=", " ", 
+        RowBox[{"{", "robber", "}"}]}], ",", 
+       RowBox[{"robberCo", " ", "=", " ", "robber"}], ",", 
+       RowBox[{"closePoliceList", " ", "=", " ", 
+        RowBox[{"findNearestMidpoint", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"police1", ",", "police2", ",", "police3"}], "}"}], ",", 
+          "robber"}], "]"}]}], ",", "i", ",", "xchange", ",", " ", "ychange", 
+       ",", "dx", ",", " ", "dy", ",", 
+       RowBox[{"adjustedRobber", "=", 
+        RowBox[{"{", "}"}]}], ",", "d1", ",", "d2", ",", "d3", ",", "theta", 
+       ",", "otherPolice"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+       "Solve", " ", "for", " ", "the", " ", "xchange", " ", "and", " ", 
+        "ychange"}], ",", " ", 
+       RowBox[{
+       "where", " ", "they", " ", "satisfy", " ", "the", " ", "Pythagorean", 
+        " ", "identity", " ", "in", " ", "summing", " ", "to", " ", "the", 
+        " ", "step", " ", "length", " ", "and", " ", "are", " ", 
+        "perpendicular", " ", "to", " ", "the", " ", "police", " ", 
+        RowBox[{"line", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"xchange", ",", "ychange"}], "}"}], " ", "=", 
+       RowBox[{"Abs", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"dx", ",", "dy"}], "}"}], "/.", 
+         RowBox[{
+          RowBox[{"NSolve", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               SuperscriptBox["length", "2"], " ", "==", " ", 
+               RowBox[{
+                SuperscriptBox["dx", "2"], "+", 
+                SuperscriptBox["dy", "2"]}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"dy", "/", "dx"}], " ", "==", " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "1"}], "/", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"closePoliceList", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "2"}], "]"}], "]"}], "-", 
+                   RowBox[{"closePoliceList", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}]}], "/", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"closePoliceList", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", 
+                  RowBox[{"closePoliceList", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}]}]}]}], 
+             "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"dx", ",", "dy"}], "}"}]}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"Iterate", " ", "numberSteps", " ", 
+        RowBox[{"times", "."}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", "numberSteps"}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Determine", " ", "if", " ", "the", " ", "robber", " ", "is", " ", 
+          "inside", " ", "the", " ", "triangle", " ", "but", " ", "not", " ", 
+          "on", " ", "the", " ", 
+          RowBox[{"line", "."}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"closePoliceList", "=", 
+          RowBox[{"findTwoClosest", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"pol1x", ",", "pol1y"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"pol2x", ",", "pol2y"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"pol3x", ",", "pol3y"}], "}"}]}], "}"}], ","}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"checkinside", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"pol1x", ",", "pol1y"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"pol2x", ",", "pol2y"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"pol3x", ",", "pol3y"}], "}"}], ",", "robberCo"}], 
+             "]"}], "&&", 
+            RowBox[{"!", 
+             RowBox[{"liesOnLine", "[", 
+              RowBox[{"closePoliceList", ",", "robberCo"}], "]"}]}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"If", " ", "inside"}], ",", " ", 
+             RowBox[{
+             "take", " ", "a", " ", "step", " ", "toward", " ", "the", " ", 
+              "nearest", " ", 
+              RowBox[{"midpoint", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"robberCo", " ", "=", " ", 
+            RowBox[{"returnRobberCoordInside", "[", 
+             RowBox[{"robberCo", ",", "closePoliceList", ",", "length"}], 
+             "]"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+          "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "All", " ", "of", " ", "the", " ", "police", " ", "take", " ", "a", 
+           " ", "step", " ", "toward", " ", "the", " ", 
+           RowBox[{"robber", "."}]}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"pol1x", " ", "=", " ", 
+          RowBox[{"pol1x", "+", " ", 
+           RowBox[{"length", " ", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol1x"}], ")"}], 
+             " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], " ", "-", " ", "pol1x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", "pol1y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pol1y", " ", "=", " ", 
+          RowBox[{"pol1y", "+", " ", 
+           RowBox[{"length", " ", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "-", " ", "pol1y"}], ")"}], 
+             " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], " ", "-", " ", "pol1x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", "pol1y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pol2x", "=", " ", 
+          RowBox[{"pol2x", "+", " ", 
+           RowBox[{"length", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol2x"}], ")"}], 
+             " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol2x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", " ", "pol2y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pol2y", " ", "=", " ", 
+          RowBox[{"pol2y", "+", " ", 
+           RowBox[{"length", " ", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", "pol2y"}], 
+              ")"}], " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol2x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", " ", "pol2y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"pol3x", "=", " ", 
+          RowBox[{"pol3x", "+", " ", 
+           RowBox[{"length", " ", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol3x"}], ")"}], 
+             " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], " ", "-", " ", "pol3x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", " ", "pol3y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pol3y", " ", "=", " ", 
+          RowBox[{"pol3y", "+", " ", 
+           RowBox[{"length", " ", "*", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"robberCo", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", "pol3y"}], 
+              ")"}], " ", "/", " ", 
+             RowBox[{"\[Sqrt]", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "-", " ", "pol3x"}], 
+                  ")"}], "2"], " ", "+", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"robberCo", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "-", " ", "pol3y"}], 
+                  ")"}], "2"]}], " ", ")"}]}]}]}]}]}], ";"}]}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"adjustedRobber", " ", "=", " ", 
+         RowBox[{"returnRobberCoordInside", "[", 
+          RowBox[{"adjustedRobber", ",", "closePoliceList", ",", 
+           RowBox[{"-", "length"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "i"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"d1", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            FractionBox["1", "2"], 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"closePoliceList", "[", 
+               RowBox[{"[", 
+                RowBox[{"1", ",", "1"}], "]"}], "]"}], "+", 
+              RowBox[{"closePoliceList", "[", 
+               RowBox[{"[", 
+                RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ")"}]}], ",", 
+           RowBox[{
+            FractionBox["1", "2"], 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"closePoliceList", "[", 
+               RowBox[{"[", 
+                RowBox[{"1", ",", "2"}], "]"}], "]"}], "+", 
+              RowBox[{"closePoliceList", "[", 
+               RowBox[{"[", 
+                RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}]}]}], "}"}], 
+         ",", 
+         RowBox[{"closePoliceList", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"d2", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{"adjustedRobber", ",", 
+         RowBox[{"closePoliceList", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"theta", "=", 
+       RowBox[{"ArcSin", "[", 
+        FractionBox["d1", "d2"], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"d3", "=", 
+       RowBox[{
+        RowBox[{"Tan", "[", "theta", "]"}], "*", "d2"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", "numberSteps"}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Determine", " ", "if", " ", "the", " ", "robber", " ", "is", " ", 
+          "inside", " ", "the", " ", "triangle", " ", "but", " ", "not", " ", 
+          "on", " ", "the", " ", 
+          RowBox[{"line", "."}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"closePoliceList", "=", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"checkinside", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"pol1x", ",", "pol1y"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"pol2x", ",", "pol2y"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"pol3x", ",", "pol3y"}], "}"}], ",", "robberCo"}], 
+              "]"}], "&&", 
+             RowBox[{"!", 
+              RowBox[{"liesOnLine", "[", 
+               RowBox[{"closePoliceList", ",", "robberCo"}], "]"}]}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"If", " ", "inside"}], ",", " ", 
+              RowBox[{
+              "take", " ", "a", " ", "step", " ", "toward", " ", "the", " ", 
+               "nearest", " ", 
+               RowBox[{"midpoint", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"robberCo", " ", "=", " ", 
+             RowBox[{"returnRobberCoordInside", "[", 
+              RowBox[{"robberCo", ",", "closePoliceList", ",", "length"}], 
+              "]"}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{
+              "Run", " ", "in", " ", "the", " ", "direction", " ", "that", 
+               " ", "increases", " ", "distance", " ", "from", " ", "the", 
+               " ", "third", " ", "policeman", " ", "once", " ", "outside", 
+               " ", "or", " ", "on", " ", "the", " ", "line", " ", "of", " ", 
+               "the", " ", "triangle"}], ".."}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{
+                  RowBox[{"robberCo", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], "+", "ychange", " ", "-", 
+                  " ", 
+                  RowBox[{
+                   RowBox[{"Flatten", "[", 
+                    RowBox[{"Complement", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"police1", ",", "police2", ",", "police3"}], 
+                    "}"}], ",", "closePoliceList"}], "]"}], "]"}], "[", 
+                   RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ">", 
+                RowBox[{"Abs", "[", 
+                 RowBox[{
+                  RowBox[{"robberCo", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", 
+                  RowBox[{
+                   RowBox[{"Flatten", "[", 
+                    RowBox[{"Complement", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"police1", ",", "police2", ",", "police3"}], 
+                    "}"}], ",", "closePoliceList"}], "]"}], "]"}], "[", 
+                   RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"robberCo", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "=", " ", 
+                RowBox[{
+                 RowBox[{"robberCo", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], "+", " ", "ychange"}]}], 
+               ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"robberCo", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "=", " ", 
+                RowBox[{
+                 RowBox[{"robberCo", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], "-", " ", "ychange"}]}]}], 
+              "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{
+                  RowBox[{"robberCo", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "+", "xchange", " ", "-", 
+                  " ", 
+                  RowBox[{
+                   RowBox[{"Flatten", "[", 
+                    RowBox[{"Complement", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"police1", ",", "police2", ",", "police3"}], 
+                    "}"}], ",", "closePoliceList"}], "]"}], "]"}], "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ">", 
+                RowBox[{"Abs", "[", 
+                 RowBox[{
+                  RowBox[{"robberCo", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], " ", "-", " ", 
+                  RowBox[{
+                   RowBox[{"Flatten", "[", 
+                    RowBox[{"Complement", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"police1", ",", "police2", ",", "police3"}], 
+                    "}"}], ",", "closePoliceList"}], "]"}], "]"}], "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"robberCo", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "=", " ", 
+                RowBox[{
+                 RowBox[{"robberCo", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "+", " ", "xchange"}]}], 
+               ",", " ", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"robberCo", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "=", " ", 
+                RowBox[{
+                 RowBox[{"robberCo", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "-", " ", "xchange"}]}]}], 
+              "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"robberPt", ",", "robberCo"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "All", " ", "of", " ", "the", " ", "police", " ", "take", " ", "a", 
+           " ", "step", " ", "toward", " ", "the", " ", 
+           RowBox[{"robber", "."}]}], "*)"}], "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"police1Pt", ",", " ", 
+           RowBox[{
+            RowBox[{"closePoliceList", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"returnPerpPoliceCoord", "[", 
+              RowBox[{
+               RowBox[{"closePoliceList", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", "adjustedRobber", ",", 
+               "length"}], "]"}], 
+             RowBox[{"closePoliceList", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}]}]}], "]"}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"police2Pt", ",", " ", 
+           RowBox[{
+            RowBox[{"closePoliceList", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"returnPerpPoliceCoord", "[", 
+              RowBox[{
+               RowBox[{"closePoliceList", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], ",", "adjustedRobber", ",", 
+               "length"}], "]"}], 
+             RowBox[{"closePoliceList", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}]}], "]"}], ";", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"otherPolice", "=", 
+          RowBox[{
+           RowBox[{"Complement", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"police1", ",", "police2", ",", "police3"}], "}"}], ",",
+              "closePoliceList"}], "]"}], "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"police3Pt", ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"pol3x", ",", " ", "pol3y"}], "}"}]}], "]"}]}]}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+        "Return", " ", "a", " ", "plot", " ", "of", " ", "all", " ", "of", 
+         " ", "the", " ", "police", " ", "and", " ", "robber"}], ",", " ", 
+        RowBox[{"along", " ", "with", " ", "their", " ", "initial", " ", 
+         RowBox[{"locations", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "\[IndentingNewLine]", 
+       RowBox[{"Show", "[", "\[IndentingNewLine]", 
+        RowBox[{"ListPlot", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "police1Pt", ",", "police2Pt", ",", "police3Pt", ",", "robberPt", 
+            ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"police1", ",", " ", "police2", ",", "police3"}], "}"}], 
+            ",", " ", 
+            RowBox[{"{", "robber", "}"}]}], "}"}], ",", " ", 
+          RowBox[{"PlotStyle", " ", "\[Rule]", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Blue", ",", " ", 
+               RowBox[{"PointSize", "[", "Small", "]"}]}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"Purple", " ", ",", 
+               RowBox[{"PointSize", "[", "Small", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Yellow", ",", 
+               RowBox[{"PointSize", "[", "Small", "]"}]}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", " ", 
+               RowBox[{"PointSize", "[", "Small", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Green", ",", " ", 
+               RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"Orange", ",", 
+               RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", " ", 
+               RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}]}], "}"}]}], 
+          ",", " ", 
+          RowBox[{"Joined", " ", "\[Rule]", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "True", ",", " ", "True", ",", "True", ",", "True", ",", " ", 
+             "False", ",", "False", ",", " ", "False"}], "}"}]}]}], "]"}], 
+        "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6031993770466137`*^9, 3.6031994342210464`*^9}, {
+   3.6031995063694735`*^9, 3.603199541987874*^9}, {3.6031995788095555`*^9, 
+   3.6031996318408585`*^9}, {3.603199731751848*^9, 3.6031997530749807`*^9}, {
+   3.603199885633235*^9, 3.60320011860853*^9}, {3.6032001798736563`*^9, 
+   3.6032002228209505`*^9}, {3.6032004871975403`*^9, 3.60320048909554*^9}, {
+   3.60320052164554*^9, 3.60320054494954*^9}, {3.6032015901669445`*^9, 
+   3.603201592686944*^9}, {3.6032017225249443`*^9, 3.603201723355944*^9}, {
+   3.6032031007957473`*^9, 3.603203133752043*^9}, {3.6032032321698837`*^9, 
+   3.60320324873554*^9}, 3.6032033028539515`*^9, {3.6032033809407377`*^9, 
+   3.603203382757738*^9}, {3.6032034255177383`*^9, 3.6032034584257383`*^9}, {
+   3.603203579187738*^9, 3.603203617252738*^9}, {3.603203696118738*^9, 
+   3.603203701995738*^9}, {3.6032037368887377`*^9, 3.6032037575647383`*^9}, {
+   3.603204138924738*^9, 3.603204157897738*^9}, {3.603204195924738*^9, 
+   3.603204207923738*^9}, {3.6032046000376706`*^9, 3.6032046833660026`*^9}, {
+   3.603204715230189*^9, 3.6032047334410095`*^9}, {3.6032048177274375`*^9, 
+   3.6032048504267073`*^9}, {3.603204912842948*^9, 3.603204955219185*^9}}]
+},
+WindowSize->{707, 505},
+WindowMargins->{{48, Automatic}, {Automatic, 60}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 3014, 80, 316, "Input"],
+Cell[3574, 102, 27553, 633, 2778, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

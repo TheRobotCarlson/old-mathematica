@@ -1,0 +1,1933 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     63312,       1923]
+NotebookOptionsPosition[     62176,       1882]
+NotebookOutlinePosition[     62519,       1897]
+CellTagsIndexPosition[     62476,       1894]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Section (iv/v)", "Subsubsection",
+ CellChangeTimes->{{3.600837857603978*^9, 3.6008378608973074`*^9}, {
+  3.600838112005253*^9, 3.6008381130281506`*^9}, {3.6011516519942083`*^9, 
+  3.6011516566956787`*^9}, {3.6011517507940874`*^9, 3.601151759408949*^9}, {
+  3.601152120137002*^9, 3.6011521206769485`*^9}}],
+
+Cell[TextData[{
+ "Unless otherwise specified, ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["d", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " are the digits of a number where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"9", "\[GreaterEqual]", "a"}], ",", "b", ",", "c", ",", 
+    RowBox[{"d", "\[GreaterEqual]", "0"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.6011537735905085`*^9, 3.6011538436215086`*^9}}],
+
+Cell[TextData[{
+ "Conjecture 1: By applying this routine, 6174 maps to itself. Further, 6174 \
+is the only 4 digit number which maps to itself.\n\nProof:\n6174: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"7641", "-", "1467"}], "=", "7614"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\nNow, we prove that this is only possible for 6174.\nOur goal is to find \
+a 4-digit integer ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " which results in ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " after applying this routine. \n\nNow, let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", ",", "b", ",", "c", ",", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " be the digits of ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   "9", "\[GreaterEqual]", "a", "\[GreaterEqual]", "b", "\[GreaterEqual]", 
+    "c", "\[GreaterEqual]", "d", "\[GreaterEqual]", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", though equality cannot hold the whole way across, that is, not all the \
+digits can be the same. Now applying the routine we obtain now we apply the \
+routine to find the new number, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1000", "a"}], "+", 
+    RowBox[{"100", "b"}], "+", 
+    RowBox[{"10", "c"}], "+", "d", "-", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"1000", "d"}], "+", 
+      RowBox[{"100", "c"}], "+", 
+      RowBox[{"10", "b"}], "+", "a"}], ")"}]}], TraditionalForm]]],
+ ", which we will call ABCD. ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"D", "=", 
+    RowBox[{"10", "+", "d", "-", "a"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " because ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", ">", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " (borrowing from next place). ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"C", "=", 
+    RowBox[{
+     RowBox[{"10", "+", "c", "-", "1", "-", "b"}], "=", 
+     RowBox[{"9", "+", "c", "-", "b"}]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " because ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"c", "\[GreaterEqual]", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " (borrowing from next place). ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "=", 
+    RowBox[{"b", "-", "1", "-", "c"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", 
+    RowBox[{"a", "-", "d"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\n\nNote that because ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", " ", "and", " ", "D"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " are expressed in terms of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", " ", "and", " ", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", " ", "and", " ", "D"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " cannot correspond to either. For example, if we let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"d", "=", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". This implies that there are infinitely many possibilities for ",
+ Cell[BoxData[
+  FormBox["D", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". So ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", " ", "and", " ", "D"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " must correspond to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"b", " ", "and", " ", "c"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", " ", "and", " ", "C"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " correspond to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", " ", "and", " ", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". \n\nIf we let ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"b", "-", "1", "-", "c"}], "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", or ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"b", "-", "c"}], "=", 
+    RowBox[{"a", "+", "1"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". However, this must be impossible because ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"a", "\[GreaterEqual]", "b"}], ",", "c"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". Thus, this leaves ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "=", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " implying that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"C", "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".\n\nTrying ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "=", "b"}], ",", 
+    RowBox[{"B", "=", "d"}], ",", 
+    RowBox[{"C", "=", "a"}], ",", 
+    RowBox[{"D", "=", "c"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". This yields:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"a", "-", "d"}], "=", "b"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"b", "-", "1", "-", "c"}], "=", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"9", "+", "c", "-", "b"}], "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"10", "+", "d", "-", "a"}], "=", "c"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQAWIQPe200acVV145Mq3e9Q9Epxie4VoJpNXbC0VA9IOl
+WpIgeo6UnxKIdtr2Th1Er5DpNALR+RksDiB6i1yDE4iutH/hBqLP+xr6gWgD
+46h8ZPrJ7zk9IPrTw5x5INqNY9oSEJ2zbsJ6EJ0yz24XiOb6u38viFY+VX0c
+REufWnUOREdZZz0H0UuLpr8D0TKG8Z9BtID+CzB9YKHAbxC92F2HfRWQPnGf
+ixdE96yeJAiieeouSoPoOv7LCiDabOoqFRD9jDPSGETPsknzAtEKZjO9QTTb
+v5v+YPFzd2NBdNWlr/kg+mwTbwmIBgDwWLbZ
+  "]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"a", "-", "d"}], "\[Equal]", "b"}], "&&", 
+    RowBox[{
+     RowBox[{"b", "-", "1", "-", "c"}], "\[Equal]", "d"}], "&&", 
+    RowBox[{
+     RowBox[{"9", "+", "c", "-", "b"}], "\[Equal]", "a"}], "&&", 
+    RowBox[{
+     RowBox[{"10", "+", "d", "-", "a"}], "\[Equal]", "c"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.601158561843164*^9, 3.601158604881468*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"a", "\[Rule]", "7"}], ",", 
+    RowBox[{"b", "\[Rule]", "6"}], ",", 
+    RowBox[{"c", "\[Rule]", "4"}], ",", 
+    RowBox[{"d", "\[Rule]", "1"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.601158606318611*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Substituting we obtain ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "=", "6"}], ",", 
+    RowBox[{"B", "=", "1"}], ",", 
+    RowBox[{"C", "=", "7"}], ",", 
+    RowBox[{"D", "=", "4"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " so ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", "=", "6174"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.60115864000798*^9, 3.601158722510229*^9}, {
+  3.601159095811556*^9, 3.601159100416016*^9}}],
+
+Cell[TextData[{
+ "To prevent missing any other solutions, we try the other option: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"A", "=", "c"}], ",", 
+    RowBox[{"B", "=", "d"}], ",", 
+    RowBox[{"C", "=", "a"}], ",", 
+    RowBox[{"D", "=", "b"}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". This would yield\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"a", "-", "d"}], "=", "c"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"b", "-", "1", "-", "c"}], "=", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"9", "+", "c", "-", "b"}], "=", "a"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"10", "+", "d", "-", "a"}], "=", "b"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Text",
+ CellChangeTimes->{{3.6011589013091073`*^9, 3.6011590012971053`*^9}, {
+  3.601159335873996*^9, 3.6011593455890245`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"a", "-", "d"}], "\[Equal]", "c"}], "&&", 
+    RowBox[{
+     RowBox[{"b", "-", "1", "-", "c"}], "\[Equal]", "d"}], "&&", 
+    RowBox[{
+     RowBox[{"9", "+", "c", "-", "b"}], "\[Equal]", "a"}], "&&", 
+    RowBox[{
+     RowBox[{"10", "+", "d", "-", "a"}], "\[Equal]", "b"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.601158561843164*^9, 3.601158604881468*^9}, {
+  3.6011590166726427`*^9, 3.601159020398015*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"a", "\[Rule]", 
+     FractionBox["17", "3"]}], ",", 
+    RowBox[{"b", "\[Rule]", 
+     FractionBox["20", "3"]}], ",", 
+    RowBox[{"c", "\[Rule]", 
+     FractionBox["10", "3"]}], ",", 
+    RowBox[{"d", "\[Rule]", 
+     FractionBox["7", "3"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.601158606318611*^9, 3.6011590217921543`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This solution clearly does not satisfy the conditions of the problem, so \
+6174 is the only possible solution for ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.601159108469821*^9, 3.6011591432072945`*^9}}],
+
+Cell[TextData[{
+ "Conjecture 2: All numbers generated by this routine are divisible by 9.\n\n\
+Proof:\nLet ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   "9", "\[GreaterEqual]", "a", "\[GreaterEqual]", "b", "\[GreaterEqual]", 
+    "c", "\[GreaterEqual]", "d", "\[GreaterEqual]", "0"}], TraditionalForm]]],
+ " be the digits of some number to which we will apply Kaprekar\
+\[CloseCurlyQuote]s Routine. Therefore our new number will be:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1000", "a"}], "+", 
+    RowBox[{"100", "b"}], "+", 
+    RowBox[{"10", "c"}], "+", "d", "-", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"1000", "d"}], "+", 
+      RowBox[{"100", "c"}], "+", 
+      RowBox[{"10", "b"}], "+", "a"}], ")"}]}], TraditionalForm]]],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{
+     RowBox[{"999", "a"}], "+", 
+     RowBox[{"90", "b"}], "-", 
+     RowBox[{"90", "c"}], "-", 
+     RowBox[{"999", "d"}]}]}], TraditionalForm]]],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"=", 
+    RowBox[{"9", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"111", "a"}], "+", 
+       RowBox[{"10", "b"}], "-", 
+       RowBox[{"10", "c"}], "-", 
+       RowBox[{"111", "d"}]}], ")"}]}]}], TraditionalForm]]]
+}], "Text",
+ CellChangeTimes->{{3.601151660898099*^9, 3.601151688268835*^9}, {
+   3.601152123189697*^9, 3.6011521457834373`*^9}, {3.601152278971117*^9, 
+   3.601152279422072*^9}, 3.601153885759508*^9, {3.6011559220389977`*^9, 
+   3.6011559340001936`*^9}}],
+
+Cell[TextData[{
+ "Conjecture 3: Applying the routine to two numbers that differ by 1 will \
+result in outcomes that differ by predictable values. More specifically:\nIf ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"9", ">", "a", ">", "b", ">", "c", ">", 
+    RowBox[{"d", "+", "1"}], ">", "0"}], TraditionalForm]]],
+ " for the digits ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", ",", "b", ",", "c", ",", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " of the number, that is the new number ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"abc", "(", 
+    RowBox[{"d", "+", "1"}], ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " contains no repeated digits, then applying the routine to the numbers ",
+ Cell[BoxData[
+  FormBox["abcd", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"abc", "(", 
+    RowBox[{"d", "+", "1"}], ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " will result in outcomes which differ by 999. \n\nProof:\nLet ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"9", ">", "a", ">", "b", ">", "c", ">", 
+    RowBox[{"d", "+", "1"}], ">", "0"}], TraditionalForm]]],
+ " for the digits.Then, the two numbers are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1000", "a"}], "+", 
+    RowBox[{"100", "b"}], "+", 
+    RowBox[{"10", "c"}], "+", "d"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1000", "a"}], "+", 
+    RowBox[{"100", "b"}], "+", 
+    RowBox[{"10", "c"}], "+", "d", "+", "1"}], TraditionalForm]]],
+ ". Applying the routine to each:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"1000", "a"}], "+", 
+     RowBox[{"100", "b"}], "+", 
+     RowBox[{"10", "c"}], "+", "d", "-", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"1000", "d"}], "+", 
+       RowBox[{"100", "c"}], "+", 
+       RowBox[{"10", "b"}], "+", "a"}], ")"}]}], "=", 
+    RowBox[{
+     RowBox[{"999", "a"}], "+", 
+     RowBox[{"90", "b"}], "-", 
+     RowBox[{"90", "c"}], "-", 
+     RowBox[{"999", "d"}]}]}], TraditionalForm]]],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"1000", "a"}], "+", 
+     RowBox[{"100", "b"}], "+", 
+     RowBox[{"10", "c"}], "+", "d", "+", "1", "-", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"1000", 
+        RowBox[{"(", 
+         RowBox[{"d", "+", "1"}], ")"}]}], "+", 
+       RowBox[{"100", "c"}], "+", 
+       RowBox[{"10", "b"}], "+", "a"}], ")"}]}], "=", 
+    RowBox[{
+     RowBox[{"999", "a"}], "+", 
+     RowBox[{"90", "b"}], "-", 
+     RowBox[{"90", "c"}], "-", 
+     RowBox[{"999", 
+      RowBox[{"(", 
+       RowBox[{"d", "+", "1"}], ")"}]}]}]}], TraditionalForm]]],
+ "\nNow finding the difference of these two numbers:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"999", "a"}], "+", 
+     RowBox[{"90", "b"}], "-", 
+     RowBox[{"90", "c"}], "-", 
+     RowBox[{"999", 
+      RowBox[{"(", 
+       RowBox[{"d", "+", "1"}], ")"}]}], "-", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"999", "a"}], "+", 
+       RowBox[{"90", "b"}], "-", 
+       RowBox[{"90", "c"}], "-", 
+       RowBox[{"999", "d"}]}], ")"}]}], "=", 
+    RowBox[{"-", "999"}]}], TraditionalForm]]],
+ "\n\nNote: In cases where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"abc", "(", 
+    RowBox[{"d", "+", "1"}], ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " contains a repeated digit, other difference can be obtained. For example, \
+consider the following mappings:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1243", "\[Rule]", "3087"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1244", "\[Rule]", "3177"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". The inputs differ by one, however the outputs differ by 90. The \
+difference of 90 appears to be prevalent, however it appears that the \
+difference depends on which digit is repeated, ie the largest, smallest, etc."
+}], "Text",
+ CellChangeTimes->{{3.601152456654512*^9, 3.6011527962565117`*^9}, {
+  3.6011529557485123`*^9, 3.601153059904512*^9}, {3.6011534179694004`*^9, 
+  3.6011534665192547`*^9}, {3.601153513634966*^9, 3.6011537701585083`*^9}, {
+  3.6011538599785085`*^9, 3.6011539099425087`*^9}, {3.6011540239265084`*^9, 
+  3.6011540259685087`*^9}, {3.6011540686025085`*^9, 3.6011544684515066`*^9}, {
+  3.601154513238507*^9, 3.6011545932655067`*^9}, {3.6011547144105067`*^9, 
+  3.601154819751507*^9}, {3.6011548662275066`*^9, 3.601154900921507*^9}, {
+  3.601155040698507*^9, 3.601155104848507*^9}, {3.6011559381626096`*^9, 
+  3.6011559382416177`*^9}}],
+
+Cell[TextData[{
+ "Conjectures 4 and 5: \n(4) Repeated application of the routine always \
+results in 6174, unless the starting number is of the form ",
+ Cell[BoxData[
+  FormBox["aaaa", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "a", "\[LessEqual]", "9"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", in which case the sequence converges to 0 after the first iteration.\n(5) \
+At most, seven iterations are required for the sequence to reach 6174.\n\n\
+Proof: We were not clever enough to prove these conjectures elegantly! \
+Instead we have graphic support of both conjectures in the form of a tree as \
+well as a scan of all the sequences that determined by brute force that these \
+conjectures are correct. "
+}], "Text",
+ CellChangeTimes->{{3.601151689334942*^9, 3.601151739948003*^9}, {
+   3.60115217455556*^9, 3.6011522837086434`*^9}, 3.601152468732512*^9, {
+   3.601155168702507*^9, 3.601155311111911*^9}, {3.6011553574705467`*^9, 
+   3.601155420555854*^9}, {3.6011559430641*^9, 3.601155949353729*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"makeGraphWithLines", "[", 
+  RowBox[{"printNumberSteps", "[", 
+   RowBox[{"5000", ",", "5200"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.601098420162221*^9, 3.6010984349597006`*^9}, {
+  3.601101040010405*^9, 3.6011010420594053`*^9}, {3.6011554505528536`*^9, 
+  3.601155453190117*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1: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
+    "], {
+     {RGBColor[0.5, 0., 0.], Arrowheads[{{0.017080354871659584`, 0.8}}], 
+      ArrowBox[{1, 2}], ArrowBox[{2, 3}], ArrowBox[{3, 4}], ArrowBox[{4, 5}], 
+      ArrowBox[{5, 6}], ArrowBox[{6, 7}], ArrowBox[{8, 9}], ArrowBox[{9, 10}],
+       ArrowBox[{10, 11}], ArrowBox[{11, 12}], ArrowBox[{12, 13}], 
+      ArrowBox[{13, 14}], ArrowBox[{14, 7}], ArrowBox[{15, 16}], 
+      ArrowBox[{16, 17}], ArrowBox[{17, 3}], ArrowBox[{18, 19}], 
+      ArrowBox[{19, 20}], ArrowBox[{20, 21}], ArrowBox[{21, 22}], 
+      ArrowBox[{22, 7}], ArrowBox[{23, 3}], ArrowBox[{24, 25}], 
+      ArrowBox[{25, 26}], ArrowBox[{26, 27}], ArrowBox[{27, 14}], 
+      ArrowBox[{28, 29}], ArrowBox[{29, 4}], ArrowBox[{30, 31}], 
+      ArrowBox[{31, 20}], ArrowBox[{32, 33}], ArrowBox[{33, 17}], 
+      ArrowBox[{34, 35}], ArrowBox[{35, 10}], ArrowBox[{36, 9}], 
+      ArrowBox[{37, 2}], ArrowBox[{38, 9}], ArrowBox[{39, 16}], 
+      ArrowBox[{40, 19}], ArrowBox[{41, 3}], ArrowBox[{42, 12}], 
+      ArrowBox[{43, 44}], ArrowBox[{44, 22}], ArrowBox[{45, 14}], 
+      ArrowBox[{46, 47}], ArrowBox[{47, 48}], ArrowBox[{48, 31}], 
+      ArrowBox[{49, 16}], ArrowBox[{50, 9}], ArrowBox[{51, 2}], 
+      ArrowBox[{52, 9}], ArrowBox[{53, 16}], ArrowBox[{54, 19}], 
+      ArrowBox[{55, 21}], ArrowBox[{56, 57}], ArrowBox[{57, 19}], 
+      ArrowBox[{58, 59}], ArrowBox[{59, 12}], ArrowBox[{60, 61}], 
+      ArrowBox[{61, 14}], ArrowBox[{62, 19}], ArrowBox[{63, 16}], 
+      ArrowBox[{64, 9}], ArrowBox[{65, 2}], ArrowBox[{66, 9}], 
+      ArrowBox[{67, 16}], ArrowBox[{68, 11}], ArrowBox[{69, 48}], 
+      ArrowBox[{70, 71}], ArrowBox[{71, 6}], ArrowBox[{72, 3}], 
+      ArrowBox[{73, 19}], ArrowBox[{74, 16}], ArrowBox[{75, 9}], 
+      ArrowBox[{76, 2}], ArrowBox[{77, 9}], ArrowBox[{78, 79}], 
+      ArrowBox[{79, 48}], ArrowBox[{80, 81}], ArrowBox[{81, 14}], 
+      ArrowBox[{82, 5}], ArrowBox[{83, 84}], ArrowBox[{84, 27}], 
+      ArrowBox[{85, 25}], ArrowBox[{86, 3}], ArrowBox[{87, 19}], 
+      ArrowBox[{88, 16}], ArrowBox[{89, 9}], ArrowBox[{90, 2}], 
+      ArrowBox[{91, 17}], ArrowBox[{92, 93}], ArrowBox[{93, 21}], 
+      ArrowBox[{94, 10}], ArrowBox[{95, 96}], ArrowBox[{96, 5}], 
+      ArrowBox[{97, 29}], ArrowBox[{98, 12}], ArrowBox[{99, 21}], 
+      ArrowBox[{100, 79}], ArrowBox[{101, 17}], ArrowBox[{102, 79}], 
+      ArrowBox[{103, 81}], ArrowBox[{104, 5}], ArrowBox[{105, 84}], 
+      ArrowBox[{106, 31}], ArrowBox[{107, 44}], ArrowBox[{108, 57}], 
+      ArrowBox[{109, 11}], ArrowBox[{110, 81}], ArrowBox[{111, 93}], 
+      ArrowBox[{112, 81}], ArrowBox[{113, 11}], ArrowBox[{114, 48}], 
+      ArrowBox[{115, 71}], ArrowBox[{116, 33}], ArrowBox[{117, 14}], 
+      ArrowBox[{118, 59}], ArrowBox[{119, 48}], ArrowBox[{120, 5}], 
+      ArrowBox[{121, 5}], ArrowBox[{122, 48}], ArrowBox[{123, 59}], 
+      ArrowBox[{124, 61}], ArrowBox[{125, 35}], ArrowBox[{126, 47}], 
+      ArrowBox[{127, 61}], ArrowBox[{128, 71}], ArrowBox[{129, 84}], 
+      ArrowBox[{130, 96}], ArrowBox[{131, 84}], ArrowBox[{132, 71}], 
+      ArrowBox[{133, 61}], ArrowBox[{134, 47}], ArrowBox[{135, 9}], 
+      ArrowBox[{136, 2}], ArrowBox[{137, 9}], ArrowBox[{138, 16}], 
+      ArrowBox[{139, 19}], ArrowBox[{140, 3}], ArrowBox[{141, 12}], 
+      ArrowBox[{142, 44}], ArrowBox[{143, 14}], ArrowBox[{144, 47}], 
+      ArrowBox[{145, 2}], ArrowBox[{146, 20}], ArrowBox[{147, 148}], 
+      ArrowBox[{148, 48}], ArrowBox[{149, 22}], ArrowBox[{150, 151}], 
+      ArrowBox[{151, 22}], ArrowBox[{152, 153}], ArrowBox[{153, 13}], 
+      ArrowBox[{154, 3}], ArrowBox[{155, 12}], ArrowBox[{156, 44}], 
+      ArrowBox[{157, 14}], ArrowBox[{158, 9}], ArrowBox[{159, 148}], 
+      ArrowBox[{160, 20}], ArrowBox[{161, 148}], ArrowBox[{162, 22}], 
+      ArrowBox[{163, 151}], ArrowBox[{164, 19}], ArrowBox[{165, 21}], 
+      ArrowBox[{166, 57}], ArrowBox[{167, 59}], ArrowBox[{168, 16}], 
+      ArrowBox[{169, 22}], ArrowBox[{170, 148}], ArrowBox[{171, 20}], 
+      ArrowBox[{172, 148}], ArrowBox[{173, 22}], ArrowBox[{174, 16}], 
+      ArrowBox[{175, 11}], ArrowBox[{176, 48}], ArrowBox[{177, 19}], 
+      ArrowBox[{178, 151}], ArrowBox[{179, 22}], ArrowBox[{180, 148}], 
+      ArrowBox[{181, 20}], ArrowBox[{182, 148}], ArrowBox[{183, 9}], 
+      ArrowBox[{184, 79}], ArrowBox[{185, 81}], ArrowBox[{186, 5}], 
+      ArrowBox[{187, 3}], ArrowBox[{188, 153}], ArrowBox[{189, 151}], 
+      ArrowBox[{190, 22}], ArrowBox[{191, 148}], ArrowBox[{192, 20}], 
+      ArrowBox[{193, 2}], ArrowBox[{194, 17}], ArrowBox[{195, 93}], 
+      ArrowBox[{196, 10}], ArrowBox[{197, 12}], ArrowBox[{198, 3}], 
+      ArrowBox[{199, 19}], ArrowBox[{200, 16}], ArrowBox[{201, 9}], 
+      ArrowBox[{202, 2}], ArrowBox[{203, 9}], ArrowBox[{204, 79}], 
+      ArrowBox[{205, 81}], ArrowBox[{206, 5}], ArrowBox[{207, 44}], 
+      ArrowBox[{208, 12}], ArrowBox[{209, 21}], ArrowBox[{210, 79}], 
+      ArrowBox[{211, 79}], ArrowBox[{212, 11}], ArrowBox[{213, 48}], 
+      ArrowBox[{214, 14}], ArrowBox[{215, 44}], ArrowBox[{216, 57}], 
+      ArrowBox[{217, 11}], ArrowBox[{218, 81}], ArrowBox[{219, 93}], 
+      ArrowBox[{220, 81}], ArrowBox[{221, 11}], ArrowBox[{222, 57}], 
+      ArrowBox[{223, 59}], ArrowBox[{224, 47}], ArrowBox[{225, 14}], 
+      ArrowBox[{226, 59}], ArrowBox[{227, 48}], ArrowBox[{228, 5}], 
+      ArrowBox[{229, 10}], ArrowBox[{230, 5}], ArrowBox[{231, 48}], 
+      ArrowBox[{232, 59}], ArrowBox[{233, 14}], ArrowBox[{234, 16}]}, 
+     {RGBColor[0, 0, 0.7], 
+      TagBox[
+       TooltipBox[PointBox[1],
+        "5000"],
+       Annotation[#, 5000, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[2],
+        "4995"],
+       Annotation[#, 4995, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[3],
+        "5355"],
+       Annotation[#, 5355, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[4],
+        "1998"],
+       Annotation[#, 1998, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[5],
+        "8082"],
+       Annotation[#, 8082, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[6],
+        "8532"],
+       Annotation[#, 8532, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[7],
+        "6174"],
+       Annotation[#, 6174, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[8],
+        "5001"],
+       Annotation[#, 5001, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[9],
+        "5085"],
+       Annotation[#, 5085, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[10],
+        "7992"],
+       Annotation[#, 7992, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[11],
+        "7173"],
+       Annotation[#, 7173, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[12],
+        "6354"],
+       Annotation[#, 6354, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[13],
+        "3087"],
+       Annotation[#, 3087, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[14],
+        "8352"],
+       Annotation[#, 8352, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[15],
+        "5002"],
+       Annotation[#, 5002, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[16],
+        "5175"],
+       Annotation[#, 5175, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[17],
+        "5994"],
+       Annotation[#, 5994, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[18],
+        "5003"],
+       Annotation[#, 5003, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[19],
+        "5265"],
+       Annotation[#, 5265, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[20],
+        "3996"],
+       Annotation[#, 3996, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[21],
+        "6264"],
+       Annotation[#, 6264, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[22],
+        "4176"],
+       Annotation[#, 4176, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[23],
+        "5004"],
+       Annotation[#, 5004, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[24],
+        "5005"],
+       Annotation[#, 5005, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[25],
+        "5445"],
+       Annotation[#, 5445, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[26],
+        "1089"],
+       Annotation[#, 1089, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[27],
+        "9621"],
+       Annotation[#, 9621, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[28],
+        "5006"],
+       Annotation[#, 5006, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[29],
+        "6444"],
+       Annotation[#, 6444, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[30],
+        "5007"],
+       Annotation[#, 5007, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[31],
+        "7443"],
+       Annotation[#, 7443, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[32],
+        "5008"],
+       Annotation[#, 5008, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[33],
+        "8442"],
+       Annotation[#, 8442, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[34],
+        "5009"],
+       Annotation[#, 5009, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[35],
+        "9441"],
+       Annotation[#, 9441, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[36],
+        "5010"],
+       Annotation[#, 5010, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[37],
+        "5011"],
+       Annotation[#, 5011, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[38],
+        "5012"],
+       Annotation[#, 5012, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[39],
+        "5013"],
+       Annotation[#, 5013, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[40],
+        "5014"],
+       Annotation[#, 5014, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[41],
+        "5015"],
+       Annotation[#, 5015, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[42],
+        "5016"],
+       Annotation[#, 5016, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[43],
+        "5017"],
+       Annotation[#, 5017, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[44],
+        "7353"],
+       Annotation[#, 7353, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[45],
+        "5018"],
+       Annotation[#, 5018, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[46],
+        "5019"],
+       Annotation[#, 5019, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[47],
+        "9351"],
+       Annotation[#, 9351, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[48],
+        "8172"],
+       Annotation[#, 8172, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[49],
+        "5020"],
+       Annotation[#, 5020, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[50],
+        "5021"],
+       Annotation[#, 5021, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[51],
+        "5022"],
+       Annotation[#, 5022, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[52],
+        "5023"],
+       Annotation[#, 5023, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[53],
+        "5024"],
+       Annotation[#, 5024, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[54],
+        "5025"],
+       Annotation[#, 5025, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[55],
+        "5026"],
+       Annotation[#, 5026, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[56],
+        "5027"],
+       Annotation[#, 5027, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[57],
+        "7263"],
+       Annotation[#, 7263, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[58],
+        "5028"],
+       Annotation[#, 5028, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[59],
+        "8262"],
+       Annotation[#, 8262, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[60],
+        "5029"],
+       Annotation[#, 5029, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[61],
+        "9261"],
+       Annotation[#, 9261, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[62],
+        "5030"],
+       Annotation[#, 5030, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[63],
+        "5031"],
+       Annotation[#, 5031, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[64],
+        "5032"],
+       Annotation[#, 5032, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[65],
+        "5033"],
+       Annotation[#, 5033, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[66],
+        "5034"],
+       Annotation[#, 5034, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[67],
+        "5035"],
+       Annotation[#, 5035, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[68],
+        "5037"],
+       Annotation[#, 5037, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[69],
+        "5038"],
+       Annotation[#, 5038, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[70],
+        "5039"],
+       Annotation[#, 5039, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[71],
+        "9171"],
+       Annotation[#, 9171, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[72],
+        "5040"],
+       Annotation[#, 5040, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[73],
+        "5041"],
+       Annotation[#, 5041, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[74],
+        "5042"],
+       Annotation[#, 5042, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[75],
+        "5043"],
+       Annotation[#, 5043, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[76],
+        "5044"],
+       Annotation[#, 5044, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[77],
+        "5045"],
+       Annotation[#, 5045, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[78],
+        "5046"],
+       Annotation[#, 5046, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[79],
+        "6084"],
+       Annotation[#, 6084, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[80],
+        "5047"],
+       Annotation[#, 5047, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[81],
+        "7083"],
+       Annotation[#, 7083, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[82],
+        "5048"],
+       Annotation[#, 5048, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[83],
+        "5049"],
+       Annotation[#, 5049, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[84],
+        "9081"],
+       Annotation[#, 9081, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[85],
+        "5050"],
+       Annotation[#, 5050, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[86],
+        "5051"],
+       Annotation[#, 5051, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[87],
+        "5052"],
+       Annotation[#, 5052, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[88],
+        "5053"],
+       Annotation[#, 5053, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[89],
+        "5054"],
+       Annotation[#, 5054, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[90],
+        "5055"],
+       Annotation[#, 5055, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[91],
+        "5056"],
+       Annotation[#, 5056, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[92],
+        "5057"],
+       Annotation[#, 5057, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[93],
+        "6993"],
+       Annotation[#, 6993, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[94],
+        "5058"],
+       Annotation[#, 5058, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[95],
+        "5059"],
+       Annotation[#, 5059, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[96],
+        "8991"],
+       Annotation[#, 8991, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[97],
+        "5060"],
+       Annotation[#, 5060, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[98],
+        "5061"],
+       Annotation[#, 5061, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[99],
+        "5062"],
+       Annotation[#, 5062, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[100],
+        "5064"],
+       Annotation[#, 5064, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[101],
+        "5065"],
+       Annotation[#, 5065, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[102],
+        "5066"],
+       Annotation[#, 5066, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[103],
+        "5067"],
+       Annotation[#, 5067, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[104],
+        "5068"],
+       Annotation[#, 5068, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[105],
+        "5069"],
+       Annotation[#, 5069, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[106],
+        "5070"],
+       Annotation[#, 5070, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[107],
+        "5071"],
+       Annotation[#, 5071, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[108],
+        "5072"],
+       Annotation[#, 5072, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[109],
+        "5073"],
+       Annotation[#, 5073, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[110],
+        "5074"],
+       Annotation[#, 5074, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[111],
+        "5075"],
+       Annotation[#, 5075, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[112],
+        "5076"],
+       Annotation[#, 5076, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[113],
+        "5077"],
+       Annotation[#, 5077, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[114],
+        "5078"],
+       Annotation[#, 5078, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[115],
+        "5079"],
+       Annotation[#, 5079, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[116],
+        "5080"],
+       Annotation[#, 5080, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[117],
+        "5081"],
+       Annotation[#, 5081, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[118],
+        "5082"],
+       Annotation[#, 5082, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[119],
+        "5083"],
+       Annotation[#, 5083, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[120],
+        "5084"],
+       Annotation[#, 5084, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[121],
+        "5086"],
+       Annotation[#, 5086, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[122],
+        "5087"],
+       Annotation[#, 5087, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[123],
+        "5088"],
+       Annotation[#, 5088, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[124],
+        "5089"],
+       Annotation[#, 5089, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[125],
+        "5090"],
+       Annotation[#, 5090, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[126],
+        "5091"],
+       Annotation[#, 5091, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[127],
+        "5092"],
+       Annotation[#, 5092, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[128],
+        "5093"],
+       Annotation[#, 5093, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[129],
+        "5094"],
+       Annotation[#, 5094, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[130],
+        "5095"],
+       Annotation[#, 5095, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[131],
+        "5096"],
+       Annotation[#, 5096, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[132],
+        "5097"],
+       Annotation[#, 5097, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[133],
+        "5098"],
+       Annotation[#, 5098, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[134],
+        "5099"],
+       Annotation[#, 5099, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[135],
+        "5100"],
+       Annotation[#, 5100, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[136],
+        "5101"],
+       Annotation[#, 5101, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[137],
+        "5102"],
+       Annotation[#, 5102, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[138],
+        "5103"],
+       Annotation[#, 5103, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[139],
+        "5104"],
+       Annotation[#, 5104, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[140],
+        "5105"],
+       Annotation[#, 5105, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[141],
+        "5106"],
+       Annotation[#, 5106, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[142],
+        "5107"],
+       Annotation[#, 5107, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[143],
+        "5108"],
+       Annotation[#, 5108, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[144],
+        "5109"],
+       Annotation[#, 5109, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[145],
+        "5110"],
+       Annotation[#, 5110, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[146],
+        "5111"],
+       Annotation[#, 5111, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[147],
+        "5112"],
+       Annotation[#, 5112, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[148],
+        "4086"],
+       Annotation[#, 4086, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[149],
+        "5113"],
+       Annotation[#, 5113, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[150],
+        "5114"],
+       Annotation[#, 5114, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[151],
+        "4266"],
+       Annotation[#, 4266, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[152],
+        "5115"],
+       Annotation[#, 5115, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[153],
+        "4356"],
+       Annotation[#, 4356, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[154],
+        "5116"],
+       Annotation[#, 5116, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[155],
+        "5117"],
+       Annotation[#, 5117, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[156],
+        "5118"],
+       Annotation[#, 5118, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[157],
+        "5119"],
+       Annotation[#, 5119, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[158],
+        "5120"],
+       Annotation[#, 5120, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[159],
+        "5121"],
+       Annotation[#, 5121, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[160],
+        "5122"],
+       Annotation[#, 5122, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[161],
+        "5123"],
+       Annotation[#, 5123, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[162],
+        "5124"],
+       Annotation[#, 5124, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[163],
+        "5125"],
+       Annotation[#, 5125, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[164],
+        "5126"],
+       Annotation[#, 5126, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[165],
+        "5127"],
+       Annotation[#, 5127, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[166],
+        "5128"],
+       Annotation[#, 5128, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[167],
+        "5129"],
+       Annotation[#, 5129, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[168],
+        "5130"],
+       Annotation[#, 5130, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[169],
+        "5131"],
+       Annotation[#, 5131, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[170],
+        "5132"],
+       Annotation[#, 5132, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[171],
+        "5133"],
+       Annotation[#, 5133, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[172],
+        "5134"],
+       Annotation[#, 5134, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[173],
+        "5135"],
+       Annotation[#, 5135, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[174],
+        "5136"],
+       Annotation[#, 5136, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[175],
+        "5138"],
+       Annotation[#, 5138, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[176],
+        "5139"],
+       Annotation[#, 5139, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[177],
+        "5140"],
+       Annotation[#, 5140, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[178],
+        "5141"],
+       Annotation[#, 5141, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[179],
+        "5142"],
+       Annotation[#, 5142, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[180],
+        "5143"],
+       Annotation[#, 5143, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[181],
+        "5144"],
+       Annotation[#, 5144, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[182],
+        "5145"],
+       Annotation[#, 5145, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[183],
+        "5146"],
+       Annotation[#, 5146, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[184],
+        "5147"],
+       Annotation[#, 5147, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[185],
+        "5148"],
+       Annotation[#, 5148, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[186],
+        "5149"],
+       Annotation[#, 5149, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[187],
+        "5150"],
+       Annotation[#, 5150, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[188],
+        "5151"],
+       Annotation[#, 5151, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[189],
+        "5152"],
+       Annotation[#, 5152, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[190],
+        "5153"],
+       Annotation[#, 5153, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[191],
+        "5154"],
+       Annotation[#, 5154, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[192],
+        "5155"],
+       Annotation[#, 5155, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[193],
+        "5156"],
+       Annotation[#, 5156, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[194],
+        "5157"],
+       Annotation[#, 5157, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[195],
+        "5158"],
+       Annotation[#, 5158, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[196],
+        "5159"],
+       Annotation[#, 5159, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[197],
+        "5160"],
+       Annotation[#, 5160, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[198],
+        "5161"],
+       Annotation[#, 5161, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[199],
+        "5162"],
+       Annotation[#, 5162, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[200],
+        "5163"],
+       Annotation[#, 5163, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[201],
+        "5164"],
+       Annotation[#, 5164, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[202],
+        "5165"],
+       Annotation[#, 5165, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[203],
+        "5166"],
+       Annotation[#, 5166, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[204],
+        "5167"],
+       Annotation[#, 5167, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[205],
+        "5168"],
+       Annotation[#, 5168, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[206],
+        "5169"],
+       Annotation[#, 5169, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[207],
+        "5170"],
+       Annotation[#, 5170, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[208],
+        "5171"],
+       Annotation[#, 5171, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[209],
+        "5172"],
+       Annotation[#, 5172, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[210],
+        "5174"],
+       Annotation[#, 5174, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[211],
+        "5176"],
+       Annotation[#, 5176, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[212],
+        "5178"],
+       Annotation[#, 5178, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[213],
+        "5179"],
+       Annotation[#, 5179, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[214],
+        "5180"],
+       Annotation[#, 5180, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[215],
+        "5181"],
+       Annotation[#, 5181, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[216],
+        "5182"],
+       Annotation[#, 5182, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[217],
+        "5183"],
+       Annotation[#, 5183, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[218],
+        "5184"],
+       Annotation[#, 5184, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[219],
+        "5185"],
+       Annotation[#, 5185, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[220],
+        "5186"],
+       Annotation[#, 5186, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[221],
+        "5187"],
+       Annotation[#, 5187, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[222],
+        "5188"],
+       Annotation[#, 5188, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[223],
+        "5189"],
+       Annotation[#, 5189, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[224],
+        "5190"],
+       Annotation[#, 5190, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[225],
+        "5191"],
+       Annotation[#, 5191, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[226],
+        "5192"],
+       Annotation[#, 5192, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[227],
+        "5193"],
+       Annotation[#, 5193, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[228],
+        "5194"],
+       Annotation[#, 5194, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[229],
+        "5195"],
+       Annotation[#, 5195, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[230],
+        "5196"],
+       Annotation[#, 5196, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[231],
+        "5197"],
+       Annotation[#, 5197, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[232],
+        "5198"],
+       Annotation[#, 5198, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[233],
+        "5199"],
+       Annotation[#, 5199, "Tooltip"]& ], 
+      TagBox[
+       TooltipBox[PointBox[234],
+        "5200"],
+       Annotation[#, 5200, "Tooltip"]& ]}}],
+   Annotation[#, VertexCoordinateRules -> CompressedData["
+1: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
+     "]]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  ImageSize->Large,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.601155456246423*^9}]
+}, Open  ]],
+
+Cell["\<\
+By visual inspection and some counting we see that all the numbers in the \
+range 5000-5200 have sequences which terminate in 6174 (hover over nodes to \
+see number!). Further, we can see that the largest number of iterations \
+required was seven. 
+
+We now compute the sequence from this routine for all 4 digit numbers and \
+check to see that the after the seventh iteration the sequence has terminated \
+in 6174. We see that this is only false for the numbers in which all digits \
+are the same.\
+\>", "Text",
+ CellChangeTimes->{{3.6011524492155123`*^9, 3.601152453089512*^9}, {
+  3.601155483627161*^9, 3.60115554562136*^9}, {3.601155754805276*^9, 
+  3.6011558460634007`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"allNumberSeqs", "=", 
+   RowBox[{"printNumberSteps", "[", 
+    RowBox[{"1000", ",", "9999"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"seventhIteration", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Last", "[", "#", "]"}], "\[Equal]", "6174"}], "&"}], "/@", 
+    "allNumberSeqs"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Extract", "[", 
+  RowBox[{"lst2", ",", 
+   RowBox[{"Position", "[", 
+    RowBox[{"seventhIteration", ",", "False"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.601155644274224*^9, 3.6011557399527907`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1111", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "2222", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "3333", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "4444", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "5555", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "6666", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "7777", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "8888", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "9999", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6011558270945044`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Therefore, all sequences terminate in 6174 by the seventh iteration.\
+\>", "Text",
+ CellChangeTimes->{{3.601155868491643*^9, 3.601155883047099*^9}}]
+}, Open  ]]
+},
+WindowSize->{1353, 633},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 310, 4, 39, "Subsubsection"],
+Cell[892, 28, 736, 26, 30, "Text"],
+Cell[1631, 56, 6155, 207, 398, "Text"],
+Cell[CellGroupData[{
+Cell[7811, 267, 526, 14, 31, "Input"],
+Cell[8340, 283, 283, 8, 31, "Output"]
+}, Open  ]],
+Cell[8638, 294, 514, 17, 30, "Text"],
+Cell[9155, 313, 1049, 36, 94, "Text"],
+Cell[CellGroupData[{
+Cell[10229, 353, 577, 15, 31, "Input"],
+Cell[10809, 370, 406, 12, 46, "Output"]
+}, Open  ]],
+Cell[11230, 385, 302, 8, 49, "Text"],
+Cell[11535, 395, 1480, 45, 154, "Text"],
+Cell[13018, 442, 4627, 135, 401, "Text"],
+Cell[17648, 579, 1100, 21, 182, "Text"],
+Cell[CellGroupData[{
+Cell[18773, 604, 314, 6, 31, "Input"],
+Cell[19090, 612, 40265, 1184, 494, "Output"]
+}, Open  ]],
+Cell[59370, 1799, 688, 13, 144, "Text"],
+Cell[CellGroupData[{
+Cell[60083, 1816, 607, 16, 72, "Input"],
+Cell[60693, 1834, 1294, 39, 112, "Output"]
+}, Open  ]],
+Cell[62002, 1876, 158, 3, 30, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

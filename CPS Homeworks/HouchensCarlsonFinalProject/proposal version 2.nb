@@ -1,0 +1,1858 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     86340,       1849]
+NotebookOptionsPosition[     85095,       1801]
+NotebookOutlinePosition[     85438,       1816]
+CellTagsIndexPosition[     85395,       1813]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " Final Project Proposal"
+}], "Title",
+ CellChangeTimes->{{3.604710384262206*^9, 3.6047103905608363`*^9}, {
+  3.604766583332605*^9, 3.6047665883146048`*^9}}],
+
+Cell["\<\
+Logan Houchens and Brian Carlson\
+\>", "Text",
+ CellChangeTimes->{{3.6047883779746017`*^9, 3.6047883885976014`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["General Idea", "Section",
+ CellChangeTimes->{{3.604788421444601*^9, 3.604788446503601*^9}}],
+
+Cell["\<\
+Our idea is to analyze and make predictions from social media data. We hope \
+to analyze information that we pull from public posts to make predictions \
+about the gender and region of the United States \
+\>", "Text",
+ CellChangeTimes->{{3.6047675509290824`*^9, 3.604767586094405*^9}, 
+   3.604789324061314*^9, {3.6047898147085943`*^9, 3.6047898563805943`*^9}, {
+   3.6047900809605947`*^9, 3.6047900834545946`*^9}, {3.604790668193595*^9, 
+   3.604790674351595*^9}, {3.6047907328495946`*^9, 3.6047907432635946`*^9}, {
+   3.6047908225995946`*^9, 3.604790831978595*^9}, {3.6047908970215945`*^9, 
+   3.6047909091595945`*^9}, {3.6047909439005947`*^9, 
+   3.6047910079085946`*^9}, {3.6047914916765947`*^9, 3.6047916038145943`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CreateDocument", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"TextCell", "[", 
+       RowBox[{"\"\<Title!\>\"", ",", "\"\<Title\>\""}], "]"}], ",", 
+      RowBox[{"TextCell", "[", 
+       RowBox[{"w", ",", "\"\<Text\>\""}], "]"}]}], "}"}], ",", 
+    RowBox[{"WindowFrame", "\[Rule]", "\"\<Palette\>\""}], ",", 
+    RowBox[{"WindowTitle", "\[Rule]", "\"\<Analysis Of Paper\>\""}], ",", 
+    RowBox[{
+    "StyleDefinitions", "\[Rule]", "\"\<Creative/PastelColor.nb\>\""}]}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6047945178000603`*^9, 3.604794533547635*^9}, {
+  3.6047945858988695`*^9, 3.6047945885551357`*^9}, {3.604794808107088*^9, 
+  3.6047948123955173`*^9}, {3.604794895518829*^9, 3.6047948980060773`*^9}, {
+  3.604795128176092*^9, 3.604795175133787*^9}, {3.6047954816844397`*^9, 
+  3.6047954938176527`*^9}, {3.604795546962967*^9, 3.6047955517074413`*^9}, {
+  3.604795637760045*^9, 3.604795638788148*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Column", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        TemplateBox[{GraphicsBox[{{{}, {}}, {}, 
+            
+            DynamicModuleBox[{
+             DynamicChart`click$9145$9279 = False, 
+              DynamicChart`click$9151$9279 = False, 
+              DynamicChart`click$9157$9279 = False, 
+              DynamicChart`click$9163$9279 = False, 
+              DynamicChart`click$9169$9279 = False, 
+              DynamicChart`click$9175$9279 = False, 
+              DynamicChart`click$9181$9279 = False}, {{
+               RGBColor[0.5, 0.5, 1.], 
+               EdgeForm[
+                GrayLevel[0.5]], {{
+                 RGBColor[0.66, 0.7960000000000002, 1.], {
+                  RGBColor[0.66, 0.7960000000000002, 1.], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {1.7577542878261023`, 
+                    3.141592653589793}]}, 
+                    ImageSizeCache -> {{13.419119770960233`, 
+                    45.91421356237309}, {-26.06391502539367, 
+                    5.914213562373099}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"22%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[0]], {-0.513348642755177, 
+                    0.4253441141309729}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.7700229641327655, 
+                    0.6380161711964594}, {-0.8470252605460421, 
+                    0.7018177883161054}}], 
+                    LineBox[{{-0.8470252605460421, 0.7018177883161054}, {-1.1,
+                     0.7018177883161054}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9145$9279, 
+                    FEPrivate`Not[DynamicChart`click$9145$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9145$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.1540045928265531, 0.12760323423929187`}}, {{
+                    1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9145$9279}]]}, {
+                  RGBColor[0.66, 1., 1.], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {0.7038006233959777, 
+                    1.7577542878261023`}]}, 
+                    ImageSizeCache -> {{37.57162143031283, 
+                    68.53173136087148}, {-26.580880229039757`, 
+                    5.914213562373099}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"17%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.22233658865203815`, 0.6284989147094995}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.33350488297805725`, 0.9427483720642493}, {
+                    0.366855371275863, 1.0370232092706744`}}], 
+                    
+                    LineBox[{{0.366855371275863, 1.0370232092706744`}, {1.1, 
+                    1.0370232092706744`}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9151$9279, 
+                    FEPrivate`Not[DynamicChart`click$9151$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9151$9279, {{{1., 0}, {0, 1.}}, {
+                    0.06670097659561146, 0.18854967441284987`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9151$9279}]]}, {
+                  RGBColor[0.66, 1., 0.796], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {-0.2599938747798447, 
+                    0.7038006233959777}]}, 
+                    ImageSizeCache -> {{43.08578643762691, 
+                    75.58088022903976}, {-16.11210406486633, 
+                    13.540760994273263`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"15%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.650320206111334, 0.14672448319130796`}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9754803091670011, 0.22008672478696195`}, {
+                    1.0730283400837013`, 0.24209539726565818`}}], 
+                    
+                    LineBox[{{1.0730283400837013`, 0.24209539726565818`}, {
+                    1.1, 0.24209539726565818`}}]}}, 
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9157$9279, 
+                    FEPrivate`Not[DynamicChart`click$9157$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9157$9279, {{{1., 0}, {0, 1.}}, {
+                    0.19509606183340023`, 0.044017344957392394`}}, {{1, 0}, {
+                    0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9157$9279}]]}, {
+                  RGBColor[0.7280000000000001, 1., 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-1.0455667652436773`, -0.2599938747798447}]}, 
+                    ImageSizeCache -> {{43.08578643762691, 
+                    74.58382962851687}, {3.0857864376269113`, 
+                    31.582076396830995`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"12%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.5295987412725742, -0.40493162100155794`}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.7943981119088614, -0.6073974315023369}, {
+                    0.8738379230997476, -0.6681371746525707}}], 
+                    
+                    LineBox[{{0.8738379230997476, -0.6681371746525707}, {
+                    1.1, -0.6681371746525707}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9163$9279, 
+                    FEPrivate`Not[DynamicChart`click$9163$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9163$9279, {{{1., 0}, {0, 1.}}, {
+                    0.1588796223817723, -0.1214794863004674}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9163$9279}]]}, {
+                  RGBColor[0.932, 1., 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-2.5300479212447273`, -1.0455667652436773`}]}, 
+                    ImageSizeCache -> {{18.79584374064779, 
+                    60.789425447336825`}, {3.0857864376269077`, 
+                    35.580880229039764`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"24%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-0.14354114077834446`, -0.6510302491808625}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.2153117111675167, -0.9765453737712938}, \
+{-0.2368428822842684, -1.0741999111484233`}}], 
+                    
+                    LineBox[{{-0.2368428822842684, -1.0741999111484233`}, \
+{-1.1, -1.0741999111484233`}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9169$9279, 
+                    FEPrivate`Not[DynamicChart`click$9169$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9169$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.043062342233503345`, \
+-0.19530907475425877`}}, {{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9169$9279}]]}, {
+                  RGBColor[1., 0.864, 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-2.8927813110585436`, -2.5300479212447273`}]}, 
+                    ImageSizeCache -> {{14.332680571442712`, 
+                    45.91421356237309}, {3.0857864376269113`, 
+                    22.946823312161367`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"6%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-0.6059276777731177, -0.2780217505033037}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9088915166596766, -0.41703262575495553`}, \
+{-0.9997806683256444, -0.45873588833045115`}}], 
+                    
+                    LineBox[{{-0.9997806683256444, -0.45873588833045115`}, \
+{-1.1, -0.45873588833045115`}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9175$9279, 
+                    FEPrivate`Not[DynamicChart`click$9175$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9175$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.18177830333193534`, -0.08340652515099112}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$9175$9279}]]}, {
+                  RGBColor[1., 0.66, 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-3.141592653589793, -2.8927813110585436`}]}, 
+                    ImageSizeCache -> {{13.419119770960233`, 
+                    45.91421356237309}, {3.0857864376269113`, 
+                    13.219691928579905`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"4%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-0.6615143931774313, -0.08272334654460727}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.992271589766147, -0.1240850198169109}, \
+{-1.0914987487427619`, -0.136493521798602}}], 
+                    
+                    LineBox[{{-1.0914987487427619`, -0.136493521798602}, \
+{-1.1, -0.136493521798602}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9181$9279, 
+                    FEPrivate`Not[DynamicChart`click$9181$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$9181$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.19845431795322943`, \
+-0.024817003963382184`}}, {{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {
+                    DynamicChart`click$9181$9279}]]}}, {}}, {}}, {{{
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.7700229641327655, 
+                    0.6380161711964594}, {-0.8470252605460421, 
+                    0.7018177883161054}}], 
+                    
+                    LineBox[{{-0.8470252605460421, 0.7018177883161054}, {-1.1,
+                     0.7018177883161054}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.7700229641327655, 0.6380161711964594}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1980", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[0]], {-1.1400000000000001`, 
+                    0.7018177883161054}, {1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9145$9279, 
+                    FEPrivate`Not[DynamicChart`click$9145$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9145$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.1540045928265531, 0.12760323423929187`}}, {{
+                    1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9145$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    LineBox[{{0.33350488297805725`, 0.9427483720642493}, {
+                    0.366855371275863, 1.0370232092706744`}}], 
+                    
+                    LineBox[{{0.366855371275863, 1.0370232092706744`}, {1.1, 
+                    1.0370232092706744`}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.33350488297805725`, 0.9427483720642493}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1508", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, 1.0370232092706744`}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9151$9279, 
+                    FEPrivate`Not[DynamicChart`click$9151$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9151$9279, {{{1., 0}, {0, 1.}}, {
+                    0.06670097659561146, 0.18854967441284987`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9151$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9754803091670011, 0.22008672478696195`}, {
+                    1.0730283400837013`, 0.24209539726565818`}}], 
+                    
+                    LineBox[{{1.0730283400837013`, 0.24209539726565818`}, {
+                    1.1, 0.24209539726565818`}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.9754803091670011, 0.22008672478696195`}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1379", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, 0.24209539726565818`}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9157$9279, 
+                    FEPrivate`Not[DynamicChart`click$9157$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9157$9279, {{{1., 0}, {0, 1.}}, {
+                    0.19509606183340023`, 0.044017344957392394`}}, {{1, 0}, {
+                    0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9157$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.7943981119088614, -0.6073974315023369}, {
+                    0.8738379230997476, -0.6681371746525707}}], 
+                    
+                    LineBox[{{0.8738379230997476, -0.6681371746525707}, {
+                    1.1, -0.6681371746525707}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.7943981119088614, -0.6073974315023369}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1124", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, -0.6681371746525707}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9163$9279, 
+                    FEPrivate`Not[DynamicChart`click$9163$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9163$9279, {{{1., 0}, {0, 1.}}, {
+                    0.1588796223817723, -0.1214794863004674}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9163$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.2153117111675167, -0.9765453737712938}, \
+{-0.2368428822842684, -1.0741999111484233`}}], 
+                    
+                    LineBox[{{-0.2368428822842684, -1.0741999111484233`}, \
+{-1.1, -1.0741999111484233`}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.2153117111675167, -0.9765453737712938}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "2124", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-1.1400000000000001`, -1.0741999111484233`}, {1, 
+                    0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9169$9279, 
+                    FEPrivate`Not[DynamicChart`click$9169$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9169$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.043062342233503345`, \
+-0.19530907475425877`}}, {{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9169$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9088915166596766, -0.41703262575495553`}, \
+{-0.9997806683256444, -0.45873588833045115`}}], 
+                    
+                    LineBox[{{-0.9997806683256444, -0.45873588833045115`}, \
+{-1.1, -0.45873588833045115`}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.9088915166596766, -0.41703262575495553`}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "519", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-1.1400000000000001`, -0.45873588833045115`}, {1, 
+                    0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9175$9279, 
+                    FEPrivate`Not[DynamicChart`click$9175$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9175$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.18177830333193534`, -0.08340652515099112}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$9175$9279}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.992271589766147, -0.1240850198169109}, \
+{-1.0914987487427619`, -0.136493521798602}}], 
+                    
+                    LineBox[{{-1.0914987487427619`, -0.136493521798602}, \
+{-1.1, -0.136493521798602}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.992271589766147, -0.1240850198169109}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "356", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-1.1400000000000001`, -0.136493521798602}, {1, 
+                    0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$9181$9279, 
+                    FEPrivate`Not[DynamicChart`click$9181$9279]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$9181$9279, {{{1., 0}, {
+                    0, 1.}}, {-0.19845431795322943`, \
+-0.024817003963382184`}}, {{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {
+                    DynamicChart`click$9181$9279}]]}, {}}, {}}}, 
+             DynamicModuleValues :> {}], {}, {{{}, {}, {}, {}}, {}}}, 
+           ContentSelectable -> False, PlotLabel -> 
+           FormBox["\"Female Most Commonly Used Words\"", TraditionalForm], 
+           PlotRange -> {{-1.2, 1.2}, {-1.2, 1.2}}, PlotRangePadding -> 
+           Scaled[0.1]],
+          TemplateBox[{
+           "\"the\"", "\"to\"", "\"be\"", "\"of\"", "\"an\"", "\"a\"", 
+            "\"in\""}, "SwatchLegend", DisplayFunction -> (StyleBox[
+             StyleBox[
+              PaneBox[
+               TagBox[
+                GridBox[{{
+                   StyleBox[
+                    TagBox[
+                    FormBox["\"Words\"", TraditionalForm], TraditionalForm, 
+                    Editable -> True], {FontFamily -> "Times"}, Background -> 
+                    Automatic, StripOnInput -> False]}, {
+                   TagBox[
+                    GridBox[{{
+                    TagBox[
+                    GridBox[{{
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 0.7960000000000002, 1.]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 1., 1.]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 1., 0.796]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #3}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.7280000000000001, 1., 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #4}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.932, 1., 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #5}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[1., 0.864, 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #6}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[1., 0.66, 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #7}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
+                    AutoDelete -> False, 
+                    GridBoxDividers -> {
+                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.5}}, "Rows" -> {{0.5}}}], "Grid"]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}],
+                     "Grid"]}}, GridBoxAlignment -> {"Columns" -> {{Center}}},
+                  AutoDelete -> False, 
+                 GridBoxItemSize -> {
+                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                 GridBoxSpacings -> {
+                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                "Grid"], Alignment -> Left, AppearanceElements -> None, 
+               ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
+               "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
+             FontFamily -> "Times"}, Background -> Automatic, StripOnInput -> 
+             False]& ), Editable -> True, 
+           InterpretationFunction :> (RowBox[{"SwatchLegend", "[", 
+              RowBox[{
+                RowBox[{"{", 
+                  RowBox[{
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "0.7960000000000002`", ",", "1.`"}],
+                     "]"}]}], "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "1.`", ",", "1.`"}], "]"}]}], "]"}],
+                     ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "1.`", ",", "0.796`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.7280000000000001`", ",", "1.`", ",", "0.66`"}],
+                     "]"}]}], "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.932`", ",", "1.`", ",", "0.66`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"1.`", ",", "0.864`", ",", "0.66`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"1.`", ",", "0.66`", ",", "0.66`"}], "]"}]}], 
+                    "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                  
+                  RowBox[{#, ",", #2, ",", #3, ",", #4, ",", #5, ",", #6, 
+                    ",", #7}], "}"}], ",", 
+                RowBox[{"LegendLabel", "\[Rule]", "\"Words\""}], ",", 
+                RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}], ",", 
+                RowBox[{"LegendMarkers", "\[Rule]", 
+                  RowBox[{"{", 
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "None", ",", "None", ",", "None", ",", "None", ",", 
+                    "None", ",", "None", ",", "None"}], "}"}], "}"}]}]}], 
+              "]"}]& )]},
+         "Legended",
+         DisplayFunction->(GridBox[{{
+             TagBox[
+              ItemBox[
+               PaneBox[
+                TagBox[#, "SkipImageSizeLevel"], 
+                Alignment -> {Center, Baseline}, BaselinePosition -> 
+                Baseline], DefaultBaseStyle -> "Labeled"], 
+              "SkipImageSizeLevel"], 
+             ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+           GridBoxAlignment -> {
+            "Columns" -> {{Center}}, "Rows" -> {{Center}}}, AutoDelete -> 
+           False, GridBoxItemSize -> Automatic, BaselinePosition -> {1, 1}]& ),
+         Editable->True,
+         InterpretationFunction->(RowBox[{"Legended", "[", 
+            RowBox[{#, ",", 
+              RowBox[{"Placed", "[", 
+                RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )], ",", 
+        TemplateBox[{GraphicsBox[{{{}, {}}, {}, 
+            DynamicModuleBox[{
+             DynamicChart`click$15546$15680 = False, 
+              DynamicChart`click$15552$15680 = False, 
+              DynamicChart`click$15558$15680 = False, 
+              DynamicChart`click$15564$15680 = False, 
+              DynamicChart`click$15570$15680 = False, 
+              DynamicChart`click$15576$15680 = False, 
+              DynamicChart`click$15582$15680 = False}, {{
+               RGBColor[0.5, 0.5, 1.], 
+               EdgeForm[
+                GrayLevel[0.5]], {{
+                 RGBColor[0.66, 0.7960000000000002, 1.], {
+                  RGBColor[0.66, 0.7960000000000002, 1.], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {2.261618681389179, 
+                    3.141592653589793}]}, 
+                    ImageSizeCache -> {{13.419119770960233`, 
+                    45.91421356237309}, {-19.778974980580173`, 
+                    5.914213562373099}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"14%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[0]], {-0.6031714708512145, 
+                    0.2839517937883592}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9047572062768218, 
+                    0.4259276906825389}, {-0.995232926904504, 
+                    0.4685204597507928}}], 
+                    
+                    LineBox[{{-0.995232926904504, 0.4685204597507928}, {-1.1, 
+                    0.4685204597507928}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15546$15680, 
+                    FEPrivate`Not[DynamicChart`click$15546$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15546$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.18095144125536436`, 0.08518553813650778}}, {{
+                    1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15546$15680}]]}, {
+                  RGBColor[0.66, 1., 1.], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {0.6635460138838503, 
+                    2.261618681389179}]}, 
+                    ImageSizeCache -> {{24.183040700576424`, 
+                    69.28600363226981}, {-26.580880229039757`, 
+                    5.914213562373099}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"25%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.07200193359008578, 0.6627670525936947}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.10800290038512868`, 0.9941505788905421}, {
+                    0.11880319042364156`, 1.0935656367795965`}}], 
+                    
+                    LineBox[{{0.11880319042364156`, 1.0935656367795965`}, {
+                    1.1, 1.0935656367795965`}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15552$15680, 
+                    FEPrivate`Not[DynamicChart`click$15552$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15552$15680, {{{1., 0}, {0, 1.}}, {
+                    0.021600580077025738`, 0.19883011577810844`}}, {{1, 0}, {
+                    0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15552$15680}]]}, {
+                  RGBColor[0.66, 1., 0.796], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 1., {-0.1287158038753735, 
+                    0.6635460138838503}]}, 
+                    ImageSizeCache -> {{43.08578643762691, 
+                    75.58088022903976}, {-15.186338234665275`, 
+                    9.722246954371226}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"13%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.6429714323669296, 0.17615953452613167`}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9644571485503943, 0.2642393017891975}, {
+                    1.0609028634054338`, 0.2906632319681173}}], 
+                    
+                    LineBox[{{1.0609028634054338`, 0.2906632319681173}, {1.1, 
+                    0.2906632319681173}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15558$15680, 
+                    FEPrivate`Not[DynamicChart`click$15558$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15558$15680, {{{1., 0}, {0, 1.}}, {
+                    0.1928914297100789, 0.052847860357839505`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15558$15680}]]}, {
+                  RGBColor[0.7280000000000001, 1., 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-0.29558282939801783`, -0.1287158038753735}]}, 
+                    ImageSizeCache -> {{43.08578643762691, 
+                    75.33546426312577}, {3.0857864376269077`, 
+                    14.556038005169793`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"3%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.651720406467954, -0.1403743432315507}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9775806097019311, -0.21056151484732608`}, {
+                    1.0753386706721242`, -0.2316176663320587}}], 
+                    
+                    LineBox[{{1.0753386706721242`, -0.2316176663320587}, {
+                    1.1, -0.2316176663320587}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15564$15680, 
+                    FEPrivate`Not[DynamicChart`click$15564$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15564$15680, {{{1., 0}, {0, 1.}}, {
+                    0.19551612194038623`, -0.04211230296946522}}, {{1, 0}, {0,
+                     1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15564$15680}]]}, {
+                  RGBColor[0.932, 1., 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-1.8801064649164658`, -0.29558282939801783`}]}, 
+                    ImageSizeCache -> {{34.055206074320104`, 
+                    74.29431189572975}, {3.0857864376269077`, 
+                    35.580880229039764`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"25%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    0.3095968566587637, -0.5904186910925647}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.46439528498814553`, -0.8856280366388471}, {
+                    0.5108348134869601, -0.974190840302732}}], 
+                    
+                    LineBox[{{0.5108348134869601, -0.974190840302732}, {
+                    1.1, -0.974190840302732}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15570$15680, 
+                    FEPrivate`Not[DynamicChart`click$15570$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15570$15680, {{{1., 0}, {0, 1.}}, {
+                    0.0928790569976291, -0.17712560732776944`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15570$15680}]]}, {
+                  RGBColor[1., 0.864, 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-2.824260062318097, -1.8801064649164658`}]}, 
+                    ImageSizeCache -> {{14.900343277978852`, 
+                    45.91421356237309}, {3.0857864376269113`, 
+                    34.173012712601846`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"15%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-0.4695098230905762, -0.4732916336318447}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.7042647346358644, -0.709937450447767}, \
+{-0.7746912080994509, -0.7809311954925438}}], 
+                    
+                    LineBox[{{-0.7746912080994509, -0.7809311954925438}, \
+{-1.1, -0.7809311954925438}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15576$15680, 
+                    FEPrivate`Not[DynamicChart`click$15576$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15576$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.14085294692717287`, -0.14198749008955341`}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {DynamicChart`click$15576$15680}]]}, {
+                  RGBColor[1., 0.66, 0.66], 
+                  EdgeForm[
+                   GrayLevel[0.5]], 
+                  GeometricTransformationBox[
+                   TagBox[{{
+                    DynamicBox[{
+                    FEPrivate`If[
+                    CurrentValue["MouseOver"], 
+                    EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[2.5], 
+                    Opacity[0.66]}], {}, {}], 
+                    
+                    DiskBox[{0, 0}, 
+                    1., {-3.141592653589793, -2.824260062318097}]}, 
+                    ImageSizeCache -> {{13.419119770960233`, 
+                    45.91421356237309}, {3.0857864376269077`, 
+                    15.171205784761547`}}], 
+                    InsetBox[
+                    StyleBox[
+                    "\"5%\"", "GraphicsLabel", StripOnInput -> False, 
+                    LineColor -> GrayLevel[0], FrontFaceColor -> GrayLevel[0],
+                     BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-0.6582925924509295, -0.10533426398223325`}]}, {
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9874388886763943, -0.1580013959733499}, \
+{-1.0861827775440338`, -0.1738015355706849}}], 
+                    
+                    LineBox[{{-1.0861827775440338`, -0.1738015355706849}, \
+{-1.1, -0.1738015355706849}}]}}, 
+                    
+                    EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15582$15680, 
+                    FEPrivate`Not[DynamicChart`click$15582$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                   Dynamic[
+                    If[
+                    DynamicChart`click$15582$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.19748777773527887`, -0.03160027919466998}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                    TrackedSymbols :> {
+                    DynamicChart`click$15582$15680}]]}}, {}}, {}}, {{{
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9047572062768218, 
+                    0.4259276906825389}, {-0.995232926904504, 
+                    0.4685204597507928}}], 
+                    
+                    LineBox[{{-0.995232926904504, 0.4685204597507928}, {-1.1, 
+                    0.4685204597507928}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.9047572062768218, 0.4259276906825389}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1234", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[0]], {-1.1400000000000001`, 
+                    0.4685204597507928}, {1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15546$15680, 
+                    FEPrivate`Not[DynamicChart`click$15546$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15546$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.18095144125536436`, 0.08518553813650778}}, {{
+                    1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15546$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.10800290038512868`, 0.9941505788905421}, {
+                    0.11880319042364156`, 1.0935656367795965`}}], 
+                    
+                    LineBox[{{0.11880319042364156`, 1.0935656367795965`}, {
+                    1.1, 1.0935656367795965`}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.10800290038512868`, 0.9941505788905421}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "2241", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, 1.0935656367795965`}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15552$15680, 
+                    FEPrivate`Not[DynamicChart`click$15552$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15552$15680, {{{1., 0}, {0, 1.}}, {
+                    0.021600580077025738`, 0.19883011577810844`}}, {{1, 0}, {
+                    0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15552$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9644571485503943, 0.2642393017891975}, {
+                    1.0609028634054338`, 0.2906632319681173}}], 
+                    
+                    LineBox[{{1.0609028634054338`, 0.2906632319681173}, {1.1, 
+                    0.2906632319681173}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.9644571485503943, 0.2642393017891975}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1111", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, 0.2906632319681173}, {-1, 0}]}}, 
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15558$15680, 
+                    FEPrivate`Not[DynamicChart`click$15558$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15558$15680, {{{1., 0}, {0, 1.}}, {
+                    0.1928914297100789, 0.052847860357839505`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15558$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.9775806097019311, -0.21056151484732608`}, {
+                    1.0753386706721242`, -0.2316176663320587}}], 
+                    
+                    LineBox[{{1.0753386706721242`, -0.2316176663320587}, {
+                    1.1, -0.2316176663320587}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.9775806097019311, -0.21056151484732608`}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "234", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, -0.2316176663320587}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15564$15680, 
+                    FEPrivate`Not[DynamicChart`click$15564$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15564$15680, {{{1., 0}, {0, 1.}}, {
+                    0.19551612194038623`, -0.04211230296946522}}, {{1, 0}, {0,
+                     1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15564$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{0.46439528498814553`, -0.8856280366388471}, {
+                    0.5108348134869601, -0.974190840302732}}], 
+                    
+                    LineBox[{{0.5108348134869601, -0.974190840302732}, {
+                    1.1, -0.974190840302732}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{0.46439528498814553`, -0.8856280366388471}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "2222", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> GrayLevel[0]], {
+                    1.1400000000000001`, -0.974190840302732}, {-1, 0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15570$15680, 
+                    FEPrivate`Not[DynamicChart`click$15570$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15570$15680, {{{1., 0}, {0, 1.}}, {
+                    0.0928790569976291, -0.17712560732776944`}}, {{1, 0}, {0, 
+                    1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15570$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.7042647346358644, -0.709937450447767}, \
+{-0.7746912080994509, -0.7809311954925438}}], 
+                    
+                    LineBox[{{-0.7746912080994509, -0.7809311954925438}, \
+{-1.1, -0.7809311954925438}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.7042647346358644, -0.709937450447767}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "1324", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-1.1400000000000001`, -0.7809311954925438}, {1, 
+                    0}]}}, 
+                   
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15576$15680, 
+                    FEPrivate`Not[DynamicChart`click$15576$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15576$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.14085294692717287`, -0.14198749008955341`}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {DynamicChart`click$15576$15680}]], 
+                 GeometricTransformationBox[
+                  TagBox[{{{}, {{}, {}}}, {{
+                    GrayLevel[0.5], 
+                    Thickness[0.002], 
+                    Opacity[1], 
+                    
+                    LineBox[{{-0.9874388886763943, -0.1580013959733499}, \
+{-1.0861827775440338`, -0.1738015355706849}}], 
+                    
+                    LineBox[{{-1.0861827775440338`, -0.1738015355706849}, \
+{-1.1, -0.1738015355706849}}]}, {
+                    GrayLevel[0.5], 
+                    Opacity[1], 
+                    
+                    DiskBox[{-0.9874388886763943, -0.1580013959733499}, 
+                    0.016666666666666666`]}, 
+                    InsetBox[
+                    StyleBox[
+                    "445", "GraphicsLabel", StripOnInput -> False, LineColor -> 
+                    GrayLevel[0], FrontFaceColor -> GrayLevel[0], 
+                    BackFaceColor -> GrayLevel[0], GraphicsColor -> 
+                    GrayLevel[0], FontColor -> 
+                    GrayLevel[
+                    0]], {-1.1400000000000001`, -0.1738015355706849}, {1, 
+                    0}]}}, 
+                   EventHandlerTag[{
+                    "MouseClicked" :> 
+                    FEPrivate`Set[DynamicChart`click$15582$15680, 
+                    FEPrivate`Not[DynamicChart`click$15582$15680]], 
+                    PassEventsDown -> True, PassEventsDown -> Automatic, 
+                    PassEventsUp -> True}]], 
+                  Dynamic[
+                   If[
+                   DynamicChart`click$15582$15680, {{{1., 0}, {
+                    0, 1.}}, {-0.19748777773527887`, -0.03160027919466998}}, \
+{{1, 0}, {0, 1}}, {{1, 0}, {0, 1}}], 
+                   TrackedSymbols :> {
+                    DynamicChart`click$15582$15680}]]}, {}}, {}}}, 
+             DynamicModuleValues :> {}], {}, {{{}, {}, {}, {}}, {}}}, 
+           ContentSelectable -> False, PlotLabel -> 
+           FormBox["\"Male Most Commonly Used Words\"", TraditionalForm], 
+           PlotRange -> {{-1.2, 1.2}, {-1.2, 1.2}}, PlotRangePadding -> 
+           Scaled[0.1]],
+          TemplateBox[{
+           "\"the\"", "\"to\"", "\"be\"", "\"of\"", "\"an\"", "\"a\"", 
+            "\"in\""}, "SwatchLegend", DisplayFunction -> (StyleBox[
+             StyleBox[
+              PaneBox[
+               TagBox[
+                GridBox[{{
+                   StyleBox[
+                    TagBox[
+                    FormBox["\"Words\"", TraditionalForm], TraditionalForm, 
+                    Editable -> True], {FontFamily -> "Times"}, Background -> 
+                    Automatic, StripOnInput -> False]}, {
+                   TagBox[
+                    GridBox[{{
+                    TagBox[
+                    GridBox[{{
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 0.7960000000000002, 1.]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 1., 1.]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.66, 1., 0.796]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #3}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.7280000000000001, 1., 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #4}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[0.932, 1., 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #5}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[1., 0.864, 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #6}, {
+                    GraphicsBox[{
+                    Directive[
+                    EdgeForm[
+                    GrayLevel[0.5]], 
+                    RGBColor[1., 0.66, 0.66]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> 1, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #7}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
+                    AutoDelete -> False, 
+                    GridBoxDividers -> {
+                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.5}}, "Rows" -> {{0.5}}}], "Grid"]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}],
+                     "Grid"]}}, GridBoxAlignment -> {"Columns" -> {{Center}}},
+                  AutoDelete -> False, 
+                 GridBoxItemSize -> {
+                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                 GridBoxSpacings -> {
+                  "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                "Grid"], Alignment -> Left, AppearanceElements -> None, 
+               ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
+               "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
+             FontFamily -> "Times"}, Background -> Automatic, StripOnInput -> 
+             False]& ), Editable -> True, 
+           InterpretationFunction :> (RowBox[{"SwatchLegend", "[", 
+              RowBox[{
+                RowBox[{"{", 
+                  RowBox[{
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "0.7960000000000002`", ",", "1.`"}],
+                     "]"}]}], "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "1.`", ",", "1.`"}], "]"}]}], "]"}],
+                     ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.66`", ",", "1.`", ",", "0.796`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.7280000000000001`", ",", "1.`", ",", "0.66`"}],
+                     "]"}]}], "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.932`", ",", "1.`", ",", "0.66`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"1.`", ",", "0.864`", ",", "0.66`"}], "]"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"GrayLevel", "[", "0.5`", "]"}], "]"}], ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"1.`", ",", "0.66`", ",", "0.66`"}], "]"}]}], 
+                    "]"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                  
+                  RowBox[{#, ",", #2, ",", #3, ",", #4, ",", #5, ",", #6, 
+                    ",", #7}], "}"}], ",", 
+                RowBox[{"LegendLabel", "\[Rule]", "\"Words\""}], ",", 
+                RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}], ",", 
+                RowBox[{"LegendMarkers", "\[Rule]", 
+                  RowBox[{"{", 
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "None", ",", "None", ",", "None", ",", "None", ",", 
+                    "None", ",", "None", ",", "None"}], "}"}], "}"}]}]}], 
+              "]"}]& )]},
+         "Legended",
+         DisplayFunction->(GridBox[{{
+             TagBox[
+              ItemBox[
+               PaneBox[
+                TagBox[#, "SkipImageSizeLevel"], 
+                Alignment -> {Center, Baseline}, BaselinePosition -> 
+                Baseline], DefaultBaseStyle -> "Labeled"], 
+              "SkipImageSizeLevel"], 
+             ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+           GridBoxAlignment -> {
+            "Columns" -> {{Center}}, "Rows" -> {{Center}}}, AutoDelete -> 
+           False, GridBoxItemSize -> Automatic, BaselinePosition -> {1, 1}]& ),
+         Editable->True,
+         InterpretationFunction->(RowBox[{"Legended", "[", 
+            RowBox[{#, ",", 
+              RowBox[{"Placed", "[", 
+                RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]}], "}"}], 
+      "]"}], ",", 
+     RowBox[{"TextCell", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+        "\"\<An example graph with fake data. Each prediction from previous \
+data would be displayed with graphs similar to these to back up predictions \
+our program makes.\>\"", ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "]"}], ",", 
+       "\"\<Text\>\""}], "]"}], ",", 
+     RowBox[{"{", "Bottom", "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6047922293375945`*^9, 3.6047922622605944`*^9}, {
+  3.6047932161489086`*^9, 3.6047932317444677`*^9}, {3.604793267722065*^9, 
+  3.604793277209014*^9}, {3.604793425178809*^9, 3.6047934472870197`*^9}, {
+  3.6047934788131723`*^9, 3.604793480117303*^9}, {3.6047935375940495`*^9, 
+  3.604793547562046*^9}, {3.604793649230212*^9, 3.6047936549307823`*^9}, {
+  3.6047937083401227`*^9, 3.604793815431831*^9}, {3.6047941734276266`*^9, 
+  3.604794178390123*^9}, {3.6047944686941504`*^9, 3.6047944755028315`*^9}, {
+  3.6047945076860495`*^9, 3.604794511531434*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Goals", "Section",
+ CellChangeTimes->{{3.6047892393558445`*^9, 3.60478924001591*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Increments", "Subsection",
+ CellChangeTimes->{{3.6047892672826366`*^9, 3.6047892701619244`*^9}, {
+  3.6047897526245947`*^9, 3.6047897840265946`*^9}, {3.6047933431616087`*^9, 
+  3.604793355712864*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["1. ", "Subsubsection",
+ CellChangeTimes->{{3.604793374639756*^9, 3.604793384147707*^9}, 
+   3.604796387840661*^9}],
+
+Cell["\<\
+1.) Get authorization from the Institutional Review Board to study human \
+beings.\[LineSeparator]2.) Write functions to anonymize Facebook/Twitter user \
+data.\[LineSeparator]3.) Write functions to access individual parts of data.
+4.) Complete online sensitivity training while working with people\
+\[CloseCurlyQuote]s personal information.\
+\>", "Text",
+ CellChangeTimes->{{3.604789401957103*^9, 3.604789468616768*^9}, {
+  3.604789503073213*^9, 3.6047895065155573`*^9}, {3.6047895725031557`*^9, 
+  3.6047897444625945`*^9}, {3.604796427557661*^9, 3.6047964585496607`*^9}, {
+  3.6047967578396606`*^9, 3.604796775140661*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["II.", "Subsubsection",
+ CellChangeTimes->{{3.604796393356661*^9, 3.604796395135661*^9}}],
+
+Cell["\<\
+1.) Combine functions written in increment I so we can easily analyze \
+information gathered.
+2.) Analyze information and write an algorithm to predict future outcomes.
+3.) Develop a new data set to test our algorithm in medium to small sized \
+test groups.\
+\>", "Text",
+ CellChangeTimes->{{3.6047966227096605`*^9, 3.604796844972661*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["III.", "Subsubsection",
+ CellChangeTimes->{{3.6047964025306606`*^9, 3.604796403972661*^9}}],
+
+Cell["\<\
+1.) Write a GUI format for the individual functions we create to come \
+together into one.
+2.) Make program easily accessible for user to interact with the program.
+3.) Completely polish entire project for presentations.
+4.) Thouroughly test our algorithm further with large test groups.\
+\>", "Text",
+ CellChangeTimes->{{3.6047964732496605`*^9, 3.6047966189006605`*^9}, {
+  3.6047968486146607`*^9, 3.604796854257661*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hurdles", "Subsubsection",
+ CellChangeTimes->{{3.6047893473466425`*^9, 3.604789352866194*^9}, 
+   3.6047897241673203`*^9}],
+
+Cell["\<\
+Authorization by irb\[LineSeparator]Anonymizing data
+Filtering out words\
+\>", "Text",
+ CellChangeTimes->{
+  3.6047893553504424`*^9, 3.6047897241673203`*^9, {3.604796865311661*^9, 
+   3.604796869571661*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["goals", "Subsection",
+ CellChangeTimes->{{3.604767591560481*^9, 3.604767592069023*^9}}],
+
+Cell["\<\
+collect comments, posts on males and females at different locations, form \
+perdictions from an analysis of the data, word analysis, geographical word \
+usage, emoticon usage and charts to describe the data.
+
+maybe include likes later on
+
+maybe include time dependence\
+\>", "Text",
+ CellChangeTimes->{{3.6047675952012014`*^9, 3.6047676697050877`*^9}, {
+  3.604767700211607*^9, 3.6047677550971656`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 223, 6, 101, "Title"],
+Cell[805, 30, 126, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[956, 37, 97, 1, 86, "Section"],
+Cell[1056, 40, 735, 11, 49, "Text"],
+Cell[1794, 53, 974, 20, 52, "Input"],
+Cell[2771, 75, 79148, 1625, 273, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81956, 1705, 91, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[82072, 1710, 206, 3, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[82303, 1717, 120, 2, 39, "Subsubsection"],
+Cell[82426, 1721, 634, 10, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83097, 1736, 94, 1, 39, "Subsubsection"],
+Cell[83194, 1739, 349, 7, 68, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83580, 1751, 97, 1, 39, "Subsubsection"],
+Cell[83680, 1754, 432, 8, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84149, 1767, 128, 2, 39, "Subsubsection"],
+Cell[84280, 1771, 217, 6, 68, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84546, 1783, 93, 1, 49, "Subsection"],
+Cell[84642, 1786, 413, 10, 125, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

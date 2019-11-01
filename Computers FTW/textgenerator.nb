@@ -1,0 +1,557 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     18940,        548]
+NotebookOptionsPosition[     17780,        506]
+NotebookOutlinePosition[     18126,        521]
+CellTagsIndexPosition[     18083,        518]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringTrim", "[", "#", "]"}], "&"}], "/@", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{
+        RowBox[{"StringReplace", "[", 
+         RowBox[{
+          RowBox[{"ToLowerCase", "[", 
+           RowBox[{"ExampleData", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Text\>\"", ",", "\"\<AliceInWonderland\>\""}], 
+             "}"}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<-\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<,\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<!\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<(\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<)\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<?\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<.\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<\\\"\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<;\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<_\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<*\>\"", "\[Rule]", " ", "\"\< \>\""}]}], "}"}]}], 
+         "]"}], ",", "\"\< \>\""}], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"#", "\[NotEqual]", "\"\<\>\""}], "&"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.632107889870388*^9, 3.632107903923912*^9}, {
+   3.632107941061016*^9, 3.6321083532456236`*^9}, 3.6321089183614025`*^9, {
+   3.6321090172084026`*^9, 3.632109017558403*^9}, {3.6321093772735853`*^9, 
+   3.6321093843812957`*^9}, {3.6321094153303905`*^9, 3.632109430997957*^9}, 
+   3.632109468514802*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"wd", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"WordData", "[", "#", "]"}], "&"}], "/@", "w"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nb", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"wd", ",", 
+       RowBox[{
+        RowBox[{"#", "\[NotEqual]", 
+         RowBox[{"{", "}"}]}], "&"}]}], "]"}], ",", "1"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.6321090418270435`*^9, 3.6321090735182123`*^9}, {
+  3.6341044505113487`*^9, 3.634104451372398*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nouns", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"nb", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "\"\<Noun\>\""}], "&"}]}],
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.632109629572802*^9, 3.632109665362802*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"verbs", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"nb", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "\"\<Verb\>\""}], "&"}]}],
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6321096674718018`*^9, 3.632109690508802*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"adjective", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"nb", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "\"\<Adjective\>\""}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.632109694585802*^9, 3.632109716019802*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"words", "=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\"\< \>\"", "<>", 
+        RowBox[{"ExampleData", "[", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Text\>\"", ",", "#"}], "}"}], "]"}], "<>", 
+        "\"\< \>\""}], ")"}], "&"}], "/@", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", 
+        RowBox[{"ExampleData", "[", "\"\<Text\>\"", "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"StringMatchQ", "[", 
+         RowBox[{"#", ",", "\"\<*English\>\""}], "]"}], "&"}]}], "]"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.634104630714656*^9, 3.634104648760688*^9}, {
+  3.6341046876489124`*^9, 3.634104718830696*^9}, {3.63410475473975*^9, 
+  3.6341047961371174`*^9}, {3.6341048348013287`*^9, 3.6341049364731445`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringTake", "[", 
+  RowBox[{"words", ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "500"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.634105136686596*^9, 3.6341051820351896`*^9}}],
+
+Cell[BoxData["\<\" BOOK I Arms, and the man I sing, who, forc'd by fate, And \
+haughty Juno's unrelenting hate, Expell'd and exil'd, left the Trojan shore. \
+Long labors, both by sea and land, he bore, And in the doubtful war, before \
+he won The Latian realm, and built the destin'd town; His banish'd gods \
+restor'd to rites divine, And settled sure succession in his line, From \
+whence the race of Alban fathers come, And the long glories of majestic Rome. \
+O Muse! the causes and the crimes relate; What goddess was provok'\"\>"], \
+"Output",
+ CellChangeTimes->{3.63410513832469*^9, 3.6341051825542192`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{
+  "noun", ",", "adjective", ",", "verb", ",", "adverb", ",", "preposition", 
+   ",", "determiner", ",", "pronoun", ",", "conjunction", ",", 
+   "interjection"}], "]"}]], "Input",
+ CellChangeTimes->{{3.634105285149087*^9, 3.634105336560028*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringTrim", "[", "#", "]"}], "&"}], "/@", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{
+        RowBox[{"StringReplace", "[", 
+         RowBox[{
+          RowBox[{"ToLowerCase", "[", "words", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<-\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<,\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<!\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<(\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<)\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<?\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<.\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<\\\"\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<;\>\"", "\[Rule]", " ", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<_\>\"", "\[Rule]", "\"\< \>\""}], ",", 
+            RowBox[{"\"\<*\>\"", "\[Rule]", " ", "\"\< \>\""}]}], "}"}]}], 
+         "]"}], ",", "\"\< \>\""}], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"#", "\[NotEqual]", "\"\<\>\""}], "&"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nb", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"WordData", "[", "#", "]"}], "&"}], "/@", "w"}], ")"}], ",", 
+       RowBox[{
+        RowBox[{"#", "\[NotEqual]", 
+         RowBox[{"{", "}"}]}], "&"}]}], "]"}], ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "noun", ",", "adjective", ",", "verb", ",", "adverb", ",", "preposition", 
+     ",", "determiner", ",", "pronoun", ",", "conjunction", ",", 
+     "interjection"}], "}"}], "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"nb", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "i"}], "&"}]}], "]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Noun\>\"", ",", "\"\<Adjective\>\"", ",", "\"\<Verb\>\"", ",", 
+         "\"\<Adverb\>\"", ",", "\"\<Preposition\>\"", ",", 
+         "\"\<Determiner\>\"", ",", "\"\<Pronoun\>\"", ",", 
+         "\"\<Conjunction\>\"", ",", "\"\<Interjection\>\""}], "}"}]}], 
+      "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.632109807624802*^9, 3.632109853620802*^9}, 
+   3.632109911693802*^9, {3.6321100614968023`*^9, 3.632110072674802*^9}, 
+   3.632110141170802*^9, {3.632110230165802*^9, 3.632110230877802*^9}, {
+   3.6321103834182034`*^9, 3.6321103986607275`*^9}, {3.634104463384085*^9, 
+   3.634104478797967*^9}, 3.6341045520001535`*^9, {3.6341049493928833`*^9, 
+   3.634104950847966*^9}, {3.6341052501320844`*^9, 3.634105254183316*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"format", "[", "thing_", "]"}], ":=", 
+  RowBox[{"thing", "[", 
+   RowBox[{"[", 
+    RowBox[{
+     RowBox[{"RandomInteger", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"Length", "[", "thing", "]"}]}], "}"}], "]"}], ",", "1"}], 
+    "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sentence", "[", "list_", "]"}], ":=", 
+  RowBox[{"StringTrim", "[", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"EvenQ", "[", "i", "]"}], ",", 
+        RowBox[{"format", "[", 
+         RowBox[{"list", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", "/", "2"}], "]"}], "]"}], "]"}], ",", "\"\< \>\""}], 
+       "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{
+         RowBox[{"Length", "[", "list", "]"}], "*", "2"}]}], "}"}]}], "]"}], 
+    "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.634099802083474*^9, 3.6340998297550564`*^9}, {
+  3.634104611775573*^9, 3.634104612566618*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sentence", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "determiner", ",", "adjective", ",", "noun", ",", "conjunction", ",", 
+    "pronoun", ",", "verb", ",", "noun"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.634100346825631*^9, 3.634100360702425*^9}, {
+  3.634100475176973*^9, 3.6341004962071753`*^9}}],
+
+Cell[BoxData["\<\"all hot immortal and it touch house\"\>"], "Output",
+ CellChangeTimes->{{3.634105470083665*^9, 3.6341054788891687`*^9}, {
+  3.634105604942378*^9, 3.6341056182031364`*^9}, {3.6341233312543707`*^9, 
+  3.6341234004636755`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"noun", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"RandomInteger", "[", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"Length", "[", "noun", "]"}]}], "}"}], "]"}], ",", "1"}], 
+   "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.634099731394431*^9, 3.634099741503009*^9}, {
+  3.6340997728528023`*^9, 3.6340997974922113`*^9}}],
+
+Cell[BoxData["\<\"pocket\"\>"], "Output",
+ CellChangeTimes->{{3.634099788231682*^9, 3.634099791221853*^9}}]
+}, Open  ]],
+
+Cell[BoxData["DeleteDuplicates"], "Input",
+ CellChangeTimes->{{3.6340995246306047`*^9, 3.634099528814844*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["noun"], "Input",
+ CellChangeTimes->{{3.6321106033101907`*^9, 3.6321106037812376`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   PanelBox[GridBox[{
+      {
+       StyleBox[
+        StyleBox[
+         DynamicBox[ToBoxes[
+           FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+           StandardForm],
+          ImageSizeCache->{309., {3., 9.}}],
+         StripOnInput->False,
+         DynamicUpdating->True], "Panel",
+        StripOnInput->False,
+        Background->None]},
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\<\"i\"\>", ",", "\<\"Noun\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"down\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Play\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"down\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Feather\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"down\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Hair\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"down\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Upland\"\>"}], "}"}], ",", 
+           RowBox[{"\[LeftSkeleton]", "13830", "\[RightSkeleton]"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"dream\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Revery\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"dream\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"MentalImagery\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"dream\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Vision\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"dream\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"Desire\"\>"}], "}"}], ",", 
+           RowBox[{"{", 
+            
+            RowBox[{"\<\"dream\"\>", ",", "\<\"Noun\"\>", 
+             ",", "\<\"NePlusUltra\"\>"}], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        Background->GrayLevel[1],
+        BaseStyle->{Deployed -> False},
+        Frame->True,
+        FrameStyle->GrayLevel[0, 0.2],
+        StripOnInput->False]},
+      {
+       RowBox[{
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+             StandardForm],
+            ImageSizeCache->{50., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 61, 27822389786592732640, 5/2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+             StandardForm],
+            ImageSizeCache->{59., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 61, 27822389786592732640, 5 2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+             StandardForm],
+            ImageSizeCache->{43., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 61, 27822389786592732640, Infinity],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+             StandardForm],
+            ImageSizeCache->{73., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>FrontEndExecute[{
+            FrontEnd`SetOptions[
+            FrontEnd`$FrontEnd, 
+             FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+            FrontEnd`FrontEndToken["PreferencesDialog"]}],
+         Evaluator->None,
+         Method->"Preemptive"]}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[1.2]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    DefaultBaseStyle->{},
+    FrameMargins->5],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[61]]], "Output",
+ CellChangeTimes->{3.6321106048093405`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeleteDuplicates", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "&"}], "/@", "nb"}], "]"}]], "Input",
+ CellChangeTimes->{{3.632109735049802*^9, 3.632109777443802*^9}, {
+  3.632109842869802*^9, 3.6321098453798018`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Noun\"\>", ",", "\<\"Adjective\"\>", ",", "\<\"Verb\"\>", 
+   ",", "\<\"Adverb\"\>", ",", "\<\"Preposition\"\>", 
+   ",", "\<\"Determiner\"\>", ",", "\<\"Pronoun\"\>", 
+   ",", "\<\"Conjunction\"\>", ",", "\<\"Interjection\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.632109778682802*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, 116}, {Automatic, 80}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1776, 38, 172, "Input"],
+Cell[2336, 60, 560, 18, 52, "Input"],
+Cell[2899, 80, 330, 10, 31, "Input"],
+Cell[3232, 92, 332, 10, 31, "Input"],
+Cell[3567, 104, 341, 10, 31, "Input"],
+Cell[3911, 116, 936, 25, 52, "Input"],
+Cell[CellGroupData[{
+Cell[4872, 145, 209, 5, 31, "Input"],
+Cell[5084, 152, 614, 8, 172, "Output"]
+}, Open  ]],
+Cell[5713, 163, 293, 6, 52, "Input"],
+Cell[6009, 171, 3030, 74, 252, "Input"],
+Cell[9042, 247, 1066, 31, 112, "Input"],
+Cell[CellGroupData[{
+Cell[10133, 282, 326, 7, 31, "Input"],
+Cell[10462, 291, 242, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10741, 299, 363, 10, 31, "Input"],
+Cell[11107, 311, 107, 1, 31, "Output"]
+}, Open  ]],
+Cell[11229, 315, 110, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[11364, 320, 100, 1, 31, "Input"],
+Cell[11467, 323, 5637, 160, 182, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17141, 488, 286, 7, 31, "Input"],
+Cell[17430, 497, 334, 6, 52, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

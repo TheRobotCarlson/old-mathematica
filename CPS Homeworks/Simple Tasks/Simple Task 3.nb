@@ -1,0 +1,177 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4760,        167]
+NotebookOptionsPosition[      3897,        129]
+NotebookOutlinePosition[      4260,        145]
+CellTagsIndexPosition[      4217,        142]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Simple Task 3", "Title",
+ CellChangeTimes->{{3.600568668786305*^9, 3.6005686985542817`*^9}}],
+
+Cell["Brian Carlson 2-5-2014", "Text",
+ CellChangeTimes->{{3.600568712428669*^9, 3.600568722493675*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1.", "Section",
+ CellChangeTimes->{{3.6005687303974657`*^9, 3.6005687358560114`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"i", "=", "12"}], ";", 
+  RowBox[{"j", "=", "0"}], ";", 
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"i", "\[LessEqual]", "37"}], ",", 
+    RowBox[{
+     RowBox[{"j", "=", " ", 
+      RowBox[{"j", "+", " ", 
+       SuperscriptBox["i", "2"]}]}], ";", 
+     RowBox[{"i", "++"}]}]}], "]"}], ";", 
+  RowBox[{"Print", "[", "j", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6005687390273285`*^9, 3.600568739823408*^9}, {
+   3.6005691897818017`*^9, 3.6005692986548014`*^9}, {3.6005693652838016`*^9, 
+   3.600569367153802*^9}, {3.6005694010868015`*^9, 3.6005694013368015`*^9}, {
+   3.6005694364938016`*^9, 3.6005695747118015`*^9}, {3.6005696469868016`*^9, 
+   3.6005696877948017`*^9}, 3.600569728457802*^9}],
+
+Cell[BoxData["17069"], "Print",
+ CellChangeTimes->{{3.6005693908358016`*^9, 3.6005694080298014`*^9}, 
+   3.6005695133348017`*^9, {3.600569551061802*^9, 3.600569576120802*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2.", "Section",
+ CellChangeTimes->{{3.600569581714802*^9, 3.6005695844828014`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"i", " ", "=", " ", "7"}], ";", 
+  RowBox[{"j", "=", "0"}], ";", " ", 
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"i", "\[LessEqual]", " ", "29"}], ",", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"i", ",", "2"}], "]"}], "\[Equal]", "1"}], ",", 
+       RowBox[{"j", " ", "=", 
+        RowBox[{"j", "+", 
+         SuperscriptBox["i", "2"]}]}]}], "]"}], ";", 
+     RowBox[{"i", "++"}]}]}], "]"}], ";", 
+  RowBox[{"Print", "[", "j", "]"}]}]], "Input",
+ CellChangeTimes->{{3.600569733575802*^9, 3.6005697438168015`*^9}, {
+  3.6005698397068014`*^9, 3.6005698428418016`*^9}, {3.6005702334937377`*^9, 
+  3.6005702540157895`*^9}, {3.600570308787266*^9, 3.6005703107864656`*^9}, {
+  3.6005703740687933`*^9, 3.6005704904084263`*^9}}],
+
+Cell[BoxData["4460"], "Print",
+ CellChangeTimes->{3.600570492433629*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3.", "Section",
+ CellChangeTimes->{{3.600570569078293*^9, 3.600570574393824*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"i", " ", "=", " ", "10"}], ";", 
+  RowBox[{"j", "=", "0"}], ";", 
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{"i", "\[LessEqual]", "26"}], ",", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"i", ",", "2"}], "]"}], "==", "1"}], ",", 
+       RowBox[{"j", "=", 
+        RowBox[{"j", "+", 
+         SuperscriptBox["i", "2"]}]}]}], "]"}], ";", 
+     RowBox[{"i", "++"}]}]}], "]"}], ";", 
+  RowBox[{"Print", "[", "j", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6005705827106557`*^9, 3.600570671910575*^9}, {
+  3.600570803642747*^9, 3.6005708490042825`*^9}}],
+
+Cell[BoxData["2760"], "Print",
+ CellChangeTimes->{{3.6005708251668987`*^9, 3.6005708504184237`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{667, 690},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 98, 1, 101, "Title"],
+Cell[680, 25, 104, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[809, 30, 99, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[933, 35, 734, 17, 33, "Input"],
+Cell[1670, 54, 175, 2, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1894, 62, 97, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[2016, 67, 835, 21, 54, "Input"],
+Cell[2854, 90, 72, 1, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2975, 97, 95, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[3095, 102, 659, 19, 54, "Input"],
+Cell[3757, 123, 100, 1, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

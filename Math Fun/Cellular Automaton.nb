@@ -1,0 +1,332 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13068,        322]
+NotebookOptionsPosition[     12747,        306]
+NotebookOutlinePosition[     13092,        321]
+CellTagsIndexPosition[     13049,        318]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"bs", "===", "Sphere"}], ",", 
+      RowBox[{"o", "=", "0"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"u", "=", 
+        RowBox[{"Part", "[", 
+         RowBox[{
+          RowBox[{"CellularAutomaton", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"rn", ",", 
+              RowBox[{"{", 
+               RowBox[{"2", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"2", ",", "2", ",", "2"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"2", ",", "1", ",", "2"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"2", ",", "2", ",", "2"}], "}"}]}], "}"}]}], "}"}],
+               ",", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "1"}], "}"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Table", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"{", "init", "}"}]}], "]"}], "}"}], ",", "0"}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "All", ",", "All"}], "}"}]}], "]"}], ",", 
+          RowBox[{"1", "+", 
+           RowBox[{"Accumulate", "[", 
+            RowBox[{"IntegerDigits", "[", 
+             RowBox[{"c", ",", "2", ",", "t"}], "]"}], "]"}]}]}], "]"}]}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"g", "=", 
+          RowBox[{"Graphics3D", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Opacity", "[", 
+               RowBox[{"1", "-", "o"}], "]"}], ",", 
+              RowBox[{"EdgeForm", "[", 
+               RowBox[{"If", "[", 
+                RowBox[{"se", ",", "Black", ",", "None"}], "]"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"bs", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"#2", ",", "#3", ",", 
+                   RowBox[{"-", "#1"}]}], "}"}], "]"}], "&"}], "@@@", 
+               RowBox[{"Position", "[", 
+                RowBox[{"u", ",", "1"}], "]"}]}]}], "}"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "t"}], "+", "3"}], ")"}], 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], ",", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "t"}], "+", "3", "+", "init"}], ")"}], 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1"}], "}"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "t"}], "-", "1"}], ",", "0"}], "}"}]}], 
+              "}"}]}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", "400"}], ",", 
+            RowBox[{"Method", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<SpherePoints\>\"", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"20", ",", "15"}], "}"}]}], "}"}]}]}], "]"}]}], "}"}],
+         ",", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{"plan", ",", 
+          RowBox[{"Grid", "[", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"g", ",", 
+              RowBox[{"Column", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"ArrayPlot", "[", 
+                  RowBox[{
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"Total", "[", "#", "]"}], "]"}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", "120"}]}], "]"}], "&"}], "/@", 
+                RowBox[{"{", 
+                 RowBox[{"u", ",", 
+                  RowBox[{"Transpose", "[", "u", "]"}], ",", 
+                  RowBox[{"Transpose", "[", 
+                   RowBox[{"u", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3", ",", "1"}], "}"}]}], "]"}]}], 
+                 "}"}]}], "]"}]}], "}"}], "}"}], "]"}], ",", "g"}], "]"}]}], 
+       "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rn", ",", "121268", ",", "\"\<rule number\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "121268", ",", "124844", ",", "124868", ",", "164124", ",", "174826", 
+       ",", "174832"}], "}"}], ",", "SetterBar"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "1", ",", "\"\<choice number\>\""}], "}"}], ",", "1", 
+     ",", 
+     RowBox[{"2", "^", "20"}], ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"init", ",", "5", ",", "\"\<size of initial block\>\""}], "}"}],
+      ",", "2", ",", "25", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "6", ",", "\"\<steps of evolution\>\""}], "}"}], ",", 
+     "1", ",", "15", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bs", ",", "Cuboid", ",", "\"\<shape of blocks\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cuboid", "\[Rule]", "\"\<cubes\>\""}], ",", 
+       RowBox[{"Sphere", "\[Rule]", "\"\<spheres\>\""}]}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"o", ",", "0", ",", "\"\<transparency\>\""}], "}"}], ",", "0", 
+     ",", "1", ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{"bs", "===", "Cuboid"}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plan", ",", "True", ",", "\"\<show plan & elevations\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"se", ",", "True", ",", "\"\<show edges\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"True", ",", "False"}], "}"}]}], "}"}], ",", " ", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "3", ",", "6"}], "}"}]}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bs$$ = Cuboid, $CellContext`c$$ = 
+    1, $CellContext`init$$ = 5, $CellContext`o$$ = 0, $CellContext`plan$$ = 
+    True, $CellContext`rn$$ = 121268, $CellContext`se$$ = 
+    True, $CellContext`t$$ = 6, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`rn$$], 121268, "rule number"}, {121268, 124844, 
+      124868, 164124, 174826, 174832}}, {{
+       Hold[$CellContext`c$$], 1, "choice number"}, 1, 1048576, 1}, {{
+       Hold[$CellContext`init$$], 5, "size of initial block"}, 2, 25, 1}, {{
+       Hold[$CellContext`t$$], 6, "steps of evolution"}, 1, 15, 1}, {{
+       Hold[$CellContext`bs$$], Cuboid, "shape of blocks"}, {
+      Cuboid -> "cubes", Sphere -> "spheres"}}, {{
+       Hold[$CellContext`o$$], 0, "transparency"}, 0, 1}, {{
+       Hold[$CellContext`plan$$], True, "show plan & elevations"}, {
+      True, False}}, {{
+       Hold[$CellContext`se$$], True, "show edges"}, {True, False}}}, 
+    Typeset`size$$ = {529., {172., 177.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`rn$100295$$ = 0, $CellContext`c$100296$$ = 
+    0, $CellContext`init$100297$$ = 0, $CellContext`t$100298$$ = 
+    0, $CellContext`bs$100299$$ = False, $CellContext`o$100300$$ = 
+    0, $CellContext`plan$100301$$ = False, $CellContext`se$100302$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bs$$ = Cuboid, $CellContext`c$$ = 
+        1, $CellContext`init$$ = 5, $CellContext`o$$ = 0, $CellContext`plan$$ = 
+        True, $CellContext`rn$$ = 121268, $CellContext`se$$ = 
+        True, $CellContext`t$$ = 6}, "ControllerVariables" :> {
+        Hold[$CellContext`rn$$, $CellContext`rn$100295$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$100296$$, 0], 
+        Hold[$CellContext`init$$, $CellContext`init$100297$$, 0], 
+        Hold[$CellContext`t$$, $CellContext`t$100298$$, 0], 
+        Hold[$CellContext`bs$$, $CellContext`bs$100299$$, False], 
+        Hold[$CellContext`o$$, $CellContext`o$100300$$, 0], 
+        Hold[$CellContext`plan$$, $CellContext`plan$100301$$, False], 
+        Hold[$CellContext`se$$, $CellContext`se$100302$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (If[$CellContext`bs$$ === Sphere, $CellContext`o$$ = 0]; 
+       With[{$CellContext`u$ = Part[
+            
+            CellularAutomaton[{$CellContext`rn$$, {
+              2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 1}}, {{
+               Table[1, {$CellContext`init$$}]}, 0}, {$CellContext`t$$, All, 
+              All}], 1 + Accumulate[
+              IntegerDigits[$CellContext`c$$, 2, $CellContext`t$$]]]}, 
+         With[{$CellContext`g$ = Graphics3D[{
+              Opacity[1 - $CellContext`o$$], 
+              EdgeForm[
+               If[$CellContext`se$$, Black, None]], 
+              Apply[$CellContext`bs$$[{#2, #3, -#}]& , 
+               Position[$CellContext`u$, 1], {1}]}, 
+             PlotRange -> {(2 $CellContext`t$$ + 3) {0, 1}, (
+                2 $CellContext`t$$ + 3 + $CellContext`init$$) {0, 
+                1}, {-$CellContext`t$$ - 1, 0}}, ImageSize -> 400, 
+             Method -> {"SpherePoints" -> {20, 15}}]}, 
+          If[$CellContext`plan$$, 
+           Grid[{{$CellContext`g$, 
+              Column[
+               Map[ArrayPlot[
+                 Sqrt[
+                  Total[#]], ImageSize -> 120]& , {$CellContext`u$, 
+                 Transpose[$CellContext`u$], 
+                 
+                 Transpose[$CellContext`u$, {2, 3, 
+                  1}]}]]}}], $CellContext`g$]]]), 
+      "Specifications" :> {{{$CellContext`rn$$, 121268, "rule number"}, {
+         121268, 124844, 124868, 164124, 174826, 174832}, ControlType -> 
+         SetterBar}, {{$CellContext`c$$, 1, "choice number"}, 1, 1048576, 
+         1}, {{$CellContext`init$$, 5, "size of initial block"}, 2, 25, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`t$$, 6, "steps of evolution"}, 1, 15, 1, 
+         Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`bs$$, Cuboid, "shape of blocks"}, {
+         Cuboid -> "cubes", Sphere -> "spheres"}}, {{$CellContext`o$$, 0, 
+          "transparency"}, 0, 1, Enabled -> 
+         Dynamic[$CellContext`bs$$ === Cuboid]}, {{$CellContext`plan$$, True, 
+          "show plan & elevations"}, {
+         True, False}}, {{$CellContext`se$$, True, "show edges"}, {
+         True, False}}}, 
+      "Options" :> {ControlPlacement -> Top, AutorunSequencing -> {1, 3, 6}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{580., {309., 314.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.602356761206603*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 505},
+WindowMargins->{{144, Automatic}, {Automatic, 30}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 6776, 179, 552, "Input"],
+Cell[7358, 203, 5373, 100, 672, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

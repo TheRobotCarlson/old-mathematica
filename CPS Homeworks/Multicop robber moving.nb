@@ -1,0 +1,220 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7636,        210]
+NotebookOptionsPosition[      7352,        196]
+NotebookOutlinePosition[      7697,        211]
+CellTagsIndexPosition[      7654,        208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"returnCoord", "[", 
+    RowBox[{"coord1_", ",", "coord2_", ",", "length_", ","}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"distance", "=", 
+        RowBox[{"EuclideanDistance", "[", 
+         RowBox[{"coord1", ",", "coord2"}], "]"}]}], ",", 
+       RowBox[{"deltaX", "=", 
+        RowBox[{
+         RowBox[{"coord1", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "-", 
+         RowBox[{"coord2", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}]}], ",", 
+       RowBox[{"deltaY", "=", 
+        RowBox[{
+         RowBox[{"coord1", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "-", 
+         RowBox[{"coord2", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}]}], ",", "angle", ",", "magnitude", 
+       ",", "ratio"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ratio", "=", 
+       FractionBox["deltaY", "deltaX"]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"angle", " ", "=", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"Abs", "[", "ratio", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"magnitude", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"distance", "-", "length"}], ">", "0"}], ",", 
+         RowBox[{"distance", "-", "length"}], ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"N", "[", 
+           RowBox[{"magnitude", " ", "*", 
+            RowBox[{"Cos", "[", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Sign", "[", "deltaX", "]"}], "\[Equal]", 
+                 RowBox[{"-", "1"}]}], ",", "\[Pi]", ",", "0"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"Sign", "[", "ratio", "]"}], "*", "angle"}]}], "]"}]}],
+            "]"}], "+", 
+          RowBox[{"coord2", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+         RowBox[{
+          RowBox[{"N", "[", 
+           RowBox[{"magnitude", "*", 
+            RowBox[{"Sin", "[", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Sign", "[", "deltaX", "]"}], "\[Equal]", 
+                 RowBox[{"-", "1"}]}], ",", "\[Pi]", ",", "0"}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"Sign", "[", "ratio", "]"}], "*", "angle"}]}], "]"}]}],
+            "]"}], "+", 
+          RowBox[{"coord2", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{3.6022621592095947`*^9, 3.6022623567725945`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"generalRobberarrest", "[", 
+   RowBox[{
+   "RobberCo_", ",", "policeCo_", ",", "speed_", ",", "timestep_", ",", 
+    "stepnumb_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"length", "=", 
+       RowBox[{"speed", "*", "timestep", "*", "stepnumb"}]}], ",", "i", ",", 
+      "j", ",", 
+      RowBox[{"displayList", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"pointList", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"distances", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"EuclideanDistance", "[", 
+          RowBox[{"#", ",", "RobberCo"}], "]"}], "&"}], "/@", "policeCo"}]}], 
+      ",", " ", "color", ",", 
+      RowBox[{"policeLines", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"newRobberCo", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"newPoliceCo", "=", 
+       RowBox[{"{", "}"}]}], ",", 
+      RowBox[{"slope", "=", 
+       FractionBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"policeCo", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "2"}], "]"}], "]"}], "-", 
+          RowBox[{"policeCo", "[", 
+           RowBox[{"[", 
+            RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], 
+        RowBox[{
+         RowBox[{"policeCo", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", 
+         RowBox[{"policeCo", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "1"}], "]"}], "]"}]}]]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"newRobberCo", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"j", "=", "0"}], ",", 
+       RowBox[{"j", "\[LessEqual]", " ", "stepnumb"}], ",", 
+       RowBox[{"j", "+=", " ", 
+        RowBox[{"speed", "*", "timestep"}]}], ","}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "\[LessEqual]", " ", 
+        RowBox[{"Length", "[", "policeCo", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"displayList", ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"policeLines", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"PointSize", "[", "Large", "]"}], ",", "Black", ",", 
+           RowBox[{"Point", "[", "pointList", "]"}], ",", "Red", ",", 
+           RowBox[{"Point", "[", "RobberCo", "]"}]}], "}"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"pointList", ",", 
+          RowBox[{"policeCo", "[", 
+           RowBox[{"[", "i", "]"}], "]"}]}], " ", "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"displayList", ",", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", "Black", ",", 
+          RowBox[{"Point", "[", "pointList", "]"}], ",", "Red", ",", 
+          RowBox[{"Point", "[", "RobberCo", "]"}]}], "}"}], "]"}]}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"Show", "[", "displayList", "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6022623739395943`*^9, 3.6022623949515944`*^9}, {
+   3.602262430396594*^9, 3.602262566224594*^9}, {3.6022626308335943`*^9, 
+   3.6022626481885943`*^9}, {3.6022627511365943`*^9, 
+   3.6022628250605946`*^9}, {3.6022629679958744`*^9, 3.602263041624236*^9}, {
+   3.6022631702891016`*^9, 3.602263275325604*^9}, {3.6022633322192926`*^9, 
+   3.602263338421913*^9}, {3.60227592231429*^9, 3.6022759229983587`*^9}, 
+   3.602275975227581*^9}]
+},
+WindowSize->{707, 505},
+WindowMargins->{{Automatic, 290}, {25, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2785, 73, 324, "Input"],
+Cell[3345, 95, 4003, 99, 465, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

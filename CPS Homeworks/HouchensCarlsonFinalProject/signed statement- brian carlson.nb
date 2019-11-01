@@ -1,0 +1,72 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2113,         63]
+NotebookOptionsPosition[      1803,         47]
+NotebookOutlinePosition[      2145,         62]
+CellTagsIndexPosition[      2102,         59]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Signed Statement - Brian Carlson\
+\>", "Title",
+ CellChangeTimes->{{3.6077051812561035`*^9, 3.6077051909130692`*^9}}],
+
+Cell["\<\
+Most of my contributions have been in developing the algorithm that we use to \
+gather and sort through the massive amounts of data available to us. I have \
+worked on extracting useful information from the data that comes from social \
+media accounts, generating valid id numbers and attempting to work around \
+various problems that arise such as, but not limited to: incomplete profiles, \
+Facebook\[CloseCurlyQuote]s daily limited query amount, and properly \
+formatting imported and exported files for storing and retrieving large \
+amounts of information. Now, I\[CloseCurlyQuote]m working on bringing all of \
+those functions together into one large function that can be ran from Logan\
+\[CloseCurlyQuote]s GUI. Logan and I have also been going to meetings with \
+Dr. Hahn to discuss what to do with the data we have.
+
+Brian Carlson\
+\>", "Text",
+ CellChangeTimes->{{3.607705194949473*^9, 3.607705237558733*^9}, {
+  3.607705271590136*^9, 3.60770528503448*^9}, {3.607705633039322*^9, 
+  3.6077057970703216`*^9}, {3.6077058311093216`*^9, 3.6077060395193214`*^9}}]
+}, Open  ]]
+},
+WindowSize->{667, 690},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 127, 3, 101, "Title"],
+Cell[709, 27, 1078, 17, 220, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

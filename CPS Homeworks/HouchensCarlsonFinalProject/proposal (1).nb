@@ -1,0 +1,398 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     17542,        389]
+NotebookOptionsPosition[     16279,        339]
+NotebookOutlinePosition[     16621,        354]
+CellTagsIndexPosition[     16578,        351]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " Final Project Proposal"
+}], "Title",
+ CellChangeTimes->{{3.604710384262206*^9, 3.6047103905608363`*^9}, {
+  3.604766583332605*^9, 3.6047665883146048`*^9}}],
+
+Cell["\<\
+Logan Houchens and Brian Carlson\
+\>", "Text",
+ CellChangeTimes->{{3.6047883779746017`*^9, 3.6047883885976014`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["General Idea", "Section",
+ CellChangeTimes->{{3.604788421444601*^9, 3.604788446503601*^9}}],
+
+Cell["\<\
+Our idea is to analyze and make predictions from social media data. We hope \
+to analyze information that we pull from public posts to make predictions \
+about the gender of the person posting, region/state/city of the United \
+States that they are from, and the periodicity of posts made.  \
+\>", "Text",
+ CellChangeTimes->{{3.6047675509290824`*^9, 3.604767586094405*^9}, 
+   3.604789324061314*^9, {3.6047898147085943`*^9, 3.6047898563805943`*^9}, {
+   3.6047900809605947`*^9, 3.6047900834545946`*^9}, {3.604790668193595*^9, 
+   3.604790674351595*^9}, {3.6047907328495946`*^9, 3.6047907432635946`*^9}, {
+   3.6047908225995946`*^9, 3.604790831978595*^9}, {3.6047908970215945`*^9, 
+   3.6047909091595945`*^9}, {3.6047909439005947`*^9, 
+   3.6047910079085946`*^9}, {3.6047914916765947`*^9, 
+   3.6047916038145943`*^9}, {3.6048024823858643`*^9, 3.604802496566282*^9}, {
+   3.6048025294495697`*^9, 3.6048025375563803`*^9}, {3.6048025795785823`*^9, 
+   3.6048026774583693`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Finished Appearance", "Section",
+ CellChangeTimes->{{3.604795885141781*^9, 3.604795897264993*^9}, {
+  3.604795968148081*^9, 3.6047959955008163`*^9}, {3.604803355305147*^9, 
+  3.6048033614827647`*^9}, {3.604803486271242*^9, 3.604803490200635*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Screen View", "Subsection",
+ CellChangeTimes->{{3.604796021777443*^9, 3.6047960256228275`*^9}}],
+
+Cell["\<\
+We plan to have our project displayed in a graphical user interface with \
+drop-down boxes, menu screens, and easy-to-use analytical tools.\
+\[LineSeparator]\[LineSeparator]1.) The finished project, Verbum Usus \
+(Meaning \[OpenCurlyDoubleQuote]Word Usage\[CloseCurlyDoubleQuote] in Latin) \
+(1.) will open in a new window, bringing up the title screen (See Diagram I). \
+On the title screen, the user has the option to select Facebook or Twitter \
+(hopefully adding Instagram, LinkedIn, and GooglePlus) from the drop down box \
+(2.) to analyze using the tools provided on the next screen. The \
+\[OpenCurlyDoubleQuote]Begin\[CloseCurlyDoubleQuote] button (3.) will take \
+the user to the next screen (II).
+
+2.) The Tool Menu (Diagram II) will have a drop down box (1.) for choosing \
+past trends to compare, including, but not limited to: word usage for each \
+gender, periodicity of word usage, and word usage in certain locations. When \
+\[OpenCurlyDoubleQuote]Compare\[CloseCurlyDoubleQuote] is clicked, the user \
+will be taken to the \[OpenCurlyDoubleQuote]Compare\[CloseCurlyDoubleQuote] \
+window (III). If the user wishes to know the methods we used to extract data \
+and the way we predicted things, he/she can click on the \
+\[OpenCurlyDoubleQuote]Explanations and Methods\[CloseCurlyDoubleQuote] \
+button (2.) to go to the \[OpenCurlyDoubleQuote]Explanations and Methods\
+\[CloseCurlyDoubleQuote]. The user can click \[OpenCurlyDoubleQuote]Predict\
+\[CloseCurlyDoubleQuote] after selecting an option from the dropdown box (3.) \
+to go to the prediction screen to select parameters for determining the \
+option they selected. Also included in this display is a graph (4.) randomly \
+chosen from a list of plots showing some information pulled from the selected \
+social network.\[LineSeparator]\[LineSeparator]3.) The Compare window (III) \
+will have drop down boxes similar to (1.) and (2.) for specifying what you\
+\[CloseCurlyQuote]d like to compare. Also included will be a filter for \
+selecting a range of dates to pull posts from (3.) and the number of public \
+users to randomly select (4.). When finished, clicking the \
+\[OpenCurlyDoubleQuote]Compute\[CloseCurlyDoubleQuote] button will take the \
+user to the \[OpenCurlyDoubleQuote]Results\[CloseCurlyDoubleQuote] screen (IV).
+
+4.) The Results screen (IV) will have the corresponding graphs to \
+appropriately display the data we processed (1.). Each type of comparision \
+will have the most important information shown relevant to that comparision \
+(2.). The resulting statistical information can be accessed by clicking on \
+the button wit the same name. (3.) The results can be saved by clicking the \
+\[OpenCurlyDoubleQuote]Save\[CloseCurlyDoubleQuote] button. (4.)  \
+\>", "Text",
+ CellChangeTimes->{{3.6047963663688993`*^9, 3.6047964723734984`*^9}, {
+   3.604796580928353*^9, 3.6047965841836786`*^9}, {3.6048005497117743`*^9, 
+   3.6048005862497745`*^9}, {3.604800686306774*^9, 3.6048007074817743`*^9}, {
+   3.6048007514877744`*^9, 3.604800757037774*^9}, {3.6048008294547744`*^9, 
+   3.6048008832588453`*^9}, {3.6048010561142297`*^9, 
+   3.6048012841983547`*^9}, {3.6048020890315323`*^9, 
+   3.6048021109337225`*^9}, {3.604803030563676*^9, 3.604803110155635*^9}, {
+   3.604803173455964*^9, 3.6048031991745358`*^9}, {3.6048032346970873`*^9, 
+   3.6048032873023477`*^9}, {3.6048034153861547`*^9, 
+   3.6048035384344583`*^9}, {3.604804197100318*^9, 3.604804281898797*^9}, {
+   3.604804577448349*^9, 3.604804691356739*^9}, {3.6048047344590487`*^9, 
+   3.6048048036129637`*^9}, {3.604804836961298*^9, 3.6048048764572473`*^9}, {
+   3.60480559326675*^9, 3.6048056918867497`*^9}, {3.60480586480875*^9, 
+   3.60480587662275*^9}, {3.6048060368937497`*^9, 3.60480603738175*^9}, {
+   3.6048060863447495`*^9, 3.60480609176375*^9}, {3.60480627743575*^9, 
+   3.60480628391075*^9}, 3.60480649447575*^9, {3.60480658011975*^9, 
+   3.6048066224927497`*^9}, {3.6048066526957498`*^9, 3.60480665928975*^9}, {
+   3.6048067476917496`*^9, 3.60480675646875*^9}, {3.60480679819375*^9, 
+   3.60480681351775*^9}, {3.6048068875337496`*^9, 3.60480690758975*^9}, {
+   3.6048070319627495`*^9, 3.60480705721175*^9}, {3.60480709290475*^9, 
+   3.60480716900975*^9}, {3.6048073333237495`*^9, 3.6048073500447497`*^9}, {
+   3.60480779222175*^9, 3.60480788967475*^9}, {3.60480794626675*^9, 
+   3.60480794849075*^9}, {3.60480804000175*^9, 3.6048081056697497`*^9}, {
+   3.60480821649675*^9, 3.60480823538875*^9}, {3.6048092445302896`*^9, 
+   3.6048092731167197`*^9}, {3.6048100089243045`*^9, 
+   3.6048100563480463`*^9}, {3.604810092758687*^9, 3.6048101617715874`*^9}, {
+   3.6048102255729675`*^9, 3.604810330548464*^9}, {3.604810393111719*^9, 
+   3.604810466359043*^9}, {3.604810593000706*^9, 3.6048106019225984`*^9}, {
+   3.6048108307054744`*^9, 3.6048109863350353`*^9}, {3.6048110334487467`*^9, 
+   3.6048110597003717`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Click Flow", "Subsubsection",
+ CellChangeTimes->{{3.604811074110812*^9, 3.604811076208022*^9}}],
+
+Cell["\<\
+This is a graph of the screen changes that will take place within our program.\
+\>", "Text",
+ CellChangeTimes->{{3.6048110950949106`*^9, 3.604811103711772*^9}, {
+  3.6048111388002806`*^9, 3.604811160683469*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  TagBox[GraphicsComplexBox[CompressedData["
+1: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
+nMVTPOhk1HmpRAnxX/RddoA=
+    "], {
+     {RGBColor[0.5, 0., 0.], 
+      LineBox[{{1, 2}, {2, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 
+        22, 23, 24, 3}, {2, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 
+        37, 38, 39, 40, 4}, {2, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 
+        52, 53, 54, 55, 56, 5}, {2, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 
+        67, 68, 69, 70, 71, 72, 6}, {3, 73, 74, 75, 76, 77, 78, 79, 80, 81, 
+        82, 83, 84, 85, 86, 87, 88, 2}, {4, 7}, {4, 89, 90, 91, 92, 93, 94, 
+        95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 2}, {5, 105, 106, 107, 
+        108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 2}, {
+        5, 7}, {6, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132,
+         133, 134, 135, 136, 2}, {7, 137, 138, 139, 140, 141, 142, 143, 144, 
+        145, 146, 147, 148, 149, 150, 151, 152, 8}, {7, 153, 154, 155, 156, 
+        157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 8}}]}, {
+      InsetBox[
+       FrameBox["\<\"Title Screen\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 1], InsetBox[
+       FrameBox["\<\"Tool Menu\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 2], InsetBox[
+       FrameBox["\<\"Explanation Screen\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 3], InsetBox[
+       FrameBox["\<\"Prediction\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 4], InsetBox[
+       FrameBox["\<\"Compare Screen\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 5], InsetBox[
+       FrameBox["\<\"Load Menu\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 6], InsetBox[
+       FrameBox["\<\"Result Screen\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 7], InsetBox[
+       FrameBox["\<\"Save Menu\"\>",
+        Background->RGBColor[1, 1, 0.8],
+        FrameStyle->RGBColor[0.94, 0.85, 0.36],
+        StripOnInput->False], 8]}}],
+   Annotation[#, 
+    VertexCoordinateRules -> {{0.39376202479436895`, 1.9608547799757532`}, {
+     0.7123221944148439, 0.6454734053904035}, {0., 0.7489798790345672}, {
+     1.0308823641928022`, 1.0839338635473805`}, {1.0308823640468083`, 0.}, {
+     2.061764728295375, 0.748979878756869}, {1.3494425340101313`, 
+     1.522394321675753}, {1.6680027038274603`, 1.9608547798041256`}}]& ],
+  AspectRatio->Automatic,
+  FrameTicks->None,
+  PlotRange->All,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellChangeTimes->{3.604811123370738*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Goals", "Section",
+ CellChangeTimes->{{3.6047892393558445`*^9, 3.60478924001591*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Increments", "Subsection",
+ CellChangeTimes->{{3.6047892672826366`*^9, 3.6047892701619244`*^9}, {
+  3.6047897526245947`*^9, 3.6047897840265946`*^9}, {3.6047933431616087`*^9, 
+  3.604793355712864*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["1.", "Subsubsection",
+ CellChangeTimes->{{3.604793374639756*^9, 3.604793384147707*^9}, 
+   3.6048324144088917`*^9}],
+
+Cell["\<\
+1.) Get authorization from the Institutional Review Board to study human \
+beings.\[LineSeparator]2.) Write functions to anonymize Facebook/Twitter user \
+data.\[LineSeparator]3.) Write functions to access individual parts of data.
+4.) Complete online sensitivity training while working with people\
+\[CloseCurlyQuote]s personal information.\
+\>", "Text",
+ CellChangeTimes->{{3.604789401957103*^9, 3.604789468616768*^9}, {
+  3.604789503073213*^9, 3.6047895065155573`*^9}, {3.6047895725031557`*^9, 
+  3.6047897444625945`*^9}, {3.6048324162972965`*^9, 3.604832424316032*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["II.", "Subsubsection",
+ CellChangeTimes->{{3.6048324327350054`*^9, 3.6048324339746456`*^9}}],
+
+Cell["\<\
+1.) Combine functions written in increment I so we can easily analyze \
+information gathered.
+2.) Analyze information and write an algorithm to predict future outcomes.
+3.) Develop a new data set to test our algorithm in medium to small sized \
+test groups.\
+\>", "Text",
+ CellChangeTimes->{3.604832471615261*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["III.", "Subsubsection",
+ CellChangeTimes->{{3.604832446243291*^9, 3.6048324474040813`*^9}}],
+
+Cell["\<\
+1.) Write a GUI format for the individual functions we create to come \
+together into one.
+2.) Make program easily accessible for user to interact with the program.
+3.) Completely polish entire project for presentations.
+4.) Thouroughly test our algorithm further with large test groups.\
+\>", "Text",
+ CellChangeTimes->{3.6048324613774323`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{667, 690},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 223, 6, 166, "Title"],
+Cell[805, 30, 126, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[956, 37, 97, 1, 86, "Section"],
+Cell[1056, 40, 983, 15, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2076, 60, 252, 3, 86, "Section"],
+Cell[CellGroupData[{
+Cell[2353, 67, 101, 1, 49, "Subsection"],
+Cell[2457, 70, 4873, 70, 619, "Text"],
+Cell[CellGroupData[{
+Cell[7355, 144, 101, 1, 39, "Subsubsection"],
+Cell[7459, 147, 221, 4, 30, "Text"],
+Cell[7683, 153, 6476, 118, 349, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14220, 278, 91, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[14336, 283, 206, 3, 49, "Subsection"],
+Cell[CellGroupData[{
+Cell[14567, 290, 121, 2, 39, "Subsubsection"],
+Cell[14691, 294, 583, 9, 106, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15311, 308, 98, 1, 39, "Subsubsection"],
+Cell[15412, 311, 323, 7, 87, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15772, 323, 97, 1, 39, "Subsubsection"],
+Cell[15872, 326, 355, 7, 106, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

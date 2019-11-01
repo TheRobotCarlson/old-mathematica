@@ -1,0 +1,808 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29819,        798]
+NotebookOptionsPosition[     29140,        776]
+NotebookOutlinePosition[     29485,        791]
+CellTagsIndexPosition[     29442,        788]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"TreePlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<11\>\"", "\[Rule]", " ", "\"\<111\>\""}], ",", 
+     RowBox[{"\"\<11\>\"", "\[Rule]", " ", "\"\<110\>\""}], ",", 
+     RowBox[{"\"\<110\>\"", "\[Rule]", "\"\<1101\>\""}], ",", 
+     RowBox[{"\"\<110\>\"", "\[Rule]", "\"\<1100\>\""}], ",", 
+     RowBox[{"\"\<1101\>\"", "\[Rule]", " ", "\"\<11011\>\""}], ",", 
+     RowBox[{"\"\<1101\>\"", "\[Rule]", " ", "\"\<11010\>\""}], ",", 
+     RowBox[{"\"\<1100\>\"", "\[Rule]", " ", "\"\<11001\>\""}], ",", 
+     RowBox[{"\"\<1100\>\"", "\[Rule]", " ", "\"\<11000\>\""}], ",", 
+     RowBox[{"\"\<111\>\"", "\[Rule]", "\"\<1111\>\""}], ",", 
+     RowBox[{"\"\<1111\>\"", "\[Rule]", "\"\<11111\>\""}], ",", 
+     RowBox[{"\"\<1111\>\"", "\[Rule]", " ", "\"\<11110\>\""}], ",", 
+     RowBox[{"\"\<111\>\"", "\[Rule]", " ", "\"\<1110\>\""}], ",", 
+     RowBox[{"\"\<1110\>\"", "\[Rule]", " ", "\"\<11101\>\""}], ",", 
+     RowBox[{"\"\<1110\>\"", "\[Rule]", " ", "\"\<11100\>\""}]}], "}"}], ",", 
+   "Left", ",", 
+   RowBox[{"LayerSizeFunction", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"5", "#1"}], " ", "&"}], ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.635287281572604*^9, 3.635287572063219*^9}, {
+   3.6352876387610345`*^9, 3.6352878006462936`*^9}, {3.635287832539118*^9, 
+   3.6352879676028433`*^9}, {3.635288001806799*^9, 3.63528815601462*^9}, {
+   3.635288228646774*^9, 3.6352882597605534`*^9}, {3.635288320295016*^9, 
+   3.635288320605034*^9}, {3.635288997995778*^9, 3.6352890052621937`*^9}, {
+   3.635289108682109*^9, 3.635289142586048*^9}, {3.635289377209468*^9, 
+   3.635289392255328*^9}, 3.635289464382454*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[
+    GraphicsComplexBox[{{0., 0.27522878372769216`}, {0.39318397675384975`, 
+     0.11795519302615277`}, {0.3931839767538494, 0.43250237442923245`}, {
+     1.1795519302615487`, 0.35386557907846333`}, {1.1795519302615485`, 
+     0.5111391697800032}, {2.359103860523098, 0.31454718140307963`}, {
+     2.3591038605230974`, 0.3931839767538496}, {2.3591038605230974`, 
+     0.4718207721046195}, {2.3591038605230974`, 0.5504575674553894}, {
+     1.1795519302615491`, 0.0393183976753837}, {2.3591038605230983`, 0.}, {
+     2.3591038605230983`, 0.07863679535076992}, {1.1795519302615487`, 
+     0.19659198837692354`}, {2.359103860523098, 0.15727359070153982`}, {
+     2.359103860523098, 0.23591038605230974`}}, {
+      {RGBColor[0.5, 0., 0.], 
+       LineBox[{{1, 2}, {1, 3}, {2, 10}, {2, 13}, {3, 4}, {3, 5}, {4, 6}, {4, 
+        7}, {5, 8}, {5, 9}, {10, 11}, {10, 12}, {13, 14}, {13, 15}}]}, 
+      {RGBColor[0, 0, 0.7], 
+       TagBox[
+        TooltipBox[PointBox[1],
+         "\"11\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[2],
+         "\"111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[3],
+         "\"110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[4],
+         "\"1101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[5],
+         "\"1100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[6],
+         "\"11011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[7],
+         "\"11010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[8],
+         "\"11001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[9],
+         "\"11000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[10],
+         "\"1111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[11],
+         "\"11111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[12],
+         "\"11110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[13],
+         "\"1110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[14],
+         "\"11101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[15],
+         "\"11100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11100", "Tooltip"]& ]}}],
+    Annotation[#, 
+     VertexCoordinateRules -> {{0., 0.27522878372769216`}, {
+      0.39318397675384975`, 0.11795519302615277`}, {0.3931839767538494, 
+      0.43250237442923245`}, {1.1795519302615487`, 0.35386557907846333`}, {
+      1.1795519302615485`, 0.5111391697800032}, {2.359103860523098, 
+      0.31454718140307963`}, {2.3591038605230974`, 0.3931839767538496}, {
+      2.3591038605230974`, 0.4718207721046195}, {2.3591038605230974`, 
+      0.5504575674553894}, {1.1795519302615491`, 0.0393183976753837}, {
+      2.3591038605230983`, 0.}, {2.3591038605230983`, 0.07863679535076992}, {
+      1.1795519302615487`, 0.19659198837692354`}, {2.359103860523098, 
+      0.15727359070153982`}, {2.359103860523098, 0.23591038605230974`}}]& ], 
+   {RGBColor[0, 0, 0.7], StrokeForm[RGBColor[0.5, 0., 0.]], EdgeForm[{
+    RGBColor[0.5000076295109483, 0., 0.], Opacity[1.], AbsoluteThickness[1]}],
+     EdgeForm[None], 
+    ArrowBox[{{-0.138819133853901, 
+     0.43674544003464516`}, {-0.023821034803332142`, 0.2939042304542963}}]}},
+  AspectRatio->0.4830458915396479,
+  FrameTicks->None,
+  ImagePadding->{{0., 1.}, {1., 0.}},
+  PlotRange->{{-0.2948879825653873, 
+   2.6539918430884857`}, {-0.06880719593192368, 0.6192647633873131}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{3.6352894748990555`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[
+    GraphicsComplexBox[{{0., 0.17263060129452895`}, {0.5754353376484361, 
+     0.057543533764842364`}, {1.7263060129453083`, 0.}, {1.726306012945308, 
+     0.1150870675296872}, {0.5754353376484359, 0.2877176688242168}, {
+     1.726306012945308, 0.2301741350593744}, {1.7263060129453078`, 
+     0.3452612025890616}}, {
+      {RGBColor[0.5, 0., 0.], 
+       LineBox[{{1, 2}, {1, 5}, {2, 3}, {2, 4}, {5, 6}, {5, 7}}]}, 
+      {RGBColor[0, 0, 0.7], 
+       TagBox[
+        TooltipBox[PointBox[1],
+         "\"111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[2],
+         "\"1111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[3],
+         "\"11111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[4],
+         "\"11110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[5],
+         "\"1110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[6],
+         "\"11101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[7],
+         "\"11100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11100", "Tooltip"]& ]}}],
+    Annotation[#, 
+     VertexCoordinateRules -> {{0., 0.17263060129452895`}, {
+      0.5754353376484361, 0.057543533764842364`}, {1.7263060129453083`, 0.}, {
+      1.726306012945308, 0.1150870675296872}, {0.5754353376484359, 
+      0.2877176688242168}, {1.726306012945308, 0.2301741350593744}, {
+      1.7263060129453078`, 0.3452612025890616}}]& ], 
+   {RGBColor[0, 0, 0.7], StrokeForm[RGBColor[0.5, 0., 0.]], EdgeForm[{
+    RGBColor[0.5000076295109483, 0., 0.], Opacity[1.], AbsoluteThickness[1]}],
+     EdgeForm[None], 
+    ArrowBox[{{1.8699644868638066`, 0.3185277822527216}, {1.7437373758893933`,
+      0.23250800297890895`}}]}},
+  AspectRatio->0.4472135954999579,
+  FrameTicks->None,
+  ImagePadding->{{0., 1.}, {1., 0.}},
+  PlotRange->{{-0.2157882516181635, 
+   1.9420942645634718`}, {-0.0431576503236327, 0.38841885291269435`}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{3.6352894267272997`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\"\<11\>\"", "\[Rule]", " ", "\"\<111\>\""}], ",", 
+  RowBox[{"\"\<11\>\"", "\[Rule]", " ", "\"\<110\>\""}], ",", 
+  RowBox[{"\"\<110\>\"", "\[Rule]", "\"\<1101\>\""}], ",", 
+  RowBox[{"\"\<110\>\"", "\[Rule]", "\"\<1100\>\""}], ",", 
+  RowBox[{"\"\<1101\>\"", "\[Rule]", " ", "\"\<11011\>\""}], ",", 
+  RowBox[{"\"\<1101\>\"", "\[Rule]", " ", "\"\<11010\>\""}], ",", 
+  RowBox[{"\"\<1100\>\"", "\[Rule]", " ", "\"\<11001\>\""}], ",", 
+  RowBox[{"\"\<1100\>\"", "\[Rule]", " ", "\"\<11000\>\""}], ","}]], "Input",
+ CellChangeTimes->{3.63528945172573*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[
+    GraphicsComplexBox[{{0., 0.27522878372769216`}, {0.39318397675384975`, 
+     0.11795519302615277`}, {0.3931839767538494, 0.43250237442923245`}, {
+     1.1795519302615487`, 0.35386557907846333`}, {1.1795519302615485`, 
+     0.5111391697800032}, {1.1795519302615491`, 0.0393183976753837}, {
+     2.3591038605230983`, 0.}, {2.3591038605230983`, 0.07863679535076992}, {
+     2.359103860523098, 0.31454718140307963`}, {2.3591038605230974`, 
+     0.3931839767538496}, {2.3591038605230974`, 0.4718207721046195}, {
+     2.3591038605230974`, 0.5504575674553894}, {1.1795519302615487`, 
+     0.19659198837692354`}, {2.359103860523098, 0.15727359070153982`}, {
+     2.359103860523098, 0.23591038605230974`}}, {
+      {RGBColor[0.5, 0., 0.], 
+       LineBox[{{1, 2}, {1, 3}, {2, 6}, {2, 13}, {3, 4}, {3, 5}, {4, 9}, {4, 
+        10}, {5, 11}, {5, 12}, {6, 7}, {6, 8}, {13, 14}, {13, 15}}]}, 
+      {RGBColor[0, 0, 0.7], 
+       TagBox[
+        TooltipBox[PointBox[1],
+         "\"11\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[2],
+         "\"111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[3],
+         "\"110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[4],
+         "\"1101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[5],
+         "\"1100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[6],
+         "\"1111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[7],
+         "\"11111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[8],
+         "\"11110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[9],
+         "\"11011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[10],
+         "\"11010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[11],
+         "\"11001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[12],
+         "\"11000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[13],
+         "\"1110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[14],
+         "\"11101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[15],
+         "\"11100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11100", "Tooltip"]& ]}}],
+    Annotation[#, 
+     VertexCoordinateRules -> {{0., 0.27522878372769216`}, {
+      0.39318397675384975`, 0.11795519302615277`}, {0.3931839767538494, 
+      0.43250237442923245`}, {1.1795519302615487`, 0.35386557907846333`}, {
+      1.1795519302615485`, 0.5111391697800032}, {1.1795519302615491`, 
+      0.0393183976753837}, {2.3591038605230983`, 0.}, {2.3591038605230983`, 
+      0.07863679535076992}, {2.359103860523098, 0.31454718140307963`}, {
+      2.3591038605230974`, 0.3931839767538496}, {2.3591038605230974`, 
+      0.4718207721046195}, {2.3591038605230974`, 0.5504575674553894}, {
+      1.1795519302615487`, 0.19659198837692354`}, {2.359103860523098, 
+      0.15727359070153982`}, {2.359103860523098, 0.23591038605230974`}}]& ], 
+   {RGBColor[0, 0, 0.7], StrokeForm[RGBColor[0.5, 0., 0.]], EdgeForm[{
+    RGBColor[0.5000076295109483, 0., 0.], Opacity[1.], AbsoluteThickness[1]}],
+     EdgeForm[None], 
+    ArrowBox[{{2.563636193834467, 0.4605523082980366}, {2.382924895326429, 
+     0.31771109871768777`}}]}},
+  AspectRatio->0.4830458915396479,
+  FrameTicks->None,
+  ImagePadding->{{0., 1.}, {1., 0.}},
+  PlotRange->{{-0.2948879825653873, 
+   2.6539918430884857`}, {-0.06880719593192368, 0.6192647633873131}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{3.6352891791181374`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\"\<1\>\"", "\[Rule]", " ", "\"\<11\>\""}], ",", 
+  RowBox[{"\"\<1\>\"", "\[Rule]", "\"\<10\>\""}], ",", 
+  RowBox[{"\"\<10\>\"", "\[Rule]", " ", "\"\<101\>\""}], ",", 
+  RowBox[{"\"\<10\>\"", "\[Rule]", " ", "\"\<100\>\""}], ",", 
+  RowBox[{"\"\<101\>\"", "\[Rule]", " ", "\"\<1010\>\""}], ",", 
+  RowBox[{"\"\<101\>\"", "\[Rule]", " ", "\"\<1011\>\""}], ",", 
+  RowBox[{"\"\<100\>\"", "\[Rule]", " ", "\"\<1001\>\""}], ",", 
+  RowBox[{"\"\<100\>\"", "\[Rule]", " ", "\"\<1000\>\""}], ",", 
+  RowBox[{"\"\<1000\>\"", "\[Rule]", " ", "\"\<10001\>\""}], ",", 
+  RowBox[{"\"\<1000\>\"", "\[Rule]", " ", "\"\<10000\>\""}], ",", 
+  RowBox[{"\"\<1001\>\"", "\[Rule]", " ", "\"\<10010\>\""}], ",", 
+  RowBox[{"\"\<1001\>\"", "\[Rule]", " ", "\"\<10011\>\""}], ",", 
+  RowBox[{"\"\<1011\>\"", "\[Rule]", " ", "\"\<10111\>\""}], ",", 
+  RowBox[{"\"\<1011\>\"", "\[Rule]", " ", "\"\<10110\>\""}], ",", 
+  RowBox[{"\"\<1010\>\"", "\[Rule]", " ", "\"\<10101\>\""}], ",", 
+  RowBox[{"\"\<1010\>\"", "\[Rule]", " ", "\"\<10100\>\""}], ","}]], "Input"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.6352890433463717`*^9, 3.6352895033226814`*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.6352890197520227`*^9, 3.6352895015495796`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGCQB2IQDQNs51Ti52nfsW/ulHi17/gle8kDHSI3vE7ZO4HF
+39gnLAmo9+7cZu8A5YtP32LSuuIKlP/HfkV1zfwfzy7Y28P4m96cFMy6Ye8I
+5U+5dWBlCs88+wer5y1ZV8nuALMXxv93GyS/zv4+Cv8cnF8PdRdcHuyea3B+
+Hdi9t+DuCQKrPwS37z/YvH0I+5eC9B+zr4KayzaPKerFjKf2tlD/9TSdOhJ9
+/aG9NZTfvdPqfUnUS3s7qPnLX8Z80Xp7H84PmZDGr7TjMVT/H/srYHuew/kh
+x69ZWlu/tr8H8w/Yva/gfHuoPTD+f7D/nsH5+8Hh+QKhH+zuRwj94Ph4ghZ+
+9+D8/eD4eWAPAEF0+lM=
+     "], {
+      {RGBColor[0.5, 0., 0.], 
+       LineBox[{{1, 2}, {1, 17}, {2, 3}, {2, 4}, {3, 7}, {3, 14}, {4, 5}, {4, 
+        6}, {5, 10}, {5, 11}, {6, 12}, {6, 13}, {7, 8}, {7, 9}, {14, 15}, {14,
+         16}, {17, 18}, {17, 19}, {18, 20}, {18, 21}, {19, 22}, {19, 23}, {20,
+         30}, {20, 31}, {21, 28}, {21, 29}, {22, 26}, {22, 27}, {23, 24}, {23,
+         25}}]}, 
+      {RGBColor[0, 0, 0.7], 
+       TagBox[
+        TooltipBox[PointBox[1],
+         "\"1\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[2],
+         "\"11\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[3],
+         "\"111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[4],
+         "\"110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[5],
+         "\"1101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[6],
+         "\"1100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[7],
+         "\"1111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[8],
+         "\"11111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[9],
+         "\"11110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[10],
+         "\"11011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[11],
+         "\"11010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[12],
+         "\"11001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[13],
+         "\"11000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[14],
+         "\"1110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[15],
+         "\"11101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[16],
+         "\"11100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[17],
+         "\"10\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[18],
+         "\"101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[19],
+         "\"100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[20],
+         "\"1010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[21],
+         "\"1011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[22],
+         "\"1001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[23],
+         "\"1000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[24],
+         "\"10001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[25],
+         "\"10000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[26],
+         "\"10010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[27],
+         "\"10011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[28],
+         "\"10111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[29],
+         "\"10110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[30],
+         "\"10101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[31],
+         "\"10100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10100", "Tooltip"]& ]}}],
+    Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJxTTMoPSmViYGCQB2IQDQNs51Ti52nfsW/ulHi17/gle8kDHSI3vE7ZO4HF
+39gnLAmo9+7cZu8A5YtP32LSuuIKlP/HfkV1zfwfzy7Y28P4m96cFMy6Ye8I
+5U+5dWBlCs88+wer5y1ZV8nuALMXxv93GyS/zv4+Cv8cnF8PdRdcHuyea3B+
+Hdi9t+DuCQKrPwS37z/YvH0I+5eC9B+zr4KayzaPKerFjKf2tlD/9TSdOhJ9
+/aG9NZTfvdPqfUnUS3s7qPnLX8Z80Xp7H84PmZDGr7TjMVT/H/srYHuew/kh
+x69ZWlu/tr8H8w/Yva/gfHuoPTD+f7D/nsH5+8Hh+QKhH+zuRwj94Ph4ghZ+
+9+D8/eD4eWAPAEF0+lM=
+      "]]& ], 
+   {RGBColor[0, 0, 0.7], StrokeForm[RGBColor[0.5, 0., 0.]], EdgeForm[{
+    RGBColor[0.5000076295109483, 0., 0.], Opacity[1.], AbsoluteThickness[1]}],
+     EdgeForm[None], 
+    ArrowBox[{{-0.12158614249115862`, 
+     0.7497260047061234}, {-0.009195590608574972, 0.45312431858094837`}}]}},
+  AspectRatio->0.5477225575051661,
+  FrameTicks->None,
+  ImagePadding->{{0., 1.}, {1., 0.}},
+  PlotRange->{{-0.36680189205315905`, 
+   3.3012170284784315`}, {-0.1100405676159477, 0.9903651085435293}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{3.6352884027907343`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   TagBox[GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGCQB2IQDQNs51Ti52nfsW/ulHi17/gle8kDHSI3vE7ZO4HF
+39gnLAmo9+7cZu8A5YtP32LSuuIKlP/HfkV1zfwfzy7Y28P4m96cFMy6Ye8I
+5U+5dWBlCs88+wer5y1ZV8nuALMXxv93GyS/zv4+Cv8cnF8PdRdcHuyea3B+
+Hdi9t+DuCQKrPwS37z/YvH0I+5eC9B+zr4KayzaPKerFjKf2tlD/9TSdOhJ9
+/aG9NZTfvdPqfUnUS3s7qPnLX8Z80Xp7H84PmZDGr7TjMVT/H/srYHuew/kh
+x69ZWlu/tr8H8w/Yva/gfHuoPTD+f7D/nsH5+8Hh+QKhH+zuRwj94Ph4ghZ+
+9+D8/eD4eWAPAEF0+lM=
+     "], {
+      {RGBColor[0.5, 0., 0.], 
+       LineBox[{{1, 2}, {1, 17}, {2, 3}, {2, 4}, {3, 7}, {3, 14}, {4, 5}, {4, 
+        6}, {5, 10}, {5, 11}, {6, 12}, {6, 13}, {7, 8}, {7, 9}, {14, 15}, {14,
+         16}, {17, 18}, {17, 19}, {18, 20}, {18, 21}, {19, 22}, {19, 23}, {20,
+         30}, {20, 31}, {21, 28}, {21, 29}, {22, 26}, {22, 27}, {23, 24}, {23,
+         25}}]}, 
+      {RGBColor[0, 0, 0.7], 
+       TagBox[
+        TooltipBox[PointBox[1],
+         "\"1\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[2],
+         "\"11\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[3],
+         "\"111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[4],
+         "\"110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[5],
+         "\"1101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[6],
+         "\"1100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[7],
+         "\"1111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[8],
+         "\"11111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[9],
+         "\"11110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[10],
+         "\"11011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[11],
+         "\"11010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[12],
+         "\"11001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[13],
+         "\"11000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[14],
+         "\"1110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[15],
+         "\"11101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[16],
+         "\"11100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "11100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[17],
+         "\"10\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[18],
+         "\"101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[19],
+         "\"100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "100", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[20],
+         "\"1010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[21],
+         "\"1011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[22],
+         "\"1001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[23],
+         "\"1000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "1000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[24],
+         "\"10001\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10001", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[25],
+         "\"10000\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10000", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[26],
+         "\"10010\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10010", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[27],
+         "\"10011\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10011", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[28],
+         "\"10111\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10111", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[29],
+         "\"10110\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10110", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[30],
+         "\"10101\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10101", "Tooltip"]& ], 
+       TagBox[
+        TooltipBox[PointBox[31],
+         "\"10100\"",
+         TooltipStyle->"TextStyling"],
+        Annotation[#, "10100", "Tooltip"]& ]}}],
+    Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJxTTMoPSmViYGCQB2IQDQNs51Ti52nfsW/ulHi17/gle8kDHSI3vE7ZO4HF
+39gnLAmo9+7cZu8A5YtP32LSuuIKlP/HfkV1zfwfzy7Y28P4m96cFMy6Ye8I
+5U+5dWBlCs88+wer5y1ZV8nuALMXxv93GyS/zv4+Cv8cnF8PdRdcHuyea3B+
+Hdi9t+DuCQKrPwS37z/YvH0I+5eC9B+zr4KayzaPKerFjKf2tlD/9TSdOhJ9
+/aG9NZTfvdPqfUnUS3s7qPnLX8Z80Xp7H84PmZDGr7TjMVT/H/srYHuew/kh
+x69ZWlu/tr8H8w/Yva/gfHuoPTD+f7D/nsH5+8Hh+QKhH+zuRwj94Ph4ghZ+
+9+D8/eD4eWAPAEF0+lM=
+      "]]& ], 
+   {RGBColor[0, 0, 0.7], StrokeForm[RGBColor[0.5, 0., 0.]], EdgeForm[{
+    RGBColor[0.5000076295109483, 0., 0.], Opacity[1.], AbsoluteThickness[1]}],
+     EdgeForm[None], 
+    ArrowBox[{{3.188826476595847, 0.7665147793924536}, {2.952467713815022, 
+     0.5271251029868917}}]}},
+  AspectRatio->0.5477225575051661,
+  FrameTicks->None,
+  ImagePadding->{{0., 1.}, {1., 0.}},
+  PlotRange->{{-0.36680189205315905`, 
+   3.3012170284784315`}, {-0.1100405676159477, 0.9903651085435293}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{{3.635288336173924*^9, 3.6352883845356903`*^9}}]
+},
+WindowSize->{767, 606},
+WindowMargins->{{Automatic, 11}, {24, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1683, 30, 52, "Input"],
+Cell[2244, 52, 4579, 114, 189, InheritFromParent],
+Cell[6826, 168, 2486, 63, 177, InheritFromParent],
+Cell[9315, 233, 589, 10, 72, "Input"],
+Cell[9907, 245, 4571, 114, 189, InheritFromParent],
+Cell[14481, 361, 1073, 17, 112, "Input"],
+Cell[15557, 380, 94, 1, 31, InheritFromParent],
+Cell[15654, 383, 94, 1, 31, InheritFromParent],
+Cell[15751, 386, 6684, 193, 213, InheritFromParent],
+Cell[22438, 581, 6698, 193, 213, InheritFromParent]
+}
+]
+*)
+
+(* End of internal cache information *)
+

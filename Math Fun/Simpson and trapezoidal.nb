@@ -1,0 +1,103 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2912,         93]
+NotebookOptionsPosition[      2574,         77]
+NotebookOutlinePosition[      2940,         93]
+CellTagsIndexPosition[      2897,         90]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"trapezoidalError", "[", 
+   RowBox[{"n_", ",", "a_", ",", "b_", ",", "f_"}], "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"b", "-", "a"}], ")"}], "3"], 
+    RowBox[{"12", 
+     SuperscriptBox["n", "2"]}]], 
+   RowBox[{"(", 
+    RowBox[{"First", "[", 
+     RowBox[{"Maximize", "[", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"D", "[", 
+         RowBox[{"f", ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "2"}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"a", "\[LessEqual]", " ", "x", "\[LessEqual]", " ", "b"}], ",",
+        "x"}], "]"}], "]"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6008102064552536`*^9, 3.6008104145482535`*^9}, {
+  3.6008104740552535`*^9, 3.6008104816452537`*^9}, {3.6008105684302535`*^9, 
+  3.6008106606742535`*^9}, {3.6008107565302534`*^9, 3.6008107871082535`*^9}, {
+  3.6008108257102537`*^9, 3.6008108259082537`*^9}, {3.600810876366254*^9, 
+  3.6008109351372538`*^9}, {3.6008116556575346`*^9, 3.600811685542523*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6008108531242533`*^9, 3.6008108592782536`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"simpsonError", "[", 
+   RowBox[{"n_", ",", "a_", ",", "b_", ",", "f_"}], "]"}], ":=", " ", 
+  RowBox[{
+   FractionBox[
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"b", "-", "a"}], ")"}], "5"], 
+    RowBox[{"180", 
+     SuperscriptBox["n", "4"]}]], 
+   RowBox[{"(", 
+    RowBox[{"First", "[", 
+     RowBox[{"Maximize", "[", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"D", "[", 
+         RowBox[{"f", ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "4"}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"a", "\[LessEqual]", " ", "x", "\[LessEqual]", " ", "b"}], ",",
+        "x"}], "]"}], "]"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6008108370392537`*^9, 3.6008108379242535`*^9}, {
+  3.60081127747072*^9, 3.6008113496859407`*^9}, {3.600811468762847*^9, 
+  3.600811561483118*^9}}]
+},
+WindowSize->{707, 505},
+WindowMargins->{{286, Automatic}, {60, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1059, 26, 72, "Input"],
+Cell[1619, 48, 96, 1, 31, "Input"],
+Cell[1718, 51, 852, 24, 72, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
